@@ -1,0 +1,316 @@
+/*
+	Theme Name: Base Theme
+	Theme URI: http://atomicdust.com/
+	Description: Theme files to build from. Based on HTML5 Boilerplate and Boilerplate Theme.
+	Author: Tim Gieseking, Atomicdust
+	Author URI: http://atomicdust.com/
+	Version: 1.6.1
+
+	License: GNU General Public License v2.0
+	License URI: http://www.gnu.org/licenses/gpl-2.0.html	
+*/
+/* =============================================================================
+   HTML5 Boilerplate CSS: h5bp.com/css
+   ========================================================================== */
+
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display: block; }
+audio, canvas, video { display: inline-block; *display: inline; *zoom: 1; }
+audio:not([controls]) { display: none; }
+[hidden] { display: none; }
+
+html { font-size: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+html, button, input, select, textarea { font-family: sans-serif; color: #222; }
+body { margin: 0; font-size: 1em; line-height: 1.4; }
+
+::-moz-selection { background: #fe57a1; color: #fff; text-shadow: none; }
+::selection { background: #fe57a1; color: #fff; text-shadow: none; }
+
+a { color: #00e; }
+/*a:visited { color: #551a8b; }*/
+a:hover { color: #06e; }
+a:focus { outline: thin dotted; }
+a:hover, a:active { outline: 0; }
+
+abbr[title] { border-bottom: 1px dotted; }
+b, strong { font-weight: bold; }
+blockquote { margin: 1em 40px; }
+dfn { font-style: italic; }
+hr { display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0; }
+ins { background: #ff9; color: #000; text-decoration: none; }
+mark { background: #ff0; color: #000; font-style: italic; font-weight: bold; }
+pre, code, kbd, samp { font-family: monospace, serif; _font-family: 'courier new', monospace; font-size: 1em; }
+pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
+q { quotes: none; }
+q:before, q:after { content: ""; content: none; }
+small { font-size: 85%; }
+
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+
+ul, ol { margin: 1em 0; padding: 0 0 0 40px; }
+dd { margin: 0 0 0 40px; }
+nav ul, nav ol { list-style: none; list-style-image: none; margin: 0; padding: 0; }
+
+img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
+
+svg:not(:root) { overflow: hidden; }
+
+figure { margin: 0; }
+
+form { margin: 0; }
+fieldset { border: 0; margin: 0; padding: 0; }
+label { cursor: pointer; }
+legend { border: 0; *margin-left: -7px; padding: 0; white-space: normal; }
+button, input, select, textarea { font-size: 100%; margin: 0; vertical-align: baseline; *vertical-align: middle; }
+button, input { line-height: normal; }
+button, input[type="button"], input[type="reset"], input[type="submit"] { cursor: pointer; -webkit-appearance: button; *overflow: visible; }
+button[disabled], input[disabled] { cursor: default; }
+input[type="checkbox"], input[type="radio"] { box-sizing: border-box; padding: 0; *width: 13px; *height: 13px; }
+input[type="search"] { -webkit-appearance: textfield; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box; }
+input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-search-cancel-button { -webkit-appearance: none; }
+button::-moz-focus-inner, input::-moz-focus-inner { border: 0; padding: 0; }
+textarea { overflow: auto; vertical-align: top; resize: vertical; }
+input:valid, textarea:valid {  }
+input:invalid, textarea:invalid { background-color: #f0dddd; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+td { vertical-align: top; }
+
+.chromeframe { margin: 0.2em 0; background: #ccc; color: black; padding: 0.2em 0; }
+
+/* =============================================================================
+   Primary styles
+   Author: Atomicdust, based on blueprintcss.org.
+   ========================================================================== */
+/* typography */
+body { font-size:75%; color:#333; background:#fff; font-family: Helvetica, Arial, sans-serif; line-height: 1.5; }
+h1,h2,h3,h4,h5,h6 { font-weight:normal; color:#fff; font-family: Helvetica, Arial, sans-serif; margin: 0; }
+h1 { font-size:4em; margin-bottom:.25em; line-height: 1.1; }
+h2 { font-size:2em; margin-bottom:.25em; line-height: 1.1; }
+h3 { font-size:1.75em; margin-bottom:.5em;line-height: 1.15; }
+h4 { font-size:1.5em; margin-bottom:.5em; line-height: 1.25; }
+h5 { font-size:1.25em; font-weight:bold; margin-bottom:.5em; line-height: 1.35; }
+h6 { font-size:1.16em; font-weight:normal; margin-bottom:.5em; }
+h1 img,h2 img,h3 img,h4 img,h5 img,h6 img { margin:0; }
+p { margin:0 0 1.5em; }
+p img.left { float:left; margin:1.5em 1.5em 1.5em 0; padding:0; }
+p img.right { float:right; margin:1.5em 0 1.5em 1.5em; }
+a:focus,a:hover { color: #168aba; }
+a { color:#25aae1; text-decoration:underline; }
+blockquote { margin:1.5em; color:#666; font-style:italic; }
+strong { font-weight:bold; }
+em,dfn { font-style:italic; }
+dfn { font-weight:bold; }
+sup,sub { line-height:0; }
+abbr,acronym { border-bottom:1px dotted #666; }
+address { margin:0 0 1.5em; line-height: 1.75; }
+del { color:#666; }
+pre { margin:1.5em 0; white-space:pre; }
+pre,code,tt { font:1em 'andale mono', 'lucida console', monospace; line-height:1.5; }
+li ul,li ol { margin:0 1.5em; }
+ul,ol { margin:0 1.5em 1.5em; }
+ul li { margin: 0 0 1em; }
+ul { list-style-type:disc; }
+ol { list-style-type:decimal; }
+dl { margin:0 0 1.5em; }
+dl dt { font-weight:bold; }
+dd { margin-left:1.5em; }
+table { margin-bottom:1.4em; width:100%; }
+th { font-weight:bold; }
+thead th { background:#ddd; color:#333; }
+th,td,caption { padding:4px 10px 4px 5px; }
+tr.even td { background:#999; }
+tfoot { font-style:italic; }
+caption { background:#444; color:#ddd; }
+.small { font-size:.2em; line-height:1.2em; }
+.large { font-size:1.2em; line-height:2.5em; margin-bottom:1.25em; }
+.hide { display:none; }
+.quiet { color:#666; font-family: Arial, Helvetica, sans-serif;}
+.loud { color:#000; }
+.added { background:#060; color:#fff; }
+.removed { background:#900; color:#fff; }
+.first { margin-left:0; padding-left:0; }
+.last { margin-right:0; padding-right:0; border-right:none; }
+.top { margin-top:0; padding-top:0; }
+.bottom { margin-bottom:0; padding-bottom:0; }
+.smallbottom { margin-bottom: 0.25em; }
+.alignleft { float:left; }
+.alignright { float:right; }
+.hidden { display: none; }
+input:focus,textarea:focus { outline:none; }
+/* default wordpress styles */
+.entry-content img { margin:0 0 1.5em; }
+.alignleft,img.alignleft { margin-right:1.5em; display:inline; float:left; }
+.alignright,img.alignright { margin-left:1.5em; display:inline; float:right; }
+.aligncenter,img.aligncenter { margin-right:auto; margin-left:auto; display:block; clear:both; }
+.alignnone,img.alignnone { }
+.wp-caption { margin-bottom:1.5em; text-align:center; padding-top:5px; }
+.wp-caption img { border:0 none; padding:0; margin:0; }
+.wp-caption p.wp-caption-text { line-height:1.5; font-size:10px; margin:0; }
+.wp-smiley { margin:0!important; max-height:1em; }
+blockquote.left { margin-right:20px; text-align:right; margin-left:0; width:33%; float:left; }
+blockquote.right { margin-left:20px; text-align:left; margin-right:0; width:33%; float:right; }
+.gallery dl { }
+.gallery dt { }
+.gallery dd { }
+.gallery dl a { }
+.gallery dl img { }
+.gallery-caption { }
+.size-full { }
+.size-large { }
+.size-medium { }
+.size-thumbnail { }
+.sticky { }
+.bypostauthor { }
+
+/* Additional General Form Styles */
+input[type="text"],
+input[type="search"],
+input[type="email"],
+input[type="tel"],
+input[type="url"],
+input[type="number"],
+input[type="password"],
+textarea
+{
+	border: 1px solid #ccc;
+	color: #ccc;
+	font-size: 1.16em;
+	padding: 5px;
+
+   -moz-box-shadow:inset 0 0 3px rgba(0,0,0,0.18);
+   -webkit-box-shadow:inset 0 0 3px rgba(0,0,0,0.18);
+   box-shadow:inset 0 0 3px rgba(0,0,0,0.18);
+}
+
+/*
+Uncomment and adjust #wrapper to increase padding for Gravity Forms.
+#wrapper .gform_wrapper input[type="text"], 
+#wrapper .gform_wrapper input[type="url"], 
+#wrapper .gform_wrapper input[type="email"], 
+#wrapper .gform_wrapper input[type="tel"], 
+#wrapper .gform_wrapper input[type="number"],
+#wrapper .gform_wrapper input[type="password"] { padding: 5px; }
+*/
+
+input[type="text"]:focus,
+input[type="search"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+input[type="number"]:focus,
+input[type="password"]:focus,
+textarea:focus 
+{ 
+	color: #666;
+	border-color: #bbb;
+}
+
+/*
+Sometimes needed to solve black border issue on IE7.
+.ie7 input[type="submit"] { filter:chroma(color=#000000); }
+*/
+
+/* =============================================================================
+   Main Styles
+   ========================================================================== */ 
+.innercontain
+{
+	margin: 0 auto;
+}
+
+/* nav */
+.nav-container ul,
+,nav-container li
+{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.nav-container li
+{
+	float: left;
+}
+
+.nav-container a
+{
+	text-decoration: none;
+}
+
+#main-nav
+{
+}
+
+/* footer */
+#site-footer
+{
+	overflow: hidden;
+	padding: 10px;
+}
+
+#site-footer a 
+{ 
+}
+
+#site-footer .nav-container
+{
+}
+
+#footer-nav
+{
+}
+
+#site-footer p#copyright
+{
+}
+
+/* =============================================================================
+   Media Queries
+   ========================================================================== */ 
+@media only screen and (min-width: 480px) 
+{
+}
+
+@media only screen and (min-width: 768px) 
+{
+}
+
+@media only screen and (min-width: 960px) 
+{
+}
+
+/* =============================================================================
+   Non-Semantic Helper Classes
+   ========================================================================== */
+
+.ir { display: block; border: 0; text-indent: -999em; overflow: hidden; background-color: transparent; background-repeat: no-repeat; text-align: left; direction: ltr; *line-height: 0; }
+.ir br { display: none; }
+.hidden { display: none !important; visibility: hidden; }
+.visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
+.invisible { visibility: hidden; }
+/* new clearfix */
+.clearfix:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
+.lt-ie8 .clearfix { zoom: 1; }
+
+/* =============================================================================
+   Print Styles - Disabled because clients always ask why the page doesn't print like the screen.
+   ========================================================================== 
+ 
+@media print {
+  * { background: transparent !important; color: black !important; box-shadow:none !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; }
+  a, a:visited { text-decoration: underline; }
+  a[href]:after { content: " (" attr(href) ")"; }
+  abbr[title]:after { content: " (" attr(title) ")"; }
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; } 
+  pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+  thead { display: table-header-group; } 
+  tr, img { page-break-inside: avoid; }
+  img { max-width: 100% !important; }
+  @page { margin: 0.5cm; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3 { page-break-after: avoid; }
+} */
