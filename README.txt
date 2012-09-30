@@ -1,4 +1,4 @@
-WordPress theme files to build from. Originally based on HTML5 Boilerplate, Boilerplate Theme, Starker's, and others.
+WordPress theme files to build from. Originally based on HTML5 Boilerplate, Boilerplate base theme, Starker's base theme, and others.
 
 Version 1.7
 - Added admin functionality. See lib/admin.functions.php.
