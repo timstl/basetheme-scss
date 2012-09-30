@@ -5,8 +5,6 @@
  * Used to set the width of images and content. Should be equal to the width the theme
  * is designed for, generally via the style.css stylesheet.
  */
-
-/* adjust if you have a standard width content area */
 if ( ! isset( $content_width ) )
 	$content_width = 618;
 
@@ -30,11 +28,8 @@ add_filter('the_generator', 'boilerplate_complete_version_removal');
 /* Uncomment to disable the admin bar. */
 // if (!is_admin()) { show_admin_bar(false); }
 
-/** Tell WordPress to run boilerplate_setup() when the 'after_setup_theme' hook is run. */
-add_action( 'after_setup_theme', 'boilerplate_setup' );
-if ( ! function_exists( 'boilerplate_setup' ) ):
-
-function boilerplate_setup() {
+if ( ! function_exists( 'basetheme_setup' ) ):
+function basetheme_setup() {
 
 	add_editor_style();
 
@@ -115,11 +110,14 @@ function boilerplate_setup() {
 	  )); */
 }
 endif;
+add_action( 'after_setup_theme', 'basetheme_setup' );
 
-// added per WP upload process request
-if ( function_exists( 'add_theme_support' ) ) {
+// Add theme support for thumbnails.
+if ( function_exists( 'add_theme_support' ) ) 
+{
 	add_theme_support( 'post-thumbnails' );
-	set_post_thumbnail_size( 442, 9999, false );
+	//set_post_thumbnail_size( 618, 9999, false );
+	//add_image_size( 'another-image-size', '250', '250', true );
 }
 
 /**
@@ -253,11 +251,6 @@ add_filter( 'get_the_excerpt', 'boilerplate_custom_excerpt_more' );
 
 /**
  * Remove inline styles printed when the gallery shortcode is used.
- *
- * Galleries are styled by the theme in Twenty Ten's style.css.
- *
- * @since Twenty Ten 1.0
- * @return string The gallery style filter, with the styles themselves removed.
  */
 function boilerplate_remove_gallery_css( $css ) {
 	return preg_replace( "#<style type='text/css'>(.*?)</style>#s", '', $css );
@@ -267,13 +260,6 @@ add_filter( 'gallery_style', 'boilerplate_remove_gallery_css' );
 if ( ! function_exists( 'boilerplate_comment' ) ) :
 /**
  * Template for comments and pingbacks.
- *
- * To override this walker in a child theme without modifying the comments template
- * simply create your own boilerplate_comment(), and that function will be used instead.
- *
- * Used as a callback by wp_list_comments() for displaying the comments.
- *
- * @since Twenty Ten 1.0
  *
  */
 function boilerplate_comment( $comment, $args, $depth ) {
@@ -316,15 +302,9 @@ function boilerplate_comment( $comment, $args, $depth ) {
 endif;
 
 /**
- * Register widgetized areas, including two sidebars and four widget-ready columns in the footer.
- *
- * To override boilerplate_widgets_init() in a child theme, remove the action hook and add your own
- * function tied to the init hook.
- *
- * @since Twenty Ten 1.0
- * @uses register_sidebar
+ * Register widgetized areas
  */
-function boilerplate_widgets_init() {
+function basetheme_widgets_init() {
 	// Area 1, located at the top of the sidebar.
 	register_sidebar( array(
 		'name' => __( 'Main Sidebar Widget Area', 'boilerplate' ),
@@ -336,16 +316,11 @@ function boilerplate_widgets_init() {
 		'after_title' => '</h3>',
 	) );
 }
-/** Register sidebars by running boilerplate_widgets_init() on the widgets_init hook. */
-add_action( 'widgets_init', 'boilerplate_widgets_init' );
+/** Register sidebars by running basetheme_widgets_init() on the widgets_init hook. */
+add_action( 'widgets_init', 'basetheme_widgets_init' );
 
 /**
  * Removes the default styles that are packaged with the Recent Comments widget.
- *
- * To override this in a child theme, remove the filter and optionally add your own
- * function tied to the widgets_init action hook.
- *
- * @since Twenty Ten 1.0
  */
 function boilerplate_remove_recent_comments_style() {
 	global $wp_widget_factory;
@@ -407,15 +382,16 @@ function tg_scripts()
 {
 	if (!is_admin())
 	{
-		wp_enqueue_script('modernizer', get_template_directory_uri() . '/js/libs/modernizr-2.5.3-respond-1.1.0.min.js');     
+		wp_enqueue_script('modernizer', get_template_directory_uri() . '/js/vendor/modernizr-2.6.1-respond-1.1.0.min.js');     
 
 		wp_deregister_script('jquery');
-		wp_register_script('jquery', "http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js");
+		wp_register_script('jquery', "http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js");
 		wp_enqueue_script('jquery');
 
 		if ( is_singular() && get_option( 'thread_comments' ) ) { wp_enqueue_script( 'comment-reply' ); }
 	
-		wp_enqueue_script('scripts',get_template_directory_uri() . '/js/script.js', array('jquery'), false, true);    
+		wp_enqueue_script('plugins', get_template_directory_uri() . '/js/plugins.js', array('jquery'), false, true);    
+		wp_enqueue_script('scripts', get_template_directory_uri() . '/js/main.js', array('jquery'), false, true);    
 	}
 }
 add_action('wp_enqueue_scripts', 'tg_scripts');
@@ -468,5 +444,69 @@ function alt_title($echo=true, $pid=false)
 	{
 		echo $title;
 	}
+}
+
+/* 
+	Debugging function. Much nicer than print_r.
+	Note: Limited to manage_options users by default. 
+	Pass in 'false' as section param to show to everyone.
+	
+	Based on debugging function found in CMS Made Simple http://www.cmsmadesimple.org/
+*/
+function debug_display($var, $admins=true, $title="", $echo_to_screen = true, $use_html = true)
+{
+	if ($admins == true && !current_user_can('manage_options')) { return; }
+	
+     $titleText = "Debug: ";
+     if($title)
+      {
+          $titleText = "Debug display of '$title':";
+      }
+  
+      ob_start();
+      if ($use_html)
+          echo "<p><b>$titleText</b><pre>\n";
+  
+      if(is_array($var))
+      {
+          echo "Number of elements: " . count($var) . "\n";
+          print_r($var);
+      }
+      elseif(is_object($var))
+      {
+          print_r($var);
+     }
+      elseif(is_string($var))
+      {
+          print_r(htmlentities(str_replace("\t", '  ', $var)));
+      }
+      elseif(is_bool($var))
+      {
+         echo $var === true ? 'true' : 'false';
+      }
+     else
+      {
+          print_r($var);
+      }
+  
+      if ($use_html)
+          echo "</pre></p>\n";
+  
+      $output = ob_get_contents();
+     ob_end_clean();
+  
+      if($echo_to_screen)
+      {
+          echo $output;
+      }
+ 
+      return $output;
+}
+
+
+/* admin */
+if (is_admin())
+{
+	require_once(get_template_directory() . '/lib/admin.functions.php');
 }
 ?>
