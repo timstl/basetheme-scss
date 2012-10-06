@@ -1,5 +1,8 @@
 WordPress theme files to build from. Originally based on HTML5 Boilerplate, Boilerplate base theme, Starker's base theme, and others.
 
+Version 1.7.1
+- Fixed bug in admin.themeadmin.php
+
 Version 1.7
 - Added admin functionality. See lib/admin.functions.php.
 - - Added admin notices. Currently only displays notice if search engines are blocked.
