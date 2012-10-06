@@ -23,11 +23,13 @@
 	<script>window.jQuery || document.write('<script src="<?php echo get_template_directory_uri(); ?>/js/vendor/jquery-1.8.2.min.js"><\/script>')</script>
 </head>
 <body <?php body_class(); ?>>
-	<header id="header">
-		<?php if (is_front_page()) { ?><h1><?php } ?>
-			<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="Home"><?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?></a>
-		<?php if (is_front_page()) { ?></h1><?php } ?>
-		<nav id="main-nav-container" class="nav-container">
-			 <?php wp_nav_menu( array( "theme_location" => "mainnav", "container" => false, "menu_id" => "main-nav" ) ); ?> 
-		</nav>
+	<header id="header" class="clearfix">
+		<div class="innercontain">
+			<?php if (is_front_page()) { ?><h1><?php } ?>
+				<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="Home" id="logo"><?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?></a>
+			<?php if (is_front_page()) { ?></h1><?php } ?>
+			<nav id="main-nav-container" class="nav-container">
+				 <?php wp_nav_menu( array( "theme_location" => "mainnav", "container" => false, "menu_id" => "main-nav" ) ); ?> 
+			</nav>
+		</div>
 	</header>

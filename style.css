@@ -199,12 +199,28 @@ Sometimes needed to solve black border issue on IE7.
    ========================================================================== */ 
 .innercontain
 {
-	margin: 0 auto;
+	margin: 0 5%;
+}
+
+#header
+{
+}
+
+#header h1,
+#header #logo
+{
+	float: left;
+	margin: 0;
+}
+
+#header h1 #logo
+{
+	float: none;
 }
 
 /* nav */
 .nav-container ul,
-,nav-container li
+.nav-container li
 {
 	list-style: none;
 	margin: 0;
@@ -221,15 +237,14 @@ Sometimes needed to solve black border issue on IE7.
 	text-decoration: none;
 }
 
-#main-nav
+#main-nav-container
 {
+	float: right;
 }
 
 /* footer */
 #site-footer
 {
-	overflow: hidden;
-	padding: 10px;
 }
 
 #site-footer a 
@@ -261,6 +276,11 @@ Sometimes needed to solve black border issue on IE7.
 
 @media only screen and (min-width: 960px) 
 {
+	.innercontain
+	{
+		margin: 0 auto;
+		max-width: 960px;
+	}
 }
 
 /* =============================================================================
