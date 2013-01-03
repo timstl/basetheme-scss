@@ -5,6 +5,7 @@
  * Used to set the width of images and content. Should be equal to the width the theme
  * is designed for, generally via the style.css stylesheet.
  */
+
 if ( ! isset( $content_width ) )
 	$content_width = 618;
 
@@ -25,9 +26,15 @@ function boilerplate_complete_version_removal() {
 }
 add_filter('the_generator', 'boilerplate_complete_version_removal');
 
+/* This is not perfect, but changing this number will help refresh cache
+   for stylesheet, main.js, plugins.js. */
+function cache_bust()
+{
+	return '010213';
+}
+
 /* Uncomment to disable the admin bar. */
 // if (!is_admin()) { show_admin_bar(false); }
-
 if ( ! function_exists( 'basetheme_setup' ) ):
 function basetheme_setup() {
 
@@ -382,16 +389,18 @@ function tg_scripts()
 {
 	if (!is_admin())
 	{
-		wp_enqueue_script('modernizer', get_template_directory_uri() . '/js/vendor/modernizr-2.6.1-respond-1.1.0.min.js');     
+		wp_enqueue_style( 'base-style', get_stylesheet_uri(), array(), cache_bust() );
+	
+		wp_enqueue_script('modernizr', get_template_directory_uri() . '/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js', array(), '2.6.2-1.1.0');     
 
 		wp_deregister_script('jquery');
-		wp_register_script('jquery', "http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js");
+		wp_register_script('jquery', "http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js", array(), null);
 		wp_enqueue_script('jquery');
 
 		if ( is_singular() && get_option( 'thread_comments' ) ) { wp_enqueue_script( 'comment-reply' ); }
 	
-		wp_enqueue_script('plugins', get_template_directory_uri() . '/js/plugins.js', array('jquery'), false, true);    
-		wp_enqueue_script('scripts', get_template_directory_uri() . '/js/main.js', array('jquery'), false, true);    
+		wp_enqueue_script('plugins', get_template_directory_uri() . '/js/plugins.js', array('jquery'), cache_bust(), true);    
+		wp_enqueue_script('scripts', get_template_directory_uri() . '/js/main.js', array('jquery'), cache_bust(), true);    
 	}
 }
 add_action('wp_enqueue_scripts', 'tg_scripts');

@@ -1,5 +1,12 @@
 WordPress theme files to build from. Originally based on HTML5 Boilerplate, Boilerplate base theme, Starker's base theme, and others.
 
+Version 1.7.2
+- Updated to modernizr-2.6.2-respond-1.1.0.min and jQuery 1.8.3.
+- Moved stylesheet enqueue into functions.php from header.php.
+- Added cache_bust() to functions.php for stylesheet & javascript cache busting.
+- Removed $ver from jQuery enqueue to improve caching.
+- Added .lt-ie10 class to header.php.
+
 Version 1.7.1
 - Fixed bug in admin.themeadmin.php.
 - Updated header.php.
