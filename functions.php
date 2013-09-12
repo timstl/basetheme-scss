@@ -394,7 +394,7 @@ function tg_scripts()
 		wp_enqueue_script('modernizr-respond', get_template_directory_uri() . '/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js', array(), '2.6.2-1.1.0');     
 
 		wp_deregister_script('jquery');
-		wp_register_script('jquery', "http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js", array(), null);
+		wp_register_script('jquery', "http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js", array(), null);
 		wp_enqueue_script('jquery');
 
 		if ( is_singular() && get_option( 'thread_comments' ) ) { wp_enqueue_script( 'comment-reply' ); }

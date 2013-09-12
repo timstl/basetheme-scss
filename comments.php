@@ -41,7 +41,7 @@
 					 * define boilerplate_comment() and that will be used instead.
 					 * See boilerplate_comment() in boilerplate/functions.php for more.
 					 */
-					wp_list_comments( array( 'callback' => 'atomicdust_comment' ) );
+					wp_list_comments( array( 'callback' => 'boilerplate_comment' ) );
 				?>
 			</ol>
 

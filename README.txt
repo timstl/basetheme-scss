@@ -1,5 +1,11 @@
 WordPress theme files to build from. Originally based on HTML5 Boilerplate, Boilerplate base theme, Starker's base theme, and others.
 
+Version 1.7.3
+- jQuery 1.10.2
+- Normalize CSS 1.1.3
+- Added #wrapper around whole site with overflow: hidden;
+- Fixed comments.php callback bug
+
 Version 1.7.2.1
 - jQuery 1.9.1
 - Normalize CSS 1.1
