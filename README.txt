@@ -1,5 +1,21 @@
 WordPress theme files to build from. Originally based on HTML5 Boilerplate, Boilerplate base theme, Starker's base theme, and others.
 
+Version 1.8.0
+- Removed boilerplate_filter_wp_title from functions.php
+- Added twentythirteen_wp_title to functions.php
+- Removed boilerplate_remove_recent_comments_style from functions.php
+- Cleaned up comments and code in functions.php
+- Renamed tg_scripts function to basetheme_enqueue in functions.php
+- Moved custom post types to lib/cpt.php
+- Updated editor-style.css to match TwentyThirteen theme
+- Enabled HTML5 support for search-form, comment-form, comment-list
+- Removed custom search form function
+- Removed gallery styles via 'use_default_gallery_style' filter instead of removing inline styles.
+- Updated language file to match Twenty Thirteen theme.
+- Added TGM-Plugin-Activation class; Recommends install of Advanced Custom Fields, All in One SEO Pack, Nextgen Facebook Open Graph+, BulletProof Security, Simple 301 Redirects, Gravity Forms (manual install only)
+- Auto delete Hello Dolly plugin on theme activation.
+- Updated favicon links in header.php
+
 Version 1.7.3
 - jQuery 1.10.2
 - Normalize CSS 1.1.3

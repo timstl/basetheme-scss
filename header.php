@@ -9,12 +9,14 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="author" content="">
 	<meta name="viewport" content="width=device-width">
-    <?php /*<meta name="viewport" content="width=device-width,initial-scale=1">*/ ?>
 	<title><?php wp_title('&laquo;', true, 'right'); ?></title>
 		
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
-	<link rel="Shortcut Icon" type="image/x-icon" href="<?php echo site_url(); ?>/favicon.png" />
 	
+	<link rel="shortcut icon" href="<?php echo site_url(); ?>/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="<?php echo site_url(); ?>/favicon.png" type="image/x-icon">
+	<link rel="icon" type="image/png" href="<?php echo site_url(); ?>/favicon.png">
+		
 	<?php wp_head(); ?>
 	<?php 
 	/* The below script code doesn't fully solve the problem of google-hosted jquery not loading, because it comes after all your other scripts that load in wp_head(). 
