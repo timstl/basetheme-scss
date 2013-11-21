@@ -1,5 +1,9 @@
 WordPress theme files to build from. Originally based on HTML5 Boilerplate, Boilerplate base theme, Starker's base theme, and others.
 
+Version 1.8.1
+- Changed location of Install Plugins menu.
+- Set plugins to auto activate after bulk install.
+
 Version 1.8.0
 - Removed boilerplate_filter_wp_title from functions.php
 - Added twentythirteen_wp_title to functions.php
