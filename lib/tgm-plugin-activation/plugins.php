@@ -46,7 +46,7 @@ function my_theme_register_required_plugins() {
 	$plugins = array(
 		// This is an example of how to include a plugin pre-packaged with a theme
 		array(
-			'name'     				=> 'Gravity Forms', // The plugin name
+			'name'     				=> 'Gravity Forms (Manual Install Only)', // The plugin name
 			'slug'     				=> 'gravityforms', // The plugin slug (typically the folder name)
 			'source'   				=> 'http://www.gravityhelp.com/downloads/', // The plugin source
 			'required' 				=> false, // If false, the plugin is only 'recommended' instead of required
