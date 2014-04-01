@@ -99,7 +99,7 @@ function basetheme_enqueue()
 		wp_enqueue_script('modernizr-respond', get_template_directory_uri() . '/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js', array(), '2.6.2-1.1.0');     
 
 		wp_deregister_script('jquery');
-		wp_register_script('jquery', "http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js", array(), null);
+		wp_register_script('jquery', "http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js", array(), null);
 		wp_enqueue_script('jquery');
 
 		if ( is_singular() && get_option( 'thread_comments' ) ) { wp_enqueue_script( 'comment-reply' ); }
@@ -287,6 +287,39 @@ function boilerplate_category_id_class($classes)
 }
 add_filter('post_class', 'boilerplate_category_id_class');
 add_filter('body_class', 'boilerplate_category_id_class');
+
+/* 
+generate column classes based on number of columns shown 
+
+Example:
+<div class="columns col-equalize">
+<?php $colclass = generate_colclass(count(get_field('field_name'))); ?>
+<div class="<?php echo $colclass; ?>"></div>
+*/
+
+function generate_colclass($num, $spaced = false)
+{
+	$colclass = 'col';
+	
+	if ($num > 0)
+	{
+		if ($spaced)
+		{
+			$classes = array('col-100-spaced', 'col-50-spaced', 'col-33-spaced', 'col-25-spaced', 'col-20-spaced');
+		}
+		else
+		{
+			$classes = array('col-100', 'col-50', 'col-33', 'col-25', 'col-20');
+		}
+		
+		if ($num <= count($classes))
+		{
+			$colclass .= ' ' . $classes[$num - 1];
+		}
+	}
+	
+	return $colclass;
+}
 
 /* 
 Use instead of the_title in some cases, if you want more flexibility. 

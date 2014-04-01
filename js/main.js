@@ -2,9 +2,3 @@ jQuery(document).ready(function($)
 {
 
 });
-
-
-
-
-
-

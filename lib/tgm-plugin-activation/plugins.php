@@ -60,27 +60,35 @@ function my_theme_register_required_plugins() {
 		array(
 			'name' 		=> 'Advanced Custom Fields',
 			'slug' 		=> 'advanced-custom-fields',
-			'required' 	=> false,
+			'required' 	=> false
 		),
 		array(
 			'name' 		=> 'All in One SEO Pack',
 			'slug' 		=> 'all-in-one-seo-pack',
-			'required' 	=> false,			
+			'required' 	=> false		
 		),
 		array(
 			'name' 		=> 'NextGEN Facebook Open Graph+',
 			'slug' 		=> 'nextgen-facebook',
-			'required' 	=> false,			
+			'required' 	=> false		
 		),
 		array(
 			'name' 		=> 'BulletProof Security',
 			'slug' 		=> 'bulletproof-security',
-			'required' 	=> false,			
+			'required' 	=> false			
 		),
 		array(
 			'name' 		=> 'Simple 301 Redirects',
 			'slug' 		=> 'simple-301-redirects',
-			'required' 	=> false,			
+			'required' 	=> false			
+		),
+		array(
+			'name' 		=> 'Pingback DDoS Prevent (Manual Install Only)',
+			'slug' 		=> 'Pingback-DDoS-Prevent',
+			'required' 	=> false,
+			'force_activation' 	=> false,
+			'force_deactivation' 	=> false,
+			'external_url' => 'https://github.com/timstl/Pingback-DDoS-Prevent/archive/master.zip'		
 		)
 	);
 

@@ -1,5 +1,16 @@
 WordPress theme files to build from. Originally based on HTML5 Boilerplate, Boilerplate base theme, Starker's base theme, and others.
 
+Version 1.8.5
+- jQuery 1.11.0
+- Pingback DDoS Prevent plugin added to plugin auto-installer.
+- Missing colon bug in cpt.php
+- HTML changes to page.php
+- Added template-home.php because of frequency of use.
+- Small css changes to style.css
+- Added generate_colclass() function and corresponding CSS classes.
+- Auto-add pages, delete Sample Page, and setup Reading Settings on activation.
+- Disable search engines if base pages are created.
+
 Version 1.8.1
 - Changed location of Install Plugins menu.
 - Set plugins to auto activate after bulk install.

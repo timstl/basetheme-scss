@@ -14,7 +14,7 @@ $labels = array(
 	'not_found_in_trash' => __('No Case Studies found in Trash'), 
 	'parent_item_colon' => '',
 	'menu_name' => 'Case Studies'
-)
+);
 $args = array(
 	'labels' => $labels,
 	'public' => true,

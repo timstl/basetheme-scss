@@ -15,7 +15,7 @@
 			<nav id="footer-nav-container" class="nav-container">
 			 	<?php wp_nav_menu( array( "theme_location" => "footernav", "container" => false, "menu_id" => "footer-nav" ) ); ?> 
 			</nav>
-			<p id="copyright">&copy; <?php echo date('Y'); ?></p>
+			<div class="copyright">&copy; <?php echo date('Y'); ?></div>
 		</div>
 	</footer>
 <?php
