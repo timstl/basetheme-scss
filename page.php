@@ -13,11 +13,11 @@
  */
 
 get_header(); ?>
-<div class="innercontain">
+<section class="content">
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-	<section id="content" role="main">
+	<div class="innercontain">
 		<?php the_content(); ?>
-	</section>
+	</div>
 <?php endwhile; ?>
 
 <?php else : ?>
@@ -27,6 +27,6 @@ get_header(); ?>
 <?php endif; ?>
 
 <?php get_sidebar(); ?>
-</div>
+</section>
 
 <?php get_footer(); ?>
