@@ -1,5 +1,9 @@
 WordPress theme files to build from. Originally based on HTML5 Boilerplate, Boilerplate base theme, Starker's base theme, and others.
 
+Version 1.8.6
+- Added CSS to reset widgets
+- Fixed .innercontain margins
+
 Version 1.8.5.1
 - Updated template-home.php and page.php HTML structure.
 
