@@ -28,10 +28,10 @@ function bt_privacy_notice()
 		echo '<div class="error"><p>Search engines are currently blocked.</p></div>';	
 	}
 	
-	if (!file_exists(get_home_path() . '.htpasswd'))
+	/*if (!file_exists(get_home_path() . '.htpasswd'))
 	{
 		echo '<div class="error"><p>There is no .htpasswd file in your root directory. Generate one <a href="http://www.htaccesstools.com/htpasswd-generator/" target="_blank">here</a> and get your .htaccess code <a href="http://www.htaccesstools.com/htaccess-authentication/" target="_blank">here</a> (path: '.get_home_path() . '.htpasswd'.'). Using a .htpasswd on your dev sites will help prevent automated hack attempts on old sites without updates.</p></div>';			
-	}
+	}*/
 }
 
 /* on activation */

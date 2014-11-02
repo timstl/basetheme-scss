@@ -63,13 +63,8 @@ function my_theme_register_required_plugins() {
 			'required' 	=> false
 		),
 		array(
-			'name' 		=> 'All in One SEO Pack',
-			'slug' 		=> 'all-in-one-seo-pack',
-			'required' 	=> false		
-		),
-		array(
-			'name' 		=> 'NextGEN Facebook Open Graph+',
-			'slug' 		=> 'nextgen-facebook',
+			'name' 		=> 'WordPress SEO by Yoast',
+			'slug' 		=> 'wordpress-seo',
 			'required' 	=> false		
 		),
 		array(
@@ -83,12 +78,9 @@ function my_theme_register_required_plugins() {
 			'required' 	=> false			
 		),
 		array(
-			'name' 		=> 'Pingback DDoS Prevent (Manual Install Only)',
-			'slug' 		=> 'Pingback-DDoS-Prevent',
-			'required' 	=> false,
-			'force_activation' 	=> false,
-			'force_deactivation' 	=> false,
-			'external_url' => 'https://github.com/timstl/Pingback-DDoS-Prevent/archive/master.zip'		
+			'name' 		=> 'Remove XMLRPC Pingback Ping',
+			'slug' 		=> 'remove-xmlrpc-pingback-ping',
+			'required' 	=> false
 		)
 	);
 

@@ -1,5 +1,12 @@
 WordPress theme files to build from. Originally based on HTML5 Boilerplate, Boilerplate base theme, Starker's base theme, and others.
 
+Version 1.8.7
+- Fix jQuery fallback script
+- Recommend plugin updates: Remove NGFB, Replace All in One SEO with WordPress SEO by Yoast, Replace external Pingback plugin with auto-install plugin "Remove XMLRPC Pingback Ping."
+- Remove .htpasswd warning
+- Empty img folder
+- Add high resolution media query
+
 Version 1.8.6
 - Added CSS to reset widgets
 - Fixed .innercontain margins

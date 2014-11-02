@@ -330,6 +330,13 @@ Sometimes needed to solve black border issue on IE7.
 	}
 }
 
+@media print,
+       (-o-min-device-pixel-ratio: 5/4),
+       (-webkit-min-device-pixel-ratio: 1.25),
+       (min-resolution: 120dpi) {
+    /* Style adjustments for high resolution devices */
+}
+
 
 /* =============================================================================
    Non-Semantic Helper Classes
