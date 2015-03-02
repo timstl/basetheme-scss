@@ -5,7 +5,7 @@ Version 1.9
 - Update to jQuery 1.11.2
 - Switch to 100% font-size for body
 - Misc minor CSS typography and style adjustments
-- Switch from .row to .row (and .widerow)
+- Switch from .innercontain to .row (and .widerow)
 - Add SimpleStateManager to plugins.js and relevant base code to main.js
 - Add mobile nav code
 - Removing H1 from homepage logo
