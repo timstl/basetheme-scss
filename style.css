@@ -1,29 +1,30 @@
 /*
 	Theme Name: Base Theme
-	Theme URI: http://base.dev
+	Theme URI: http://timgweb.com
 	Description: Theme files to build from. Based on HTML5 Boilerplate, Boilerplate Theme, TwentyThirteen, Starker's, and others.
 	Author: Tim Gieseking, timstl@gmail.com
 	Author URI: http://timgweb.com/
-	Version: 1.8.6
+	Version: 1.9
+	Tags: basetheme
 
 	License: GNU General Public License v2.0
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html	
 */
-/*! normalize.css v1.1.3 | MIT License | git.io/normalize */
-article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}audio,canvas,video{display:inline-block;*display:inline;*zoom:1}audio:not([controls]){display:none;height:0}[hidden]{display:none}html{font-size:100%;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}html,button,input,select,textarea{font-family:sans-serif}body{margin:0}a:focus{outline:thin dotted}a:active,a:hover{outline:0}h1{font-size:2em;margin:0.67em 0}h2{font-size:1.5em;margin:0.83em 0}h3{font-size:1.17em;margin:1em 0}h4{font-size:1em;margin:1.33em 0}h5{font-size:0.83em;margin:1.67em 0}h6{font-size:0.67em;margin:2.33em 0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:bold}blockquote{margin:1em 40px}dfn{font-style:italic}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}mark{background:#ff0;color:#000}p,pre{margin:1em 0}code,kbd,pre,samp{font-family:monospace, serif;_font-family:'courier new', monospace;font-size:1em}pre{white-space:pre;white-space:pre-wrap;word-wrap:break-word}q{quotes:none}q:before,q:after{content:'';content:none}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-0.5em}sub{bottom:-0.25em}dl,menu,ol,ul{margin:1em 0}dd{margin:0 0 0 40px}menu,ol,ul{padding:0 0 0 40px}nav ul,nav ol{list-style:none;list-style-image:none}img{border:0;-ms-interpolation-mode:bicubic}svg:not(:root){overflow:hidden}figure{margin:0}form{margin:0}fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:0.35em 0.625em 0.75em}legend{border:0;padding:0;white-space:normal;*margin-left:-7px}button,input,select,textarea{font-size:100%;margin:0;vertical-align:baseline;*vertical-align:middle}button,input{line-height:normal}button,select{text-transform:none}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer;*overflow:visible}button[disabled],html input[disabled]{cursor:default}input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0;*height:13px;*width:13px}input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}textarea{overflow:auto;vertical-align:top}table{border-collapse:collapse;border-spacing:0}
+/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background-color:transparent}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:bold}dfn{font-style:italic}h1{font-size:2em;margin:0.67em 0}mark{background:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-0.5em}sub{bottom:-0.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:1em 40px}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}pre{overflow:auto}code,kbd,pre,samp{font-family:monospace, monospace;font-size:1em}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}button{overflow:visible}button,select{text-transform:none}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal}input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button{height:auto}input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:0.35em 0.625em 0.75em}legend{border:0;padding:0}textarea{overflow:auto}optgroup{font-weight:bold}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}
 
 /* =============================================================================
    Primary styles
    ========================================================================== */
-/* typography - based on blueprintcss.org. Uses font-size: 75% to give us a base of 12px */
-body { font-size:75%; color:#333; background:#fff; font-family: Helvetica, Arial, sans-serif; line-height: 1.5; }
-h1,h2,h3,h4,h5,h6 { font-weight:normal; color:#fff; font-family: Helvetica, Arial, sans-serif; margin: 0; }
-h1 { font-size:4em; margin-bottom:.25em; line-height: 1.1; }
+/* typography - based on blueprintcss.org. */
+body { font-size:100%; color:#333; background:#fff; font-family: Helvetica, Arial, sans-serif; line-height: 1.5; }
+h1,h2,h3,h4,h5,h6 { font-weight:normal; color:#333; margin: 0; }
+h1 { font-size:3em; margin-bottom:.25em; line-height: 1.1; }
 h2 { font-size:2em; margin-bottom:.25em; line-height: 1.1; }
 h3 { font-size:1.75em; margin-bottom:.5em;line-height: 1.15; }
 h4 { font-size:1.5em; margin-bottom:.5em; line-height: 1.25; }
-h5 { font-size:1.25em; font-weight:bold; margin-bottom:.5em; line-height: 1.35; }
-h6 { font-size:1.16em; font-weight:normal; margin-bottom:.5em; }
+h5 { font-size:1.3125em; font-weight:bold; margin-bottom:.5em; line-height: 1.35; }
+h6 { font-size:1.125em; font-weight:normal; margin-bottom:.5em; line-height: 1.4; }
 h1 img,h2 img,h3 img,h4 img,h5 img,h6 img { margin:0; }
 p { margin:0 0 1.5em; }
 p img.left { float:left; margin:1.5em 1.5em 1.5em 0; padding:0; }
@@ -101,16 +102,6 @@ textarea
 	padding: 5px;
 }
 
-/*
-Uncomment and adjust #wrapper to change styles in Gravity Forms plugin.
-#wrapper .gform_wrapper input[type="text"], 
-#wrapper .gform_wrapper input[type="url"], 
-#wrapper .gform_wrapper input[type="email"], 
-#wrapper .gform_wrapper input[type="tel"], 
-#wrapper .gform_wrapper input[type="number"],
-#wrapper .gform_wrapper input[type="password"] { }
-*/
-
 input[type="text"]:focus,
 input[type="search"]:focus,
 input[type="email"]:focus,
@@ -125,15 +116,10 @@ textarea:focus
 	border-color: #bbb;
 }
 
-/*
-Sometimes needed to solve black border issue on IE7.
-.ie7 input[type="submit"] { filter:chroma(color=#000000); }
-*/
-
 /* =============================================================================
    Main Styles
    ========================================================================== */ 
-.innercontain
+.row
 {
 	margin: 0 5%;
 }
@@ -164,17 +150,86 @@ Sometimes needed to solve black border issue on IE7.
 }
 
 /* nav */
+#mobmenu 
+{
+	cursor: pointer; 
+	display: block;
+	float: right;
+	padding: 20px 15px 20px 25px; 
+	width: 25px;
+}
+
+#mobmenu span 
+{
+	text-indent: -999em;
+}
+
+#mobmenu span, 
+#mobmenu span:before, 
+#mobmenu span:after 
+{
+	cursor: pointer;
+	border-radius: 1px;
+	height: 3px;
+	width: 35px;
+	background: #25aae1;
+	position: absolute;
+	display: block;
+	content: '';
+}
+
+#mobmenu span:before 
+{
+	top: -8px; 
+}
+
+#mobmenu span:after 
+{
+	bottom: -8px;
+}
+
+#mobmenu span, 
+#mobmenu span:before, 
+#mobmenu span:after 
+{
+	transition: all 500ms ease-in-out;
+}
+
+#mobmenu.active span 
+{
+	background-color: transparent;
+}
+
+#mobmenu.active span:before, 
+#mobmenu.active span:after 
+{
+	top: 0;
+}
+
+#mobmenu.active span:before 
+{
+	-webkit-transform:rotate(45deg);
+	-moz-transform:rotate(45deg);
+	-ms-transform:rotate(45deg);
+	-o-transform:rotate(45deg);
+	transform:rotate(45deg);
+}
+
+#mobmenu.active span:after 
+{
+	-webkit-transform:rotate(-45deg);
+	-moz-transform:rotate(-45deg);
+	-ms-transform:rotate(-45deg);
+	-o-transform:rotate(-45deg);
+	transform:rotate(-45deg);
+}
+
 .nav-container ul,
 .nav-container li
 {
 	list-style: none;
 	margin: 0;
 	padding: 0;
-}
-
-.nav-container li
-{
-	float: left;
 }
 
 .nav-container a
@@ -184,7 +239,48 @@ Sometimes needed to solve black border issue on IE7.
 
 #main-nav-container
 {
-	float: right;
+	background: #25aae1;
+	font-size: 0.88235em;
+	height: 0px;
+	left: 0;
+	line-height: 1;
+	overflow: hidden;
+	position: absolute;
+	top: 40px;
+	width: 100%;
+	z-index: 99;
+
+	-webkit-transition: height 0.3s linear;
+	-moz-transition: height 0.3s linear;
+	-o-transition: height 0.3s linear;
+	-ms-transition: height 0.3s linear;
+	transition: height 0.3s linear;
+}
+
+#main-nav-container.open
+{
+	height: auto;
+}
+
+#main-nav-container .menu li
+{
+	border-bottom: 1px solid #ddd;
+	position: relative;
+}
+
+#main-nav-container .menu a
+{
+	background: #25aae1;
+	color: #fff;
+	display: block;
+	padding: 10px;
+	text-decoration: none;
+}
+
+#main-nav .sub-menu a
+{
+	background: #3a3f40;
+	padding-left: 20px;
 }
 
 /* columns */
@@ -312,17 +408,63 @@ Sometimes needed to solve black border issue on IE7.
 
 @media only screen and (min-width: 960px) 
 {
-	.innercontain
+	.row
 	{
 		margin-left: auto;
 		margin-right: auto;
 		max-width: 960px;
 	}
+
+	#mobmenu
+	{
+		display: none;
+	}
+	
+	.nav-container li
+	{
+		float: left;
+	}
+
+	#main-nav-container
+	{
+		background: transparent;
+		display: block;
+		float: right;
+		height: auto;
+		overflow: visible;
+		position: static;
+		width: auto;
+	}
+
+	#main-nav
+	{
+		float: left;
+	}
+
+	#main-nav-container .menu li
+	{
+		border-bottom: none;
+		display: inline;
+		margin-left: 15px;
+	}
+
+	#main-nav-container .menu a
+	{
+		background: transparent;
+		color: #3a3f40;
+		display: inline;
+		padding: 0;
+	}	
+
+	#main-nav-container .menu a:hover
+	{
+		color: #ff8200;
+	}
 }
 
 @media only screen and (min-width: 1452px) 
 {
-	.widecontain
+	.widerow
 	{
 		margin-left: auto;
 		margin-right: auto;

@@ -1,66 +1,58 @@
 <?php
 /**
- * The template for displaying Comments.
+ * The template for displaying comments
  *
  * The area of the page that contains both current comments
- * and the comment form.  The actual display of comments is
- * handled by a callback to boilerplate_comment which is
- * located in the functions.php file.
+ * and the comment form.
  *
  * @package WordPress
- * @subpackage Boilerplate
- * @since Boilerplate 1.0
+ * @subpackage Twenty_Fifteen
+ * @since Twenty Fifteen 1.0
  */
+
+/*
+ * If the current post is protected by a password and
+ * the visitor has not yet entered the password we will
+ * return early without loading the comments.
+ */
+if ( post_password_required() ) {
+	return;
+}
 ?>
 
-<?php if ( post_password_required() ) : ?>
-				<p><?php _e( 'This post is password protected. Enter the password to view any comments.', 'boilerplate' ); ?></p>
-<?php
-		/* Stop the rest of comments.php from being processed,
-		 * but don't kill the script entirely -- we still have
-		 * to fully load the template.
-		 */
-		return;
-	endif;
-?>
+<div id="comments" class="comments-area">
 
-<section id="comments">
-<?php if ( have_comments() ) : ?>
-			<h3 id="comments-title">Comments (<?php echo get_comments_number(); ?>)</h3>
+	<?php if ( have_comments() ) : ?>
+		<h2 class="comments-title">
+			<?php
+				printf( _nx( 'One thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', 'twentyfifteen' ),
+					number_format_i18n( get_comments_number() ), get_the_title() );
+			?>
+		</h2>
 
-<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
-				<?php previous_comments_link( __( '&larr; Older Comments', 'boilerplate' ) ); ?>
-				<?php next_comments_link( __( 'Newer Comments &rarr;', 'boilerplate' ) ); ?>
-<?php endif; // check for comment navigation ?>
+		<?php twentyfifteen_comment_nav(); ?>
 
-			<ol>
-				<?php
-					/* Loop through and list the comments. Tell wp_list_comments()
-					 * to use boilerplate_comment() to format the comments.
-					 * If you want to overload this in a child theme then you can
-					 * define boilerplate_comment() and that will be used instead.
-					 * See boilerplate_comment() in boilerplate/functions.php for more.
-					 */
-					wp_list_comments( array( 'callback' => 'boilerplate_comment' ) );
-				?>
-			</ol>
+		<ol class="comment-list">
+			<?php
+				wp_list_comments( array(
+					'style'       => 'ol',
+					'short_ping'  => true,
+					'avatar_size' => 56,
+				) );
+			?>
+		</ol><!-- .comment-list -->
 
-<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
-				<?php previous_comments_link( __( '&larr; Older Comments', 'boilerplate' ) ); ?>
-				<?php next_comments_link( __( 'Newer Comments &rarr;', 'boilerplate' ) ); ?>
-<?php endif; // check for comment navigation ?>
+		<?php twentyfifteen_comment_nav(); ?>
 
-<?php else : // or, if we don't have comments:
+	<?php endif; // have_comments() ?>
 
-	/* If there are no comments and comments are closed,
-	 * let's leave a little note, shall we?
-	 */
-	if ( ! comments_open() ) :
-?>
-	<p><?php _e( 'Comments are closed.', 'boilerplate' ); ?></p>
-<?php endif; // end ! comments_open() ?>
+	<?php
+		// If comments are closed and there are comments, let's leave a little note, shall we?
+		if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
+	?>
+		<p class="no-comments"><?php _e( 'Comments are closed.', 'twentyfifteen' ); ?></p>
+	<?php endif; ?>
 
-<?php endif; // end have_comments() ?>
+	<?php comment_form(); ?>
 
-<?php comment_form(array('title_reply' => 'Have something to say too? LEAVE A COMMENT:', 'comment_notes_after' => false)); ?>
-</section>
+</div><!-- .comments-area -->

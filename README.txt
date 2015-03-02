@@ -1,5 +1,26 @@
 WordPress theme files to build from. Originally based on HTML5 Boilerplate, Boilerplate base theme, Starker's base theme, and others.
 
+Version 1.9
+- Updated normalize.css
+- Update to jQuery 1.11.2
+- Switch to 100% font-size for body
+- Misc minor CSS typography and style adjustments
+- Switch from .row to .row (and .widerow)
+- Add SimpleStateManager to plugins.js and relevant base code to main.js
+- Add mobile nav code
+- Removing H1 from homepage logo
+- Upgrade Modernizr and Respond.js
+- Change default content width
+- Add theme support for Title tag, remove title tag from header.php, remove related functions from functions.php
+- Updated HTML5 theme support to match twentyfifteen functions
+- Add comments for post-formats and gallery support, but don't enable by default
+- Disable a bunch of functions by default, but leave code. Uncomment filters/actions to enable.
+- Update comments.php to match twentyfifteen
+- Remove unnecessary functions from functions.php
+- Upgrade to TGM-Plugin-Activation 2.4.0
+- Match IE classes to HTML5 Boilerplate
+- Updated recommended plugins to ACF 5.0 PRO
+
 Version 1.8.7
 - Fix jQuery fallback script
 - Recommend plugin updates: Remove NGFB, Replace All in One SEO with WordPress SEO by Yoast, Replace external Pingback plugin with auto-install plugin "Remove XMLRPC Pingback Ping."
@@ -9,7 +30,7 @@ Version 1.8.7
 
 Version 1.8.6
 - Added CSS to reset widgets
-- Fixed .innercontain margins
+- Fixed .row margins
 
 Version 1.8.5.1
 - Updated template-home.php and page.php HTML structure.
