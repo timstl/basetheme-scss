@@ -1,0 +1,23 @@
+/* fonts and colors */
+$darkgray: #333;
+$medgray: #666;
+$lightgray: #ddd;
+$white: #fff;
+$orange: #f97f1a;
+$green: #79b53b;
+
+$background: $white;
+$base-font-size: 100%;
+$base-line-height: 1.5;
+$font-stack: Helvetica, Arial, sans-serif;
+$text-color: $darkgray;
+
+$anchor-text-decoration: none;
+$anchor-text-decoration-hover: none;
+$anchor-font-color: $orange;
+$anchor-font-color-hover: scale-color($anchor-font-color, $lightness: -14%);
+
+/* breakpoints */
+$tablet: 768px;
+$desktop: 960px;
+$wide: 1452px;

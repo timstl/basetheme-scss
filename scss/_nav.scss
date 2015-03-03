@@ -1,0 +1,168 @@
+#mobmenu 
+{
+	cursor: pointer; 
+	display: block;
+	float: right;
+	padding: 20px 15px 20px 25px; 
+	width: 25px;
+}
+
+#mobmenu span 
+{
+	text-indent: -999em;
+}
+
+#mobmenu span, 
+#mobmenu span:before, 
+#mobmenu span:after 
+{
+	cursor: pointer;
+	border-radius: 1px;
+	height: 3px;
+	width: 35px;
+	background: $anchor-font-color;
+	position: absolute;
+	display: block;
+	content: '';
+}
+
+#mobmenu span:before 
+{
+	top: -8px; 
+}
+
+#mobmenu span:after 
+{
+	bottom: -8px;
+}
+
+#mobmenu span, 
+#mobmenu span:before, 
+#mobmenu span:after 
+{
+	@include transition(all 500ms ease-in-out);
+}
+
+#mobmenu.active span 
+{
+	background-color: transparent;
+}
+
+#mobmenu.active span:before, 
+#mobmenu.active span:after 
+{
+	top: 0;
+}
+
+#mobmenu.active span:before 
+{
+	@include rotate(45);
+}
+
+#mobmenu.active span:after 
+{
+	@include rotate(-45);
+}
+
+.nav-container ul,
+.nav-container li
+{
+	@include zerolist();
+}
+
+.nav-container a
+{
+	text-decoration: none;
+}
+
+#main-nav-container
+{
+	background: $anchor-font-color;
+	@include em(16);
+	height: 0px;
+	left: 0;
+	line-height: 1;
+	overflow: hidden;
+	position: absolute;
+	top: 40px;
+	width: 100%;
+	z-index: 99;
+	
+	@include transition(height 0.3s linear);
+}
+
+#main-nav-container.open
+{
+	height: auto;
+}
+
+#main-nav-container .menu li
+{
+	border-bottom: 1px solid $lightgray;
+	position: relative;
+}
+
+#main-nav-container .menu a
+{
+	background: $anchor-font-color;
+	color: #fff;
+	display: block;
+	padding: 10px;
+	text-decoration: none;
+}
+
+#main-nav .sub-menu a
+{
+	background: $green;
+	padding-left: 20px;
+}
+
+@media only screen and (min-width: 960px) 
+{
+	#mobmenu
+	{
+		display: none;
+	}
+	
+	.nav-container li
+	{
+		float: left;
+	}
+
+	#main-nav-container
+	{
+		background: transparent;
+		display: block;
+		float: right;
+		height: auto;
+		overflow: visible;
+		position: static;
+		width: auto;
+	}
+
+	#main-nav
+	{
+		float: left;
+	}
+
+	#main-nav-container .menu li
+	{
+		border-bottom: none;
+		display: inline;
+		margin-left: 15px;
+	}
+
+	#main-nav-container .menu a
+	{
+		background: transparent;
+		color: $anchor-font-color;
+		display: inline;
+		padding: 0;
+	}	
+
+	#main-nav-container .menu a:hover
+	{
+		color: $anchor-font-color-hover;
+	}
+
+}

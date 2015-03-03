@@ -1,0 +1,51 @@
+@mixin css3-prefix($property, $value) {
+	-webkit-#{$property}: #{$value};
+	-khtml-#{$property}: #{$value};
+	-moz-#{$property}: #{$value};
+	-ms-#{$property}: #{$value};
+	-o-#{$property}: #{$value};
+	#{$property}: #{$value};
+}
+
+@mixin rotate($deg: 0, $m11: 0, $m12: 0, $m21: 0, $m22: 0) {
+	@include css3-prefix('transform', rotate($deg + deg));
+	filter: progid:DXImageTransform.Microsoft.Matrix(
+	M11=#{$m11}, M12=#{$m12}, M21=#{$m21}, M22=#{$m22}, sizingMethod='auto expand');
+	zoom: 1;
+}
+
+@mixin transition($properties...) {
+	@if length($properties) >= 1 {
+		@include css3-prefix('transition', $properties);
+	}
+	@else {
+		@include css3-prefix('transition', $what: all, $length: 1s, $easing: ease-in-out);
+	}
+}
+
+@mixin zerolist() {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+@mixin em($pixels) {
+	$context: ($base-font-size / 100%);
+	font-size: ($pixels/$context)em;
+} 
+
+@mixin font-italic() {
+	font-style:italic;
+}
+
+@mixin font-bold() {
+	font-style:bold;
+}
+
+@mixin full() {
+	display: block;
+	height: auto;
+	min-height: 100%;
+	min-width: 100%;
+	width: auto;
+}
