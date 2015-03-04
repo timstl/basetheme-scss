@@ -23,6 +23,26 @@
 	}
 }
 
+@mixin opacity($opacity: 0.5) {
+	$opacityMultiplied: ($opacity * 100);
+	filter: alpha(opacity=$opacityMultiplied);
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=" + $opacityMultiplied + ")";
+	@include css3-prefix('opacity', $opacity);
+}
+
+
+@mixin bg-gradient-diag($startColor: #3C3C3C, $endColor: #999999) {
+	background: $startColor;
+	background: -moz-linear-gradient(-45deg,  $startColor 0%, $endColor 100%);
+	background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,$startColor), color-stop(100%,$endColor));
+	background: -webkit-linear-gradient(-45deg,  $startColor 0%,$endColor 100%);
+	background: -o-linear-gradient(-45deg,  $startColor 0%,$endColor 100%);
+	background: -ms-linear-gradient(-45deg,  $startColor 0%,$endColor 100%);
+	background: linear-gradient(135deg,  $startColor 0%,$endColor 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$startColor}', endColorstr='#{$endColor}',GradientType=1 );	
+}
+
+
 @mixin zerolist() {
 	list-style: none;
 	margin: 0;
@@ -32,14 +52,25 @@
 @mixin em($pixels) {
 	$context: ($base-font-size / 100%);
 	font-size: ($pixels/$context)em;
-} 
+}
+
+@mixin body-font-size() {
+	font-size: (16 * ($base-font-size / 100%)) + px;
+	font-size: 1rem;	
+}
+
+@mixin font-size($pixels: 16) {
+	$base: (16 * ($base-font-size / 100%));
+	font-size: $pixels + px;
+	font-size: ($pixels / $base) + rem;
+}
 
 @mixin font-italic() {
 	font-style:italic;
 }
 
 @mixin font-bold() {
-	font-style:bold;
+	font-weight:bold;
 }
 
 @mixin full() {
@@ -47,5 +78,15 @@
 	height: auto;
 	min-height: 100%;
 	min-width: 100%;
+	position: relative;
+	z-index: 0;
 	width: auto;
+}
+
+@mixin hidetext() {
+	display: block;
+	overflow: hidden;
+	outline: none;
+	text-indent: 101%;
+	white-space: nowrap;
 }
