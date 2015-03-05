@@ -49,20 +49,15 @@
 	padding: 0;
 }
 
-@mixin em($pixels) {
-	$context: ($base-font-size / 100%);
-	font-size: ($pixels/$context)em;
-}
-
 @mixin body-font-size() {
 	font-size: (16 * ($base-font-size / 100%)) + px;
 	font-size: 1rem;	
 }
 
-@mixin font-size($pixels: 16) {
+@mixin rem($pixels: 16, $property: 'font-size') {
 	$base: (16 * ($base-font-size / 100%));
-	font-size: $pixels + px;
-	font-size: ($pixels / $base) + rem;
+	#{$property}: $pixels + px;
+	#{$property}: ($pixels / $base) + rem;
 }
 
 @mixin font-italic() {

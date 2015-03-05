@@ -5,12 +5,12 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
 html { font-size: $base-font-size; }
 body { @include body-font-size(); color:$text-color; background:$background; font-family: $font-stack; line-height: $base-line-height; }
 h1,h2,h3,h4,h5,h6 { font-weight:normal; color:$text-color; margin: 0; font-family: $font-stack-headline; }
-h1 { @include font-size(54); margin-bottom:.25em; line-height: 1.1; }
-h2 { @include font-size(50); margin-bottom:.25em; line-height: 1.1; }
-h3 { @include font-size(28); margin-bottom:.5em;line-height: 1.15; }
-h4 { @include font-size(24); margin-bottom:.5em; line-height: 1.25; }
-h5 { @include font-size(21); margin-bottom:.5em; line-height: 1.35; }
-h6 { @include font-size(18); font-weight:normal; margin-bottom:.5em; line-height: 1.4; }
+h1 { @include rem(54,'font-size'); margin-bottom:.25em; line-height: 1.1; }
+h2 { @include rem(50,'font-size'); margin-bottom:.25em; line-height: 1.1; }
+h3 { @include rem(28,'font-size'); margin-bottom:.5em;line-height: 1.15; }
+h4 { @include rem(24,'font-size'); margin-bottom:.5em; line-height: 1.25; }
+h5 { @include rem(21,'font-size'); margin-bottom:.5em; line-height: 1.35; }
+h6 { @include rem(18,'font-size'); font-weight:normal; margin-bottom:.5em; line-height: 1.4; }
 h1 img,h2 img,h3 img,h4 img,h5 img,h6 img { margin:0; }
 p { margin:0 0 1.5em; }
 p img.left { float:left; margin:1.5em 1.5em 1.5em 0; padding:0; }
@@ -84,7 +84,7 @@ textarea
 {
 	border: 1px solid $lightgray;
 	color: $medgray;
-	@include font-size(18);
+	@include rem(18,'font-size');
 	padding: 5px;
 }
 
@@ -131,18 +131,30 @@ textarea:focus
 	{
 		margin-left: auto;
 		margin-right: auto;
-		max-width: $desktop;
+		max-width: ($desktop * 0.9);
 	}
 
 }
 
 @media only screen and (min-width: $wide) 
 {
-	.widerow
+	.row
 	{
 		margin-left: auto;
 		margin-right: auto;
 		max-width: ($wide * 0.9);
+	}
+
+}
+
+
+@media only screen and (min-width: $widest) 
+{
+	.widerow
+	{
+		margin-left: auto;
+		margin-right: auto;
+		max-width: ($widest * 0.9);
 	}
 }
 

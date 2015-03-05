@@ -1,9 +1,10 @@
 /* fonts and colors */
-$darkgray: #333;
+$darkgray: #4A4A4A;
 $medgray: #666;
 $lightgray: #ddd;
 $white: #fff;
 $orange: #f97f1a;
+$lightorange: #FFB234;
 $green: #79b53b;
 
 $background: $white;
@@ -20,4 +21,5 @@ $anchor-font-color-hover: scale-color($anchor-font-color, $lightness: -14%);
 /* breakpoints */
 $tablet: 768px;
 $desktop: 960px;
-$wide: 1452px;
+$wide: 1150px;
+$widest: 1452px;
