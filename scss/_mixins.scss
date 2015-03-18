@@ -1,3 +1,27 @@
+@mixin calc-col-width($span) {
+	$percol: ((100 / $grid-columns) * 0.01);
+	width: percentage($percol * $span);
+	
+	@if $span == $grid-columns {
+		float: none;
+	}
+}
+
+@mixin calc-col-space($span) {
+	$percol: ((100 / $grid-columns) * 0.01);
+	margin-left: percentage($percol * $span);
+}
+
+@mixin calc-col-gutter($gutter: 1, $position: (left)) {
+	@each $pos in $position {
+		padding-#{$pos}: ($gutter * $grid-gutter) + px;
+	}
+}
+
+@mixin calc-columns-neg-gutter($gutter: 1) {
+	margin-left: ($gutter * $grid-gutter * -1) + px;
+}
+
 @mixin css3-prefix($property, $value) {
 	-webkit-#{$property}: #{$value};
 	-khtml-#{$property}: #{$value};
@@ -42,6 +66,14 @@
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$startColor}', endColorstr='#{$endColor}',GradientType=1 );	
 }
 
+@mixin valign-middle() {
+	top: 50%;
+	@include css3-prefix('transform', translateY(-50%));
+}
+
+@mixin valign-target() {
+	@include css3-prefix('transform', translateY(50%));	
+}
 
 @mixin zerolist() {
 	list-style: none;
@@ -71,11 +103,9 @@
 @mixin full() {
 	display: block;
 	height: auto;
-	min-height: 100%;
-	min-width: 100%;
 	position: relative;
 	z-index: 0;
-	width: auto;
+	width: 100%;
 }
 
 @mixin hidetext() {

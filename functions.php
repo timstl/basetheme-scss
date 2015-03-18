@@ -154,39 +154,6 @@ function twentyfifteen_comment_nav() {
 endif;
 
 /* 
-Generate column classes based on number of columns shown 
-
-Example:
-<div class="columns col-equalize">
-<?php $colclass = generate_colclass(count(get_field('field_name'))); ?>
-<div class="<?php echo $colclass; ?>"></div>
-*/
-
-function generate_colclass($num, $spaced = false)
-{
-	$colclass = 'col';
-	
-	if ($num > 0)
-	{
-		if ($spaced)
-		{
-			$classes = array('col-100-spaced', 'col-50-spaced', 'col-33-spaced', 'col-25-spaced', 'col-20-spaced');
-		}
-		else
-		{
-			$classes = array('col-100', 'col-50', 'col-33', 'col-25', 'col-20');
-		}
-		
-		if ($num <= count($classes))
-		{
-			$colclass .= ' ' . $classes[$num - 1];
-		}
-	}
-	
-	return $colclass;
-}
-
-/* 
 Use instead of the_title in some cases, if you want more flexibility. 
 Checks for alt_title custom field. Uses the_title if none exists.
 Can either return or echo the title.

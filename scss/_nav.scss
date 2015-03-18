@@ -78,7 +78,7 @@
 #main-nav-container
 {
 	background: $anchor-font-color;
-	@include em(16);
+	@include rem(16);
 	height: 0px;
 	left: 0;
 	line-height: 1;
@@ -113,7 +113,7 @@
 
 #main-nav .sub-menu a
 {
-	background: $green;
+	background: $darkgray;
 	padding-left: 20px;
 }
 

@@ -1,0 +1,27 @@
+.widgets,
+.widget-container
+{
+	@include zerolist();
+}
+
+.widget-container
+{
+	border: 1px solid $lightgray;
+	@include rem(12);
+	padding: 14px 11px;
+	margin-bottom: 2em;
+	
+	ul, li {
+		@include zerolist();
+	}
+	
+	li {
+		@include rem(10, 'margin-bottom');
+	}
+	
+	.widget-title {
+		font-family: $font-stack;
+		@include rem(14, 'margin-bottom');
+		@include rem(14);
+	}
+}

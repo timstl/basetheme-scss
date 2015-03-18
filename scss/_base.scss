@@ -7,28 +7,28 @@ body { @include body-font-size(); color:$text-color; background:$background; fon
 h1,h2,h3,h4,h5,h6 { font-weight:normal; color:$text-color; margin: 0; font-family: $font-stack-headline; }
 h1 { @include rem(54,'font-size'); margin-bottom:.25em; line-height: 1.1; }
 h2 { @include rem(50,'font-size'); margin-bottom:.25em; line-height: 1.1; }
-h3 { @include rem(28,'font-size'); margin-bottom:.5em;line-height: 1.15; }
+h3 { @include rem(26,'font-size'); margin-bottom:.5em;line-height: 1.15; }
 h4 { @include rem(24,'font-size'); margin-bottom:.5em; line-height: 1.25; }
-h5 { @include rem(21,'font-size'); margin-bottom:.5em; line-height: 1.35; }
+h5 { @include rem(21,'font-size'); margin-bottom:.5em; line-height: 1.35; font-family: $font-stack; }
 h6 { @include rem(18,'font-size'); font-weight:normal; margin-bottom:.5em; line-height: 1.4; }
 h1 img,h2 img,h3 img,h4 img,h5 img,h6 img { margin:0; }
 p { margin:0 0 1.5em; }
 p img.left { float:left; margin:1.5em 1.5em 1.5em 0; padding:0; }
 p img.right { float:right; margin:1.5em 0 1.5em 1.5em; }
-a:focus,a:hover { color: #168aba; }
-a { color:#25aae1; text-decoration:underline; }
+a:focus,a:hover { color: $anchor-font-color-hover; }
+a { color:$anchor-font-color; text-decoration:underline; }
 blockquote { margin:1.5em; color:$medgray; @include font-italic(); }
 strong { @include font-bold(); }
 em,dfn { @include font-italic(); }
 dfn { @include font-bold(); }
 sup,sub { line-height:0; }
-abbr,acronym { border-bottom:1px dotted #666; }
+abbr,acronym { border-bottom:1px dotted $medgray; }
 address { margin:0 0 1.5em; line-height: 1.75; }
-del { color:#666; }
+del { color:$medgray; }
 pre { margin:1.5em 0; white-space:pre; }
 pre,code,tt { font:1em 'andale mono', 'lucida console', monospace; line-height:1.5; }
 li ul,li ol { margin:0 1.5em; }
-ul,ol { margin:0 1.5em 1.5em; }
+ul,ol { margin:0 0 1.5em; }
 ul li { margin: 0 0 1em; }
 ul { list-style-type:disc; }
 ol { list-style-type:decimal; }
@@ -113,16 +113,9 @@ textarea:focus
 	overflow: hidden;
 }
 
-/* widgets */
-.widgets,
-.widgets .widget-container
+.full
 {
-	@include zerolist();
-}
-
-.widgets .widget-container
-{
-	margin-bottom: 2em;
+	@include full();
 }
 
 @media only screen and (min-width: $desktop) 
@@ -147,6 +140,16 @@ textarea:focus
 
 }
 
+
+@media only screen and (min-width: $wider) 
+{
+	.widerow
+	{
+		margin-left: auto;
+		margin-right: auto;
+		max-width: ($wider * 0.9);
+	}
+}
 
 @media only screen and (min-width: $widest) 
 {
