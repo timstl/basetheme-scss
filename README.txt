@@ -1,5 +1,8 @@
 WordPress theme files to build from. Originally based on HTML5 Boilerplate, Boilerplate base theme, Starker's base theme, and others.
 
+Version 1.9.1
+- Simplify archive.php, add universal the_archive_title() function. Remove category, author, and tag templates (will use archive.php).
+
 Version 1.9
 - Updated normalize.css
 - Update to jQuery 1.11.2
