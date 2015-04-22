@@ -1,5 +1,8 @@
 WordPress theme files to build from. Originally based on HTML5 Boilerplate, Boilerplate base theme, Starker's base theme, and others.
 
+Version 1.9.2
+- TGM_Plugin_Activation update
+
 Version 1.9.1.1
 - Remove author tag from header.php. Causing some issues with Facebook.
 
