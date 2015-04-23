@@ -98,7 +98,8 @@ function basetheme_enqueue()
 	{
 		// add font enqueue here, before base-style.
 		
-		wp_enqueue_style( 'base-style', get_stylesheet_uri(), array(), cache_bust() );
+		//wp_enqueue_style( 'base-style', get_stylesheet_uri(), array(), cache_bust() );
+		wp_enqueue_style( 'base-style', get_template_directory_uri() . '/css/app.css', array(), cache_bust() );
 	
 		wp_enqueue_script('modernizr-respond', get_template_directory_uri() . '/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js', array(), '2.8.3-1.4.2');     
 

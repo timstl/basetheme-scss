@@ -1,5 +1,8 @@
 WordPress theme files to build from. Originally based on HTML5 Boilerplate, Boilerplate base theme, Starker's base theme, and others.
 
+Version 1.9.2.1
+- @import not working with respond.js. Point functions.php straight to /css/app.css file.
+
 Version 1.9.2
 - TGM_Plugin_Activation update
 
