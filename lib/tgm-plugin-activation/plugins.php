@@ -80,6 +80,11 @@ function my_theme_register_required_plugins() {
 			'required' 	=> false			
 		),
 		array(
+			'name' 		=> 'Wordfence',
+			'slug' 		=> 'wordfence',
+			'required' 	=> false
+		),
+		array(
 			'name' 		=> 'Simple 301 Redirects',
 			'slug' 		=> 'simple-301-redirects',
 			'required' 	=> false			
