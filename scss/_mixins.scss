@@ -66,24 +66,27 @@
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$startColor}', endColorstr='#{$endColor}',GradientType=1 );	
 }
 
-@mixin background-gradient($startColor: #3C3C3C, $endColor: #999999) {
-    background: $startColor;
-    background: -webkit-gradient(linear, left top, left bottom, from($startColor), to($endColor));
-    background: -webkit-linear-gradient(top, $startColor, $endColor);
-    background:    -moz-linear-gradient(top, $startColor, $endColor);
-    background:     -ms-linear-gradient(top, $startColor, $endColor);
-    background:      -o-linear-gradient(top, $startColor, $endColor);
-    background:         linear-gradient(top, $startColor, $endColor);
-    filter:            progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$startColor}', endColorStr='#{$endColor}');
-}
-
-@mixin valign-middle() {
-	top: 50%;
-	@include css3-prefix('transform', translateY(-50%));
-}
-
-@mixin valign-target() {
-	@include css3-prefix('transform', translateY(50%));	
+@mixin background-gradient($startColor: #3C3C3C, $endColor: #999999, $colorstop: false) {
+	
+	@if $colorstop == false {	
+		background: $startColor;
+		background: -webkit-gradient(linear, left top, left bottom, from($startColor), to($endColor));
+		background: -webkit-linear-gradient(top, $startColor, $endColor);
+		background:    -moz-linear-gradient(top, $startColor, $endColor);
+		background:     -ms-linear-gradient(top, $startColor, $endColor);
+		background:      -o-linear-gradient(top, $startColor, $endColor);
+		background:         linear-gradient(top, $startColor, $endColor);
+	} @else {
+		
+		background: $startColor; /* Old browsers */
+		background: -moz-linear-gradient(top,  $startColor 0%, $startColor $colorstop, $endColor 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$startColor), color-stop($colorstop,$startColor), color-stop(100%,$endColor)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top,  $startColor 0%,$startColor $colorstop,$endColor 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top,  $startColor 0%,$startColor $colorstop,$endColor 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top,  $startColor 0%,$startColor $colorstop,$endColor 100%); /* IE10+ */
+		background: linear-gradient(to bottom,  $startColor 0%,$startColor $colorstop,$endColor 100%); /* W3C */
+	}
+	
 }
 
 @mixin zerolist() {
@@ -120,7 +123,7 @@
 }
 
 @mixin hidetext() {
-	display: block;
+	display: inline-block;
 	overflow: hidden;
 	outline: none;
 	text-indent: 101%;

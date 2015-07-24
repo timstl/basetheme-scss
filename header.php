@@ -17,12 +17,6 @@
 	<link rel="icon" type="image/png" href="<?php echo site_url(); ?>/favicon.png">
 		
 	<?php wp_head(); ?>
-	
-	<?php 
-	/* The below script code doesn't fully solve the problem of google-hosted jquery not loading, because it comes after all your other scripts that load in wp_head(). 
-	   Try to load everything in the footer, except jquery, modernizr, and (if you have to) scripts that don't rely on jquery. */
-	?>
-	<script>window.jQuery || document.write('<script src="<?php echo get_template_directory_uri(); ?>/js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 </head>
 <body <?php body_class(); ?>>
 <div id="wrapper">
