@@ -76,7 +76,7 @@ function runTabletOrBigger()
 {
 	if (!tablet_or_bigger_run)
 	{ 
-		tablet_run = true;
+		tablet_or_bigger_run = true;
 	}	
 }
 
