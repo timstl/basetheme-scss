@@ -1,0 +1,35 @@
+/* example (is there a better way?):
+	.element {
+		@extend %valign;
+		
+		.no-csstransforms & {
+			@extend %valign-fallback;
+		}
+	}
+*/
+
+%valign {
+	position: relative;
+	top: 50%;
+	@include css3-prefix('transform', translateY(-50%));
+}
+
+%valign-fallback {
+	@include css3-prefix('transform', translateY(0%));	
+	top: 10%;
+}
+
+.vid {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	height: 0;
+	
+	iframe {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+}

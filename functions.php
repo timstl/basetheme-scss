@@ -212,6 +212,12 @@ function boilerplate_excerpt_length( $length ) {
 }
 //add_filter( 'excerpt_length', 'boilerplate_excerpt_length' );
 
+add_filter( 'embed_oembed_html', 'custom_oembed_filter', 10, 4 ) ;
+function custom_oembed_filter($html, $url, $attr, $post_ID) {
+	$return = '<div class="vid">'.$html.'</div>';
+ return $return;
+}
+
 /* 
 Debugging function. Much nicer than print_r.
 Note: Limited to manage_options users by default. 
