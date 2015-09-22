@@ -161,13 +161,6 @@ textarea:focus
 	}
 }
 
-@media print,
-       (-o-min-device-pixel-ratio: 5/4),
-       (-webkit-min-device-pixel-ratio: 1.25),
-       (min-resolution: 120dpi) {
-    /* Style adjustments for high resolution devices */
-}
-
 /* new clearfix */
 .clearfix:after, .columns:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
 .lt-ie8 .clearfix, .lt-ie .columns { zoom: 1; }
