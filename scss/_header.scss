@@ -1,20 +1,11 @@
 #header
 {
+	#logo {
+		float: left;
+	}
 }
 
-#header h1,
-#header #logo
-{
-	float: left;
-	margin: 0;
-}
-
-#header h1 #logo
-{
-	float: none;
-}
-
-#header #logo
+@media only screen and (min-width: $desktop) 
 {
 }
 
