@@ -10,12 +10,6 @@
 	
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 
-	
-	<?php /* Use http://realfavicongenerator.net or similar to generate favicon code and replace this. */ ?>
-	<link rel="shortcut icon" href="<?php echo site_url(); ?>/favicon.ico" type="image/x-icon">
-	<link rel="icon" href="<?php echo site_url(); ?>/favicon.png" type="image/x-icon">
-	<link rel="icon" type="image/png" href="<?php echo site_url(); ?>/favicon.png">
-		
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
