@@ -44,7 +44,7 @@
 				<a href="<?php comments_link(); ?>" class="commentlink"><?php comments_number( '<span>0</span> Comments', '<span>1</span> Comment', '<span>%</span> Comments' ); ?></a>
 			</div>
 			<div class="catsntags">
-				<a href="<?php echo esc_url( get_category_link($cat->term_id) ); ?>" title="<?php echo $cat->name; ?>" class="postcat postcat-<?php echo $cat->slug; ?>"><?php echo $cat->name; ?></a>
+				<?php the_category(', '); ?>
 				<?php the_tags('',', ',''); ?>
 			</div>
 		</aside>
