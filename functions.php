@@ -153,36 +153,6 @@ function twentyfifteen_comment_nav() {
 }
 endif;
 
-function _acf_ricg_image($image, $alt='', $class = '', $size='full') {
-
-	if (!empty($image)) {
-		if (!$alt) {
-			$alt = $image['alt'];
-		}
-				
-		$url = $image['url'];
-		
-		if ($size) {
-			if (isset($image['sizes'][$size])) {
-				$url = $image['sizes'][$size];
-			} 			
-		}
-		
-		if (function_exists('wp_get_attachment_image_srcset')) { 
-			$img = '<img src="'. $url . '" srcset="' . wp_get_attachment_image_srcset( $image['id'], $size ) . '" alt="' . $alt . '"';
-		} else {
-			$img = '<img src="'. $url . '" alt="' . $alt . '"';
-		}
-		
-		if ($class) { 
-			$img .= ' class="' . $class . '"';
-		}
-		$img .= ' />';
-		
-		return $img;
-	}	
-}
-
 /* 
 Use instead of the_title in some cases, if you want more flexibility. 
 Checks for alt_title custom field. Uses the_title if none exists.
