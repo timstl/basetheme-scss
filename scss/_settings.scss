@@ -25,7 +25,10 @@ $anchor-font-color-hover: scale-color($anchor-font-color, $lightness: -14%);
 $grid-columns: 12;
 $grid-gutter: 36; // PIXELS
 
-/* breakpoints */
+/* 
+Breakpoints 
+Be sure to also update main.js with new sizes if you change desktop or tablet.
+*/
 $tablet: 768px;
 $desktop: 960px;
 $wide: 1150px;
