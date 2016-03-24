@@ -7,8 +7,10 @@ require_once(get_template_directory().'/lib/tgm-plugin-activation/plugins.php');
 /*
 Enqueue an admin-specific css file.
 */
-wp_enqueue_style( 'btadmin', get_template_directory_uri().'/lib/css/admin.css', array(), cache_bust() );
-
+function admin_scripts(){
+	wp_enqueue_style( 'btadmin', get_template_directory_uri().'/lib/css/admin.css', array(), cache_bust() );
+}
+add_action( 'wp_enqueue_scripts', 'admin_scripts' );
 /*
 Call various functions that display notices in the admin.
 */
