@@ -4,6 +4,12 @@ var _ssm_settings = {
 	desktop_min: 960
 };
 
+var _bt_menu_run = false;
+var _bt_mobile_run = false;
+var _bt_tablet_run = false;
+var _bt_tablet_or_bigger_run = false;
+var _bt_desktop_run = false;
+
 (function(){
 	ssm.addState({
 		id: 'mobile',
@@ -42,7 +48,6 @@ var _ssm_settings = {
 }());
 
 /* hamburger menu */
-var _bt_menu_run = false;
 function initMobileMenu() {	
 	if (!_bt_menu_run) {
 		
@@ -67,7 +72,6 @@ function closeMobileMenu() {
 }
 
 /* mobile */
-var _bt_mobile_run = false;
 function runMobile() {
 	if (!_bt_mobile_run)
 	{ 
@@ -76,7 +80,6 @@ function runMobile() {
 }
 
 /* tablet */
-var _bt_tablet_run = false;
 function runTablet() {
 	if (!_bt_tablet_run)
 	{ 
@@ -85,7 +88,6 @@ function runTablet() {
 }
 
 /* tablet or bigger */
-var _bt_tablet_or_bigger_run = false;
 function runTabletOrBigger() {
 	if (!_bt_tablet_or_bigger_run)
 	{ 
@@ -94,7 +96,6 @@ function runTabletOrBigger() {
 }
 
 /* desktop */
-var _bt_desktop_run = false;
 function runDesktop() {
 	if (!_bt_desktop_run)
 	{ 
