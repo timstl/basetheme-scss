@@ -32,9 +32,9 @@
 
 	// Previous/next page navigation.
 	the_posts_pagination( array(
-		'prev_text'          => __( 'Previous page', 'basetheme' ),
-		'next_text'          => __( 'Next page', 'basetheme' ),
-		'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'basetheme' ) . ' </span>',
+		'prev_text'          => __( 'Previous page', 'basetheme-scss' ),
+		'next_text'          => __( 'Next page', 'basetheme-scss' ),
+		'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'basetheme-scss' ) . ' </span>',
 	) );
 
 // If no content, include the "No posts found" template.

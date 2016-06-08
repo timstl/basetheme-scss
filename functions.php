@@ -57,8 +57,8 @@ function basetheme_setup()
 
 	// Register nav menus.
 	register_nav_menus( array(
-		'mainnav' => __( 'Main Navigation', 'basetheme' ),
-		'footernav' => __( 'Footer Navigation', 'basetheme' ),
+		'mainnav' => __( 'Main Navigation', 'basetheme-scss' ),
+		'footernav' => __( 'Footer Navigation', 'basetheme-scss' ),
 	) );
 
 	add_theme_support( 'html5', array(
@@ -80,9 +80,9 @@ add_action( 'after_setup_theme', 'basetheme_setup' );
 function basetheme_widgets_init() 
 {
 	register_sidebar( array(
-		'name' => __( 'Main Sidebar Widget Area', 'basetheme' ),
+		'name' => __( 'Main Sidebar Widget Area', 'basetheme-scss' ),
 		'id' => 'primary-sidebar-widget-area',
-		'description' => __( 'The primary widget area', 'basetheme' ),
+		'description' => __( 'The primary widget area', 'basetheme-scss' ),
 		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
 		'after_widget' => '</li>',
 		'before_title' => '<h3 class="widget-title">',
@@ -135,14 +135,14 @@ function twentyfifteen_comment_nav() {
 	if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) :
 	?>
 	<nav class="navigation comment-navigation" role="navigation">
-		<h2 class="screen-reader-text"><?php _e( 'Comment navigation', 'basetheme' ); ?></h2>
+		<h2 class="screen-reader-text"><?php _e( 'Comment navigation', 'basetheme-scss' ); ?></h2>
 		<div class="nav-links">
 			<?php
-				if ( $prev_link = get_previous_comments_link( __( 'Older Comments', 'basetheme' ) ) ) :
+				if ( $prev_link = get_previous_comments_link( __( 'Older Comments', 'basetheme-scss' ) ) ) :
 					printf( '<div class="nav-previous">%s</div>', $prev_link );
 				endif;
 
-				if ( $next_link = get_next_comments_link( __( 'Newer Comments', 'basetheme' ) ) ) :
+				if ( $next_link = get_next_comments_link( __( 'Newer Comments', 'basetheme-scss' ) ) ) :
 					printf( '<div class="nav-next">%s</div>', $next_link );
 				endif;
 			?>
@@ -166,7 +166,7 @@ function twentysixteen_entry_meta() {
 		$author_avatar_size = apply_filters( 'twentysixteen_author_avatar_size', 49 );
 		printf( '<span class="byline"><span class="author vcard">%1$s<span class="screen-reader-text">%2$s </span> <a class="url fn n" href="%3$s">%4$s</a></span></span>',
 			get_avatar( get_the_author_meta( 'user_email' ), $author_avatar_size ),
-			_x( 'Author', 'Used before post author name.', 'basetheme' ),
+			_x( 'Author', 'Used before post author name.', 'basetheme-scss' ),
 			esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
 			get_the_author()
 		);
@@ -179,7 +179,7 @@ function twentysixteen_entry_meta() {
 	$format = get_post_format();
 	if ( current_theme_supports( 'post-formats', $format ) ) {
 		printf( '<span class="entry-format">%1$s<a href="%2$s">%3$s</a></span>',
-			sprintf( '<span class="screen-reader-text">%s </span>', _x( 'Format', 'Used before post format.', 'basetheme' ) ),
+			sprintf( '<span class="screen-reader-text">%s </span>', _x( 'Format', 'Used before post format.', 'basetheme-scss' ) ),
 			esc_url( get_post_format_link( $format ) ),
 			get_post_format_string( $format )
 		);
@@ -191,7 +191,7 @@ function twentysixteen_entry_meta() {
 
 	if ( ! is_singular() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 		echo '<span class="comments-link">';
-		comments_popup_link( sprintf( __( 'Leave a comment<span class="screen-reader-text"> on %s</span>', 'basetheme' ), get_the_title() ) );
+		comments_popup_link( sprintf( __( 'Leave a comment<span class="screen-reader-text"> on %s</span>', 'basetheme-scss' ), get_the_title() ) );
 		echo '</span>';
 	}
 }
@@ -220,7 +220,7 @@ function twentysixteen_entry_date() {
 	);
 
 	printf( '<span class="posted-on"><span class="screen-reader-text">%1$s </span><a href="%2$s" rel="bookmark">%3$s</a></span>',
-		_x( 'Posted on', 'Used before publish date.', 'basetheme' ),
+		_x( 'Posted on', 'Used before publish date.', 'basetheme-scss' ),
 		esc_url( get_permalink() ),
 		$time_string
 	);
@@ -236,18 +236,18 @@ if ( ! function_exists( 'twentysixteen_entry_taxonomies' ) ) :
  * @since Twenty Sixteen 1.0
  */
 function twentysixteen_entry_taxonomies() {
-	$categories_list = get_the_category_list( _x( ', ', 'Used between list items, there is a space after the comma.', 'basetheme' ) );
+	$categories_list = get_the_category_list( _x( ', ', 'Used between list items, there is a space after the comma.', 'basetheme-scss' ) );
 	if ( $categories_list && twentysixteen_categorized_blog() ) {
 		printf( '<span class="cat-links"><span class="screen-reader-text">%1$s </span>%2$s</span>',
-			_x( 'Categories', 'Used before category names.', 'basetheme' ),
+			_x( 'Categories', 'Used before category names.', 'basetheme-scss' ),
 			$categories_list
 		);
 	}
 
-	$tags_list = get_the_tag_list( '', _x( ', ', 'Used between list items, there is a space after the comma.', 'basetheme' ) );
+	$tags_list = get_the_tag_list( '', _x( ', ', 'Used between list items, there is a space after the comma.', 'basetheme-scss' ) );
 	if ( $tags_list ) {
 		printf( '<span class="tags-links"><span class="screen-reader-text">%1$s </span>%2$s</span>',
-			_x( 'Tags', 'Used before tag names.', 'basetheme' ),
+			_x( 'Tags', 'Used before tag names.', 'basetheme-scss' ),
 			$tags_list
 		);
 	}
@@ -318,7 +318,7 @@ function alt_title($echo=true, $pid=false)
 
 /* Returns a "Continue Reading" link for excerpts */
 function boilerplate_continue_reading_link() {
-	return ' <a href="'. get_permalink() . '">' . __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'basetheme' ) . '</a>';
+	return ' <a href="'. get_permalink() . '">' . __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'basetheme-scss' ) . '</a>';
 }
 
 function boilerplate_auto_excerpt_more( $more ) {

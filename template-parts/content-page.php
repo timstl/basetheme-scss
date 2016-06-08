@@ -20,11 +20,11 @@
 		the_content();
 
 		wp_link_pages( array(
-			'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'basetheme' ) . '</span>',
+			'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'basetheme-scss' ) . '</span>',
 			'after'       => '</div>',
 			'link_before' => '<span>',
 			'link_after'  => '</span>',
-			'pagelink'    => '<span class="screen-reader-text">' . __( 'Page', 'basetheme' ) . ' </span>%',
+			'pagelink'    => '<span class="screen-reader-text">' . __( 'Page', 'basetheme-scss' ) . ' </span>%',
 			'separator'   => '<span class="screen-reader-text">, </span>',
 		) );
 		?>
@@ -34,7 +34,7 @@
 		edit_post_link(
 			sprintf(
 				/* translators: %s: Name of current post */
-				__( 'Edit<span class="screen-reader-text"> "%s"</span>', 'basetheme' ),
+				__( 'Edit<span class="screen-reader-text"> "%s"</span>', 'basetheme-scss' ),
 				get_the_title()
 			),
 			'<footer class="entry-footer"><span class="edit-link">',
