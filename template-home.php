@@ -2,19 +2,20 @@
 /* Template Name: Home */
 
 get_header(); ?>
-<section class="content">
+<section class="main">
+	<div class="container">
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-	<div class="row">
-		<?php the_content(); ?>
-	</div>
+		<article <?php post_class(); ?>>
+			<?php the_content(); ?>
+		</article>
 <?php endwhile; ?>
 
 <?php else : ?>
 
-<?php get_template_part('part', 'notfound'); ?>
+	<?php get_template_part('part', 'notfound'); ?>
 
 <?php endif; ?>
-
+	</div>
 </section>
 
 <?php get_footer(); ?>

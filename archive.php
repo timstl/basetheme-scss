@@ -2,29 +2,49 @@
 /**
  * The template for displaying Archive pages.
  *
- * Used to display archive-type pages if nothing more specific matches a query.
- * For example, puts together date-based pages if no date.php file exists.
- *
- * Learn more: http://codex.wordpress.org/Template_Hierarchy
- *
- * @package WordPress
- * @subpackage Boilerplate
- * @since Boilerplate 1.0
- */
+*/
+<?php get_header(); ?>
 
-get_header(); ?>
-	<h1 class="pagetitle"><?php the_archive_title();?></h1>
+<main id="main" class="site-main" role="main">
+	<div class="container">
+<?php if ( have_posts() ) : ?>
 
-	<?php get_template_part( 'loop', 'archive' ); ?>
-	
-	<?php if (  $wp_query->max_num_pages > 1 ) : ?>
-	<div id="pagination">
-		<nav id="nav-below" class="pagenav">
-			<ul>
-				<li><?php next_posts_link( __( 'Older Posts', 'boilerplate' ) ); ?></li>
-				<li><?php previous_posts_link( __( 'Newer Posts', 'boilerplate' ) ); ?></li>
-			</ul>
-		</nav><!-- #nav-below -->
+	<header class="page-header">
+		<?php
+			the_archive_title( '<h1 class="page-title">', '</h1>' );
+			the_archive_description( '<div class="taxonomy-description">', '</div>' );
+		?>
+	</header><!-- .page-header -->
+
+	<?php
+	// Start the Loop.
+	while ( have_posts() ) : the_post();
+
+		/*
+		 * Include the Post-Format-specific template for the content.
+		 * If you want to override this in a child theme, then include a file
+		 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+		 */
+		get_template_part( 'template-parts/content', get_post_format() );
+
+	// End the loop.
+	endwhile;
+
+	// Previous/next page navigation.
+	the_posts_pagination( array(
+		'prev_text'          => __( 'Previous page', 'twentysixteen' ),
+		'next_text'          => __( 'Next page', 'twentysixteen' ),
+		'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'twentysixteen' ) . ' </span>',
+	) );
+
+// If no content, include the "No posts found" template.
+else :
+	get_template_part( 'template-parts/content', 'none' );
+
+endif;
+?>
+	<?php get_sidebar(); ?>
 	</div>
-<?php endif; ?>
+</main><!-- .site-main -->
+
 <?php get_footer(); ?>

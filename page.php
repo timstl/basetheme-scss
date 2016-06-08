@@ -13,20 +13,19 @@
  */
 
 get_header(); ?>
-<section class="content">
-<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-	<div class="row">
-		<?php the_content(); ?>
+<main id="main" class="site-main" role="main">
+	<div class="container">
+		<?php
+		// Start the loop.
+		while ( have_posts() ) : the_post();
+
+			// Include the page content template.
+			get_template_part( 'template-parts/content', 'page' );
+
+			// End of the loop.
+		endwhile;
+		?>
 	</div>
-<?php endwhile; ?>
-
-<?php else : ?>
-
-<?php get_template_part('part', 'notfound'); ?>
-
-<?php endif; ?>
-
-<?php get_sidebar(); ?>
-</section>
+</main>
 
 <?php get_footer(); ?>

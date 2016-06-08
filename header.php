@@ -15,7 +15,7 @@
 <body <?php body_class(); ?>>
 <div id="wrapper">
 	<header id="header" class="clearfix">
-		<div class="row">
+		<div class="container">
 			<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="Home" id="logo"><?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?></a>
 			<nav id="main-nav-container" class="nav-container">
 				 <?php wp_nav_menu( array( "theme_location" => "mainnav", "container" => false, "menu_id" => "main-nav" ) ); ?> 
