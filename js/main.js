@@ -1,4 +1,4 @@
-/* adjust sizes to match _settings.scss */
+/* adjust sizes to match bootstrap sizes */
 var _ssm_settings = { 
 	tablet_min: 768,
 	desktop_min: 992
