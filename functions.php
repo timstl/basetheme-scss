@@ -17,6 +17,10 @@ remove_action('wp_head', 'start_post_rel_link', 10, 0);
 remove_action('wp_head', 'parent_post_rel_link', 10, 0);
 remove_action('wp_head', 'adjacent_posts_rel_link', 10, 0);
 
+/* Include support files */
+include(get_template_directory() . '/lib/bootstrapmenuwalker.php');
+include(get_template_directory() . '/lib/cpt.php');
+
 /* Remove version info from head and feeds (http://digwp.com/2009/07/remove-wordpress-version-number/) */
 function boilerplate_complete_version_removal() { 
 	return ''; 
@@ -30,9 +34,6 @@ This number is appended in basetheme_enqueue()
 function cache_bust() { 
 	return '0601816'; 
 }
-
-/* Setup custom post types */
-include(get_template_directory() . '/lib/cpt.php');
 
 /* Setup Theme */
 function basetheme_setup() 
