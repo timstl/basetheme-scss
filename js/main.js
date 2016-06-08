@@ -1,7 +1,7 @@
 /* adjust sizes to match _settings.scss */
 var _ssm_settings = { 
 	tablet_min: 768,
-	desktop_min: 960
+	desktop_min: 992
 };
 
 var _bt_menu_run = false;
