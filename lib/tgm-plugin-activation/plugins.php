@@ -143,47 +143,47 @@ function _bt_register_required_plugins() {
 			'notice_can_install_required'     => _n_noop(
 				'This theme requires the following plugin: %1$s.',
 				'This theme requires the following plugins: %1$s.',
-				'basetheme'
+				'basetheme-scss'
 			),
 			'notice_can_install_recommended'  => _n_noop(
 				'This theme recommends the following plugin: %1$s.',
 				'This theme recommends the following plugins: %1$s.',
-				'basetheme'
+				'basetheme-scss'
 			),
 			'notice_ask_to_update'            => _n_noop(
 				'The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s.',
 				'The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s.',
-				'basetheme'
+				'basetheme-scss'
 			),
 			'notice_ask_to_update_maybe'      => _n_noop(
 				'There is an update available for: %1$s.',
 				'There are updates available for the following plugins: %1$s.',
-				'basetheme'
+				'basetheme-scss'
 			),
 			'notice_can_activate_required'    => _n_noop(
 				'The following required plugin is currently inactive: %1$s.',
 				'The following required plugins are currently inactive: %1$s.',
-				'basetheme'
+				'basetheme-scss'
 			),
 			'notice_can_activate_recommended' => _n_noop(
 				'The following recommended plugin is currently inactive: %1$s.',
 				'The following recommended plugins are currently inactive: %1$s.',
-				'basetheme'
+				'basetheme-scss'
 			),
 			'install_link'                    => _n_noop(
 				'Begin installing plugin',
 				'Begin installing plugins',
-				'basetheme'
+				'basetheme-scss'
 			),
 			'update_link' 					  => _n_noop(
 				'Begin updating plugin',
 				'Begin updating plugins',
-				'basetheme'
+				'basetheme-scss'
 			),
 			'activate_link'                   => _n_noop(
 				'Begin activating plugin',
 				'Begin activating plugins',
-				'basetheme'
+				'basetheme-scss'
 			),
 			'return'                          => __( 'Return to Required Plugins Installer', 'basetheme-scss' ),
 			'plugin_activated'                => __( 'Plugin activated successfully.', 'basetheme-scss' ),

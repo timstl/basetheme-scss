@@ -42,7 +42,7 @@ function basetheme_setup()
 
 	add_theme_support( 'automatic-feed-links' );
 
-	load_theme_textdomain( 'basetheme', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'basetheme-scss', get_template_directory() . '/languages' );
 
 	add_theme_support( 'title-tag' );	
 
