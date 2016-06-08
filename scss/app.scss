@@ -1,11 +1,13 @@
-@import "_mixins";
-@import "_settings";
-@import "_base";
-@import "_grid";
-@import "_common";
-@import "_nav";
-@import "_header";
-@import "_widgets";
-@import "_blog";
-@import "_template-home";
-@import "_retina";
+// Many features of bootstrap are disabled to avoid loading unnecessary CSS.
+// Customize _bootstrap.scss to add additional features.
+@import "bootstrap";
+
+// Basetheme SCSS files. Add additional templates here.
+@import "mixins";
+@import "common";
+@import "header";
+@import "nav";
+@import "blog";
+@import "widgets";
+@import "template-home";
+@import "retina";
