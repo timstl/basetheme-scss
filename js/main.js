@@ -4,7 +4,6 @@ var _ssm_settings = {
 	desktop_min: 992
 };
 
-var _bt_menu_run = false;
 var _bt_mobile_run = false;
 var _bt_tablet_run = false;
 var _bt_tablet_or_bigger_run = false;
@@ -13,21 +12,18 @@ var _bt_desktop_run = false;
 (function(){
 	ssm.addState({
 		id: 'mobile',
-		maxWidth: parseInt(_ssm_settings.tablet_min) - 1,
+		query: '(max-width: ' + (parseInt(_ssm_settings.tablet_min, 10) - 1) + 'px)',
 		onEnter: function()
 		{ 
-			initMobileMenu();
 			runMobile(); 
 		}
 	});
 	
 	ssm.addState({
 		id: 'tablet',
-		minWidth: parseInt(_ssm_settings.tablet_min),
-		maxWidth: parseInt(_ssm_settings.desktop_min) - 1,
+		query: '(min-width: ' + parseInt(_ssm_settings.tablet_min, 10) + 'px) and (max-width: ' + (parseInt(_ssm_settings.desktop_min, 10) - 1) + 'px)',
 		onEnter: function() 
 		{ 
-			initMobileMenu();
 			runTablet();
 			runTabletOrBigger(); 
 		}
@@ -35,41 +31,14 @@ var _bt_desktop_run = false;
 	
 	ssm.addState({
 		id: 'desktop',
-		minWidth: parseInt(_ssm_settings.desktop_min),
+		query: '(min-width: ' + parseInt(_ssm_settings.desktop_min, 10) + 'px)',
 		onEnter: function() 
 		{ 
-			closeMobileMenu();
 			runDesktop();
 			runTabletOrBigger(); 
 		}
 	});
-
-	ssm.ready();
 }());
-
-/* hamburger menu */
-function initMobileMenu() {	
-	if (!_bt_menu_run) {
-		
-		_bt_menu_run = true;
-		
-		jQuery(document).ready(function($) {			
-			 var $mainnav = $('#main-nav-container');
-			 	 
-			 $('#mobmenu').on('click', function(e) 
-			 {				 
-				 e.preventDefault();
-				 $mainnav.toggleClass('open');
-			 });
-		});
-	}
-}
-
-function closeMobileMenu() {
-	jQuery(document).ready(function($) {
-		$('#main-nav-container').removeClass('open');
-	});
-}
 
 /* mobile */
 function runMobile() {
