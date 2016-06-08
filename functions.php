@@ -1,14 +1,9 @@
 <?php
 /*
-Uncomment to disable the admin bar.
-*/
-// if (!is_admin()) { show_admin_bar(false); }
-
-/*
 Set the content width based on the theme's design and stylesheet.
 */
 if ( ! isset( $content_width ) ) { 
-	$content_width = 660; 
+	$content_width = 960; 
 }
 
 /* Remove some stuff from the head. */
@@ -33,7 +28,7 @@ Help refresh cache for stylesheet, main.js, plugins.js.
 This number is appended in basetheme_enqueue()
 */
 function cache_bust() { 
-	return '112113'; 
+	return '0601816'; 
 }
 
 /* Setup custom post types */
@@ -57,7 +52,7 @@ function basetheme_setup()
 		
 	global $content_width;
 	add_theme_support( 'post-thumbnails' );
-	set_post_thumbnail_size( $content_width, 9999, false );
+	set_post_thumbnail_size( $content_width, 0, false );
 	//add_image_size( 'another-image-size', '250', '250', true );
 
 	// Register nav menus.
@@ -67,7 +62,7 @@ function basetheme_setup()
 	) );
 
 	// This theme uses its own gallery styles.
-	// add_filter( 'use_default_gallery_style', '__return_false' );
+	add_filter( 'use_default_gallery_style', '__return_false' );
 
 	/*add_theme_support( 'post-formats', array(
 		'aside', 'image', 'video', 'quote', 'link', 'gallery', 'status', 'audio', 'chat'
@@ -211,69 +206,11 @@ function boilerplate_excerpt_length( $length ) {
 }
 //add_filter( 'excerpt_length', 'boilerplate_excerpt_length' );
 
-add_filter( 'embed_oembed_html', 'custom_oembed_filter', 10, 4 ) ;
 function custom_oembed_filter($html, $url, $attr, $post_ID) {
-	$return = '<div class="vid">'.$html.'</div>';
+	$return = '<div class="embed-responsive">'.$html.'</div>';
  return $return;
 }
-
-/* 
-Debugging function. Much nicer than print_r.
-Note: Limited to manage_options users by default. 
-Pass in 'false' as section param to show to everyone.
-
-Based on debugging function found in CMS Made Simple http://www.cmsmadesimple.org/
-*/
-function debug_display($var, $admins=true, $title="", $echo_to_screen = true, $use_html = true)
-{
-	if ($admins == true && !current_user_can('manage_options')) { return; }
-	
-     $titleText = "Debug: ";
-     if($title)
-      {
-          $titleText = "Debug display of '$title':";
-      }
-  
-      ob_start();
-      if ($use_html)
-          echo "<p><b>$titleText</b><pre>\n";
-  
-      if(is_array($var))
-      {
-          echo "Number of elements: " . count($var) . "\n";
-          print_r($var);
-      }
-      elseif(is_object($var))
-      {
-          print_r($var);
-     }
-      elseif(is_string($var))
-      {
-          print_r(htmlentities(str_replace("\t", '  ', $var)));
-      }
-      elseif(is_bool($var))
-      {
-         echo $var === true ? 'true' : 'false';
-      }
-     else
-      {
-          print_r($var);
-      }
-  
-      if ($use_html)
-          echo "</pre></p>\n";
-  
-      $output = ob_get_contents();
-     ob_end_clean();
-  
-      if($echo_to_screen)
-      {
-          echo $output;
-      }
- 
-      return $output;
-}
-
+add_filter( 'embed_oembed_html', 'custom_oembed_filter', 10, 4 ) ;
 
 /* 
 Admin 
