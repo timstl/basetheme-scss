@@ -135,11 +135,11 @@ function _bt_register_required_plugins() {
 		'is_automatic' => false,                   // Automatically activate plugins after installation or not.
 		'message'      => '',                      // Message to output right before the plugins table.
 		'strings'      => array(
-			'page_title'                      => __( 'Install Required Plugins', 'basetheme' ),
-			'menu_title'                      => __( 'Install Plugins', 'basetheme' ),
-			'installing'                      => __( 'Installing Plugin: %s', 'basetheme' ),
-			'updating'                        => __( 'Updating Plugin: %s', 'basetheme' ),
-			'oops'                            => __( 'Something went wrong with the plugin API.', 'basetheme' ),
+			'page_title'                      => __( 'Install Required Plugins', 'basetheme-scss' ),
+			'menu_title'                      => __( 'Install Plugins', 'basetheme-scss' ),
+			'installing'                      => __( 'Installing Plugin: %s', 'basetheme-scss' ),
+			'updating'                        => __( 'Updating Plugin: %s', 'basetheme-scss' ),
+			'oops'                            => __( 'Something went wrong with the plugin API.', 'basetheme-scss' ),
 			'notice_can_install_required'     => _n_noop(
 				'This theme requires the following plugin: %1$s.',
 				'This theme requires the following plugins: %1$s.',
@@ -185,15 +185,15 @@ function _bt_register_required_plugins() {
 				'Begin activating plugins',
 				'basetheme'
 			),
-			'return'                          => __( 'Return to Required Plugins Installer', 'basetheme' ),
-			'plugin_activated'                => __( 'Plugin activated successfully.', 'basetheme' ),
-			'activated_successfully'          => __( 'The following plugin was activated successfully:', 'basetheme' ),
-			'plugin_already_active'           => __( 'No action taken. Plugin %1$s was already active.', 'basetheme' ),
-			'plugin_needs_higher_version'     => __( 'Plugin not activated. A higher version of %s is needed for this theme. Please update the plugin.', 'basetheme' ),
-			'complete'                        => __( 'All plugins installed and activated successfully. %1$s', 'basetheme' ),
-			'dismiss'                         => __( 'Dismiss this notice', 'basetheme' ),
-			'notice_cannot_install_activate'  => __( 'There are one or more required or recommended plugins to install, update or activate.', 'basetheme' ),
-			'contact_admin'                   => __( 'Please contact the administrator of this site for help.', 'basetheme' ),
+			'return'                          => __( 'Return to Required Plugins Installer', 'basetheme-scss' ),
+			'plugin_activated'                => __( 'Plugin activated successfully.', 'basetheme-scss' ),
+			'activated_successfully'          => __( 'The following plugin was activated successfully:', 'basetheme-scss' ),
+			'plugin_already_active'           => __( 'No action taken. Plugin %1$s was already active.', 'basetheme-scss' ),
+			'plugin_needs_higher_version'     => __( 'Plugin not activated. A higher version of %s is needed for this theme. Please update the plugin.', 'basetheme-scss' ),
+			'complete'                        => __( 'All plugins installed and activated successfully. %1$s', 'basetheme-scss' ),
+			'dismiss'                         => __( 'Dismiss this notice', 'basetheme-scss' ),
+			'notice_cannot_install_activate'  => __( 'There are one or more required or recommended plugins to install, update or activate.', 'basetheme-scss' ),
+			'contact_admin'                   => __( 'Please contact the administrator of this site for help.', 'basetheme-scss' ),
 
 			'nag_type'                        => '', // Determines admin notice type - can only be one of the typical WP notice classes, such as 'updated', 'update-nag', 'notice-warning', 'notice-info' or 'error'. Some of which may not work as expected in older WP versions.
 			)
