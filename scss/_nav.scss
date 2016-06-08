@@ -14,7 +14,7 @@
 		border-radius: 1px;
 		height: 3px;
 		width: 35px;
-		background: $anchor-font-color;
+		background: $link-color;
 		position: absolute;
 		display: block;
 		content: '';
@@ -64,8 +64,7 @@
 
 #main-nav-container
 {
-	@include rem(16);
-	background: $anchor-font-color;
+	background: $link-color;
 	height: 0px;
 	left: 0;
 	line-height: 1;
@@ -83,12 +82,12 @@
 	
 	.menu {
 		li {
-			border-bottom: 1px solid $lightgray;
+			border-bottom: 1px solid $gray-light;
 			position: relative;			
 		}
 		
 		a {
-			background: $anchor-font-color;
+			background: $link-color;
 			color: #fff;
 			display: block;
 			padding: 10px;
@@ -98,13 +97,13 @@
 	
 	.sub-menu {
 		a {
-			background: $darkgray;
+			background: $gray-dark;
 			padding-left: 20px;			
 		}
 	}
 }
 
-@media only screen and (min-width: $desktop) 
+@media only screen and (min-width: $screen-md-min) 
 {
 	#mobmenu
 	{
@@ -140,12 +139,12 @@
 			
 			a {
 				background: transparent;
-				color: $anchor-font-color;
+				color: $link-color;
 				display: inline;
 				padding: 0;	
 				
 				&:hover {
-					color: $anchor-font-color-hover;
+					color: $link-hover-color;
 				}			
 			}
 		}
