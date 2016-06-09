@@ -1,0 +1,16 @@
+#header {
+	padding: 10px 0;
+	
+	#logo {
+		display: block;
+		margin: 0 auto;
+		text-align: center;
+	}
+	
+	@media (min-width: $screen-sm) {
+		#logo {
+			float: left;
+			margin: 0;
+		}
+	}
+}

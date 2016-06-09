@@ -1,0 +1,78 @@
+// This contains a standard nav layout that will work for most sites. 
+// Adjust from here unless you want something totally different.
+
+#header {
+	.navbar {
+		background: none;
+		border: none;
+
+		@media (min-width: $screen-sm) {
+			float: right;
+		}
+	}
+}
+
+#main-nav {
+	@include zerolist();
+	
+	li {
+		background: $brand-primary;
+		border-bottom: 1px solid $gray-lighter;
+		@include zerolist();
+	}
+	
+	a {
+		background: $link-color;
+		color: #fff;
+		display: block;
+		padding: 5px 5%;
+	}
+	
+	.dropdown-menu {
+		border: none;
+		border-radius: 0;
+		box-shadow: none;
+		margin: 0;
+		float: none;
+		padding: 0;
+		position: static;
+		min-width: 0;
+		margin-left: 5%;
+		
+		li {
+			border: none;
+		}
+		
+		a {
+			background: $brand-primary;
+		}
+	}
+	
+	@media (min-width: $screen-sm) {
+		li {
+			background: none;
+			border-bottom: none;
+			display: inline-block;
+			margin-left: 15px;
+			
+			&:first-child {
+				margin-left: 0;
+			}
+		}
+		
+		a {
+			background: none;
+			color: $link-color;
+			display: inline-block;
+			padding: 0;
+		}
+		
+		.dropdown-menu {
+			position: absolute;
+			
+			a {
+				background: none;
+			}
+		}
+	}
+}
