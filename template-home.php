@@ -2,7 +2,7 @@
 /* Template Name: Home */
 
 get_header(); ?>
-<section class="main">
+<main id="main" class="site-main" role="main">
 	<div class="container">
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 		<article <?php post_class(); ?>>
@@ -12,10 +12,10 @@ get_header(); ?>
 
 <?php else : ?>
 
-	<?php get_template_part('part', 'notfound'); ?>
+	<?php get_template_part( 'template-parts/content', 'page' ); ?>
 
 <?php endif; ?>
 	</div>
-</section>
+</main>
 
 <?php get_footer(); ?>
