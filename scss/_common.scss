@@ -27,3 +27,14 @@ img.full {
 		}
 	}	
 }
+
+@media (min-width: $screen-md) {
+	.vcenter {
+		@include flexbox();
+		@include align-items(center);
+		
+		.no-flexbox & {
+			display: block;
+		}
+	}
+}
