@@ -13,3 +13,17 @@ img.full {
 	height: auto;
 	width: 100%;
 }
+
+@media (min-width: $screen-md) {
+	.col-equalize {
+		display: table;
+		width: 100%;
+
+		.col-td {
+			float: none;
+			display: table-cell;
+			overflow: hidden;
+			vertical-align: middle;
+		}
+	}	
+}
