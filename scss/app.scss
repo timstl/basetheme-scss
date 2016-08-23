@@ -7,7 +7,8 @@
 
 // Basetheme SCSS files. Add additional templates here.
 @import "mixins";
-@import "flex";
+@import "mixins-flex";
+@import "type";
 @import "wordpress";
 @import "common";
 @import "header";
