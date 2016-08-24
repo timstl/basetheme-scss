@@ -356,16 +356,28 @@ add_filter( 'embed_oembed_html', 'custom_oembed_filter', 10, 4 ) ;
 	Usage: the_field_srcset('field_name');
 	ACF field should return Image ID.
 */
-function the_field_srcset($field, $size = 'full', $echo = true) {
+function the_field_srcset($field, $before='', $after='', $size = 'full', $echo = true) {
+	
 	if (get_field($field)) {
 		$img = wp_get_attachment_image(get_field($field), $size);
-		if ($echo) {
-			echo $img;
-		} else {
+		
+		
+		if ($before) {
+			$img = $before.$img;
+		}
+		
+		if ($after) {
+			$img = $img.$after;
+		}
+		
+		if (!$echo) {
 			return $img;
 		}
+		
+		echo $img;
 	}
 }
+
 /* 
 Admin 
 */
