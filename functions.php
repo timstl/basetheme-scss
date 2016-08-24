@@ -353,6 +353,20 @@ function custom_oembed_filter($html, $url, $attr, $post_ID) {
 add_filter( 'embed_oembed_html', 'custom_oembed_filter', 10, 4 ) ;
 
 /* 
+	Usage: the_field_srcset('field_name');
+	ACF field should return Image ID.
+*/
+function the_field_srcset($field, $size = 'full', $echo = true) {
+	if (get_field($field)) {
+		$img = wp_get_attachment_image(get_field($field), $size);
+		if ($echo) {
+			echo $img;
+		} else {
+			return $img;
+		}
+	}
+}
+/* 
 Admin 
 */
 if (is_admin()) { require_once(get_template_directory() . '/lib/admin.functions.php'); }
