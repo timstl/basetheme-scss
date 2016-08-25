@@ -4,8 +4,7 @@
 	padding: 0;
 }
 
-@mixin rem($pixels: 16, $property: 'font-size') {
-	$base: (16 * ($font-size-base / 100%));
+@mixin rem($pixels: 16, $property: 'font-size') {	
 	#{$property}: $pixels + px;
-	#{$property}: ($pixels / $base) + rem;
+	#{$property}: ($pixels / 16) + rem;
 }
