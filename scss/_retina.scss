@@ -3,9 +3,9 @@
        (-webkit-min-device-pixel-ratio: 1.25),
        (min-resolution: 120dpi) {
 
-	@media only screen and (min-width: $tablet) {
+	@media only screen and (min-width: $screen-sm-min) {
 	}
 
-	@media only screen and (min-width: $desktop) {
+	@media only screen and (min-width: $screen-md-min) {
 	}
 }

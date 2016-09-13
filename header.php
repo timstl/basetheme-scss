@@ -15,13 +15,40 @@
 <body <?php body_class(); ?>>
 <div id="wrapper">
 	<header id="header" class="clearfix">
-		<div class="row">
+		<div class="container">
 			<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="Home" id="logo"><?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?></a>
-			<nav id="main-nav-container" class="nav-container">
-				 <?php wp_nav_menu( array( "theme_location" => "mainnav", "container" => false, "menu_id" => "main-nav" ) ); ?> 
+			<!-- Begin Navigation -->
+			<nav class="navbar navbar-default" role="navigation">
+				
+				    <!-- Brand and toggle get grouped for better mobile display -->
+				    <div class="navbar-header">
+				      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav">
+				        <span class="sr-only">Toggle navigation</span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				      </button>
+				    </div>
+				
+				    <!-- Collect the nav links, forms, and other content for toggling -->
+				    <div class="collapse navbar-collapse" id="main-nav">
+				     <?php
+					 	//FB and Twitter are appended in functions.php
+						$args = array(
+							'theme_location' => 'mainnav',
+							'depth'		 => 0,
+							'container'	 => false,
+							'menu_class'	 => 'clearfix',
+							'menu_id' => 'main-nav',
+							'walker'	 => new BootstrapNavMenuWalker()
+						);
+		
+						wp_nav_menu($args);
+			
+					?>
+				    </div><!-- /.navbar-collapse -->
+				    
 			</nav>
-			<div id="mobmenu">
-				<a href="#main-nav"><span>Menu</span></a>
-			</div>
+			<!-- End Navigation -->
 		</div>
 	</header>

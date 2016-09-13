@@ -1,25 +1,20 @@
-/* example (is there a better way?):
-	.element {
-		@extend %valign;
-		
-		.no-csstransforms & {
-			@extend %valign-fallback;
-		}
+.row.no-gutter {
+	margin-right:0;
+	margin-left:0;
+
+	> [class*='col-'] {
+		padding-right:0;
+		padding-left:0;
 	}
-*/
-
-%valign {
-	position: relative;
-	top: 50%;
-	@include css3-prefix('transform', translateY(-50%));
 }
 
-%valign-fallback {
-	@include css3-prefix('transform', translateY(0%));	
-	top: 10%;
+img.full {
+	display: block;
+	height: auto;
+	width: 100%;
 }
 
-.vid {
+.embed-responsive {
 	position: relative;
 	padding-bottom: 56.25%; /* 16:9 */
 	height: 0;
@@ -32,4 +27,29 @@
 		height: 100%;
 	}
 
+}
+
+@media (min-width: $screen-md) {
+	.col-equalize {
+		display: table;
+		width: 100%;
+
+		.col-td {
+			float: none;
+			display: table-cell;
+			overflow: hidden;
+			vertical-align: middle;
+		}
+	}	
+}
+
+@media (min-width: $screen-md) {
+	.vcenter {
+		@include flexbox();
+		@include align-items(center);
+		
+		.no-flexbox & {
+			display: block;
+		}
+	}
 }

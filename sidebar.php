@@ -7,8 +7,8 @@
  * @since Boilerplate 1.0
  */
 ?>
-	<section id="primary-sidebar-widget-area" class="sidebar">
+	<aside id="primary-sidebar-widget-area" class="sidebar">
 		<ul class="widgets">
 		<?php if ( ! dynamic_sidebar( 'primary-sidebar-widget-area' ) ) : endif; // end primary widget area ?>
 		</ul>
-	</section>
+	</aside>
