@@ -1,14 +1,9 @@
 <?php
 /*
-Uncomment to disable the admin bar.
-*/
-// if (!is_admin()) { show_admin_bar(false); }
-
-/*
 Set the content width based on the theme's design and stylesheet.
 */
 if ( ! isset( $content_width ) ) { 
-	$content_width = 660; 
+	$content_width = 960; 
 }
 
 /* Remove some stuff from the head. */
@@ -22,6 +17,10 @@ remove_action('wp_head', 'start_post_rel_link', 10, 0);
 remove_action('wp_head', 'parent_post_rel_link', 10, 0);
 remove_action('wp_head', 'adjacent_posts_rel_link', 10, 0);
 
+/* Include support files */
+include(get_template_directory() . '/lib/bootstrapmenuwalker.php');
+include(get_template_directory() . '/lib/cpt.php');
+
 /* Remove version info from head and feeds (http://digwp.com/2009/07/remove-wordpress-version-number/) */
 function boilerplate_complete_version_removal() { 
 	return ''; 
@@ -33,11 +32,8 @@ Help refresh cache for stylesheet, main.js, plugins.js.
 This number is appended in basetheme_enqueue()
 */
 function cache_bust() { 
-	return '112113'; 
+	return '0601816'; 
 }
-
-/* Setup custom post types */
-include(get_template_directory() . '/lib/cpt.php');
 
 /* Setup Theme */
 function basetheme_setup() 
@@ -47,7 +43,7 @@ function basetheme_setup()
 
 	add_theme_support( 'automatic-feed-links' );
 
-	load_theme_textdomain( 'basetheme', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'basetheme-scss', get_template_directory() . '/languages' );
 
 	add_theme_support( 'title-tag' );	
 
@@ -62,13 +58,18 @@ function basetheme_setup()
 
 	// Register nav menus.
 	register_nav_menus( array(
-		'mainnav' => __( 'Main Navigation', 'boilerplate' ),
-		'footernav' => __( 'Footer Navigation', 'boilerplate' ),
+		'mainnav' => __( 'Main Navigation', 'basetheme-scss' ),
+		'footernav' => __( 'Footer Navigation', 'basetheme-scss' ),
 	) );
 
-	// This theme uses its own gallery styles.
-	// add_filter( 'use_default_gallery_style', '__return_false' );
-
+	add_theme_support( 'html5', array(
+		'search-form',
+		'comment-form',
+		'comment-list',
+		'gallery',
+		'caption',
+	) );
+	
 	/*add_theme_support( 'post-formats', array(
 		'aside', 'image', 'video', 'quote', 'link', 'gallery', 'status', 'audio', 'chat'
 	) );*/
@@ -80,9 +81,9 @@ add_action( 'after_setup_theme', 'basetheme_setup' );
 function basetheme_widgets_init() 
 {
 	register_sidebar( array(
-		'name' => __( 'Main Sidebar Widget Area', 'boilerplate' ),
+		'name' => __( 'Main Sidebar Widget Area', 'basetheme-scss' ),
 		'id' => 'primary-sidebar-widget-area',
-		'description' => __( 'The primary widget area', 'boilerplate' ),
+		'description' => __( 'The primary widget area', 'basetheme-scss' ),
 		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
 		'after_widget' => '</li>',
 		'before_title' => '<h3 class="widget-title">',
@@ -100,10 +101,10 @@ function basetheme_enqueue()
 		
 		wp_enqueue_style( 'base-style', get_template_directory_uri() . '/css/app.css', array(), cache_bust() );
 	
-		wp_enqueue_script('modernizr-respond', get_template_directory_uri() . '/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js', array(), '2.8.3-1.4.2');     
+		wp_enqueue_script('modernizr', get_template_directory_uri() . '/js/vendor/modernizr.js', array(), '2.8.3');
 
 		wp_deregister_script('jquery');
-		wp_register_script('jquery', "//ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js", array(), null);
+		wp_register_script('jquery', "//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js", array(), null);
 		wp_enqueue_script('jquery');
 
 		if ( is_singular() && get_option( 'thread_comments' ) ) { wp_enqueue_script( 'comment-reply' ); }
@@ -135,14 +136,14 @@ function twentyfifteen_comment_nav() {
 	if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) :
 	?>
 	<nav class="navigation comment-navigation" role="navigation">
-		<h2 class="screen-reader-text"><?php _e( 'Comment navigation', 'twentyfifteen' ); ?></h2>
+		<h2 class="screen-reader-text"><?php _e( 'Comment navigation', 'basetheme-scss' ); ?></h2>
 		<div class="nav-links">
 			<?php
-				if ( $prev_link = get_previous_comments_link( __( 'Older Comments', 'twentyfifteen' ) ) ) :
+				if ( $prev_link = get_previous_comments_link( __( 'Older Comments', 'basetheme-scss' ) ) ) :
 					printf( '<div class="nav-previous">%s</div>', $prev_link );
 				endif;
 
-				if ( $next_link = get_next_comments_link( __( 'Newer Comments', 'twentyfifteen' ) ) ) :
+				if ( $next_link = get_next_comments_link( __( 'Newer Comments', 'basetheme-scss' ) ) ) :
 					printf( '<div class="nav-next">%s</div>', $next_link );
 				endif;
 			?>
@@ -152,6 +153,140 @@ function twentyfifteen_comment_nav() {
 	endif;
 }
 endif;
+
+if ( ! function_exists( 'twentysixteen_entry_meta' ) ) :
+/**
+ * Prints HTML with meta information for the categories, tags.
+ *
+ * Create your own twentysixteen_entry_meta() function to override in a child theme.
+ *
+ * @since Twenty Sixteen 1.0
+ */
+function twentysixteen_entry_meta() {
+	if ( 'post' === get_post_type() ) {
+		$author_avatar_size = apply_filters( 'twentysixteen_author_avatar_size', 49 );
+		printf( '<span class="byline"><span class="author vcard">%1$s<span class="screen-reader-text">%2$s </span> <a class="url fn n" href="%3$s">%4$s</a></span></span>',
+			get_avatar( get_the_author_meta( 'user_email' ), $author_avatar_size ),
+			_x( 'Author', 'Used before post author name.', 'basetheme-scss' ),
+			esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+			get_the_author()
+		);
+	}
+
+	if ( in_array( get_post_type(), array( 'post', 'attachment' ) ) ) {
+		twentysixteen_entry_date();
+	}
+
+	$format = get_post_format();
+	if ( current_theme_supports( 'post-formats', $format ) ) {
+		printf( '<span class="entry-format">%1$s<a href="%2$s">%3$s</a></span>',
+			sprintf( '<span class="screen-reader-text">%s </span>', _x( 'Format', 'Used before post format.', 'basetheme-scss' ) ),
+			esc_url( get_post_format_link( $format ) ),
+			get_post_format_string( $format )
+		);
+	}
+
+	if ( 'post' === get_post_type() ) {
+		twentysixteen_entry_taxonomies();
+	}
+
+	if ( ! is_singular() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
+		echo '<span class="comments-link">';
+		comments_popup_link( sprintf( __( 'Leave a comment<span class="screen-reader-text"> on %s</span>', 'basetheme-scss' ), get_the_title() ) );
+		echo '</span>';
+	}
+}
+endif;
+
+if ( ! function_exists( 'twentysixteen_entry_date' ) ) :
+/**
+ * Prints HTML with date information for current post.
+ *
+ * Create your own twentysixteen_entry_date() function to override in a child theme.
+ *
+ * @since Twenty Sixteen 1.0
+ */
+function twentysixteen_entry_date() {
+	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+
+	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
+	}
+
+	$time_string = sprintf( $time_string,
+		esc_attr( get_the_date( 'c' ) ),
+		get_the_date(),
+		esc_attr( get_the_modified_date( 'c' ) ),
+		get_the_modified_date()
+	);
+
+	printf( '<span class="posted-on"><span class="screen-reader-text">%1$s </span><a href="%2$s" rel="bookmark">%3$s</a></span>',
+		_x( 'Posted on', 'Used before publish date.', 'basetheme-scss' ),
+		esc_url( get_permalink() ),
+		$time_string
+	);
+}
+endif;
+
+if ( ! function_exists( 'twentysixteen_entry_taxonomies' ) ) :
+/**
+ * Prints HTML with category and tags for current post.
+ *
+ * Create your own twentysixteen_entry_taxonomies() function to override in a child theme.
+ *
+ * @since Twenty Sixteen 1.0
+ */
+function twentysixteen_entry_taxonomies() {
+	$categories_list = get_the_category_list( _x( ', ', 'Used between list items, there is a space after the comma.', 'basetheme-scss' ) );
+	if ( $categories_list && twentysixteen_categorized_blog() ) {
+		printf( '<span class="cat-links"><span class="screen-reader-text">%1$s </span>%2$s</span>',
+			_x( 'Categories', 'Used before category names.', 'basetheme-scss' ),
+			$categories_list
+		);
+	}
+
+	$tags_list = get_the_tag_list( '', _x( ', ', 'Used between list items, there is a space after the comma.', 'basetheme-scss' ) );
+	if ( $tags_list ) {
+		printf( '<span class="tags-links"><span class="screen-reader-text">%1$s </span>%2$s</span>',
+			_x( 'Tags', 'Used before tag names.', 'basetheme-scss' ),
+			$tags_list
+		);
+	}
+}
+endif;
+
+/**
+ * Determines whether blog/site has more than one category.
+ *
+ * Create your own twentysixteen_categorized_blog() function to override in a child theme.
+ *
+ * @since Twenty Sixteen 1.0
+ *
+ * @return bool True if there is more than one category, false otherwise.
+ */
+function twentysixteen_categorized_blog() {
+	if ( false === ( $all_the_cool_cats = get_transient( 'twentysixteen_categories' ) ) ) {
+		// Create an array of all the categories that are attached to posts.
+		$all_the_cool_cats = get_categories( array(
+			'fields'     => 'ids',
+			// We only need to know if there is more than one category.
+			'number'     => 2,
+		) );
+
+		// Count the number of categories that are attached to the posts.
+		$all_the_cool_cats = count( $all_the_cool_cats );
+
+		set_transient( 'twentysixteen_categories', $all_the_cool_cats );
+	}
+
+	if ( $all_the_cool_cats > 1 ) {
+		// This blog has more than 1 category so twentysixteen_categorized_blog should return true.
+		return true;
+	} else {
+		// This blog has only 1 category so twentysixteen_categorized_blog should return false.
+		return false;
+	}
+}
 
 /* 
 Use instead of the_title in some cases, if you want more flexibility. 
@@ -184,7 +319,7 @@ function alt_title($echo=true, $pid=false)
 
 /* Returns a "Continue Reading" link for excerpts */
 function boilerplate_continue_reading_link() {
-	return ' <a href="'. get_permalink() . '">' . __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'boilerplate' ) . '</a>';
+	return ' <a href="'. get_permalink() . '">' . __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'basetheme-scss' ) . '</a>';
 }
 
 function boilerplate_auto_excerpt_more( $more ) {
@@ -211,69 +346,37 @@ function boilerplate_excerpt_length( $length ) {
 }
 //add_filter( 'excerpt_length', 'boilerplate_excerpt_length' );
 
-add_filter( 'embed_oembed_html', 'custom_oembed_filter', 10, 4 ) ;
 function custom_oembed_filter($html, $url, $attr, $post_ID) {
-	$return = '<div class="vid">'.$html.'</div>';
+	$return = '<div class="embed-responsive">'.$html.'</div>';
  return $return;
 }
+add_filter( 'embed_oembed_html', 'custom_oembed_filter', 10, 4 ) ;
 
 /* 
-Debugging function. Much nicer than print_r.
-Note: Limited to manage_options users by default. 
-Pass in 'false' as section param to show to everyone.
-
-Based on debugging function found in CMS Made Simple http://www.cmsmadesimple.org/
+	Usage: the_field_srcset('field_name');
+	ACF field should return Image ID.
 */
-function debug_display($var, $admins=true, $title="", $echo_to_screen = true, $use_html = true)
-{
-	if ($admins == true && !current_user_can('manage_options')) { return; }
+function the_field_srcset($field, $before='', $after='', $size = 'full', $echo = true) {
 	
-     $titleText = "Debug: ";
-     if($title)
-      {
-          $titleText = "Debug display of '$title':";
-      }
-  
-      ob_start();
-      if ($use_html)
-          echo "<p><b>$titleText</b><pre>\n";
-  
-      if(is_array($var))
-      {
-          echo "Number of elements: " . count($var) . "\n";
-          print_r($var);
-      }
-      elseif(is_object($var))
-      {
-          print_r($var);
-     }
-      elseif(is_string($var))
-      {
-          print_r(htmlentities(str_replace("\t", '  ', $var)));
-      }
-      elseif(is_bool($var))
-      {
-         echo $var === true ? 'true' : 'false';
-      }
-     else
-      {
-          print_r($var);
-      }
-  
-      if ($use_html)
-          echo "</pre></p>\n";
-  
-      $output = ob_get_contents();
-     ob_end_clean();
-  
-      if($echo_to_screen)
-      {
-          echo $output;
-      }
- 
-      return $output;
+	if (get_field($field)) {
+		$img = wp_get_attachment_image(get_field($field), $size);
+		
+		
+		if ($before) {
+			$img = $before.$img;
+		}
+		
+		if ($after) {
+			$img = $img.$after;
+		}
+		
+		if (!$echo) {
+			return $img;
+		}
+		
+		echo $img;
+	}
 }
-
 
 /* 
 Admin 

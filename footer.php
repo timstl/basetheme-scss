@@ -11,7 +11,7 @@
  */
 ?>
 	<footer role="contentinfo" id="site-footer">
-		<div id="footer-inner">
+		<div id="footer-inner" class="container">
 			<nav id="footer-nav-container" class="nav-container">
 			 	<?php wp_nav_menu( array( "theme_location" => "footernav", "container" => false, "menu_id" => "footer-nav" ) ); ?> 
 			</nav>

@@ -6,22 +6,19 @@
 
 .widget-container
 {
-	border: 1px solid $lightgray;
-	@include rem(12);
+	border: 1px solid $gray-light;
 	padding: 14px 11px;
-	margin-bottom: 2em;
+	margin-bottom: 24px;
 	
 	ul, li {
 		@include zerolist();
 	}
 	
 	li {
-		@include rem(10, 'margin-bottom');
+		margin-bottom: 10px;
 	}
 	
 	.widget-title {
-		font-family: $font-stack;
-		@include rem(14, 'margin-bottom');
-		@include rem(14);
+		margin-bottom: 14px;
 	}
 }

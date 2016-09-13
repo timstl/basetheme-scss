@@ -1,152 +1,77 @@
-#mobmenu 
-{
-	cursor: pointer; 
-	display: block;
-	float: right;
-	padding: 20px 15px 20px 25px; 
-	width: 25px;
-	
-	span,
-	span:before,
-	span:after {
-		@include transition(all 500ms ease-in-out);
-		cursor: pointer;
-		border-radius: 1px;
-		height: 3px;
-		width: 35px;
-		background: $anchor-font-color;
-		position: absolute;
-		display: block;
-		content: '';
-	}
+// This contains a standard nav layout that will work for most sites. 
+// Adjust from here unless you want something totally different.
 
-	span {
-		text-indent: -999em;
-		
-		&:before {
-			top: -8px; 			
-		}
-		
-		&:after {
-			bottom: -8px;			
+#header {
+	.navbar {
+		background: none;
+		border: none;
+
+		@media (min-width: $screen-sm) {
+			float: right;
 		}
 	}
-	
-	&.active {
-		span {
-			background-color: transparent;
-			
-			&:before,
-			&:after {
-				top: 0;
-			}
-			
-			&:before {
-				@include rotate(45);
-			}
-			
-			&:after {
-				@include rotate(-45);
-			}
-		}
-	}		
 }
 
-.nav-container {
-	ul, li {
+#main-nav {
+	@include zerolist();
+	
+	li {
+		background: $brand-primary;
+		border-bottom: 1px solid $gray-lighter;
 		@include zerolist();
 	}
 	
 	a {
-		text-decoration: none;
-	}
-}
-
-#main-nav-container
-{
-	@include rem(16);
-	background: $anchor-font-color;
-	height: 0px;
-	left: 0;
-	line-height: 1;
-	overflow: hidden;
-	position: absolute;
-	top: 40px;
-	width: 100%;
-	z-index: 99;
-	
-	@include transition(height 0.3s linear);
-	
-	&.open {
-		height: auto;
-	}
-	
-	.menu {
-		li {
-			border-bottom: 1px solid $lightgray;
-			position: relative;			
-		}
-		
-		a {
-			background: $anchor-font-color;
-			color: #fff;
-			display: block;
-			padding: 10px;
-			text-decoration: none;			
-		}
-	}
-	
-	.sub-menu {
-		a {
-			background: $darkgray;
-			padding-left: 20px;			
-		}
-	}
-}
-
-@media only screen and (min-width: $desktop) 
-{
-	#mobmenu
-	{
-		display: none;
-	}
-	
-	.nav-container li
-	{
-		float: left;
-	}
-
-	#main-nav
-	{
-		float: left;
-	}
-
-	#main-nav-container
-	{
-		background: transparent;
+		background: $link-color;
+		color: #fff;
 		display: block;
-		float: right;
-		height: auto;
-		overflow: visible;
+		padding: 5px 5%;
+	}
+	
+	.dropdown-menu {
+		border: none;
+		border-radius: 0;
+		box-shadow: none;
+		margin: 0;
+		float: none;
+		padding: 0;
 		position: static;
-		width: auto;
+		min-width: 0;
+		margin-left: 5%;
 		
-		.menu {
-			li {
-				border-bottom: none;
-				display: inline;
-				margin-left: 15px;
+		li {
+			border: none;
+		}
+		
+		a {
+			background: $brand-primary;
+		}
+	}
+	
+	@media (min-width: $screen-sm) {
+		li {
+			background: none;
+			border-bottom: none;
+			display: inline-block;
+			margin-left: 15px;
+			
+			&:first-child {
+				margin-left: 0;
 			}
+		}
+		
+		a {
+			background: none;
+			color: $link-color;
+			display: inline-block;
+			padding: 0;
+		}
+		
+		.dropdown-menu {
+			position: absolute;
 			
 			a {
-				background: transparent;
-				color: $anchor-font-color;
-				display: inline;
-				padding: 0;	
-				
-				&:hover {
-					color: $anchor-font-color-hover;
-				}			
+				background: none;
 			}
 		}
 	}
