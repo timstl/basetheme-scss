@@ -1,8 +1,3 @@
-<?php
-/**
- * The template for displaying Archive pages.
- *
-*/
 <?php get_header(); ?>
 
 <main id="main" class="site-main" role="main">
