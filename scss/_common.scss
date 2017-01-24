@@ -1,3 +1,10 @@
+a.skipnav {
+	@include rem(11);
+	display: block;
+	padding: 5px 20px;
+	color: $gray;
+}
+
 .row.no-gutter {
 	margin-right:0;
 	margin-left:0;
