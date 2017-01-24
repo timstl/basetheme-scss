@@ -352,6 +352,24 @@ function custom_oembed_filter($html, $url, $attr, $post_ID) {
 }
 add_filter( 'embed_oembed_html', 'custom_oembed_filter', 10, 4 ) ;
 
+/* button shortcode */
+function _button_shortcode($atts) {
+    $a = shortcode_atts( array(
+        'class' => '',
+        'href' => '',
+        'text' => ''
+    ), $atts );
+	
+	if ($a['class'] != '') { 
+		$a['class'] = ' ' . $a['class'];
+	} else {
+		$a['class'] = ' btn-primary';
+	}
+	
+	return '<a href="' . esc_url($a['href']) . '" class="btn' . strip_tags($a['class']) . '"><span>' . esc_attr($a['text']) . '</span></a>';
+}
+add_shortcode('button', '_button_shortcode');
+
 /* 
 	Usage: the_field_srcset('field_name');
 	ACF field should return Image ID.
