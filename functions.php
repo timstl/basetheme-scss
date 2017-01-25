@@ -347,7 +347,7 @@ function boilerplate_excerpt_length( $length ) {
 //add_filter( 'excerpt_length', 'boilerplate_excerpt_length' );
 
 function custom_oembed_filter($html, $url, $attr, $post_ID) {
-	$return = '<div class="embed-responsive">'.$html.'</div>';
+	$return = '<div class="embed-responsive embed-responsive-16by9">'.$html.'</div>';
  return $return;
 }
 add_filter( 'embed_oembed_html', 'custom_oembed_filter', 10, 4 ) ;
