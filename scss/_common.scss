@@ -16,6 +16,19 @@ a.skipnav {
 	}
 }
 
+.col {
+	margin-bottom: 1em;
+	
+	> img {
+		height: auto;
+		max-width: 100%;
+	}
+	
+	@media (min-width: $screen-sm) {
+		margin-bottom: 0;
+	}
+}
+
 /* make images full width */
 img.full {
 	display: block;
