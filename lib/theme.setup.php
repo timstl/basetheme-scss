@@ -70,7 +70,7 @@ function basetheme_enqueue()
 {
 	// add font enqueue here, before base-style.
 	//wp_enqueue_style( 'fonts', '', array() );
-	wp_enqueue_style( 'base-style', get_template_directory_uri() . '/dist/app.css', array(), cache_bust() );
+	wp_enqueue_style( 'base-style', get_template_directory_uri() . '/dist/style.css', array(), cache_bust() );
 
 	wp_deregister_script('jquery');
 	wp_register_script('jquery', get_template_directory_uri() . '/js/vendor/jquery.min.js', array(), null);
