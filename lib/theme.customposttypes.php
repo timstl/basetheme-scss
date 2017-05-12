@@ -42,4 +42,3 @@
 
 // Hook into the 'init' action
 add_action( 'init', 'basetheme_custom_post_types', 0 );*/
-?>
