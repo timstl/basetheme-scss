@@ -18,9 +18,8 @@
 			<div class="copyright">&copy; <?php echo date('Y'); ?></div>
 		</div>
 	</footer>
-<?php
-	wp_footer();
-?>
+<?php wp_footer(); ?>
+<?php theme_custom_scripts_css('footer'); ?>
 </div>
 </body>
 </html>
