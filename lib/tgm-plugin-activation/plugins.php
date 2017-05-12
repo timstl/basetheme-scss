@@ -123,7 +123,7 @@ function _bt_register_required_plugins() {
 	);
 
 	// Change this to your theme text domain, used for internationalising strings
-	$theme_text_domain = 'basetheme-scss';
+	$theme_text_domain = 'basetheme';
 
 	/**
 	 * Array of configuration settings. Amend each line as needed.
@@ -133,7 +133,7 @@ function _bt_register_required_plugins() {
 	 * end of each line for what each argument will be.
 	 */
 	$config = array(
-		'id'           => 'basetheme-scss',                 // Unique ID for hashing notices for multiple instances of TGMPA.
+		'id'           => 'basetheme',                 // Unique ID for hashing notices for multiple instances of TGMPA.
 		'default_path' => '',                      // Default absolute path to bundled plugins.
 		'menu'         => 'tgmpa-install-plugins', // Menu slug.
 		'parent_slug'  => 'themes.php',            // Parent menu slug.
@@ -144,65 +144,65 @@ function _bt_register_required_plugins() {
 		'is_automatic' => false,                   // Automatically activate plugins after installation or not.
 		'message'      => '',                      // Message to output right before the plugins table.
 		'strings'      => array(
-			'page_title'                      => __( 'Install Required Plugins', 'basetheme-scss' ),
-			'menu_title'                      => __( 'Install Plugins', 'basetheme-scss' ),
-			'installing'                      => __( 'Installing Plugin: %s', 'basetheme-scss' ),
-			'updating'                        => __( 'Updating Plugin: %s', 'basetheme-scss' ),
-			'oops'                            => __( 'Something went wrong with the plugin API.', 'basetheme-scss' ),
+			'page_title'                      => __( 'Install Required Plugins', 'basetheme' ),
+			'menu_title'                      => __( 'Install Plugins', 'basetheme' ),
+			'installing'                      => __( 'Installing Plugin: %s', 'basetheme' ),
+			'updating'                        => __( 'Updating Plugin: %s', 'basetheme' ),
+			'oops'                            => __( 'Something went wrong with the plugin API.', 'basetheme' ),
 			'notice_can_install_required'     => _n_noop(
 				'This theme requires the following plugin: %1$s.',
 				'This theme requires the following plugins: %1$s.',
-				'basetheme-scss'
+				'basetheme'
 			),
 			'notice_can_install_recommended'  => _n_noop(
 				'This theme recommends the following plugin: %1$s.',
 				'This theme recommends the following plugins: %1$s.',
-				'basetheme-scss'
+				'basetheme'
 			),
 			'notice_ask_to_update'            => _n_noop(
 				'The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s.',
 				'The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s.',
-				'basetheme-scss'
+				'basetheme'
 			),
 			'notice_ask_to_update_maybe'      => _n_noop(
 				'There is an update available for: %1$s.',
 				'There are updates available for the following plugins: %1$s.',
-				'basetheme-scss'
+				'basetheme'
 			),
 			'notice_can_activate_required'    => _n_noop(
 				'The following required plugin is currently inactive: %1$s.',
 				'The following required plugins are currently inactive: %1$s.',
-				'basetheme-scss'
+				'basetheme'
 			),
 			'notice_can_activate_recommended' => _n_noop(
 				'The following recommended plugin is currently inactive: %1$s.',
 				'The following recommended plugins are currently inactive: %1$s.',
-				'basetheme-scss'
+				'basetheme'
 			),
 			'install_link'                    => _n_noop(
 				'Begin installing plugin',
 				'Begin installing plugins',
-				'basetheme-scss'
+				'basetheme'
 			),
 			'update_link' 					  => _n_noop(
 				'Begin updating plugin',
 				'Begin updating plugins',
-				'basetheme-scss'
+				'basetheme'
 			),
 			'activate_link'                   => _n_noop(
 				'Begin activating plugin',
 				'Begin activating plugins',
-				'basetheme-scss'
+				'basetheme'
 			),
-			'return'                          => __( 'Return to Required Plugins Installer', 'basetheme-scss' ),
-			'plugin_activated'                => __( 'Plugin activated successfully.', 'basetheme-scss' ),
-			'activated_successfully'          => __( 'The following plugin was activated successfully:', 'basetheme-scss' ),
-			'plugin_already_active'           => __( 'No action taken. Plugin %1$s was already active.', 'basetheme-scss' ),
-			'plugin_needs_higher_version'     => __( 'Plugin not activated. A higher version of %s is needed for this theme. Please update the plugin.', 'basetheme-scss' ),
-			'complete'                        => __( 'All plugins installed and activated successfully. %1$s', 'basetheme-scss' ),
-			'dismiss'                         => __( 'Dismiss this notice', 'basetheme-scss' ),
-			'notice_cannot_install_activate'  => __( 'There are one or more required or recommended plugins to install, update or activate.', 'basetheme-scss' ),
-			'contact_admin'                   => __( 'Please contact the administrator of this site for help.', 'basetheme-scss' ),
+			'return'                          => __( 'Return to Required Plugins Installer', 'basetheme' ),
+			'plugin_activated'                => __( 'Plugin activated successfully.', 'basetheme' ),
+			'activated_successfully'          => __( 'The following plugin was activated successfully:', 'basetheme' ),
+			'plugin_already_active'           => __( 'No action taken. Plugin %1$s was already active.', 'basetheme' ),
+			'plugin_needs_higher_version'     => __( 'Plugin not activated. A higher version of %s is needed for this theme. Please update the plugin.', 'basetheme' ),
+			'complete'                        => __( 'All plugins installed and activated successfully. %1$s', 'basetheme' ),
+			'dismiss'                         => __( 'Dismiss this notice', 'basetheme' ),
+			'notice_cannot_install_activate'  => __( 'There are one or more required or recommended plugins to install, update or activate.', 'basetheme' ),
+			'contact_admin'                   => __( 'Please contact the administrator of this site for help.', 'basetheme' ),
 
 			'nag_type'                        => '', // Determines admin notice type - can only be one of the typical WP notice classes, such as 'updated', 'update-nag', 'notice-warning', 'notice-info' or 'error'. Some of which may not work as expected in older WP versions.
 			)

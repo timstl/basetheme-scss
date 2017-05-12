@@ -70,7 +70,7 @@ class BT_GravityForm_Widget extends SiteOrigin_Widget {
 	
 			// The $widget_options array, which is passed through to WP_Widget.
 			array(
-				'description' => __('A widget for displaying a gravity form.', 'gravity-form-widget-text-domain'),
+				'description' => __('A widget for displaying a gravity form.', 'basetheme'),
 				'panels_icon' => 'widget-icon dashicons basetheme-so-dashicon basetheme-so-dashicon-gravity-form'
 			),
 	

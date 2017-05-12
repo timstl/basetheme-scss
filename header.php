@@ -15,7 +15,7 @@
 </head>
 <body <?php body_class(); ?>>
 <div id="wrapper">
-	<a href="#main" class="sr-only sr-only-focusable skipnav"><?php _e('Skip to main content'); ?></a>
+	<a href="#main" class="sr-only sr-only-focusable skipnav"><?php _e('Skip to main content', 'basetheme'); ?></a>
 	<header id="header" class="clearfix">
 		<div class="container">
 			<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="Home" id="logo"><?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?></a>

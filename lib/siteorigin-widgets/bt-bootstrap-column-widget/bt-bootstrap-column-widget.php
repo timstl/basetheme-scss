@@ -22,7 +22,7 @@ class BT_BootstrapColumn_Widget extends SiteOrigin_Widget {
 			'columns' => array(
 				'type' => 'repeater',
 				'label' => __( 'A bootstrap row with columns.' , 'basetheme' ),
-				'item_name'  => __( 'Column', 'siteorigin-widgets' ),
+				'item_name'  => __( 'Column', 'basetheme' ),
 				'fields' => array(
 					'classes' => array(
 						'type' => 'text',
@@ -58,7 +58,7 @@ class BT_BootstrapColumn_Widget extends SiteOrigin_Widget {
 	
 			// The $widget_options array, which is passed through to WP_Widget.
 			array(
-				'description' => __('A widget for inserting bootstrap columns.', 'bootstrap-column-widget-text-domain'),
+				'description' => __('A widget for inserting bootstrap columns.', 'basetheme'),
 				'panels_icon' => 'widget-icon dashicons basetheme-so-dashicon basetheme-so-dashicon-bootstrap-column'
 			),
 	

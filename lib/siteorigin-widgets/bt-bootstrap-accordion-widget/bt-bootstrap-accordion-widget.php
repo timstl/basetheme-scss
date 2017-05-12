@@ -15,7 +15,7 @@ class BT_BootstrapAccordion_Widget extends SiteOrigin_Widget {
 			'accordion' => array(
 				'type' => 'repeater',
 				'label' => __( 'A bootstrap accordion.' , 'basetheme' ),
-				'item_name'  => __( 'Accordion Item', 'siteorigin-widgets' ),
+				'item_name'  => __( 'Accordion Item', 'basetheme' ),
 				'fields' => array(
 					'title' => array(
 						'type' => 'text',
@@ -39,7 +39,7 @@ class BT_BootstrapAccordion_Widget extends SiteOrigin_Widget {
 	
 			// The $widget_options array, which is passed through to WP_Widget.
 			array(
-				'description' => __('An accordion widget using customized bootstrap panels.', 'bootstrap-accordion-widget-text-domain'),
+				'description' => __('An accordion widget using customized bootstrap panels.', 'basetheme'),
 				'panels_icon' => 'widget-icon dashicons basetheme-so-dashicon basetheme-so-dashicon-bootstrap-accordion'
 			),
 	

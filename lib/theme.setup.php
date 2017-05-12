@@ -8,7 +8,7 @@ function basetheme_setup() {
 
 	add_theme_support( 'automatic-feed-links' );
 
-	load_theme_textdomain( 'basetheme-scss', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'basetheme', get_template_directory() . '/languages' );
 
 	add_theme_support( 'title-tag' );	
 
@@ -23,8 +23,8 @@ function basetheme_setup() {
 
 	// Register nav menus.
 	register_nav_menus( array(
-		'mainnav' => __( 'Main Navigation', 'basetheme-scss' ),
-		'footernav' => __( 'Footer Navigation', 'basetheme-scss' )
+		'mainnav' => __( 'Main Navigation', 'basetheme' ),
+		'footernav' => __( 'Footer Navigation', 'basetheme' )
 	) );
 
 	add_theme_support( 'html5', array(
@@ -45,18 +45,18 @@ add_action( 'after_setup_theme', 'basetheme_setup' );
 function basetheme_widgets_init() 
 {
 	register_sidebar( array(
-		'name' => __( 'Blog Sidebar Widget Area', 'basetheme-scss' ),
+		'name' => __( 'Blog Sidebar Widget Area', 'basetheme' ),
 		'id' => 'blog-sidebar-widget-area',
-		'description' => __( 'The blog widget area', 'basetheme-scss' ),
+		'description' => __( 'The blog widget area', 'basetheme' ),
 		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
 		'after_widget' => '</li>',
 		'before_title' => '<h4 class="widget-title">',
 		'after_title' => '</h4>',
 	) );
 	register_sidebar( array(
-		'name' => __( 'Page Sidebar Widget Area', 'basetheme-scss' ),
+		'name' => __( 'Page Sidebar Widget Area', 'basetheme' ),
 		'id' => 'page-sidebar-widget-area',
-		'description' => __( 'The page widget area', 'basetheme-scss' ),
+		'description' => __( 'The page widget area', 'basetheme' ),
 		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
 		'after_widget' => '</li>',
 		'before_title' => '<h4 class="widget-title">',

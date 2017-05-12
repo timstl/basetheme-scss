@@ -21,7 +21,7 @@ class BT_Responsive_Video_Widget extends SiteOrigin_Widget {
 	
 			// The $widget_options array, which is passed through to WP_Widget.
 			array(
-				'description' => __('A responsive video with bootstrap and custom classes.', 'basetheme-responsive-video-widget-text-domain'),
+				'description' => __('A responsive video with bootstrap and custom classes.', 'basetheme'),
 				'panels_icon' => 'widget-icon dashicons basetheme-so-dashicon basetheme-so-dashicon-basetheme-button'
 			),
 	

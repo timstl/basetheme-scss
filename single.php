@@ -26,16 +26,16 @@ get_header(); ?>
 			if ( is_singular( 'attachment' ) ) {
 				// Parent post navigation.
 				the_post_navigation( array(
-					'prev_text' => _x( '<span class="meta-nav">Published in</span><span class="post-title">%title</span>', 'Parent post link', 'basetheme-scss' ),
+					'prev_text' => _x( '<span class="meta-nav">Published in</span><span class="post-title">%title</span>', 'Parent post link', 'basetheme' ),
 				) );
 			} elseif ( is_singular( 'post' ) ) {
 				// Previous/next post navigation.
 				the_post_navigation( array(
-					'next_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Next', 'basetheme-scss' ) . '</span> ' .
-						'<span class="screen-reader-text">' . __( 'Next post:', 'basetheme-scss' ) . '</span> ' .
+					'next_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Next', 'basetheme' ) . '</span> ' .
+						'<span class="screen-reader-text">' . __( 'Next post:', 'basetheme' ) . '</span> ' .
 						'<span class="post-title">%title</span>',
-					'prev_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Previous', 'basetheme-scss' ) . '</span> ' .
-						'<span class="screen-reader-text">' . __( 'Previous post:', 'basetheme-scss' ) . '</span> ' .
+					'prev_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Previous', 'basetheme' ) . '</span> ' .
+						'<span class="screen-reader-text">' . __( 'Previous post:', 'basetheme' ) . '</span> ' .
 						'<span class="post-title">%title</span>',
 				) );
 			}

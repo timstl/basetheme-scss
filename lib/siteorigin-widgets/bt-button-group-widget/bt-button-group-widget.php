@@ -15,7 +15,7 @@ class BT_ButtonGroup_Widget extends SiteOrigin_Widget {
 			'buttons' => array(
 				'type' => 'repeater',
 				'label' => __( 'A group of buttons with bootstrap and custom classes.' , 'basetheme' ),
-				'item_name'  => __( 'Button', 'siteorigin-widgets' ),
+				'item_name'  => __( 'Button', 'basetheme' ),
 				'fields' => array(
 					'text' => array(
 						'type' => 'text',
@@ -63,7 +63,7 @@ class BT_ButtonGroup_Widget extends SiteOrigin_Widget {
 	
 			// The $widget_options array, which is passed through to WP_Widget.
 			array(
-				'description' => __('A Button Group Widget.', 'basetheme-button-group-widget-text-domain'),
+				'description' => __('A Button Group Widget.', 'basetheme'),
 				'panels_icon' => 'widget-icon dashicons basetheme-so-dashicon basetheme-so-dashicon-basetheme-button-group'
 			),
 	

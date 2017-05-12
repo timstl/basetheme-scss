@@ -49,7 +49,7 @@ class BT_CycleSlideshow_Widget extends SiteOrigin_Widget {
 	
 			// The $widget_options array, which is passed through to WP_Widget.
 			array(
-				'description' => __('A slideshow widget using cycle2.', 'cycle-slideshow-widget-text-domain'),
+				'description' => __('A slideshow widget using cycle2.', 'basetheme'),
 				'panels_icon' => 'widget-icon dashicons basetheme-so-dashicon basetheme-so-dashicon-cycle-slideshow'
 			),
 	

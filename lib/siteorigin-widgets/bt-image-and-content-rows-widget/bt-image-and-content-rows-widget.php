@@ -22,7 +22,7 @@ class BT_ImageAndContentRow_Widget extends SiteOrigin_Widget {
 			'rows' => array(
 				'type' => 'repeater',
 				'label' => __( 'An image + content row.' , 'basetheme' ),
-				'item_name'  => __( 'Row', 'siteorigin-widgets' ),
+				'item_name'  => __( 'Row', 'basetheme' ),
 				'fields' => array(
 					'thumbnail' => array(
 						'type' => 'media',
@@ -46,7 +46,7 @@ class BT_ImageAndContentRow_Widget extends SiteOrigin_Widget {
 	
 			// The $widget_options array, which is passed through to WP_Widget.
 			array(
-				'description' => __('A widget for displaying rows of thumbnails + content.', 'image-and-content-rows-widget-text-domain'),
+				'description' => __('A widget for displaying rows of thumbnails + content.', 'basetheme'),
 				'panels_icon' => 'widget-icon dashicons basetheme-so-dashicon basetheme-so-dashicon-image-and-content-rows'
 			),
 	

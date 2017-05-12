@@ -21,7 +21,7 @@ class BT_Button_Widget extends SiteOrigin_Widget {
 	
 			// The $widget_options array, which is passed through to WP_Widget.
 			array(
-				'description' => __('A single button with bootstrap and custom classes.', 'basetheme-button-widget-text-domain'),
+				'description' => __('A single button with bootstrap and custom classes.', 'basetheme'),
 				'panels_icon' => 'widget-icon dashicons basetheme-so-dashicon basetheme-so-dashicon-basetheme-button'
 			),
 	
