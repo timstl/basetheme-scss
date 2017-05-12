@@ -85,7 +85,16 @@ function _bt_register_required_plugins() {
 			'external_url' 			=> 'http://www.advancedcustomfields.com/my-account/', // If set, overrides default API URL and points to an external URL
 		),
 				
-		// This is an example of how to include a plugin from the WordPress Plugin Repository
+		array(
+			'name' 		=> 'Page Builder  by SiteOrigin',
+			'slug' 		=> 'siteorigin-panels',
+			'required' 	=> false		
+		),
+		array(
+			'name' 		=> 'SiteOrigin Widgets Bundle',
+			'slug' 		=> 'so-widgets-bundle',
+			'required' 	=> false		
+		),
 		array(
 			'name' 		=> 'WordPress SEO by Yoast',
 			'slug' 		=> 'wordpress-seo',
