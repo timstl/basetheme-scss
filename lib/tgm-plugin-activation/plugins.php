@@ -114,11 +114,6 @@ function _bt_register_required_plugins() {
 			'name' 		=> 'Simple 301 Redirects',
 			'slug' 		=> 'simple-301-redirects',
 			'required' 	=> false			
-		),
-		array(
-			'name' 		=> 'Remove XMLRPC Pingback Ping',
-			'slug' 		=> 'remove-xmlrpc-pingback-ping',
-			'required' 	=> false
 		)
 	);
 
