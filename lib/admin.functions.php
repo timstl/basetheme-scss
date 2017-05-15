@@ -1,10 +1,5 @@
 <?php
 /*
-Automated plugin notifications
-*/
-require_once(get_template_directory().'/lib/tgm-plugin-activation/plugins.php');
-
-/*
 Enqueue an admin-specific css file.
 */
 function admin_scripts(){
