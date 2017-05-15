@@ -33,8 +33,3 @@ include(get_template_directory() . '/lib/theme.shortcodes.php');
 
 /* Siteorigin hooks */
 include(get_template_directory() . '/lib/siteorigin-widgets/siteorigin.hooks.php');
-
-/* Admin */
-if (is_admin()) { 
-	require_once(get_template_directory() . '/lib/admin.functions.php'); 
-}
