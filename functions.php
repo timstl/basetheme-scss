@@ -10,9 +10,6 @@ function cache_bust() { return '050317'; }
 	Functions and hooks should go in these files, not in functions.php.
 */
 
-/* Cleanup WordPress */
-include(get_template_directory() . '/lib/theme.cleanup.php');
-
 /* Setup menus, sidebars, scripts, etc. */
 include(get_template_directory() . '/lib/theme.setup.php');
 
