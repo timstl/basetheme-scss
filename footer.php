@@ -19,7 +19,6 @@
 		</div>
 	</footer>
 <?php wp_footer(); ?>
-<?php if (function_exists('theme_custom_scripts_css')) { theme_custom_scripts_css('footer'); } ?>
 </div>
 </body>
 </html>

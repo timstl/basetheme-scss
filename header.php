@@ -11,7 +11,6 @@
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 
 	<?php wp_head(); ?>
-	<?php if (function_exists('theme_custom_scripts_css')) { theme_custom_scripts_css('header'); } ?>
 </head>
 <body <?php body_class(); ?>>
 <div id="wrapper">

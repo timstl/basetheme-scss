@@ -35,16 +35,6 @@ if (!function_exists('alt_title')) :
 endif;
 
 /* 
-	Output site-wide and page-specific custom scripts in header and footer 
-*/
-if (!function_exists('theme_custom_scripts_css') && function_exists('the_field')) {
-	function theme_custom_scripts_css($location = 'header') {
-		the_field('custom_' . $location . '_scripts', 'options');
-		the_field('custom_' . $location . '_scripts');
-	}
-}
-
-/* 
 	Usage: the_field_srcset('field_name');
 	ACF field should return Image ID.
 */

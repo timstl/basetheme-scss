@@ -3,7 +3,6 @@
 Automated plugin notifications
 */
 require_once(get_template_directory().'/lib/tgm-plugin-activation/plugins.php');
-require_once(get_template_directory().'/lib/admin.acf.php');
 
 /*
 Enqueue an admin-specific css file.
