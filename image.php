@@ -9,7 +9,6 @@
 
 get_header(); ?>
 		<main id="main" class="site-main" role="main">
-			<div class="container">
 			<?php
 				// Start the loop.
 				while ( have_posts() ) : the_post();
@@ -103,7 +102,6 @@ get_header(); ?>
 				endwhile;
 			?>
 			<?php get_sidebar(); ?>
-			</div><!-- .content-area -->
 		</main><!-- .site-main -->
 
 <?php get_footer(); ?>

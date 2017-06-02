@@ -14,18 +14,16 @@
 
 get_header(); ?>
 <main id="main" class="site-main" role="main">
-	<div class="container">
-		<?php
-		// Start the loop.
-		while ( have_posts() ) : the_post();
+<?php
+// Start the loop.
+while ( have_posts() ) : the_post();
 
-			// Include the page content template.
-			get_template_part( 'template-parts/content', 'page' );
+	// Include the page content template.
+	get_template_part( 'template-parts/content', 'page' );
 
-			// End of the loop.
-		endwhile;
-		?>
-	</div>
+	// End of the loop.
+endwhile;
+?>
 </main>
 
 <?php get_footer(); ?>
