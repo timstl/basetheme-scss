@@ -1,6 +1,6 @@
 <?php if ($instance['container']) { ?><div class="container"><?php } ?>
-<?php if ($instance['content']) { echo $instance['content']; } ?>
-<div class="row">
+<?php if ($instance['content']) { ?><div class="row"><div class="col col-sm-24"><?php echo wpautop($instance['content']); ?></div></div><?php } ?>
+<div class="row bt-bootstrap-column-widget-row">
 <?php foreach( $instance['columns'] as $column ) : ?>
 	<?php 
 	$class = 'col'; 
@@ -9,9 +9,11 @@
 	}
 	?>
 	<div class="<?php echo $class; ?>">
-		<?php echo $column['content']; ?>
+		<div class="in">
+			<?php echo wpautop($column['content']); ?>
+		</div>
 	</div>
 <?php endforeach; ?>
 </div>
-<?php if ($instance['content_below']) { echo $instance['content_below']; } ?>
+<?php if ($instance['content_below']) { echo wpautop($instance['content_below']); } ?>
 <?php if ($instance['container']) { ?></div><?php } ?>

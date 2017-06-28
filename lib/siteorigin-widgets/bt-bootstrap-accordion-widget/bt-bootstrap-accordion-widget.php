@@ -12,6 +12,13 @@ class BT_BootstrapAccordion_Widget extends SiteOrigin_Widget {
 		//Here you can do any preparation required before calling the parent constructor, such as including additional files or initializing variables.
 
 		$form_options = array(
+			'content' => array(
+				'type' => 'tinymce',
+				'default_editor' => 'tmce',
+				'label' => __('Content', 'basetheme'),
+				'description' => 'Optional content above accordions.',
+				'default' => ''
+			),
 			'accordion' => array(
 				'type' => 'repeater',
 				'label' => __( 'A bootstrap accordion.' , 'basetheme' ),
@@ -19,11 +26,21 @@ class BT_BootstrapAccordion_Widget extends SiteOrigin_Widget {
 				'fields' => array(
 					'title' => array(
 						'type' => 'text',
-						'label' => __( 'Accordion Title', 'basetheme' )
+						'label' => __( 'Title / Trigger', 'basetheme' )
+					),
+					'subtitle' => array(
+						'type' => 'text',
+						'label' => __( 'Subtitle', 'basetheme' )
 					),
 					'content' => array(
 						'type' => 'tinymce',
-						'label' => __( 'Accordion Content', 'basetheme' )
+						'label' => __( 'Content', 'basetheme' )
+					),
+					'open' => array(
+						'type' => 'checkbox',
+						'label' => __( 'Open on load.', 'basetheme' ),
+						'description' => __( 'Note: Only one accordion should be marked to open on load.', 'basetheme' ),
+						'default' => false
 					)
 				)
 			)

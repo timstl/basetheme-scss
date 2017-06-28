@@ -31,12 +31,62 @@ class BT_CycleSlideshow_Widget extends SiteOrigin_Widget {
 				'label' => __( 'Cycle Slideshow' , 'basetheme' ),
 				'item_name'  => __( 'Slide', 'basetheme' ),
 				'fields' => array(
+					'slide_type'	=> array(
+						'type'	=> 'select',
+						'default' => 'image',
+						'label'   => __( 'Slide Type', 'basetheme' ),
+						'options' => array(
+							'image'		=> __( 'Image', 'basetheme' ),
+							'embed'		=> __( 'Embed', 'basetheme' ),
+							'editor'	=> __( 'Editor', 'basetheme' ),
+						),
+						'state_emitter' => array(
+							'callback' => 'select',
+							'args' => array( 'slide_type_{$repeater}' )
+						),
+					),
 					'image' => array(
 						'type' => 'media',
-						'label' => __( 'Image', 'basetheme' )
+						'label' => __( 'Image', 'basetheme' ),
+						'state_handler' => array(
+							'slide_type_{$repeater}[image]' => array('show'),
+							'_else[slide_type_{$repeater}]' => array( 'hide' ),
+						)
+					),
+					'embed' => array(
+						'type' => 'tinymce',
+						'default_editor' => 'html',
+						'label' => __('Video Embed', 'basetheme'),
+						'description' => 'iframe, video, embed, or object tag. Or another element with .embed-responsive-item class',
+						'default' => '',
+						'state_handler' => array(
+							'slide_type_{$repeater}[embed]' => array('show'),
+							'_else[slide_type_{$repeater}]' => array( 'hide' ),
+						)
+					),
+					'ratio' => array(
+						'type' => 'radio',
+						'label' => __('Aspect Ratio', 'basetheme'),
+						'options' => array('16by9' => '16:9', '4by3' => '4:3'),
+						'default' => '16by9',
+						'state_handler' => array(
+							'slide_type_{$repeater}[embed]' => array('show'),
+							'_else[slide_type_{$repeater}]' => array( 'hide' ),
+						)
+					),
+					'editor' => array(
+						'type' => 'tinymce',
+						'default_editor' => 'html',
+						'label' => __('Content', 'basetheme'),
+						'description' => '',
+						'default' => '',
+						'state_handler' => array(
+							'slide_type_{$repeater}[editor]' => array('show'),
+							'_else[slide_type_{$repeater}]' => array( 'hide' ),
+						)
 					)
 				)
-			)
+			),
 		);
 			
 		//Call the parent constructor with the required arguments.

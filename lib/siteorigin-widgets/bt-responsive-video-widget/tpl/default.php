@@ -1,6 +1,9 @@
-<?php
-$classes = array('embed-responsive', 'embed-responsive-'.strip_tags($instance['ratio']));
+<?php 
+if ($instance['content']) { 
+	echo wpautop($instance['content']); 
+}
 
+$classes = array('embed-responsive', 'embed-responsive-'.strip_tags($instance['ratio']));
 if ($instance['class_custom']) {
 	$classes[] = strip_tags($instance['class_custom']);
 }

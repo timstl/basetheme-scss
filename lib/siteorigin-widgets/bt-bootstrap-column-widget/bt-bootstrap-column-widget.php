@@ -14,7 +14,7 @@ class BT_BootstrapColumn_Widget extends SiteOrigin_Widget {
 		$form_options = array(
 			'content' => array(
 				'type' => 'tinymce',
-				'default_editor' => 'html',
+				'default_editor' => 'tmce',
 				'label' => __('Content - Above Columns', 'basetheme'),
 				'description' => 'Optional content above columns.',
 				'default' => ''
@@ -24,19 +24,20 @@ class BT_BootstrapColumn_Widget extends SiteOrigin_Widget {
 				'label' => __( 'A bootstrap row with columns.' , 'basetheme' ),
 				'item_name'  => __( 'Column', 'basetheme' ),
 				'fields' => array(
-					'classes' => array(
-						'type' => 'text',
-						'label' => __( 'Column classes', 'basetheme' )
-					),
 					'content' => array(
 						'type' => 'tinymce',
+						'default_editor' => 'tmce',
 						'label' => __( 'Column Content', 'basetheme' )
+					),
+					'classes' => array(
+						'type' => 'text',
+						'label' => __( 'Column classes (Based on 24 column Grid)', 'basetheme' )
 					)
 				)
 			),
 			'content_below' => array(
 				'type' => 'tinymce',
-				'default_editor' => 'html',
+				'default_editor' => 'tmce',
 				'label' => __('Content - Below Columns', 'basetheme'),
 				'description' => 'Optional content below columns.',
 				'default' => ''

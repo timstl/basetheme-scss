@@ -14,7 +14,7 @@ class BT_ImageAndContentRow_Widget extends SiteOrigin_Widget {
 		$form_options = array(
 			'content' => array(
 				'type' => 'tinymce',
-				'default_editor' => 'html',
+				'default_editor' => 'tmce',
 				'label' => __('Content', 'basetheme'),
 				'description' => 'Optional content above rows.',
 				'default' => ''
@@ -30,6 +30,7 @@ class BT_ImageAndContentRow_Widget extends SiteOrigin_Widget {
 					),
 					'content' => array(
 						'type' => 'tinymce',
+						'default_editor' => 'tmce',
 						'label' => __( 'Content', 'basetheme' )
 					)
 				)

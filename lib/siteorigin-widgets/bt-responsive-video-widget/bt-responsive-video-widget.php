@@ -31,6 +31,13 @@ class BT_Responsive_Video_Widget extends SiteOrigin_Widget {
 	
 			//The $form_options array, which describes the form fields used to configure SiteOrigin widgets. We'll explain these in more detail later.
 			array(
+				'content' => array(
+					'type' => 'tinymce',
+					'default_editor' => 'tmce',
+					'label' => __('Content', 'basetheme'),
+					'description' => 'Optional content above video.',
+					'default' => ''
+				),
 				'embed' => array(
 					'type' => 'tinymce',
 					'default_editor' => 'html',
