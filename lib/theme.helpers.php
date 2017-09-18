@@ -236,6 +236,11 @@ function twentysixteen_categorized_blog() {
 	}
 }
 
+/* Output site-wide and page-specific custom scripts in header and footer */
+function theme_custom_scripts_css($location = 'header') {
+	the_field('custom_' . $location . '_scripts', 'options');
+	the_field('custom_' . $location . '_scripts');
+}
 /*** HOOKS ***/
 /* 
 	Responsive Embed filter. Assumes 16:9 
