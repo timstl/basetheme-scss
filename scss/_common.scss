@@ -50,15 +50,3 @@ img.full {
 		}
 	}	
 }
-
-@include media-breakpoint-up(md) {
-	/* vertical center items using flexbox */
-	.vcenter {
-		@include flexbox();
-		@include align-items(center);
-		
-		.no-flexbox & {
-			display: block;
-		}
-	}
-}
