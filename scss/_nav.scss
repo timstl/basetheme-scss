@@ -6,7 +6,7 @@
 		background: none;
 		border: none;
 
-		@media (min-width: $screen-sm) {
+		@include media-breakpoint-up(sm) {
 			float: right;
 		}
 	}
@@ -16,8 +16,8 @@
 	@include zerolist();
 	
 	li {
-		background: $brand-primary;
-		border-bottom: 1px solid $gray-lighter;
+		background: $primary;
+		border-bottom: 1px solid $gray-600;
 		@include zerolist();
 	}
 	
@@ -44,11 +44,11 @@
 		}
 		
 		a {
-			background: $brand-primary;
+			background: $primary;
 		}
 	}
 	
-	@media (min-width: $screen-sm) {
+	@include media-breakpoint-up(sm) {
 		li {
 			background: none;
 			border-bottom: none;

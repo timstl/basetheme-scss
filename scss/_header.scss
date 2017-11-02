@@ -7,7 +7,7 @@
 		text-align: center;
 	}
 	
-	@media (min-width: $screen-sm) {
+	@include media-breakpoint-up(sm) {
 		#logo {
 			float: left;
 			margin: 0;

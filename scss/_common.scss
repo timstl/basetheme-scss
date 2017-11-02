@@ -2,7 +2,7 @@ a.skipnav {
 	@include rem(11);
 	display: block;
 	padding: 5px 20px;
-	color: $gray-light;
+	color: $gray-600;
 }
 
 /* columns with no gutters */
@@ -24,7 +24,7 @@ a.skipnav {
 		max-width: 100%;
 	}
 	
-	@media (min-width: $screen-sm) {
+	@include media-breakpoint-up(sm) {
 		margin-bottom: 0;
 	}
 }
@@ -36,7 +36,7 @@ img.full {
 	width: 100%;
 }
 
-@media (min-width: $screen-md) {
+@include media-breakpoint-up(md) {
 	/* equal height columns using table cells */
 	.col-equalize {
 		display: table;
@@ -51,7 +51,7 @@ img.full {
 	}	
 }
 
-@media (min-width: $screen-md) {
+@include media-breakpoint-up(md) {
 	/* vertical center items using flexbox */
 	.vcenter {
 		@include flexbox();
