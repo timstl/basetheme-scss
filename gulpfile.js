@@ -63,7 +63,7 @@ gulp.task("compileSass", function(){
 
 gulp.task('lint', function() {
 	return gulp.src('js/footer/custom/*.js')
-		.pipe($.jshint())
+		.pipe($.jshint({esversion: 6}))
 		.pipe($.notify(function (file) {
 			if (file.jshint.success) {
 				return false;
