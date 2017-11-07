@@ -1,5 +1,5 @@
 "use strict";
-var URL = 'http://127.0.0.1:8080/basetheme';
+var URL = 'http://127.0.0.1:8080/lg';
 
 var $ = require('gulp-load-plugins')(),
 	gulp = require('gulp'),
@@ -10,6 +10,7 @@ var $ = require('gulp-load-plugins')(),
 	concat = require('gulp-concat'),
 	uglify = require('gulp-uglify'),
 	cleanCSS    = require('gulp-clean-css'),
+	babel = require('gulp-babel'),
 	browserSync = require('browser-sync').create();;
 
 /* For autoprefixer */
@@ -78,7 +79,7 @@ gulp.task('lint', function() {
 });
 
 gulp.task('scriptshead', function() {
-	return gulp.src(['./js/head/**/*.js', '!js/**/jquery.min.js'])
+	return gulp.src(['./js/head/vendor/jquery.min.js', './js/head/vendor/*.js', './js/head/vendor/bootstrap/*.js', './js/head/custom/*.js', './js/head/**/*.js'])
 	.pipe(concat('head.min.js'))
 	.pipe(uglify())
 	.pipe(gulp.dest('./dist/'))
@@ -86,8 +87,9 @@ gulp.task('scriptshead', function() {
 });
 
 gulp.task('scriptsfooter', function() {
-  return gulp.src(['./js/footer/**/*.js', '!js/**/jquery.min.js'])
-	.pipe(concat('footer.min.js'))
+  return gulp.src(['./js/footer/bootstrap/*.js', './js/footer/custom/*.js', './js/footer/**/*.js', '!js/**/jquery.min.js'])
+  	.pipe(babel({ presets: ['env'] }))
+  	.pipe(concat('footer.min.js'))
 	.pipe(uglify())
 	.pipe(gulp.dest('./dist/'))
 	.pipe(browserSync.stream());
