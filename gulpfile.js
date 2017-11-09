@@ -79,18 +79,25 @@ gulp.task('lint', function() {
 });
 
 gulp.task('scriptshead', function() {
-	return gulp.src(['./js/head/vendor/jquery.min.js', './js/head/vendor/*.js', './js/head/vendor/bootstrap/*.js', './js/head/custom/*.js', './js/head/**/*.js'])
+	return gulp.src(['./js/head/vendor/jquery.min.js', './js/head/vendor/*.js', './js/head/vendor/bootstrap/*.js', './js/head/custom/*.js', './js/head/**/*.js', '!js/**/jquery.min.js'])
 	.pipe(concat('head.min.js'))
 	.pipe(uglify())
 	.pipe(gulp.dest('./dist/'))
 	.pipe(browserSync.stream());
 });
 
-gulp.task('scriptsfooter', function() {
-  return gulp.src(['./js/footer/bootstrap/*.js', './js/footer/custom/*.js', './js/footer/**/*.js', '!js/**/jquery.min.js'])
-  	.pipe(babel({ presets: ['env'] }))
-  	.pipe(concat('footer.min.js'))
+gulp.task('pluginsfooter', function() {
+	return gulp.src(['./js/footer/bootstrap/*.js', './js/footer/vendor/*.js', './js/footer/vendor/**/*.js', '!js/**/jquery.min.js'])
+	.pipe(concat('plugins.min.js'))
 	.pipe(uglify())
+	.pipe(gulp.dest('./dist/'))
+	.pipe(browserSync.stream());
+});
+
+gulp.task('scriptsfooter', function() {
+	return gulp.src(['./js/footer/custom/*.js', './js/footer/custom/**/*.js', '!js/**/jquery.min.js'])
+	.pipe(babel({ presets: ['env'] }))
+	.pipe(concat('scripts.min.js'))
 	.pipe(gulp.dest('./dist/'))
 	.pipe(browserSync.stream());
 });
@@ -98,8 +105,9 @@ gulp.task('scriptsfooter', function() {
 gulp.task("watchFiles", function() {
 	gulp.watch('scss/**/*.scss', ['compileSass']);
 	gulp.watch('js/head/**/*.js', ['scriptshead']);
-	gulp.watch('js/footer/**/*.js', ['scriptsfooter']);
-	gulp.watch('js/footer/custom*/*.js', ['lint']);
+	gulp.watch('js/footer/vendor/*.js', ['pluginsfooter']);
+	gulp.watch('js/footer/custom/*.js', ['scriptsfooter']);
+	gulp.watch('js/footer/custom/*.js', ['lint']);
 });
 
 gulp.task("default", function() {
