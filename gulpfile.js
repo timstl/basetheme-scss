@@ -1,5 +1,5 @@
 "use strict";
-var URL = 'http://127.0.0.1:8080/lg';
+var URL = 'http://127.0.0.1:8080/basetheme';
 
 var $ = require('gulp-load-plugins')(),
 	gulp = require('gulp'),
@@ -11,7 +11,7 @@ var $ = require('gulp-load-plugins')(),
 	uglify = require('gulp-uglify'),
 	cleanCSS    = require('gulp-clean-css'),
 	babel = require('gulp-babel'),
-	browserSync = require('browser-sync').create();;
+	browserSync = require('browser-sync').create();
 
 /* For autoprefixer */
 var COMPATIBILITY = [
@@ -79,7 +79,7 @@ gulp.task('lint', function() {
 });
 
 gulp.task('scriptshead', function() {
-	return gulp.src(['./js/head/vendor/jquery.min.js', './js/head/vendor/*.js', './js/head/vendor/bootstrap/*.js', './js/head/custom/*.js', './js/head/**/*.js', '!js/**/jquery.min.js'])
+	return gulp.src(['./js/head/vendor/*.js', './js/head/vendor/**/*.js', './js/head/bootstrap/*.js', './js/head/custom/*.js', '!./js/head/vendor/jquery.min.js'])
 	.pipe(concat('head.min.js'))
 	.pipe(uglify())
 	.pipe(gulp.dest('./dist/'))
@@ -87,7 +87,7 @@ gulp.task('scriptshead', function() {
 });
 
 gulp.task('pluginsfooter', function() {
-	return gulp.src(['./js/footer/bootstrap/*.js', './js/footer/vendor/*.js', './js/footer/vendor/**/*.js', '!js/**/jquery.min.js'])
+	return gulp.src(['./js/footer/bootstrap/*.js', './js/footer/vendor/*.js', './js/footer/vendor/**/*.js'])
 	.pipe(concat('plugins.min.js'))
 	.pipe(uglify())
 	.pipe(gulp.dest('./dist/'))
@@ -95,7 +95,7 @@ gulp.task('pluginsfooter', function() {
 });
 
 gulp.task('scriptsfooter', function() {
-	return gulp.src(['./js/footer/custom/*.js', './js/footer/custom/**/*.js', '!js/**/jquery.min.js'])
+	return gulp.src(['./js/footer/custom/*.js', './js/footer/custom/**/*.js'])
 	.pipe(babel({ presets: ['env'] }))
 	.pipe(concat('scripts.min.js'))
 	.pipe(gulp.dest('./dist/'))
@@ -105,7 +105,7 @@ gulp.task('scriptsfooter', function() {
 gulp.task("watchFiles", function() {
 	gulp.watch('scss/**/*.scss', ['compileSass']);
 	gulp.watch('js/head/**/*.js', ['scriptshead']);
-	gulp.watch('js/footer/vendor/*.js', ['pluginsfooter']);
+	gulp.watch('js/footer/**/*.js', ['pluginsfooter']);
 	gulp.watch('js/footer/custom/*.js', ['scriptsfooter']);
 	gulp.watch('js/footer/custom/*.js', ['lint']);
 });

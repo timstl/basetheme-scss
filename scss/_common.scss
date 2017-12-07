@@ -5,48 +5,9 @@ a.skipnav {
 	color: $gray-600;
 }
 
-/* columns with no gutters */
-.row.no-gutter {
-	margin-right:0;
-	margin-left:0;
-
-	> [class*='col-'] {
-		padding-right:0;
-		padding-left:0;
-	}
-}
-
-.col {
-	margin-bottom: 1em;
-	
-	> img {
-		height: auto;
-		max-width: 100%;
-	}
-	
-	@include media-breakpoint-up(sm) {
-		margin-bottom: 0;
-	}
-}
-
 /* make images full width */
 img.full {
 	display: block;
 	height: auto;
 	width: 100%;
-}
-
-@include media-breakpoint-up(md) {
-	/* equal height columns using table cells */
-	.col-equalize {
-		display: table;
-		width: 100%;
-
-		.col-td {
-			float: none;
-			display: table-cell;
-			overflow: hidden;
-			vertical-align: middle;
-		}
-	}	
 }

@@ -21,6 +21,10 @@
 			
 				<div class="collapse navbar-collapse" id="main-nav-container">
 					<?php
+					/* 
+						May need to remove the BootstrapNavMenuWalker and make menus a different way.
+						This entire header/nav setup is from Bootstrap 3, haven't tested with Bootstrap 4 yet
+					*/
 					$args = array(
 						'theme_location' => 'mainnav',
 						'depth'		 => 0,

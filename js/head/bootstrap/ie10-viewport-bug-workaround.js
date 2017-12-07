@@ -21,4 +21,4 @@
     document.head.appendChild(msViewportStyle)
   }
 
-}())
+}());
