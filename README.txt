@@ -1,1 +1,0 @@
-WordPress theme files to build from. Uses portions of Bootstrap. Based on many sources including various WordPress themes, HTML5 Boilerplate, etc.

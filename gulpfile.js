@@ -16,8 +16,7 @@ var $ = require('gulp-load-plugins')(),
 /* For autoprefixer */
 var COMPATIBILITY = [
 	'last 2 versions',
-	'ie >= 9',
-	'Android >= 2.3'
+	'ie >= 10'
 ];
 
 function handleErrors() {
