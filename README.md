@@ -1,4 +1,4 @@
-WordPress theme files to build from. Currently the Bootstrap 4 branch is maintained.
+WordPress theme files to build from. Currently uses Bootstrap 4 Beta 2.
 
 * Download and place in themes folder
 * Rename basetheme-scss folder
@@ -10,6 +10,9 @@ WordPress theme files to build from. Currently the Bootstrap 4 branch is maintai
 * Run ```npm install```
 * Run ```gulp``` to launch browsersync and begin watch tasks.
 * Make sure to use your local URL (not browsersync URL) when working in the admin URL.
+
+# Bootstrap
+Commenting out any files you don't need in scss/_bootstrap.scss will reduce unnecessary bloat from Bootstrap. By default all are enabled.
 
 # Variables
 Override bootstrap variables and create custom variables in scss/_variables.scss. Avoid editing scss bootstrap files themselves.
