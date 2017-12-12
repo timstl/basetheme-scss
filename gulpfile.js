@@ -47,7 +47,7 @@ gulp.task('browser-sync', function() {
 });
 
 gulp.task("compileSass", function(){
-	return gulp.src("scss/**/*.scss")
+	return gulp.src("scss/*.scss")
 		.pipe(maps.init())
 		.pipe(sass())
 		.on('error', handleErrors)
