@@ -4,6 +4,29 @@
 */
 
 /* 
+	Logging function.
+	In wp-config.php define the WP_DEBUG_LOG constant: define('WP_DEBUG_LOG', true);
+	
+	You can then use this function anywhere in your themes or plugin:
+	
+	bt_log("log message here");
+	
+	This will write to wp-content/debug.log.
+	In terminal: tail -f debug.log 
+*/
+if (!function_exists('bt_log')) {
+	function bt_log ( $log )  {
+		if ( true === WP_DEBUG ) {
+			if ( is_array( $log ) || is_object( $log ) ) {
+				error_log( print_r( $log, true ) );
+			} else {
+				error_log( $log );
+			}
+		}
+	}
+}
+
+/* 
 	Use instead of the_title in some cases, if you want more flexibility. 
 	Checks for alt_title custom field. Uses the_title if none exists.
 	Can either return or echo the title.
