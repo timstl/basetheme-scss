@@ -97,6 +97,7 @@ gulp.task('scriptsfooter', function() {
 	return gulp.src(['./js/footer/custom/*.js', './js/footer/custom/**/*.js'])
 	.pipe(babel({ presets: ['env'] }))
 	.pipe(concat('scripts.min.js'))
+	.pipe(uglify())
 	.pipe(gulp.dest('./dist/'))
 	.pipe(browserSync.stream());
 });
