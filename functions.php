@@ -29,4 +29,4 @@ include(get_template_directory() . '/lib/theme.functions.php');
 include(get_template_directory() . '/lib/theme.shortcodes.php');
 
 /* Siteorigin hooks */
-include(get_template_directory() . '/lib/siteorigin-widgets/siteorigin.hooks.php');
+//include(get_template_directory() . '/lib/siteorigin-widgets/siteorigin.hooks.php');
