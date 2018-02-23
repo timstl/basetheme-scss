@@ -105,7 +105,7 @@ gulp.task('scriptsfooter', function() {
 			.pipe(browserSync.stream());
 });
 
-gulp.task("watchFiles", function() {
+gulp.task("watch", function() {
 	gulp.watch('scss/**/*.scss', ['compileSass']);
 	gulp.watch('js/head/**/*.js', ['scriptshead']);
 	gulp.watch('js/footer/**/*.js', ['scriptsfooter']);
@@ -115,5 +115,5 @@ gulp.task("watchFiles", function() {
 
 gulp.task("default", function() {
 	gulp.start('browser-sync');
-	gulp.start('watchFiles');
+	gulp.start('watch');
 });

@@ -8,7 +8,7 @@ WordPress theme files to build from. Currently uses Bootstrap 4.
 
 # In theme directory:
 * Run ```npm install```
-* Run ```gulp``` to launch browsersync and begin watch tasks.
+* Run ```npm start``` to launch browsersync and begin watch tasks.
 * Make sure to use your local URL (not browsersync URL) when working in the admin URL.
 
 # Bootstrap
