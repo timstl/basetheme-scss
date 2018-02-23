@@ -1,39 +1,11 @@
-.wp-caption {
-	margin-bottom: 1.75em;
-	max-width: 100%;
-
-	img[class*="wp-image-"] {
-		display: block;
-		margin: 0;
-	}
-
-	.wp-caption-text {
-		color: $gray-600;
-		font-style: italic;
-	}
+.screen-reader-text {
+	@extend .sr-only;
 }
 
 .sticky {
-	display: block;
-}
-
-.screen-reader-text {
-	clip: rect(1px, 1px, 1px, 1px);
-	height: 1px;
-	overflow: hidden;
-	position: absolute !important;
-	width: 1px;
-	/* many screen reader and browser combinations announce broken words as they would appear visually */
-	word-wrap: normal !important;
-}
-
-.gallery-caption {
-	color: $gray-600;
-	display: block;
 }
 
 .bypostauthor {
-	display: block;
 }
 
 .alignleft {
@@ -51,3 +23,46 @@
 	display: block;
 	margin: 0 auto 1.75em;
 }
+
+.wp-caption {
+	margin-bottom: 1.75em;
+	max-width: 100%;
+
+	img[class*="wp-image-"] {
+		display: block;
+		margin: 0;
+	}
+
+	.wp-caption-text {
+		color: $gray-600;
+		font-style: italic;
+	}
+}
+
+/* Galleries */
+/* The Gallery container (div) */
+.gallery { }
+
+/* A Gallery item container,
+ for 3, 2 and 4 column galleries */
+.gallery .gallery-item { }
+.gallery-columns-2 .gallery-item { }
+.gallery-columns-4 .gallery-item { }
+
+/* The actual image inside a container
+for 3, 2 and 4 column galleries */
+.gallery img { }
+.gallery-columns-2 .attachment-medium { }
+.gallery-columns-4 .attachment-thumbnail { }
+
+/* A gallery image caption */
+.gallery .gallery-caption { }
+
+/* Definition lists elements */
+.gallery dl, .gallery dt { }
+
+/* Pick the second line break if two
+line breaks are adjacent */
+.gallery br+br { }
+
+.gallery-caption { }
