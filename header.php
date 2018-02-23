@@ -29,8 +29,7 @@
 						'depth'		 => 0,
 						'container'	 => false,
 						'menu_class'	 => 'navbar-nav mr-auto',
-						'menu_id' => 'main-nav',
-						'walker'	 => new BootstrapNavMenuWalker()
+						'menu_id' => 'main-nav'
 					);
 					wp_nav_menu($args);
 				?>

@@ -13,9 +13,6 @@ function cache_bust() { return '050317'; }
 /* Setup menus, sidebars, scripts, etc. */
 include(get_template_directory() . '/lib/theme.setup.php');
 
-/* Bootstrap menu walker */
-include(get_template_directory() . '/lib/theme.bootstrapmenu.php');
-
 /* Register theme Custom Post Types (note: Many CPTs would actually be created by plugins.) */
 include(get_template_directory() . '/lib/theme.customposttypes.php');
 
