@@ -26,6 +26,27 @@ if (!function_exists('bt_log')) {
 	}
 }
 
+/**
+ * Automated cache busting.
+ * 
+ * This function checks filemtime and stores it in a transient for each file.
+ * 
+ */
+if (!function_exists('cache_bust')) {
+	function cache_bust($file, $expire=60) {
+		$key = sanitize_title(str_replace(WP_CONTENT_DIR, '', $file));
+
+		if (($mtime = get_transient('cache_bust_'.$key)) === false) {
+			if (file_exists($file)) {
+				$mtime = filemtime($file);
+				set_transient('cache_bust_'.$key, $mtime, $expire);
+			}
+		}
+
+		return $mtime;
+	}
+}
+
 /* 
 	Use instead of the_title in some cases, if you want more flexibility. 
 	Checks for alt_title custom field. Uses the_title if none exists.

@@ -75,19 +75,28 @@ add_action( 'widgets_init', 'basetheme_widgets_init' );
 /* Enqueue scripts and styles */
 function basetheme_enqueue()
 {
+	/**
+	 * cache_bust():
+	 * Pass in the file path (not the URI) into this function.
+	 * File modified time used for unique string to force cache busting.
+	 * File modified time is stored in a WP transient for 60 seconds to prevent checking every page load during high traffic.
+	 * See theme.helpers.php for more.
+	 */
+
 	// add font enqueue here, before base-style.
+
 	//wp_enqueue_style( 'fonts', '', array() );
-	wp_enqueue_style( 'base-style', get_template_directory_uri() . '/dist/style.css', array(), null );
+	wp_enqueue_style( 'base-style', get_template_directory_uri() . '/dist/style.css', array(), cache_bust(get_template_directory() . '/dist/style.css') );
 
 	wp_deregister_script('jquery');
-	wp_register_script('jquery', get_template_directory_uri() . '/js/head/vendor/jquery.min.js', array(), null);
+	wp_register_script('jquery', get_template_directory_uri() . '/js/head/vendor/jquery.min.js', array(), '3.3.1');
 	wp_enqueue_script('jquery');
 
-	wp_enqueue_script('head', get_template_directory_uri() . '/dist/head.min.js', array(), null);
+	wp_enqueue_script('head', get_template_directory_uri() . '/dist/head.min.js', array(), cache_bust(get_template_directory() . '/dist/head.min.js'));
 
 	if ( is_singular() && get_option( 'thread_comments' ) ) { wp_enqueue_script( 'comment-reply' ); }
 
-	wp_enqueue_script('plugins', get_template_directory_uri() . '/dist/plugins.min.js', array('jquery'), null, true);    
-	wp_enqueue_script('scripts', get_template_directory_uri() . '/dist/scripts.min.js', array('plugins'), null, true);      
+	wp_enqueue_script('plugins', get_template_directory_uri() . '/dist/plugins.min.js', array('jquery'), cache_bust(get_template_directory() . '/dist/plugins.min.js'), true);    
+	wp_enqueue_script('scripts', get_template_directory_uri() . '/dist/scripts.min.js', array('plugins'), cache_bust(get_template_directory() . '/dist/scripts.min.js'), true);      
 }
 add_action('wp_enqueue_scripts', 'basetheme_enqueue');
