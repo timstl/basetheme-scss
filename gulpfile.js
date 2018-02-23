@@ -10,13 +10,15 @@ var $ = require('gulp-load-plugins')(),
 	concat = require('gulp-concat'),
 	uglify = require('gulp-uglify'),
 	cleanCSS    = require('gulp-clean-css'),
+	squeue = require('streamqueue'),
 	babel = require('gulp-babel'),
 	browserSync = require('browser-sync').create();
 
 /* For autoprefixer */
 var COMPATIBILITY = [
 	'last 2 versions',
-	'ie >= 10'
+	'ie >= 10',
+	'Android >= 2.3'
 ];
 
 function handleErrors() {
@@ -78,36 +80,37 @@ gulp.task('lint', function() {
 });
 
 gulp.task('scriptshead', function() {
-	return gulp.src(['./js/head/vendor/*.js', './js/head/vendor/**/*.js', './js/head/bootstrap/*.js', './js/head/custom/*.js', '!./js/head/vendor/jquery.min.js'])
-	.pipe(concat('head.min.js'))
-	.pipe(uglify())
-	.pipe(gulp.dest('./dist/'))
-	.pipe(browserSync.stream());
-});
-
-gulp.task('pluginsfooter', function() {
-	return gulp.src(['./js/footer/bootstrap/*.js', './js/footer/vendor/*.js', './js/footer/vendor/**/*.js'])
-	.pipe(concat('plugins.min.js'))
-	.pipe(uglify())
-	.pipe(gulp.dest('./dist/'))
-	.pipe(browserSync.stream());
+ 	 return squeue(
+				{ objectMode: true },
+				gulp.src(['./js/head/vendor/**/*.js', '!./js/head/vendor/jquery.min.js']).pipe(uglify()),
+				gulp.src(['./js/head/bootstrap/**/*.js']).pipe(uglify()),
+				gulp.src(['./js/head/custom/**/*.js']).pipe(babel({ presets: ['env'] }))
+														.pipe(uglify())
+			)
+			.pipe(concat('head.min.js'))
+			.pipe(gulp.dest('./dist/'))
+			.pipe(browserSync.stream());
 });
 
 gulp.task('scriptsfooter', function() {
-	return gulp.src(['./js/footer/custom/*.js', './js/footer/custom/**/*.js'])
-	.pipe(babel({ presets: ['env'] }))
-	.pipe(concat('scripts.min.js'))
-	.pipe(uglify())
-	.pipe(gulp.dest('./dist/'))
-	.pipe(browserSync.stream());
+ 	 return squeue(
+				{ objectMode: true },
+				gulp.src(['./js/footer/vendor/**/*.js']).pipe(uglify()),
+				gulp.src(['./js/footer/bootstrap/**/*.js']).pipe(uglify()),
+				gulp.src(['./js/footer/custom/**/*.js']).pipe(babel({ presets: ['env'] }))
+														.pipe(uglify())
+			)
+			.pipe(concat('scripts.min.js'))
+			.pipe(gulp.dest('./dist/'))
+			.pipe(browserSync.stream());
 });
 
 gulp.task("watchFiles", function() {
 	gulp.watch('scss/**/*.scss', ['compileSass']);
 	gulp.watch('js/head/**/*.js', ['scriptshead']);
-	gulp.watch('js/footer/**/*.js', ['pluginsfooter']);
-	gulp.watch('js/footer/custom/*.js', ['scriptsfooter']);
-	gulp.watch('js/footer/custom/*.js', ['lint']);
+	gulp.watch('js/footer/**/*.js', ['scriptsfooter']);
+	gulp.watch('js/head/custom/**/*.js', ['lint']);
+	gulp.watch('js/footer/custom/**/*.js', ['lint']);
 });
 
 gulp.task("default", function() {
