@@ -1,10 +1,4 @@
 <?php
-/*
-	Help refresh cache for stylesheet, main.js, plugins.js.
-	This number is appended in basetheme_enqueue()
-*/
-function cache_bust() { return '050317'; }
-
 /* 
 	Include theme files.
 	Functions and hooks should go in these files, not in functions.php.
@@ -24,6 +18,3 @@ include(get_template_directory() . '/lib/theme.functions.php');
 
 /* Register theme shortcodes */
 include(get_template_directory() . '/lib/theme.shortcodes.php');
-
-/* Siteorigin hooks */
-//include(get_template_directory() . '/lib/siteorigin-widgets/siteorigin.hooks.php');
