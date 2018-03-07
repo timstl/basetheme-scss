@@ -1,5 +1,5 @@
 .screen-reader-text {
-	@extend .sr-only;
+  @extend .sr-only;
 }
 
 .sticky {
@@ -9,60 +9,72 @@
 }
 
 .alignleft {
-	float: left;
-	margin: 0.375em 1.75em 1.75em 0;
+  float: left;
+  margin: 0.375em 1.75em 1.75em 0;
 }
 
 .alignright {
-	float: right;
-	margin: 0.375em 0 1.75em 1.75em;
+  float: right;
+  margin: 0.375em 0 1.75em 1.75em;
 }
 
 .aligncenter {
-	clear: both;
-	display: block;
-	margin: 0 auto 1.75em;
+  clear: both;
+  display: block;
+  margin: 0 auto 1.75em;
 }
 
 .wp-caption {
-	margin-bottom: 1.75em;
-	max-width: 100%;
+  margin-bottom: 1.75em;
+  max-width: 100%;
 
-	img[class*="wp-image-"] {
-		display: block;
-		margin: 0;
-	}
+  img[class*="wp-image-"] {
+    display: block;
+    margin: 0;
+  }
 
-	.wp-caption-text {
-		color: $gray-600;
-		font-style: italic;
-	}
+  .wp-caption-text {
+    color: $gray-600;
+    font-style: italic;
+  }
 }
 
 /* Galleries */
 /* The Gallery container (div) */
-.gallery { }
+.gallery {
+}
 
 /* A Gallery item container,
  for 3, 2 and 4 column galleries */
-.gallery .gallery-item { }
-.gallery-columns-2 .gallery-item { }
-.gallery-columns-4 .gallery-item { }
+.gallery .gallery-item {
+}
+.gallery-columns-2 .gallery-item {
+}
+.gallery-columns-4 .gallery-item {
+}
 
 /* The actual image inside a container
 for 3, 2 and 4 column galleries */
-.gallery img { }
-.gallery-columns-2 .attachment-medium { }
-.gallery-columns-4 .attachment-thumbnail { }
+.gallery img {
+}
+.gallery-columns-2 .attachment-medium {
+}
+.gallery-columns-4 .attachment-thumbnail {
+}
 
 /* A gallery image caption */
-.gallery .gallery-caption { }
+.gallery .gallery-caption {
+}
 
 /* Definition lists elements */
-.gallery dl, .gallery dt { }
+.gallery dl,
+.gallery dt {
+}
 
 /* Pick the second line break if two
 line breaks are adjacent */
-.gallery br+br { }
+.gallery br + br {
+}
 
-.gallery-caption { }
+.gallery-caption {
+}
