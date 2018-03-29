@@ -7,9 +7,6 @@
 /* Setup menus, sidebars, scripts, etc. */
 include(get_template_directory() . '/lib/theme.setup.php');
 
-/* Register theme Custom Post Types (note: Many CPTs would actually be created by plugins.) */
-include(get_template_directory() . '/lib/theme.customposttypes.php');
-
 /* Misc hooks and functions used on many WordPress sites */
 include(get_template_directory() . '/lib/theme.helpers.php');
 
