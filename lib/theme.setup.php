@@ -29,6 +29,9 @@ function basetheme_setup()
     set_post_thumbnail_size($content_width, 9999, false);
     //add_image_size( 'another-image-size', '250', '250', true );
 
+    // Bootstrap 4 Menu Walker
+    require_once get_template_directory() . '/lib/class-wp-bootstrap-navwalker.php';
+
     // Register nav menus.
     register_nav_menus(array(
         'mainnav' => __('Main Navigation', 'basetheme'),

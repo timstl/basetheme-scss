@@ -13,27 +13,22 @@
 		<div class="container">
 			<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="Home" class="logo"><?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?></a>
 
-			<nav class="navbar navbar-default">						
+			<nav class="navbar navbar-expand-md navbar-light bg-light" role="navigation">
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav-container" aria-controls="main-nav-container" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
-			
-				<div class="collapse navbar-collapse" id="main-nav-container">
-					<?php
-					/* 
-						May need to remove the BootstrapNavMenuWalker and make menus a different way.
-						This entire header/nav setup is from Bootstrap 3, haven't tested with Bootstrap 4 yet
-					*/
-					$args = array(
-						'theme_location' => 'mainnav',
-						'depth'		 => 0,
-						'container'	 => false,
-						'menu_class'	 => 'navbar-nav mr-auto',
-						'menu_id' => 'main-nav'
-					);
-					wp_nav_menu($args);
+				<?php
+				wp_nav_menu(array(
+					'theme_location' => 'mainnav',
+					'depth' => 2,
+					'container' => 'div',
+					'container_class' => 'collapse navbar-collapse',
+					'container_id' => 'main-nav-container',
+					'menu_class' => 'nav navbar-nav',
+					'fallback_cb' => 'WP_Bootstrap_Navwalker::fallback',
+					'walker' => new WP_Bootstrap_Navwalker(),
+				));
 				?>
-				</div>
 			</nav>
 		</div>
 	</header>
