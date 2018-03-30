@@ -1,14 +1,14 @@
 #header {
 	padding: 10px 0;
-	
-	#logo {
+
+	.logo {
 		display: block;
 		margin: 0 auto;
 		text-align: center;
 	}
-	
+
 	@include media-breakpoint-up(sm) {
-		#logo {
+		.logo {
 			float: left;
 			margin: 0;
 		}

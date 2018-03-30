@@ -1,78 +1,13 @@
-// This contains a standard nav layout that will work for most sites. 
+// This contains a standard nav layout that will work for most sites.
 // Adjust from here unless you want something totally different.
 
 #header {
 	.navbar {
 		background: none;
-		border: none;
 
 		@include media-breakpoint-up(sm) {
+			/* consider flexbox columns in header.php instead */
 			float: right;
-		}
-	}
-}
-
-#main-nav {
-	@include zerolist();
-	
-	li {
-		background: $primary;
-		border-bottom: 1px solid $gray-600;
-		@include zerolist();
-	}
-	
-	a {
-		background: $link-color;
-		color: #fff;
-		display: block;
-		padding: 5px 5%;
-	}
-	
-	.dropdown-menu {
-		border: none;
-		border-radius: 0;
-		box-shadow: none;
-		margin: 0;
-		float: none;
-		padding: 0;
-		position: static;
-		min-width: 0;
-		margin-left: 5%;
-		
-		li {
-			border: none;
-		}
-		
-		a {
-			background: $primary;
-		}
-	}
-	
-	@include media-breakpoint-up(sm) {
-		li {
-			background: none;
-			border-bottom: none;
-			display: inline-block;
-			margin-left: 15px;
-			
-			&:first-child {
-				margin-left: 0;
-			}
-		}
-		
-		a {
-			background: none;
-			color: $link-color;
-			display: inline-block;
-			padding: 0;
-		}
-		
-		.dropdown-menu {
-			position: absolute;
-			
-			a {
-				background: none;
-			}
 		}
 	}
 }
