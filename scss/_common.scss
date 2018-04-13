@@ -5,6 +5,39 @@ a.skipnav {
 	color: $gray-600;
 }
 
+/*
+Add default bottom margin to columns.
+Remove that bottom margin if column is changed at different breakpoints.
+Add class 'has-btm-margin' to maintain a bottom margin on elements.
+*/
+.col {
+	margin-bottom: $grid-gutter-width;
+
+	&[class*="col-sm-"]:not(.has-btm-margin) {
+		@include media-breakpoint-up(sm) {
+			margin-bottom: 0;
+		}
+	}
+
+	&[class*="col-md-"]:not(.has-btm-margin) {
+		@include media-breakpoint-up(md) {
+			margin-bottom: 0;
+		}
+	}
+
+	&[class*="col-lg-"]:not(.has-btm-margin) {
+		@include media-breakpoint-up(lg) {
+			margin-bottom: 0;
+		}
+	}
+
+	&[class*="col-xl-"]:not(.has-btm-margin) {
+		@include media-breakpoint-up(xl) {
+			margin-bottom: 0;
+		}
+	}
+}
+
 /* make images full width */
 img.full {
 	display: block;
