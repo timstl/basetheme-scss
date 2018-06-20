@@ -89,6 +89,9 @@ function basetheme_enqueue()
     wp_register_script('jquery', get_template_directory_uri() . '/js/head/vendor/jquery.min.js', array(), '3.3.1');
     wp_enqueue_script('jquery');
 
+    // gravity forms throws errors without jquery-migrate
+    wp_enqueue_script('jquery-migrate');
+
     wp_enqueue_script('head', get_template_directory_uri() . '/dist/head.min.js', array(), '1.0');
 
     if (is_singular() && get_option('thread_comments')) {wp_enqueue_script('comment-reply');}
