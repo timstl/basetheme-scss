@@ -1,5 +1,5 @@
 a.skipnav {
-	@include rem(11);
+	font-size: rem-calc(11);
 	display: block;
 	padding: 5px 20px;
 	color: $gray-600;
