@@ -313,6 +313,25 @@ function boilerplate_custom_excerpt_more($output)
 }
 add_filter('get_the_excerpt', 'boilerplate_custom_excerpt_more');
 
+/**
+ * Output copyright with dynamic year
+ */
+function bt_copyright($before='',$after='') {
+    if (!function_exists('get_field')) {
+        return '';
+    }
+
+    if (get_field('footer_copyright', 'options')) :
+        echo $before;
+        ?>
+        <span class="copyright">
+            <?php echo str_ireplace('%year%', date('Y'), get_field('footer_copyright', 'options')); ?>
+        </span>
+        <?php
+        echo $after;
+    endif;
+}
+
 /*
 Optional functions.
 Remove comment to enable
