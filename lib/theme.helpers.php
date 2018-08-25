@@ -279,18 +279,6 @@ function basetheme_custom_oembed_filter($html, $url, $attr, $post_ID)
 add_filter('embed_oembed_html', 'basetheme_custom_oembed_filter', 10, 4);
 
 /*
-Add category nicenames in body and post class
- */
-function boilerplate_category_id_class($classes)
-{
-    global $post;
-    foreach ((get_the_category($post->ID)) as $category) {$classes[] = $category->category_nicename;}
-    return $classes;
-}
-add_filter('post_class', 'boilerplate_category_id_class');
-add_filter('body_class', 'boilerplate_category_id_class');
-
-/*
 Returns a "Continue Reading" link for excerpts
  */
 function boilerplate_continue_reading_link()
@@ -359,7 +347,7 @@ function bt_load_svg($file='', $from_url=false) {
         $path = get_template_directory();
     }
 
-    if (!$file || !file_exists($path.$file)) {
+    if (!$file || (!$from_url && !file_exists($path.$file))) {
         return '';
     }
 
@@ -377,3 +365,15 @@ function boilerplate_excerpt_length($length)
     return 40;
 }
 //add_filter( 'excerpt_length', 'boilerplate_excerpt_length' );
+
+/*
+Add category nicenames in body and post class
+ */
+function boilerplate_category_id_class($classes)
+{
+    global $post;
+    foreach ((get_the_category($post->ID)) as $category) {$classes[] = $category->category_nicename;}
+    return $classes;
+}
+//add_filter('post_class', 'boilerplate_category_id_class');
+//add_filter('body_class', 'boilerplate_category_id_class');
