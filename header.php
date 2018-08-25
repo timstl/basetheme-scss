@@ -11,8 +11,9 @@
 	<a href="#main" class="sr-only sr-only-focusable skipnav"><?php _e('Skip to main content', 'basetheme'); ?></a>
 	<header id="header" class="clearfix">
 		<div class="container">
-			<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="Home" class="logo"><?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?></a>
-
+			<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="Home" class="logo">
+				<?php echo bt_load_svg_from_media(get_field('logo', 'options')['url']); ?>
+			</a>
 			<nav class="navbar navbar-expand-md navbar-light" role="navigation">
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav-container" aria-controls="main-nav-container" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>

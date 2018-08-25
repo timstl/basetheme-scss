@@ -332,6 +332,40 @@ function bt_copyright($before='',$after='') {
     endif;
 }
 
+/**
+ * Loads an SVG from media uploads.
+ *
+ * @param  string $url Site URL.
+ *
+ * @return string      The SVG contents.
+ */
+function bt_load_svg_from_media($url) {
+	$filepath = ABSPATH . str_replace( home_url(), '', $url );
+
+	if ( file_exists( $filepath ) ) {
+		return file_get_contents( $filepath );
+	}
+
+	return '';
+}
+
+/**
+ * Load an SVG from the theme directory
+ */
+function bt_load_svg($file='', $from_url=false) {
+    if ($from_url) {
+        $path = get_template_directory_uri();
+    } else { 
+        $path = get_template_directory();
+    }
+
+    if (!$file || !file_exists($path.$file)) {
+        return '';
+    }
+
+    return file_get_contents($path.$file);
+}
+
 /*
 Optional functions.
 Remove comment to enable
