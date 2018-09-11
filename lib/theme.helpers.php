@@ -279,18 +279,6 @@ function basetheme_custom_oembed_filter($html, $url, $attr, $post_ID)
 add_filter('embed_oembed_html', 'basetheme_custom_oembed_filter', 10, 4);
 
 /*
-Add category nicenames in body and post class
- */
-function boilerplate_category_id_class($classes)
-{
-    global $post;
-    foreach ((get_the_category($post->ID)) as $category) {$classes[] = $category->category_nicename;}
-    return $classes;
-}
-add_filter('post_class', 'boilerplate_category_id_class');
-add_filter('body_class', 'boilerplate_category_id_class');
-
-/*
 Returns a "Continue Reading" link for excerpts
  */
 function boilerplate_continue_reading_link()
@@ -313,6 +301,59 @@ function boilerplate_custom_excerpt_more($output)
 }
 add_filter('get_the_excerpt', 'boilerplate_custom_excerpt_more');
 
+/**
+ * Output copyright with dynamic year
+ */
+function bt_copyright($before='',$after='') {
+    if (!function_exists('get_field')) {
+        return '';
+    }
+
+    if (get_field('footer_copyright', 'options')) :
+        echo $before;
+        ?>
+        <span class="copyright">
+            <?php echo str_ireplace('%year%', date('Y'), get_field('footer_copyright', 'options')); ?>
+        </span>
+        <?php
+        echo $after;
+    endif;
+}
+
+/**
+ * Loads an SVG from media uploads.
+ *
+ * @param  string $url Site URL.
+ *
+ * @return string      The SVG contents.
+ */
+function bt_load_svg_from_media($url) {
+	$filepath = ABSPATH . str_replace( home_url(), '', $url );
+
+	if ( file_exists( $filepath ) ) {
+		return file_get_contents( $filepath );
+	}
+
+	return '';
+}
+
+/**
+ * Load an SVG from the theme directory
+ */
+function bt_load_svg($file='', $from_url=false) {
+    if ($from_url) {
+        $path = get_template_directory_uri();
+    } else { 
+        $path = get_template_directory();
+    }
+
+    if (!$file || (!$from_url && !file_exists($path.$file))) {
+        return '';
+    }
+
+    return file_get_contents($path.$file);
+}
+
 /*
 Optional functions.
 Remove comment to enable
@@ -324,3 +365,15 @@ function boilerplate_excerpt_length($length)
     return 40;
 }
 //add_filter( 'excerpt_length', 'boilerplate_excerpt_length' );
+
+/*
+Add category nicenames in body and post class
+ */
+function boilerplate_category_id_class($classes)
+{
+    global $post;
+    foreach ((get_the_category($post->ID)) as $category) {$classes[] = $category->category_nicename;}
+    return $classes;
+}
+//add_filter('post_class', 'boilerplate_category_id_class');
+//add_filter('body_class', 'boilerplate_category_id_class');
