@@ -24,7 +24,9 @@
 	<a href="#main" class="sr-only sr-only-focusable skipnav"><?php esc_attr_e( 'Skip to main content', 'basetheme' ); ?></a>
 	<header id="header" class="clearfix">
 		<div class="container">
-			<a href="<?php esc_url_e( home_url( '/' ) ); ?>" title="<?php get_bloginfo( 'name', 'display' ); ?>" rel="Home" class="logo"><?php get_bloginfo( 'name', 'display' ); ?></a>
+			<a href="<?php esc_url_e( home_url( '/' ) ); ?>" title="<?php get_bloginfo( 'name', 'display' ); ?>" rel="Home" class="logo">
+				<?php echo bt_load_svg_from_media( get_field( 'logo', 'options' )['url'] ); ?>
+			</a>
 
 			<nav class="navbar navbar-expand-md navbar-light" role="navigation">
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav-container" aria-controls="main-nav-container" aria-expanded="false" aria-label="Toggle navigation">
