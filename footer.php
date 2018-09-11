@@ -1,19 +1,30 @@
 <?php
 /**
- * The template for displaying the footer.
+ * The template for displaying the footer
  *
- * Contains the closing of the id=main div and all content
- * after.  Calls sidebar-footer.php for bottom widgets.
+ * Contains the footer content and footer navigation, copyright, and closing tags
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
  * @package WordPress
- * @subpackage Boilerplate
- * @since Boilerplate 1.0
+ * @subpackage Basetheme
+ * @since 1.0
+ * @version 2.7
  */
+
 ?>
 	<footer role="contentinfo" id="site-footer">
 		<div id="footer-inner">
 			<nav id="footer-nav-container" class="nav-container">
-			 	<?php wp_nav_menu( array( "theme_location" => "footernav", "container" => false, "menu_id" => "footer-nav" ) ); ?> 
+			<?php
+			wp_nav_menu(
+				array(
+					'theme_location' => 'footernav',
+					'container'      => false,
+					'menu_id'        => 'footer-nav',
+				)
+			);
+			?>
 			</nav>
 			<?php bt_copyright(); ?>
 		</div>

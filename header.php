@@ -4,10 +4,12 @@
  *
  * Displays all of the <head> section, wrapper, logo, and main navigation.
  *
+ * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ *
  * @package WordPress
- * @subpackage basetheme
+ * @subpackage Basetheme
  * @since 1.0
- * @version 2.6
+ * @version 2.7
  */
 
 ?>
@@ -24,7 +26,7 @@
 	<a href="#main" class="sr-only sr-only-focusable skipnav"><?php esc_attr_e( 'Skip to main content', 'basetheme' ); ?></a>
 	<header id="header" class="clearfix">
 		<div class="container">
-			<a href="<?php esc_url_e( home_url( '/' ) ); ?>" title="<?php get_bloginfo( 'name', 'display' ); ?>" rel="Home" class="logo">
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php get_bloginfo( 'name', 'display' ); ?>" rel="Home" class="logo">
 				<?php echo bt_load_svg_from_media( get_field( 'logo', 'options' )['url'] ); ?>
 			</a>
 
