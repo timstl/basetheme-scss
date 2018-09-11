@@ -3,9 +3,11 @@
  * The template part for displaying results in search pages
  *
  * @package WordPress
- * @subpackage Twenty_Sixteen
- * @since Twenty Sixteen 1.0
+ * @subpackage Basetheme
+ * @since 1.0
+ * @version 2.7
  */
+
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
