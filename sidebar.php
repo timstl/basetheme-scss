@@ -10,7 +10,7 @@
  * @version 2.7
  */
 
-if ( ! is_active_sidebar( 'primary-sidebar-widget-area' ) ) {
+if ( ! is_active_sidebar( 'blog-sidebar-widget-area' ) ) {
 	return;
 }
 ?>
