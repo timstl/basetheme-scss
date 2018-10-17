@@ -14,8 +14,8 @@ if ( ! is_active_sidebar( 'primary-sidebar-widget-area' ) ) {
 	return;
 }
 ?>
-<aside id="primary-sidebar-widget-area" class="sidebar">
+<aside id="blog-sidebar-widget-area" class="sidebar">
 	<ul class="widgets">
-		<?php dynamic_sidebar( 'primary-sidebar-widget-area' ); ?>
+		<?php dynamic_sidebar( 'blog-sidebar-widget-area' ); ?>
 	</ul>
 </aside>
