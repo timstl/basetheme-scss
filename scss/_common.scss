@@ -5,6 +5,29 @@ a.skipnav {
 	color: $gray-600;
 }
 
+.container-wide {
+	@extend .container;
+	@include media-breakpoint-up(lg) {
+		max-width: 1400px;
+	}
+}
+
+.container-sm-none {
+	@include media-breakpoint-down(sm) {
+		padding-left: 0;
+		padding-right: 0;
+		max-width: none;
+	}
+}
+
+.container-md-none {
+	@include media-breakpoint-down(md) {
+		padding-left: 0;
+		padding-right: 0;
+		max-width: none;
+	}
+}
+
 /*
 Add default bottom margin to columns.
 Remove that bottom margin if column is changed at different breakpoints.
