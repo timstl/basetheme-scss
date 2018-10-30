@@ -131,6 +131,15 @@ function bt_load_svg( $file = '', $from_url = false ) {
  */
 
 /**
+ * Allow upload of SVGs to media library.
+ */
+function bt_mime_types( $mimes ) {
+	$mimes['svg'] = 'image/svg+xml';
+	return $mimes;
+}
+add_filter( 'upload_mimes', 'bt_mime_types' );
+
+/**
  * Sets the post excerpt length to 40 characters.
  *
  * To enable: add_filter( 'excerpt_length', 'boilerplate_excerpt_length' );
