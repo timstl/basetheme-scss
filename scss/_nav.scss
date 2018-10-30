@@ -11,3 +11,44 @@
 		}
 	}
 }
+
+.mainnav-navbar {
+	@include media-breakpoint-up(lg) {
+		margin-top: 18px;
+	}
+
+	.navbar-toggler {
+		border: none;
+
+		rect {
+			transition: all $speed $ease;
+			transform: rotate(0deg);
+			transform-origin: center center;
+
+			&.navbar-bars-top {
+				transform: translateY(-6px);
+			}
+
+			&.navbar-bars-btm {
+				transform: translateY(6px);
+			}
+		}
+
+		&[aria-expanded="true"] {
+			rect {
+				&.navbar-bars-top {
+					transform: rotate(45deg);
+				}
+
+				&.navbar-bars-middle {
+					opacity: 0;
+					transform: translateX(-100%);
+				}
+
+				&.navbar-bars-btm {
+					transform: rotate(-45deg);
+				}
+			}
+		}
+	}
+}

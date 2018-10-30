@@ -29,6 +29,45 @@ a.skipnav {
 }
 
 /*
+Type 
+*/
+h1,
+.h1 {
+	@include media-breakpoint-up(md) {
+	}
+}
+
+h2,
+.h2 {
+	font-size: rem-calc(28);
+	@include media-breakpoint-up(md) {
+		font-size: $font-size-base * 2.35;
+	}
+}
+
+h3,
+.h3 {
+	@include media-breakpoint-up(md) {
+	}
+}
+
+h4,
+.h4 {
+	@include media-breakpoint-up(md) {
+	}
+}
+
+h6,
+.h6 {
+	@include media-breakpoint-up(md) {
+	}
+}
+
+strong {
+	font-weight: $font-weight-bold;
+}
+
+/*
 Add default bottom margin to columns.
 Remove that bottom margin if column is changed at different breakpoints.
 Add class 'has-btm-margin' to maintain a bottom margin on elements.

@@ -9,7 +9,7 @@
 // This way you don't have to dig into the massive bootstrap file, unless you prefer.
 
 // Grid
-//$grid-columns: 24;
+$grid-columns: 24;
 
 // Fonts
 //$font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -22,3 +22,13 @@
 $paragraph-margin-bottom: 1.5rem;
 
 // Colors
+//$primary:
+//$secondary:
+//$success:
+//$info:
+//$warning:
+//$danger:
+
+// Misc
+$speed: 250ms;
+$ease: ease-in-out;
