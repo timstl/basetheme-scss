@@ -98,11 +98,40 @@ Add class 'has-btm-margin' to maintain a bottom margin on elements.
 			margin-bottom: 0;
 		}
 	}
+
+	> img,
+	> p > img,
+	> a > img {
+		height: auto;
+		max-width: 100%;
+		width: auto;
+	}
 }
 
-/* make images full width */
-img.full {
+/*
+	Buttons
+*/
+.btn-group {
 	display: block;
-	height: auto;
-	width: 100%;
+	margin-bottom: 1em;
+
+	.btn {
+		margin-right: 10px;
+		margin-bottom: 10px;
+	}
+}
+
+/* 
+	Search Form
+*/
+.search-form {
+	input[type="text"],
+	input[type="search"] {
+		border: 1px solid $gray-300;
+	}
+	input[type="submit"],
+	button {
+		@extend .btn;
+		@extend .btn-primary;
+	}
 }
