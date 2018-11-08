@@ -18,7 +18,9 @@ get_header(); ?>
 		the_post();
 	?>
 	<article <?php post_class(); ?>>
-		<?php the_content(); ?>
+		<div class="container container-wide">
+			<?php the_content(); ?>
+		</div>
 	</article>
 	<?php endwhile; ?>
 

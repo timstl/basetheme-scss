@@ -1,3 +1,15 @@
+/*
+	With some fonts, we may need to return a different font here.
+	With others we just return font-style or font-weight.
+*/
+@mixin font-italic() {
+	font-style: italic;
+}
+
+@mixin font-bold() {
+	font-weight: $font-weight-bold;
+}
+
 @mixin zerolist() {
 	list-style: none;
 	margin: 0;
