@@ -10,14 +10,19 @@
 	font-weight: $font-weight-bold;
 }
 
+/*
+  Mixin to zero-out ULs, OLs, LIs.
+*/
 @mixin zerolist() {
 	list-style: none;
 	margin: 0;
 	padding: 0;
 }
 
-// STRIP UNIT
-// It strips the unit of measure and returns it
+/*
+	Make caluclating REMs from Pixels much easier.
+	Usage: font-size: rem-calc(24);
+*/
 @function strip-unit($num) {
 	@return $num / ($num * 0 + 1);
 }
