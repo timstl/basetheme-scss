@@ -14,8 +14,14 @@
 
 // Blocks and widgets
 @import "blocks/core/button";
-@import "blocks/core/image";
+@import "blocks/core/cover";
 @import "blocks/core/gallery";
+@import "blocks/core/image";
+@import "blocks/core/media_and_text";
+@import "blocks/core/pullquote";
+@import "blocks/core/table";
+@import "blocks/core/video";
+@import "blocks/core/widgets";
 @import "widgets";
 
 // Template parts and templates

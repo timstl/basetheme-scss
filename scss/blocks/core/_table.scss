@@ -1,2 +1,6 @@
 .wp-block-table {
+	@extend .table;
+	&.is-style-stripes {
+		@extend .table-striped;
+	}
 }
