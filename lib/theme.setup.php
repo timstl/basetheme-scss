@@ -21,24 +21,11 @@ if ( ! isset( $content_width ) ) {
  * Setup scripts, sidebars, menus, etc.
  */
 function basetheme_setup() {
-	add_editor_style();
-
-	add_theme_support( 'automatic-feed-links' );
 
 	load_theme_textdomain( 'basetheme', get_template_directory() . '/languages' );
 
-	add_theme_support( 'title-tag' );
-
-	add_theme_support(
-		'html5',
-		array(
-			'search-form',
-			'comment-form',
-			'comment-list',
-			'gallery',
-			'caption',
-		)
-	);
+	add_theme_support( 'editor-styles' );
+	add_editor_style( get_template_directory_uri() . '/dist/style.css' );
 
 	global $content_width;
 	add_theme_support( 'post-thumbnails' );
@@ -65,11 +52,13 @@ function basetheme_setup() {
 			'caption',
 		)
 	);
-
 	/*
 	 * Example: add_theme_support( 'post-formats', array('aside', 'image', 'video', 'quote', 'link', 'gallery', 'status', 'audio', 'chat') );
 	 *
 	 */
+
+	add_theme_support( 'automatic-feed-links' );
+	add_theme_support( 'title-tag' );
 }
 add_action( 'after_setup_theme', 'basetheme_setup' );
 
