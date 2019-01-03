@@ -24,9 +24,6 @@ function basetheme_setup() {
 
 	load_theme_textdomain( 'basetheme', get_template_directory() . '/languages' );
 
-	add_theme_support( 'editor-styles' );
-	add_editor_style( get_template_directory_uri() . '/dist/style.css' );
-
 	global $content_width;
 	add_theme_support( 'post-thumbnails' );
 	set_post_thumbnail_size( $content_width, 9999, false );
