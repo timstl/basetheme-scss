@@ -95,10 +95,24 @@ function bt_copyright( $before = '', $after = '' ) {
  * @return string  The SVG contents.
  */
 function bt_load_svg_from_media( $url ) {
+
+	if ( is_numeric( $url ) ) {
+		$url = wp_get_attachment_url( $url );
+	} elseif ( is_array( $url ) ) {
+		if ( isset( $url['url'] ) ) {
+			$url = $url['url'];
+		} else {
+			return '';
+		}
+	}
+
 	$filepath = ABSPATH . str_replace( home_url(), '', $url );
 
 	if ( file_exists( $filepath ) ) {
-		return file_get_contents( $filepath );
+		$response = wp_remote_get( $url );
+		if ( is_array( $response ) ) {
+			return $response['body'];
+		}
 	}
 
 	return '';
@@ -110,7 +124,7 @@ function bt_load_svg_from_media( $url ) {
  * @param string  $file File path appended to the template directory or url.
  * @param boolean $from_url Use a theme URL instead of directory.
  */
-function bt_load_svg( $file = '', $from_url = false ) {
+function bt_load_svg( $file = '', $from_url = true ) {
 	if ( $from_url ) {
 		$path = get_template_directory_uri();
 	} else {
@@ -121,7 +135,16 @@ function bt_load_svg( $file = '', $from_url = false ) {
 		return '';
 	}
 
-	return file_get_contents( $path . $file );
+	if ( $from_url ) {
+		$response = wp_remote_get( $path . $file );
+		if ( is_array( $response ) ) {
+			return $response['body'];
+		}
+	} else {
+		return file_get_contents( $path . $file );
+	}
+
+	return '';
 }
 
 /**

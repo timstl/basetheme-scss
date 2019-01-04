@@ -27,7 +27,7 @@
 	<header id="header" class="clearfix">
 		<div class="container-wide">
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php get_bloginfo( 'name', 'display' ); ?>" rel="Home" class="logo">
-				<?php echo bt_load_svg_from_media( get_field( 'logo', 'options' )['url'] ); ?>
+				<?php echo bt_load_svg_from_media( get_field( 'logo', 'options' ) ); ?>
 			</a>
 
 			<nav class="mainnav-navbar navbar navbar-expand-lg navbar-dark" role="navigation">
