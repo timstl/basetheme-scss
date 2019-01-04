@@ -164,3 +164,24 @@ Add class 'has-btm-margin' to maintain a bottom margin on elements.
 		@extend .btn-primary;
 	}
 }
+
+/*
+	Social Icons
+*/
+ul.social {
+	@include zerolist();
+
+	li {
+		@include zerolist();
+		display: inline-block;
+
+		+ li {
+			margin-left: 7px;
+		}
+	}
+}
+/*
+	Site Footer
+*/
+#site-footer {
+}

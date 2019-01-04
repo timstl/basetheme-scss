@@ -148,6 +148,26 @@ function bt_load_svg( $file = '', $from_url = true ) {
 }
 
 /**
+ * Display social icons from ACF fields.
+ */
+function bt_display_social_icons() {
+	if ( have_rows( 'social_accounts', 'options' ) ) :
+	?>
+	<ul class="social">
+	<?php
+	while ( have_rows( 'social_accounts', 'options' ) ) :
+		the_row();
+?>
+		<li>
+			<a href="<?php the_sub_field( 'url' ); ?>" target="_blank"><?php the_sub_field( 'icon' ); ?></a>
+		</li>
+	<?php endwhile; ?>
+	</ul>
+	<?php
+	endif;
+}
+
+/**
  * HOOKS
  *
  * Some disabled by default.

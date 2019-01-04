@@ -26,6 +26,7 @@
 			);
 			?>
 			</nav>
+			<?php bt_display_social_icons(); ?>
 			<?php bt_copyright(); ?>
 		</div>
 	</footer>
