@@ -1,5 +1,9 @@
 .wp-block-media-text {
+	margin-bottom: $grid-gutter-width;
+
 	.wp-block-media-text__media {
+		img {
+		}
 	}
 	.wp-block-media-text__content {
 	}
