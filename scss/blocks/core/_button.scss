@@ -1,5 +1,6 @@
 .wp-block-button {
 	a.wp-block-button__link {
 		@extend .btn;
+		@extend .btn-primary;
 	}
 }
