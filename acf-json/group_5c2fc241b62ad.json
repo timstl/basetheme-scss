@@ -51,7 +51,7 @@
                         "id": ""
                     },
                     "icon_sets": [
-                        "far"
+                        "fab"
                     ],
                     "custom_icon_set": "",
                     "default_label": "",
@@ -83,5 +83,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1546633901
+    "modified": 1548441298
 }
