@@ -26,11 +26,11 @@
 			transform-origin: center center;
 
 			&.navbar-bars-top {
-				transform: translateY(-6px);
+				transform: translateY(-6px) rotate(0deg);
 			}
 
 			&.navbar-bars-btm {
-				transform: translateY(6px);
+				transform: translateY(6px) rotate(0deg);
 			}
 		}
 
