@@ -136,4 +136,4 @@ function watchFiles() {
 	gulp.watch("js/footer/custom/**/*.js", lintjs);
 }
 
-exports.default = gulp.series(watchFiles, bsync);
+exports.default = gulp.parallel(watchFiles, bsync);
