@@ -29,8 +29,7 @@ function handleErrors() {
 	this.emit("end"); // Keep gulp from hanging on this task
 }
 
-// Browsersync task
-gulp.task("browser-sync", function() {
+function bsync() {
 	var files = ["**/*.php", "img/**/*.{png,jpg,gif}"];
 
 	browserSync.init(files, {
@@ -40,9 +39,9 @@ gulp.task("browser-sync", function() {
 		// Port #
 		//port: PORT
 	});
-});
+}
 
-gulp.task("compileSass", function() {
+function compileSass() {
 	return gulp
 		.src("scss/*.scss")
 		.pipe(maps.init())
@@ -57,9 +56,9 @@ gulp.task("compileSass", function() {
 		.pipe(maps.write("./"))
 		.pipe(gulp.dest("dist"))
 		.pipe(browserSync.stream());
-});
+}
 
-gulp.task("lint", function() {
+function lintjs() {
 	return gulp
 		.src("js/footer/custom/*.js")
 		.pipe($.jshint({ esversion: 6 }))
@@ -92,9 +91,9 @@ gulp.task("lint", function() {
 				);
 			})
 		);
-});
+}
 
-gulp.task("scriptshead", function() {
+function scriptshead() {
 	return squeue(
 		{ objectMode: true },
 		gulp
@@ -106,38 +105,35 @@ gulp.task("scriptshead", function() {
 		gulp.src(["./js/head/bootstrap/**/*.js"]).pipe(uglify()),
 		gulp
 			.src(["./js/head/custom/**/*.js"])
-			.pipe(babel({ presets: ["env"] }))
+			.pipe(babel({ presets: ["@babel/preset-env"] }))
 			.pipe(uglify())
 	)
 		.pipe(concat("head.min.js"))
 		.pipe(gulp.dest("./dist/"))
 		.pipe(browserSync.stream());
-});
+}
 
-gulp.task("scriptsfooter", function() {
+function scriptsfooter() {
 	return squeue(
 		{ objectMode: true },
 		gulp.src(["./js/footer/vendor/**/*.js"]).pipe(uglify()),
 		gulp.src(["./js/footer/bootstrap/**/*.js"]).pipe(uglify()),
 		gulp
 			.src(["./js/footer/custom/**/*.js"])
-			.pipe(babel({ presets: ["env"] }))
+			.pipe(babel({ presets: ["@babel/preset-env"] }))
 			.pipe(uglify())
 	)
 		.pipe(concat("scripts.min.js"))
 		.pipe(gulp.dest("./dist/"))
 		.pipe(browserSync.stream());
-});
+}
 
-gulp.task("watch", function() {
-	gulp.watch("scss/**/*.scss", ["compileSass"]);
-	gulp.watch("js/head/**/*.js", ["scriptshead"]);
-	gulp.watch("js/footer/**/*.js", ["scriptsfooter"]);
-	gulp.watch("js/head/custom/**/*.js", ["lint"]);
-	gulp.watch("js/footer/custom/**/*.js", ["lint"]);
-});
+function watchFiles() {
+	gulp.watch("scss/**/*.scss", compileSass);
+	gulp.watch("js/head/**/*.js", scriptshead);
+	gulp.watch("js/footer/**/*.js", scriptsfooter);
+	gulp.watch("js/head/custom/**/*.js", lintjs);
+	gulp.watch("js/footer/custom/**/*.js", lintjs);
+}
 
-gulp.task("default", function() {
-	gulp.start("browser-sync");
-	gulp.start("watch");
-});
+exports.default = gulp.series(watchFiles, bsync);

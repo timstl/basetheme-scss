@@ -1,6 +1,6 @@
 {
 	"name": "basetheme",
-	"version": "1.0.0",
+	"version": "2.7.0",
 	"description": "npm modules to run gulp on this wordpress plugin",
 	"main": "gulpfile.js",
 	"scripts": {
@@ -10,22 +10,23 @@
 	"author": "Atomicdust",
 	"license": "ISC",
 	"devDependencies": {
-		"babel-cli": "^6.26.0",
-		"babel-preset-env": "^1.7.0",
-		"browser-sync": "^2.26.3",
-		"gulp": "^3.9.1",
-		"gulp-autoprefixer": "^4.0.0",
-		"gulp-babel": "^7.0.0",
-		"gulp-clean-css": "^3.2.0",
+		"gulp": "^4.0.0",
+		"gulp-babel": "^8.0.0",
+		"@babel/cli": "^7.2.3",
+		"@babel/core": "^7.2.2",
+		"@babel/preset-env": "^7.3.1",
+		"gulp-autoprefixer": "^6.0.0",
+		"gulp-clean-css": "^4.0.0",
 		"gulp-concat": "^2.6.1",
-		"gulp-jshint": "^2.0.4",
+		"gulp-jshint": "^2.1.0",
 		"gulp-load-plugins": "^1.5.0",
-		"gulp-notify": "^2.2.0",
-		"gulp-sass": "^3.1.0",
-		"gulp-sourcemaps": "^2.6.0",
-		"gulp-uglify": "^2.1.2",
+		"gulp-notify": "^3.2.0",
+		"gulp-sass": "^4.0.2",
+		"gulp-sourcemaps": "^2.6.4",
+		"gulp-uglify": "^3.0.1",
 		"gulp-util": "^3.0.8",
 		"jshint": "^2.10.1",
-		"streamqueue": "^1.1.2"
+		"streamqueue": "^1.1.2",
+		"browser-sync": "^2.26.3"
 	}
 }
