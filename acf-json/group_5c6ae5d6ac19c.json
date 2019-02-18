@@ -1,0 +1,43 @@
+{
+    "key": "group_5c6ae5d6ac19c",
+    "title": "Copyright",
+    "fields": [
+        {
+            "key": "field_5c6ae5dd083f2",
+            "label": "Copyright",
+            "name": "copyright",
+            "type": "text",
+            "instructions": "Include %year% for automatic copyright year update.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "&copy; %year%",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "site-general-settings"
+            }
+        ]
+    ],
+    "menu_order": 99,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1550509837
+}
