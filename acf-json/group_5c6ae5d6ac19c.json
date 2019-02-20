@@ -5,7 +5,7 @@
         {
             "key": "field_5c6ae5dd083f2",
             "label": "Copyright",
-            "name": "copyright",
+            "name": "footer_copyright",
             "type": "text",
             "instructions": "Include %year% for automatic copyright year update.",
             "required": 0,
@@ -15,7 +15,7 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "&copy; %year%",
+            "default_value": "© %year%",
             "placeholder": "",
             "prepend": "",
             "append": "",
@@ -39,5 +39,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1550509837
+    "modified": 1550700880
 }
