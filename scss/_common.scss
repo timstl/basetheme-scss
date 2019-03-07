@@ -176,12 +176,12 @@ Add class 'has-btm-margin' to maintain a bottom margin on elements.
 	Buttons
 */
 .btn-group {
-	display: block;
-	margin-bottom: 1em;
-
 	.btn {
-		margin-right: 10px;
 		margin-bottom: 10px;
+
+		+ .btn {
+			margin-left: 10px;
+		}
 	}
 }
 
