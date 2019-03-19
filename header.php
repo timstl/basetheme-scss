@@ -26,10 +26,11 @@
 	<a href="#main" class="sr-only sr-only-focusable skipnav"><?php esc_attr_e( 'Skip to main content', 'basetheme' ); ?></a>
 	<header id="header" class="clearfix">
 		<div class="container-wide">
+			<?php if ( get_field( 'logo', 'options' ) ) : ?>
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php get_bloginfo( 'name', 'display' ); ?>" rel="Home" class="logo">
-				<?php echo bt_load_svg_from_media( get_field( 'logo', 'options' ) ); ?>
+				<?php echo bt_load_svg_from_media( get_field( 'logo', 'options' )['url'] ); ?>
 			</a>
-
+			<?php endif; ?>
 			<nav class="mainnav-navbar navbar navbar-expand-lg navbar-dark" role="navigation">
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav-container" aria-controls="main-nav-container" aria-expanded="false" aria-label="Toggle navigation">
 					<svg width="30px" height="30px" viewBox="0 0 30 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
