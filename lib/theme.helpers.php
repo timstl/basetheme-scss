@@ -222,3 +222,11 @@ function boilerplate_custom_excerpt_more( $output ) {
 	return $output;
 }
 add_filter( 'get_the_excerpt', 'boilerplate_custom_excerpt_more' );
+
+/**
+ *  Move Yoast to bottom
+ */
+function yoasttobottom() {
+	return 'low';
+}
+add_filter( 'wpseo_metabox_prio', 'yoasttobottom' );
