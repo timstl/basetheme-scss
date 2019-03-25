@@ -1,23 +1,20 @@
 .widgets,
-.widget-container
-{
+.widget-container {
 	@include zerolist();
 }
 
-.widget-container
-{
-	border: 1px solid $gray-600;
-	padding: 14px 11px;
-	margin-bottom: 24px;
-	
-	ul, li {
+.widget-container {
+	margin-bottom: $grid-gutter-width;
+
+	ul,
+	li {
 		@include zerolist();
 	}
-	
+
 	li {
 		margin-bottom: 10px;
 	}
-	
+
 	.widget-title {
 		margin-bottom: 14px;
 	}
