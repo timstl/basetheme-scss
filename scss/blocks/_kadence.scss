@@ -1,0 +1,19 @@
+.wp-block-kadence-rowlayout {
+	&.aligncenter {
+		.kt-row-column-wrap {
+			@extend .container;
+		}
+	}
+
+	&.alignwide {
+		.kt-row-column-wrap {
+			@extend .container-wide;
+		}
+	}
+
+	.kt-inside-inner-col {
+		> *:last-child {
+			margin-bottom: 0;
+		}
+	}
+}

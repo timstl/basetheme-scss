@@ -16,13 +16,16 @@
  */
 
 /* Setup menus, sidebars, scripts, etc. */
-require get_template_directory() . '/lib/theme.setup.php';
+require get_template_directory() . '/lib/theme-setup.php';
 
 /* Misc hooks and functions used on many WordPress sites */
-require get_template_directory() . '/lib/theme.helpers.php';
+require get_template_directory() . '/lib/theme-helpers.php';
 
 /* Misc hooks and functions more specific to this site */
-require get_template_directory() . '/lib/theme.functions.php';
+require get_template_directory() . '/lib/theme-functions.php';
 
 /* Register theme shortcodes */
-require get_template_directory() . '/lib/theme.shortcodes.php';
+require get_template_directory() . '/lib/theme-shortcodes.php';
+
+/* Register theme ACF blocks */
+require get_template_directory() . '/lib/theme-acfblocks.php';

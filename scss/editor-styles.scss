@@ -1,0 +1,44 @@
+// Wrap all styles so we don't change any styles outside of Gutenberg editor.
+.editor-styles-wrapper {
+	// Override bootstrap variables or define your own variables in _variables.scss
+	@import "variables";
+
+	// Some Bootstrap files loaded for admin. This is because we use many variables and extend classes from Bootstrap.
+	@import "bootstrap/functions";
+	@import "bootstrap/variables";
+	@import "bootstrap/mixins";
+	@import "bootstrap/type";
+	@import "bootstrap/grid";
+	@import "bootstrap/buttons";
+	@import "bootstrap/tables";
+	@import "bootstrap/transitions";
+	@import "bootstrap/dropdown";
+	@import "bootstrap/button-group";
+	@import "bootstrap/card";
+	@import "bootstrap/breadcrumb";
+	@import "bootstrap/utilities";
+
+	// Editor-only styles
+	@import "editor";
+
+	// Basetheme SCSS files. Add additional templates here.
+	@import "mixins";
+
+	// Common styles
+	@import "common";
+
+	// WordPress, Blocks, Widgets, CPTS
+	@import "wordpress";
+	@import "blocks";
+	@import "widgets";
+
+	// Utilities
+	@import "utilities";
+}
+
+body.gutenberg-editor-page
+	.editor-block-list__layout
+	.editor-block-list__block[data-align="full"],
+body.block-editor-page .editor-block-list__layout .wp-block[data-align="full"] {
+	max-width: none !important;
+}

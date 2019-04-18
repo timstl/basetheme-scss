@@ -2,4 +2,18 @@
 	figcaption {
 		@include font-italic(); // See mixins.scss
 	}
+
+	> img {
+		width: auto;
+		height: auto;
+	}
+
+	&.alignfull {
+		margin-bottom: 0;
+
+		> img {
+			height: auto;
+			width: 100%;
+		}
+	}
 }

@@ -9,8 +9,57 @@
 
 	@include media-breakpoint-up(sm) {
 		.logo {
-			float: left;
 			margin: 0;
+		}
+	}
+
+	.navbar {
+		background: none;
+
+		@include media-breakpoint-up(sm) {
+		}
+	}
+}
+
+// This contains a standard nav layout that will work for most sites.
+// Adjust from here unless you want something totally different.
+.mainnav-navbar {
+	@include media-breakpoint-up(lg) {
+		margin-top: 18px;
+	}
+
+	.navbar-toggler {
+		border: none;
+
+		rect {
+			transition: all $speed $ease;
+			transform: rotate(0deg);
+			transform-origin: center center;
+
+			&.navbar-bars-top {
+				transform: translateY(-6px) rotate(0deg);
+			}
+
+			&.navbar-bars-btm {
+				transform: translateY(6px) rotate(0deg);
+			}
+		}
+
+		&[aria-expanded="true"] {
+			rect {
+				&.navbar-bars-top {
+					transform: rotate(45deg);
+				}
+
+				&.navbar-bars-middle {
+					opacity: 0;
+					transform: translateX(-100%);
+				}
+
+				&.navbar-bars-btm {
+					transform: rotate(-45deg);
+				}
+			}
 		}
 	}
 }

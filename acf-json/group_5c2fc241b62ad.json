@@ -1,87 +1,85 @@
 {
-    "key": "group_5c2fc241b62ad",
-    "title": "Social Accounts",
-    "fields": [
-        {
-            "key": "field_5c2fc245ee317",
-            "label": "Social Accounts",
-            "name": "social_accounts",
-            "type": "repeater",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "collapsed": "",
-            "min": 0,
-            "max": 0,
-            "layout": "table",
-            "button_label": "",
-            "sub_fields": [
-                {
-                    "key": "field_5c2fc24bee318",
-                    "label": "URL",
-                    "name": "url",
-                    "type": "url",
-                    "instructions": "",
-                    "required": 1,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "50",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": ""
-                },
-                {
-                    "key": "field_5c2fc254ee319",
-                    "label": "Icon",
-                    "name": "icon",
-                    "type": "font-awesome",
-                    "instructions": "",
-                    "required": 1,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "50",
-                        "class": "",
-                        "id": ""
-                    },
-                    "icon_sets": [
-                        "fab"
-                    ],
-                    "custom_icon_set": "",
-                    "default_label": "",
-                    "default_value": "",
-                    "save_format": "element",
-                    "allow_null": 0,
-                    "show_preview": 1,
-                    "enqueue_fa": 1,
-                    "fa_live_preview": "",
-                    "choices": []
-                }
-            ]
-        }
-    ],
-    "location": [
-        [
-            {
-                "param": "options_page",
-                "operator": "==",
-                "value": "site-general-settings"
-            }
-        ]
-    ],
-    "menu_order": 1,
-    "position": "normal",
-    "style": "default",
-    "label_placement": "top",
-    "instruction_placement": "label",
-    "hide_on_screen": "",
-    "active": 1,
-    "description": "",
-    "modified": 1548441298
+	"key": "group_5c2fc241b62ad",
+	"title": "Social Accounts",
+	"fields": [
+		{
+			"key": "field_5c2fc245ee317",
+			"label": "Social Accounts",
+			"name": "social_accounts",
+			"type": "repeater",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"collapsed": "",
+			"min": 0,
+			"max": 0,
+			"layout": "table",
+			"button_label": "Add Account",
+			"sub_fields": [
+				{
+					"key": "field_5c2fc24bee318",
+					"label": "URL",
+					"name": "url",
+					"type": "url",
+					"instructions": "",
+					"required": 1,
+					"conditional_logic": 0,
+					"wrapper": {
+						"width": "50",
+						"class": "",
+						"id": ""
+					},
+					"default_value": "",
+					"placeholder": ""
+				},
+				{
+					"key": "field_5c2fc254ee319",
+					"label": "Icon",
+					"name": "icon",
+					"type": "font-awesome",
+					"instructions": "",
+					"required": 1,
+					"conditional_logic": 0,
+					"wrapper": {
+						"width": "50",
+						"class": "",
+						"id": ""
+					},
+					"icon_sets": ["far", "fab"],
+					"custom_icon_set": "",
+					"default_label": "",
+					"default_value": "",
+					"save_format": "element",
+					"allow_null": 0,
+					"show_preview": 1,
+					"enqueue_fa": 1,
+					"fa_live_preview": "",
+					"choices": []
+				}
+			]
+		}
+	],
+	"location": [
+		[
+			{
+				"param": "options_page",
+				"operator": "==",
+				"value": "acf-options-social-accounts"
+			}
+		]
+	],
+	"menu_order": 1,
+	"position": "normal",
+	"style": "default",
+	"label_placement": "top",
+	"instruction_placement": "label",
+	"hide_on_screen": "",
+	"active": 1,
+	"description": "",
+	"modified": 1554152318
 }

@@ -22,11 +22,17 @@
 <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
+<?php
+if ( function_exists( 'the_field' ) ) {
+	the_field( 'custom_body_scripts', 'options' );
+	the_field( 'custom_body_scripts' );
+}
+?>
 <div id="wrapper">
 	<a href="#main" class="sr-only sr-only-focusable skipnav"><?php esc_attr_e( 'Skip to main content', 'basetheme' ); ?></a>
 	<header id="header" class="clearfix">
 		<div class="container-wide">
-			<?php if ( get_field( 'logo', 'options' ) ) : ?>
+			<?php if ( function_exists( 'get_field' ) && get_field( 'logo', 'options' ) ) : ?>
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php get_bloginfo( 'name', 'display' ); ?>" rel="Home" class="logo">
 				<?php echo bt_load_svg_from_media( get_field( 'logo', 'options' )['url'] ); ?>
 			</a>

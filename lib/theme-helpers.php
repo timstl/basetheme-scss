@@ -88,6 +88,28 @@ function bt_copyright( $before = '', $after = '' ) {
 }
 
 /**
+ * Load an SVG or image from media uploads.
+ *
+ * @param array An image array from ACF or other media array.
+ *
+ * @return string  The SVG contents or an image tag.
+ */
+function bt_load_image_or_svg( $image ) {
+
+	if ( isset( $image['url'] ) ) {
+		$ext = strtolower( pathinfo( $image['url'], PATHINFO_EXTENSION ) );
+
+		if ( $ext == 'svg' ) {
+			return bt_load_svg_from_media( $image['url'] );
+		}
+	}
+
+	if ( isset( $image['id'] ) ) {
+		return wp_get_attachment_image( $image['id'] );
+	}
+}
+
+/**
  * Loads an SVG from media uploads.
  *
  * @param string $url Site URL.
@@ -129,18 +151,18 @@ function bt_load_svg( $file = '', $from_url = false ) {
  */
 function bt_display_social_icons() {
 	if ( have_rows( 'social_accounts', 'options' ) ) :
-	?>
+		?>
 	<ul class="social">
-	<?php
-	while ( have_rows( 'social_accounts', 'options' ) ) :
-		the_row();
-?>
+		<?php
+		while ( have_rows( 'social_accounts', 'options' ) ) :
+			the_row();
+			?>
 		<li>
 			<a href="<?php the_sub_field( 'url' ); ?>" target="_blank"><?php the_sub_field( 'icon' ); ?></a>
 		</li>
 	<?php endwhile; ?>
 	</ul>
-	<?php
+		<?php
 	endif;
 }
 

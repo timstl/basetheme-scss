@@ -7,25 +7,22 @@
 
 // Basetheme SCSS files. Add additional templates here.
 @import "mixins";
-@import "wordpress";
+
+// Utilities
+@import "utilities";
 
 // Common styles
+@import "common-frontend";
 @import "common";
 
 // Blocks and widgets
-@import "blocks/core/button";
-@import "blocks/core/cover";
-@import "blocks/core/gallery";
-@import "blocks/core/image";
-@import "blocks/core/media_and_text";
-@import "blocks/core/pullquote";
-@import "blocks/core/table";
-@import "blocks/core/video";
-@import "blocks/core/widgets";
+@import "wordpress";
+@import "blocks";
 @import "widgets";
 
 // Template parts and templates
 @import "header";
-@import "nav";
 @import "blog";
-@import "template-home";
+
+// Animations
+@import "animations";
