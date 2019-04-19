@@ -1,6 +1,6 @@
 <?php
-define( BT_ACF_BLOCKS_CATEGORY, 'basetheme-blocks' );
-define( BT_ACF_BLOCKS_KEYWORD, 'basetheme' );
+define( 'BT_ACF_BLOCKS_CATEGORY', 'basetheme-blocks' );
+define( 'BT_ACF_BLOCKS_KEYWORD', 'basetheme' );
 
 /**
  * Register ACF blocks

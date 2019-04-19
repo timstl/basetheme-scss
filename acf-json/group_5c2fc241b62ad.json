@@ -69,7 +69,7 @@
 			{
 				"param": "options_page",
 				"operator": "==",
-				"value": "acf-options-social-accounts"
+				"value": "site-general-settings"
 			}
 		]
 	],

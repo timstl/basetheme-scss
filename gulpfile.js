@@ -1,5 +1,5 @@
 "use strict";
-var URL = "http://127.0.0.1:8080/atomicdust";
+var URL = "http://127.0.0.1:8080/basetheme";
 
 var $ = require("gulp-load-plugins")(),
 	gulp = require("gulp"),

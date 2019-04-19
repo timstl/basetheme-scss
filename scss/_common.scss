@@ -175,12 +175,26 @@ Add class 'has-btm-margin' to maintain a bottom margin on elements.
 /*
 	Buttons
 */
+.btn {
+	transition: color $speed $ease, background-color $speed $ease,
+		opacity $speed $ease, border-color $speed $ease, box-shadow $speed $ease,
+		transform $speed $ease;
+}
+
 .btn-group {
+	flex-wrap: wrap;
+	justify-content: space-between;
 	.btn {
 		margin-bottom: 10px;
+		width: 100%;
 
-		+ .btn {
-			margin-left: 10px;
+		@include media-breakpoint-up(md) {
+			margin-right: 10px;
+			width: auto;
+
+			&:last-child {
+				margin-right: 0;
+			}
 		}
 	}
 }
