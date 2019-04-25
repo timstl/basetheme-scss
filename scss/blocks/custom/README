@@ -1,1 +1,0 @@
-Custom block SCSS files will output to /dist/css/blocks/. Enqueue these stylesheets in your blocks.
