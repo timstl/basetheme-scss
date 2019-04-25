@@ -11,6 +11,21 @@
  * @version 2.7
  */
 
+if ( ! function_exists( 'bt_get_breakpoints' ) ) {
+	/**
+	 * CSS breakpoints: Make sure these match your Bootstrap variables.
+	 */
+	function bt_get_breakpoints() {
+		return array(
+			'xs' => '0',
+			'sm' => '576px',
+			'md' => '768px',
+			'lg' => '992px',
+			'xl' => '1200px',
+		);
+	}
+}
+
 if ( ! function_exists( 'bt_log' ) ) {
 	/**
 	 * Logging function.
