@@ -11,11 +11,11 @@
  * @version 2.7
  */
 
-if ( ! function_exists( 'bt_get_breakpoints' ) ) {
+if ( ! function_exists( 'bt_get_breakpoint' ) ) {
 	/**
 	 * CSS breakpoints: Make sure these match your Bootstrap variables.
 	 */
-	function bt_get_breakpoints() {
+	function bt_get_breakpoint() {
 		return array(
 			'xs' => '0',
 			'sm' => '576px',
