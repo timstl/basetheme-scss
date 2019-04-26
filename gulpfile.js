@@ -43,7 +43,7 @@ function bsync() {
 
 function compileSass() {
 	return gulp
-		.src(["scss/*.scss"])
+		.src(["src/scss/*.scss"])
 		.pipe(maps.init())
 		.pipe(sass())
 		.on("error", handleErrors)
@@ -96,10 +96,10 @@ function lintjs() {
 function scriptshead() {
 	return squeue(
 		{ objectMode: true },
-		gulp.src(["./js/head/vendor/**/*.js"]).pipe(uglify()),
-		gulp.src(["./js/head/bootstrap/**/*.js"]).pipe(uglify()),
+		gulp.src(["./src/js/head/vendor/**/*.js"]).pipe(uglify()),
+		gulp.src(["./src/js/head/bootstrap/**/*.js"]).pipe(uglify()),
 		gulp
-			.src(["./js/head/custom/**/*.js"])
+			.src(["./src/js/head/custom/**/*.js"])
 			.pipe(babel({ presets: ["@babel/preset-env"] }))
 			.pipe(uglify())
 	)
@@ -111,10 +111,10 @@ function scriptshead() {
 function scriptsfooter() {
 	return squeue(
 		{ objectMode: true },
-		gulp.src(["./js/footer/vendor/**/*.js"]).pipe(uglify()),
-		gulp.src(["./js/footer/bootstrap/**/*.js"]).pipe(uglify()),
+		gulp.src(["./src/js/footer/vendor/**/*.js"]).pipe(uglify()),
+		gulp.src(["./src/js/footer/bootstrap/**/*.js"]).pipe(uglify()),
 		gulp
-			.src(["./js/footer/custom/**/*.js"])
+			.src(["./src/js/footer/custom/**/*.js"])
 			.pipe(babel({ presets: ["@babel/preset-env"] }))
 			.pipe(uglify())
 	)
@@ -127,7 +127,7 @@ function scriptsblocks() {
 	return squeue(
 		{ objectMode: true },
 		gulp
-			.src(["./js/blocks/**/*.js"])
+			.src(["./src/js/blocks/**/*.js"])
 			.pipe(babel({ presets: ["@babel/preset-env"] }))
 			.pipe(uglify())
 	)
@@ -136,12 +136,12 @@ function scriptsblocks() {
 }
 
 function watchFiles() {
-	gulp.watch(["scss/**/*.scss"], compileSass);
-	gulp.watch("js/blocks/**/*.js", scriptsblocks);
-	gulp.watch("js/head/**/*.js", scriptshead);
-	gulp.watch("js/footer/**/*.js", scriptsfooter);
-	gulp.watch("js/head/custom/**/*.js", lintjs);
-	gulp.watch("js/footer/custom/**/*.js", lintjs);
+	gulp.watch(["src/scss/**/*.scss"], compileSass);
+	gulp.watch("src/js/blocks/**/*.js", scriptsblocks);
+	gulp.watch("src/js/head/**/*.js", scriptshead);
+	gulp.watch("src/js/footer/**/*.js", scriptsfooter);
+	gulp.watch("src/js/head/custom/**/*.js", lintjs);
+	gulp.watch("src/js/footer/custom/**/*.js", lintjs);
 }
 
 exports.default = gulp.parallel(watchFiles, bsync);
