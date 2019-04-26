@@ -117,6 +117,6 @@ add_action( 'wp_enqueue_scripts', 'basetheme_enqueue' );
  * Enqueue scripts and styles in admin.
  */
 function basetheme_enqueue_block_editor_assets() {
-	wp_enqueue_style( 'bt-editor-styles', get_template_directory_uri() . '/dist/editor-styles.css', null, time() );
+	wp_enqueue_style( 'bt-editor-styles', get_template_directory_uri() . '/dist/css/editor-styles.css', null, time() );
 }
 add_action( 'enqueue_block_editor_assets', 'basetheme_enqueue_block_editor_assets' );
