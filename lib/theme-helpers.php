@@ -15,14 +15,16 @@ if ( ! function_exists( 'bt_get_breakpoint' ) ) {
 	/**
 	 * CSS breakpoints: Make sure these match your Bootstrap variables.
 	 */
-	function bt_get_breakpoint() {
-		return array(
+	function bt_get_breakpoint( $size ) {
+		$breakpoint = array(
 			'xs' => '0',
 			'sm' => '576px',
 			'md' => '768px',
 			'lg' => '992px',
 			'xl' => '1200px',
 		);
+
+		return $breakpoint[ $size ];
 	}
 }
 
@@ -86,21 +88,24 @@ endif;
  * @param string $before Append HTML or string before copyright.
  * @param string $after Append HTML or string after copyright.
  */
-function bt_copyright( $before = '', $after = '' ) {
-	if ( ! function_exists( 'get_field' ) ) {
-		return '';
-	}
 
-	if ( get_field( 'footer_copyright', 'options' ) ) :
-		echo $before;
-		?>
+if ( ! function_exists( 'bt_copyright' ) ) :
+	function bt_copyright( $before = '', $after = '' ) {
+		if ( ! function_exists( 'get_field' ) ) {
+			return '';
+		}
+
+		if ( get_field( 'footer_copyright', 'options' ) ) :
+			echo $before;
+			?>
 		<span class="copyright">
 			<?php echo str_ireplace( '%year%', date( 'Y' ), get_field( 'footer_copyright', 'options' ) ); ?>
 		</span>
-		<?php
-		echo $after;
-	endif;
-}
+			<?php
+			echo $after;
+		endif;
+	}
+endif;
 
 /**
  * Load an SVG or image from media uploads.
@@ -109,20 +114,22 @@ function bt_copyright( $before = '', $after = '' ) {
  *
  * @return string  The SVG contents or an image tag.
  */
-function bt_load_image_or_svg( $image ) {
+if ( ! function_exists( 'bt_load_image_or_svg' ) ) :
+	function bt_load_image_or_svg( $image ) {
 
-	if ( isset( $image['url'] ) ) {
-		$ext = strtolower( pathinfo( $image['url'], PATHINFO_EXTENSION ) );
+		if ( isset( $image['url'] ) ) {
+			$ext = strtolower( pathinfo( $image['url'], PATHINFO_EXTENSION ) );
 
-		if ( $ext == 'svg' ) {
-			return bt_load_svg_from_media( $image['url'] );
+			if ( $ext == 'svg' ) {
+				return bt_load_svg_from_media( $image['url'] );
+			}
+		}
+
+		if ( isset( $image['id'] ) ) {
+			return wp_get_attachment_image( $image['id'] );
 		}
 	}
-
-	if ( isset( $image['id'] ) ) {
-		return wp_get_attachment_image( $image['id'] );
-	}
-}
+endif;
 
 /**
  * Loads an SVG from media uploads.
@@ -131,15 +138,17 @@ function bt_load_image_or_svg( $image ) {
  *
  * @return string  The SVG contents.
  */
-function bt_load_svg_from_media( $url ) {
-	$filepath = ABSPATH . str_replace( home_url(), '', $url );
+if ( ! function_exists( 'bt_load_svg_from_media' ) ) :
+	function bt_load_svg_from_media( $url ) {
+		$filepath = ABSPATH . str_replace( home_url(), '', $url );
 
-	if ( file_exists( $filepath ) ) {
-		return file_get_contents( $filepath );
+		if ( file_exists( $filepath ) ) {
+			return file_get_contents( $filepath );
+		}
+
+		return '';
 	}
-
-	return '';
-}
+endif;
 
 /**
  * Load an SVG from the theme directory
@@ -147,39 +156,77 @@ function bt_load_svg_from_media( $url ) {
  * @param string  $file File path appended to the template directory or url.
  * @param boolean $from_url Use a theme URL instead of directory.
  */
-function bt_load_svg( $file = '', $from_url = false ) {
-	if ( $from_url ) {
-		$path = get_template_directory_uri();
-	} else {
-		$path = get_template_directory();
-	}
+if ( ! function_exists( 'bt_load_svg' ) ) :
+	function bt_load_svg( $file = '', $from_url = false ) {
+		if ( $from_url ) {
+			$path = get_template_directory_uri();
+		} else {
+			$path = get_template_directory();
+		}
 
-	if ( ! $file || ( ! $from_url && ! file_exists( $path . $file ) ) ) {
-		return '';
-	}
+		if ( ! $file || ( ! $from_url && ! file_exists( $path . $file ) ) ) {
+			return '';
+		}
 
-	return file_get_contents( $path . $file );
-}
+		return file_get_contents( $path . $file );
+	}
+endif;
 
 /**
  * Display social icons from ACF fields.
  */
-function bt_display_social_icons() {
-	if ( have_rows( 'social_accounts', 'options' ) ) :
-		?>
-	<ul class="social">
-		<?php
-		while ( have_rows( 'social_accounts', 'options' ) ) :
-			the_row();
+if ( ! function_exists( 'bt_display_social_icons' ) ) :
+	function bt_display_social_icons() {
+		if ( have_rows( 'social_accounts', 'options' ) ) :
 			?>
+	<ul class="social">
+			<?php
+			while ( have_rows( 'social_accounts', 'options' ) ) :
+				the_row();
+				?>
 		<li>
 			<a href="<?php the_sub_field( 'url' ); ?>" target="_blank"><?php the_sub_field( 'icon' ); ?></a>
 		</li>
-	<?php endwhile; ?>
+		<?php endwhile; ?>
 	</ul>
-		<?php
-	endif;
-}
+			<?php
+		endif;
+	}
+endif;
+
+/**
+ * Build conditional classes for an element.
+ * Checks if a value exists, and appends the key as a classname if it does.
+ *
+ * Example usage:
+ *
+ * <div class="<?php bt_classes( 'someclass', array( 'someclass--classtwo' => get_field( 'field_name' ) ) ); ?>">
+ */
+if ( ! function_exists( 'bt_classes' ) ) :
+	function bt_classes( $classes = array(), $conditional_classes = array(), $echo = true ) {
+
+		if ( ! is_array( $classes ) ) {
+			$classes = array( $classes );
+		}
+
+		if ( is_array( $conditional_classes ) && ! empty( $conditional_classes ) ) {
+			foreach ( $conditional_classes as $key => $value ) {
+				if ( ! $value ) {
+					continue;
+				}
+				$classes[] = $key;
+			}
+		}
+
+		$classes = array_map( 'wp_strip_all_tags', $classes );
+
+		if ( ! $echo ) {
+			return implode( ' ', $classes );
+		}
+
+		echo esc_attr( implode( ' ', $classes ) );
+	}
+endif;
 
 /**
  * HOOKS
