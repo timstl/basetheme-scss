@@ -1,3 +1,10 @@
 /**
 	Editor-only styles.
 **/
+
+/*
+	Override Noto Serif
+*/
+> * {
+	font-family: $font-family-base;
+}
