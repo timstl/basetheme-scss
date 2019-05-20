@@ -185,7 +185,7 @@ if ( ! function_exists( 'bt_display_social_icons' ) ) :
 				the_row();
 				?>
 		<li>
-			<a href="<?php the_sub_field( 'url' ); ?>" target="_blank"><?php the_sub_field( 'icon' ); ?></a>
+			<a href="<?php the_sub_field( 'url' ); ?>" target="_blank" aria-label="<?php the_sub_field('accessibility_text'); ?>"><?php the_sub_field( 'icon' ); ?></a>
 		</li>
 		<?php endwhile; ?>
 	</ul>
