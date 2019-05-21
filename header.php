@@ -33,7 +33,7 @@ if ( function_exists( 'the_field' ) ) {
 	<header id="header" class="clearfix">
 		<div class="container-wide">
 			<?php if ( function_exists( 'get_field' ) && get_field( 'logo', 'options' ) ) : ?>
-			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo get_bloginfo( 'name', 'display' ); ?>" rel="Home" role="img" aria-label="<?php echo get_bloginfo( 'name', 'display' ); ?> logo" class="logo">
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo get_bloginfo( 'name', 'display' ); ?>" rel="Home" aria-label="<?php echo get_bloginfo( 'name', 'display' ); ?> logo" class="logo">
 				<?php echo bt_load_svg_from_media( get_field( 'logo', 'options' )['url'] ); ?>
 			</a>
 			<?php endif; ?>
