@@ -90,11 +90,22 @@ function basetheme_widgets_init() {
 add_action( 'widgets_init', 'basetheme_widgets_init' );
 
 /**
+ * Enqueue fonts.
+ * Use a single function because these will load in the admin and front-end.
+ * Call this function from your enqueue functions.
+ */
+function basetheme_fonts() {
+	// wp_enqueue_style( 'bt-fonts', '', array() );
+}
+
+/**
  * Enqueue scripts and styles.
  */
 function basetheme_enqueue() {
-	// add font enqueue here, before base-style.
-	// wp_enqueue_style( 'fonts', '', array() );
+
+	// Enqueue fonts.
+	basetheme_fonts();
+
 	wp_enqueue_style( 'bt-base-style', get_template_directory_uri() . '/dist/css/style.css', array(), '1.0' );
 
 	wp_deregister_script( 'jquery' );
@@ -117,6 +128,9 @@ add_action( 'wp_enqueue_scripts', 'basetheme_enqueue' );
  * Enqueue scripts and styles in admin.
  */
 function basetheme_enqueue_block_editor_assets() {
+	// Enqueue fonts.
+	basetheme_fonts();
+
 	wp_enqueue_style( 'bt-editor-styles', get_template_directory_uri() . '/dist/css/editor-styles.css', null, time() );
 }
 add_action( 'enqueue_block_editor_assets', 'basetheme_enqueue_block_editor_assets' );
