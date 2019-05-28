@@ -14,8 +14,8 @@ if ( ! is_active_sidebar( 'blog-sidebar-widget-area' ) ) {
 	return;
 }
 ?>
-<aside id="blog-sidebar-widget-area" class="sidebar">
+<div id="blog-sidebar-widget-area" class="sidebar">
 	<ul class="widgets">
 		<?php dynamic_sidebar( 'blog-sidebar-widget-area' ); ?>
 	</ul>
-</aside>
+</div>
