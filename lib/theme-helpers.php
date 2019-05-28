@@ -274,10 +274,10 @@ function boilerplate_category_id_class( $classes ) {
  *
  * @param string $html HTML passed into filter.
  */
-function basetheme_custom_oembed_filter( $html ) {
+function bt_custom_oembed_filter( $html ) {
 	return '<div class="embed-responsive embed-responsive-16by9">' . $html . '</div>';
 }
-add_filter( 'embed_oembed_html', 'basetheme_custom_oembed_filter', 10, 4 );
+add_filter( 'embed_oembed_html', 'bt_custom_oembed_filter', 10, 4 );
 
 /**
  * Returns a "Continue Reading" link.

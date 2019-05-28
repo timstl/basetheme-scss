@@ -20,7 +20,7 @@ if ( ! isset( $content_width ) ) {
 /**
  * Setup scripts, sidebars, menus, etc.
  */
-function basetheme_setup() {
+function bt_setup() {
 
 	load_theme_textdomain( 'basetheme', get_template_directory() . '/languages' );
 
@@ -58,12 +58,12 @@ function basetheme_setup() {
 	add_theme_support( 'automatic-feed-links' );
 	add_theme_support( 'title-tag' );
 }
-add_action( 'after_setup_theme', 'basetheme_setup' );
+add_action( 'after_setup_theme', 'bt_setup' );
 
 /**
  *  Register widgetized areas.
  */
-function basetheme_widgets_init() {
+function bt_widgets_init() {
 	register_sidebar(
 		array(
 			'name'          => __( 'Blog Sidebar Widget Area', 'basetheme' ),
@@ -87,24 +87,24 @@ function basetheme_widgets_init() {
 		)
 	);
 }
-add_action( 'widgets_init', 'basetheme_widgets_init' );
+add_action( 'widgets_init', 'bt_widgets_init' );
 
 /**
  * Enqueue fonts.
  * Use a single function because these will load in the admin and front-end.
  * Call this function from your enqueue functions.
  */
-function basetheme_fonts() {
+function bt_fonts() {
 	// wp_enqueue_style( 'bt-fonts', '', array() );
 }
 
 /**
  * Enqueue scripts and styles.
  */
-function basetheme_enqueue() {
+function bt_enqueue() {
 
 	// Enqueue fonts.
-	basetheme_fonts();
+	bt_fonts();
 
 	wp_enqueue_style( 'bt-base-style', get_template_directory_uri() . '/dist/css/style.css', array(), '1.0' );
 
@@ -122,15 +122,15 @@ function basetheme_enqueue() {
 
 	wp_enqueue_script( 'bt-scripts', get_template_directory_uri() . '/dist/js/scripts.min.js', array(), '1.0', true );
 }
-add_action( 'wp_enqueue_scripts', 'basetheme_enqueue' );
+add_action( 'wp_enqueue_scripts', 'bt_enqueue' );
 
 /**
  * Enqueue scripts and styles in admin.
  */
-function basetheme_enqueue_block_editor_assets() {
+function bt_enqueue_block_editor_assets() {
 	// Enqueue fonts.
-	basetheme_fonts();
+	bt_fonts();
 
 	wp_enqueue_style( 'bt-editor-styles', get_template_directory_uri() . '/dist/css/editor-styles.css', null, time() );
 }
-add_action( 'enqueue_block_editor_assets', 'basetheme_enqueue_block_editor_assets' );
+add_action( 'enqueue_block_editor_assets', 'bt_enqueue_block_editor_assets' );
