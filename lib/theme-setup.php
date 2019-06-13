@@ -57,6 +57,11 @@ function bt_setup() {
 
 	add_theme_support( 'automatic-feed-links' );
 	add_theme_support( 'title-tag' );
+
+	/**
+	 * Blocks
+	 */
+	add_theme_support( 'align-wide' );
 }
 add_action( 'after_setup_theme', 'bt_setup' );
 

@@ -1,0 +1,85 @@
+/*
+	Page headers
+	Mimics many .wp-block-cover styles on desktop, but includes enhancements.
+*/
+.pageheader {
+	background-color: #fff;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	position: relative;
+	min-height: 500px;
+
+	&.has-background-dim {
+		&:before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			background-color: #000;
+			opacity: 0.5;
+			z-index: 0;
+		}
+
+		&--10 {
+			&:before {
+				opacity: 0.1;
+			}
+		}
+		&--20 {
+			&:before {
+				opacity: 0.2;
+			}
+		}
+		&--30 {
+			&:before {
+				opacity: 0.3;
+			}
+		}
+		&--40 {
+			&:before {
+				opacity: 0.4;
+			}
+		}
+		&--50 {
+			&:before {
+				opacity: 0.5;
+			}
+		}
+		&--60 {
+			&:before {
+				opacity: 0.6;
+			}
+		}
+		&--70 {
+			&:before {
+				opacity: 0.7;
+			}
+		}
+		&--80 {
+			&:before {
+				opacity: 0.8;
+			}
+		}
+		&--90 {
+			&:before {
+				opacity: 0.9;
+			}
+		}
+	}
+
+	&--fixed {
+		background-attachment: fixed;
+	}
+
+	.pageheader-text {
+		display: block;
+		padding: $grid-gutter-width 0;
+		margin: 0 auto;
+		max-width: 90%;
+		position: relative;
+		z-index: 2;
+	}
+}
