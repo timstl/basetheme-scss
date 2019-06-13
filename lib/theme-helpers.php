@@ -14,14 +14,21 @@
 if ( ! function_exists( 'bt_get_breakpoint' ) ) {
 	/**
 	 * CSS breakpoints: Make sure these match your Bootstrap variables.
+	 * This function is useful for writing custom media queries in your ACF blocks.
 	 */
-	function bt_get_breakpoint( $size ) {
+	function bt_get_breakpoint( $size, $append_px = true, $adjust = 0 ) {
+
+		$unit = '';
+		if ( $append_px ) {
+			$unit = 'px';
+		}
+
 		$breakpoint = array(
 			'xs' => '0',
-			'sm' => '576px',
-			'md' => '768px',
-			'lg' => '992px',
-			'xl' => '1200px',
+			'sm' => ( 576 + $adjust ) . $unit,
+			'md' => ( 768 + $adjust ) . $unit,
+			'lg' => ( 1024 + $adjust ) . $unit, // Changed from Bootstrap defaults to Kadence plugin.
+			'xl' => ( 1200 + $adjust ) . $unit,
 		);
 
 		return $breakpoint[ $size ];

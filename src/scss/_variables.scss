@@ -1,11 +1,26 @@
-// Add custom colors or override bootstrap variables here.
-// This way you don't have to dig into the massive bootstrap file, unless you prefer.
+/**
+	Add custom variables and Bootstrap overrides here.
+**/
 
-// Grid
+/* 	
+	Grid 
+	If You change breakpoints, be sure to update theme-helpers.php -> bt_get_breakpoint();
+*/
+$grid-breakpoints: (
+	xs: 0,
+	sm: 576px,
+	md: 768px,
+	// Increased to match Kadence plugin.
+		lg: 1024px,
+	xl: 1200px
+);
+
 $grid-columns: 24;
 //$grid-gutter-width: 30px;
 
-// Fonts
+/* 
+	Fonts
+ */
 //$font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 //$font-family-serif: serif;
 
@@ -20,17 +35,26 @@ $h4-font-size: $font-size-base * 1.875;
 $h5-font-size: $font-size-base * 1.625;
 $h6-font-size: $font-size-base * 1.25;
 
-$font-size-sm: $font-size-base * 0.8125;
-$h1-font-size-sm: $font-size-sm * 2.46;
-$h2-font-size-sm: $font-size-sm * 2.15;
-$h3-font-size-sm: $font-size-sm * 2;
-$h4-font-size-sm: $font-size-sm * 1.846;
-$h5-font-size-sm: $font-size-sm * 1.38;
-$h6-font-size-sm: $font-size-sm * 1.25;
+/* 
+	Add separate font sizes for small screens. 
+	Right now these default to the same as desktop, but you can enable them by adding
+	multipliers to the end: $h1-font-size-sm: $h1-font-size * 0.9;
+*/
+$font-size-sm: $font-size-base;
+$h1-font-size-sm: $h1-font-size;
+$h2-font-size-sm: $h2-font-size;
+$h3-font-size-sm: $h3-font-size;
+$h4-font-size-sm: $h4-font-size;
+$h5-font-size-sm: $h5-font-size;
+$h6-font-size-sm: $h6-font-size;
 
 $paragraph-margin-bottom: 1.5em;
 
-// Colors
+/* 
+	Colors
+	Update the color palette in theme-functions.php -> bt_editor_add_theme_support()
+*/
+
 //$primary:
 //$secondary:
 //$success:
@@ -38,6 +62,8 @@ $paragraph-margin-bottom: 1.5em;
 //$warning:
 //$danger:
 
-// Misc
+/* 
+Misc
+ */
 $speed: 250ms;
 $ease: ease-in-out;
