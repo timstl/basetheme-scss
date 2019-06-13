@@ -59,12 +59,9 @@ function bt_acf_register_blocks() {
 		 * By default they are disabled, so you have to uncomment below and uncomment the SCSS file in /scss/_blocks.scss
 		 */
 
-		/**
-		 * Page Header
-		 */
-
 		/*
-		 acf_register_block(
+		// Page Header
+		acf_register_block(
 			array(
 				'name'            => 'pageheader',
 				'title'           => __( 'Page Header' ),
@@ -79,7 +76,8 @@ function bt_acf_register_blocks() {
 		); */
 
 		/*
-		 acf_register_block(
+		// Bootstrap Card Deck
+		acf_register_block(
 			array(
 				'name'            => 'carddeck',
 				'title'           => __( 'Card Deck' ),
