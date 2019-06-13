@@ -85,11 +85,26 @@ function bt_acf_register_blocks() {
 				'render_callback' => 'bt_acf_block_render_callback',
 				'category'        => BT_ACF_BLOCKS_CATEGORY,
 				'icon'            => $icon,
-				'keywords'        => array( 'header', 'image', BT_ACF_BLOCKS_KEYWORD ),
+				'keywords'        => array( 'card', 'deck', BT_ACF_BLOCKS_KEYWORD ),
 				'mode'            => BT_ACF_BLOCKS_MODE,
 				'align'           => 'center',
 			)
 		); */
+
+		// Slider
+		acf_register_block(
+			array(
+				'name'            => 'slider',
+				'title'           => __( 'Slider' ),
+				'description'     => __( 'A slider block.' ),
+				'render_callback' => 'bt_acf_block_render_callback',
+				'category'        => BT_ACF_BLOCKS_CATEGORY,
+				'icon'            => $icon,
+				'keywords'        => array( 'header', 'image', BT_ACF_BLOCKS_KEYWORD ),
+				'mode'            => BT_ACF_BLOCKS_MODE,
+				'align'           => 'center',
+			)
+		);
 	}
 }
 add_action( 'acf/init', 'bt_acf_register_blocks' );
