@@ -10,6 +10,15 @@ $block_id = 'carddeck-' . $block['id'];
 // create align class ("alignwide") from block setting ("wide")
 $align_class = $block['align'] ? 'align' . $block['align'] : '';
 
+$classes = array( 'block-carddeck' );
+
+/**
+ * Custom classes added in admin.
+ */
+if ( ! empty( $block['className'] ) ) {
+	$classes[] = $block['className'];
+}
+
 /**
  * Convert align class to Bootstrap containers.
  */
@@ -23,7 +32,7 @@ if ( ! $align_class ) {
 
 ?>
 <?php if ( have_rows( 'cards' ) ) : ?>
-<div id="<?php echo esc_html( $block_id ); ?>" class="block-carddeck">
+<div id="<?php echo esc_html( $block_id ); ?>" class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
 	<div class="<?php echo $align_class; ?>">
 		<div class="card-deck">
 		<?php
