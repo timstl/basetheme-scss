@@ -21,7 +21,9 @@ $grid-columns: 24;
 /* 
 	Fonts
  */
-//$font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+	"Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+	"Segoe UI Symbol";
 //$font-family-serif: serif;
 
 //$headings-font-family: $font-family-serif;
@@ -63,7 +65,7 @@ $paragraph-margin-bottom: 1.5em;
 //$danger:
 
 /* 
-Misc
+	Misc
  */
 $speed: 250ms;
 $ease: ease-in-out;
