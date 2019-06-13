@@ -7,50 +7,37 @@
 
 // Create id attribute for specific styling.
 $block_id = 'buttonbootstrap-' . $block['id'];
+$classes  = array( 'buttonbootstrap' );
 
-if ( get_field( 'button_link' ) || ( get_field( 'button_fancybox_mode' ) && get_field( 'button_fancybox_content' ) ) ) :
+/**
+ * Custom classes added in admin.
+ */
+if ( ! empty( $block['className'] ) ) {
+	$classes[] = $block['className'];
+}
 
-	$class = array(
+if ( get_field( 'button_link' ) ) :
+
+	$btn_class = array(
 		'btn',
 		get_field( 'button_style' ),
 		get_field( 'button_size' ),
 	);
 
-	$datasrc  = '';
-	$target   = '';
-	$datatype = '';
-
-	if ( get_field( 'button_fancybox_mode' ) && get_field( 'button_fancybox_content' ) ) {
-		$url     = 'javascript:;';
-		$datasrc = ' data-src="#' . $block_id . '-fancybox-block-content' . '"';
-	} else {
-		$url = esc_url( get_field( 'button_link' ) );
-	}
-
-	if ( get_field( 'button_fancybox_mode' ) ) {
-		$class[] = 'fancybox';
-
-		if ( get_field( 'button_fancybox_iframe_mode' ) ) {
-			$datatype = ' data-type="iframe"';
-		}
-	}
+	$target = '';
+	$url    = esc_url( get_field( 'button_link' ) );
 
 	if ( get_field( 'button_new_window' ) ) {
 		$target = ' target="_blank"';
 	}
 	?>
-<div class="buttonbootstrap" id="<?php echo esc_attr( $block_id ); ?>">
-	<a href="<?php echo esc_url( $url ); ?>" class="<?php esc_attr_e( implode( ' ', $class ) ); ?>"<?php echo $target . $datasrc . $datatype; ?>>
-		<?php the_field( 'button_text' ); ?>
-	</a>
-</div>
-<?php if ( $datasrc ) : ?>
-<div class="fancybox-block-content" id="<?php echo esc_attr( $block_id ) . '-fancybox-block-content'; ?>">
-	<?php the_field( 'button_fancybox_content' ); ?>							
-</div>
-<?php endif; ?>
-<?php
+	<div class="<?php echo implode( ' ', $classes ); ?>" id="<?php echo esc_attr( $block_id ); ?>">
+		<a href="<?php echo esc_url( $url ); ?>" class="<?php esc_attr_e( implode( ' ', $btn_class ) ); ?>"<?php echo $target; ?>>
+			<?php the_field( 'button_text' ); ?>
+		</a>
+	</div>
+	<?php
 elseif ( is_admin() ) :
-?>
+	?>
 <p><em><?php _e( 'Please add a button.' ); ?></em></p>
 <?php endif; ?>

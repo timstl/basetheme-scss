@@ -1,6 +1,6 @@
 <?php
 /**
- * Block Name: Header
+ * Block Name: Page Header
  *
  * This is flexible content field with header layouts
  */

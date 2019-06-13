@@ -77,6 +77,20 @@ function bt_acf_register_blocks() {
 				'align'           => 'full',
 			)
 		); */
+
+		acf_register_block(
+			array(
+				'name'            => 'carddeck',
+				'title'           => __( 'Card Deck' ),
+				'description'     => __( 'A Bootstrap card deck.' ),
+				'render_callback' => 'bt_acf_block_render_callback',
+				'category'        => BT_ACF_BLOCKS_CATEGORY,
+				'icon'            => $icon,
+				'keywords'        => array( 'header', 'image', BT_ACF_BLOCKS_KEYWORD ),
+				'mode'            => BT_ACF_BLOCKS_MODE,
+				'align'           => 'center',
+			)
+		);
 	}
 }
 add_action( 'acf/init', 'bt_acf_register_blocks' );
