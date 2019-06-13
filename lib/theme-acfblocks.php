@@ -78,7 +78,8 @@ function bt_acf_register_blocks() {
 			)
 		); */
 
-		acf_register_block(
+		/*
+		 acf_register_block(
 			array(
 				'name'            => 'carddeck',
 				'title'           => __( 'Card Deck' ),
@@ -90,7 +91,7 @@ function bt_acf_register_blocks() {
 				'mode'            => BT_ACF_BLOCKS_MODE,
 				'align'           => 'center',
 			)
-		);
+		); */
 	}
 }
 add_action( 'acf/init', 'bt_acf_register_blocks' );
