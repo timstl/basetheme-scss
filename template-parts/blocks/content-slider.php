@@ -23,21 +23,18 @@ if ( have_rows( 'slider' ) ) :
 	}
 
 	/**
-	 * Pull some slider settings or set default values.
+	 * Setup slider mode and default values.
 	 */
-	$slider_mode    = get_field( 'slider_mode' );
-	$autoplay       = (int) get_field( 'slider_timeout' );
-	$dots           = (bool) get_field( 'slider_dots' );
-	$arrows         = (bool) get_field( 'slider_arrows' );
-	$center_mode     = false;
+	$slider_mode      = get_field( 'slider_mode' );
+	$slider_speed     = (int) get_field( 'slider_timeout' );
 	$slides_to_scroll = 1;
 	$slides_to_show   = 1;
-	$responsive     = array();
+
 	/**
 	 * Adjust some args if we have a carousel, based on the # of slides to display.
 	 */
-	if ( $slider_mode == 'carousel' && get_field( 'slides_to_display' ) ) {
-		$slides_to_show   = (int) get_field( 'slides_to_display' );
+	if ( $slider_mode == 'carousel' && get_field( 'slides_to_show' ) ) {
+		$slides_to_show   = (int) get_field( 'slides_to_show' );
 		$slides_to_scroll = $slides_to_show;
 
 		/**
@@ -52,17 +49,32 @@ if ( have_rows( 'slider' ) ) :
 	 * Build slick slider args array.
 	 */
 	$args = array(
-		'autoplay'       => ( $autoplay > 0 ) ? true : false,
-		'autoplaySpeed'  => $autoplay,
-		'dots'           => $dots,
-		'arrows'         => $arrows,
+		'autoplay'       => ( $slider_speed > 0 ) ? true : false,
+		'autoplaySpeed'  => $slider_speed,
+		'dots'           => (bool) get_field( 'slider_dots' ),
+		'arrows'         => (bool) get_field( 'slider_arrows' ),
 		'slidesToShow'   => $slides_to_show,
 		'slidesToScroll' => $slides_to_show,
 		'prevArrow'      => '#' . $block_id . ' .slick-prev',
 		'nextArrow'      => '#' . $block_id . ' .slick-next',
-		'centerMode'     => $center_mode,
-		'responsive'     => $responsive,
+		'responsive'     => array(),
 	);
+
+	/**
+	 * Pull additional option settings from ACF.
+	 */
+	$additional_options_keys = array(
+		'centerMode',
+		'infinite',
+		'adaptiveHeight',
+		'variableWidth',
+		'fade',
+		'vertical',
+	);
+
+	foreach ( $additional_options_keys as $key ) {
+		$args[ $key ] = (bool) get_field( 'slider_' . strtolower( $key ) );
+	}
 
 	?>
 <div id="<?php echo esc_html( $block_id ); ?>" class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
@@ -95,7 +107,7 @@ if ( have_rows( 'slider' ) ) :
 				$slider_classes[] = 'slick-slider--hasarrows';
 			}
 			?>
-		<div class="<?php esc_attr_e( implode(' ', $slider_classes ) ); ?>" data-slick='<?php echo json_encode( $args ); ?>'>
+		<div class="<?php esc_attr_e( implode( ' ', $slider_classes ) ); ?>" data-slick='<?php echo json_encode( $args ); ?>'>
 			<?php
 			$slider_slides = get_sub_field( 'slides' );
 
@@ -114,7 +126,8 @@ if ( have_rows( 'slider' ) ) :
 			}
 
 
-			foreach ( $slider_slides as $slide ) : ?>
+			foreach ( $slider_slides as $slide ) :
+				?>
 			<div class="slick-slide">
 				<?php if ( $slide['image'] ) : ?>
 				<div class="slick-slide-in">
@@ -125,11 +138,12 @@ if ( have_rows( 'slider' ) ) :
 			<?php endforeach; ?>
 		</div>
 		<?php endif; ?>
-		<?php 
+		<?php
 		/**
 		 * Arrows
 		 */
-		if ( $args['arrows'] !== false ) : ?>
+		if ( $args['arrows'] !== false ) :
+			?>
 		<button type="button" class="slick-prev" title="Previous"><?php _e( 'Previous', 'basetheme' ); ?></button>
 		<button type="button" class="slick-next" title="Next"><?php _e( 'Next', 'basetheme' ); ?></button>
 		<?php endif; ?>

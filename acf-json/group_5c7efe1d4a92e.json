@@ -28,8 +28,8 @@
         },
         {
             "key": "field_5c7f01af1cd72",
-            "label": "Slides to Display",
-            "name": "slides_to_display",
+            "label": "Slides to Show",
+            "name": "slides_to_show",
             "type": "number",
             "instructions": "",
             "required": 0,
@@ -206,15 +206,40 @@
             "endpoint": 0
         },
         {
-            "key": "field_5d010b28dd33a",
-            "label": "Randomize Slides",
-            "name": "slider_randomize",
-            "type": "true_false",
+            "key": "field_5d040d25e0e74",
+            "label": "Warning",
+            "name": "",
+            "type": "message",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "20",
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Some options may not work well without changes to block styling.",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_5d02c63c045ad",
+            "label": "Center Mode",
+            "name": "slider_centermode",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5c7f013c1cd71",
+                        "operator": "==",
+                        "value": "carousel"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "25",
                 "class": "",
                 "id": ""
             },
@@ -225,15 +250,110 @@
             "ui_off_text": ""
         },
         {
-            "key": "field_5d02c63c045ad",
-            "label": "Center Mode",
-            "name": "center_mode",
+            "key": "field_5d040bd3e0e6d",
+            "label": "Infinite Looping",
+            "name": "slider_infinite",
             "type": "true_false",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_5d040c63e0e6e",
+            "label": "Adaptive Height",
+            "name": "slider_adaptiveheight",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_5d040cf1e0e71",
+            "label": "Variable Width",
+            "name": "slider_variablewidth",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_5d040ca5e0e70",
+            "label": "Fade",
+            "name": "slider_fade",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_5d040d12e0e73",
+            "label": "Vertical",
+            "name": "slider_vertical",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_5d010b28dd33a",
+            "label": "Randomize Slides",
+            "name": "slider_randomize",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
                 "class": "",
                 "id": ""
             },
@@ -261,5 +381,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1560462921
+    "modified": 1560546718
 }
