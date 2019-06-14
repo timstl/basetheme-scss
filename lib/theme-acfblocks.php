@@ -89,7 +89,7 @@ function bt_acf_register_blocks() {
 				'mode'            => BT_ACF_BLOCKS_MODE,
 				'align'           => 'center',
 			)
-		); */
+		); 
 
 		// Slider
 		acf_register_block_type(
@@ -106,7 +106,7 @@ function bt_acf_register_blocks() {
 				'enqueue_style'   => get_template_directory_uri() . '/dist/css/blocks/slick.css',
 				'enqueue_script'  => get_template_directory_uri() . '/dist/js/blocks/block-slider.min.js',
 			)
-		);
+		);*/
 	}
 }
 add_action( 'acf/init', 'bt_acf_register_blocks' );
