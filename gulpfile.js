@@ -96,7 +96,8 @@ function doJS( scripts_nobabel, scripts_babel, scripts_dest, filename ) {
 				.src( path )
 				.pipe( eslint() )
 				.pipe( eslint.format() )
-				.pipe( eslint.failAfterError() )
+
+				//.pipe( eslint.failAfterError() )
 				.pipe( babel({ presets: [ '@babel/preset-env' ] }) )
 				.pipe( uglify() )
 		);
@@ -152,7 +153,8 @@ function scriptsblocks() {
 					])
 					.pipe( eslint() )
 					.pipe( eslint.format() )
-					.pipe( eslint.failAfterError() )
+
+					//.pipe( eslint.failAfterError() )
 					.pipe( babel({ presets: [ '@babel/preset-env' ] }) )
 					.pipe( uglify() )
 			);
