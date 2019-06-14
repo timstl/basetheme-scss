@@ -26,7 +26,7 @@ function bt_acf_register_blocks() {
 		$icon = '';
 
 		// Register button group block
-		acf_register_block(
+		acf_register_block_type(
 			array(
 				'name'            => 'buttongroup',
 				'title'           => __( 'Button Group' ),
@@ -40,7 +40,7 @@ function bt_acf_register_blocks() {
 		);
 
 		// Register button block
-		acf_register_block(
+		acf_register_block_type(
 			array(
 				'name'            => 'buttonbootstrap',
 				'title'           => __( 'Button (Bootstrap)' ),
@@ -61,7 +61,7 @@ function bt_acf_register_blocks() {
 
 		/*
 		// Page Header
-		acf_register_block(
+		acf_register_block_type(
 			array(
 				'name'            => 'pageheader',
 				'title'           => __( 'Page Header' ),
@@ -77,7 +77,7 @@ function bt_acf_register_blocks() {
 
 		/*
 		// Bootstrap Card Deck
-		acf_register_block(
+		acf_register_block_type(
 			array(
 				'name'            => 'carddeck',
 				'title'           => __( 'Card Deck' ),
@@ -85,11 +85,28 @@ function bt_acf_register_blocks() {
 				'render_callback' => 'bt_acf_block_render_callback',
 				'category'        => BT_ACF_BLOCKS_CATEGORY,
 				'icon'            => $icon,
-				'keywords'        => array( 'header', 'image', BT_ACF_BLOCKS_KEYWORD ),
+				'keywords'        => array( 'card', 'deck', BT_ACF_BLOCKS_KEYWORD ),
 				'mode'            => BT_ACF_BLOCKS_MODE,
 				'align'           => 'center',
 			)
 		); */
+
+		// Slider
+		acf_register_block_type(
+			array(
+				'name'            => 'slider',
+				'title'           => __( 'Slider' ),
+				'description'     => __( 'A slider block.' ),
+				'render_callback' => 'bt_acf_block_render_callback',
+				'category'        => BT_ACF_BLOCKS_CATEGORY,
+				'icon'            => $icon,
+				'keywords'        => array( 'header', 'image', BT_ACF_BLOCKS_KEYWORD ),
+				'mode'            => BT_ACF_BLOCKS_MODE,
+				'align'           => 'center',
+				'enqueue_style'   => get_template_directory_uri() . '/dist/css/blocks/slick.css',
+				'enqueue_script'  => get_template_directory_uri() . '/dist/js/blocks/block-slider.min.js',
+			)
+		);
 	}
 }
 add_action( 'acf/init', 'bt_acf_register_blocks' );
