@@ -18,8 +18,12 @@ const del = require( 'del' );
 
 const paths = {
 	styles: {
-		src: [ './src/scss/*.scss', '!./src/scss/blocks/standalone/*.scss' ],
-		dest: './dist/css/'
+		src: [ './src/scss/*.scss', '!./src/scss/blocks/enqueue_style/*.scss' ],
+		dest: './dist/css/',
+		blocks: {
+			src: [ './src/scss/blocks/enqueue_style/*.scss' ],
+			dest: './dist/css/blocks/'
+		}
 	},
 	js: {
 		blocks: {
@@ -51,9 +55,16 @@ const paths = {
 };
 
 function style() {
+	return do_styles( paths.styles.src, paths.styles.dest );
+}
+function block_style() {
+	return do_styles( paths.styles.blocks.src, paths.styles.blocks.dest );
+}
+
+function do_styles( src, dest ) {
 	return (
 		gulp
-			.src( paths.styles.src )
+			.src( src )
 
 			// Initialize sourcemaps before compilation starts
 			.pipe( sourcemaps.init() )
@@ -65,7 +76,7 @@ function style() {
 
 			// Now add/write the sourcemaps
 			.pipe( sourcemaps.write( './' ) )
-			.pipe( gulp.dest( paths.styles.dest ) )
+			.pipe( gulp.dest( dest ) )
 
 			// Add browsersync stream pipe after compilation
 			.pipe( browserSync.stream() )
@@ -168,6 +179,7 @@ function watch() {
 	});
 
 	gulp.watch( paths.styles.src, style );
+	gulp.watch( paths.styles.blocks.src, block_style );
 	gulp.watch( paths.js.head.src.vendor, scriptshead );
 	gulp.watch( paths.js.head.src.custom, scriptshead );
 	gulp.watch( paths.js.footer.src.vendor, scriptsfooter );
