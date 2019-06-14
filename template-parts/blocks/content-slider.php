@@ -76,6 +76,25 @@ if ( have_rows( 'slider' ) ) :
 		$args[ $key ] = (bool) get_field( 'slider_' . strtolower( $key ) );
 	}
 
+	/**
+	 * Responsive example:
+	 * Add an array of settings to $args['responsive'].
+	 * Use bt_get_breakpoint to get a breakpoint from theme-helpers.php.
+	 */
+
+	/*
+	$args['responsive'][] =
+		array(
+			'breakpoint' => (int) bt_get_breakpoint( 'sm', false, 1 ),
+			'settings'   => array(
+				'slidesToScroll' => 2,
+				'slidesToShow'   => 2,
+				'centerMode'     => false,
+				'dots'           => $dots,
+				'arrows'         => $arrows,
+			),
+		);
+	*/
 	?>
 <div id="<?php echo esc_html( $block_id ); ?>" class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
 	<div class="<?php echo $align_class; ?>">
