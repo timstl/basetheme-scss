@@ -13,12 +13,20 @@ const concat = require( 'gulp-concat' );
 const mergeStream = require( 'merge-stream' );
 const browserSync = require( 'browser-sync' ).create();
 
+const fs = require( 'fs' );
+const del = require( 'del' );
+
 const paths = {
 	styles: {
 		src: [ './src/scss/*.scss', '!./src/scss/blocks/standalone/*.scss' ],
 		dest: './dist/css/'
 	},
 	js: {
+		blocks: {
+			dir: './src/js/blocks/',
+			src: [ './src/js/blocks/' ],
+			dest: './dist/js/blocks'
+		},
 		head: {
 			src: {
 				vendor: [
@@ -107,12 +115,55 @@ function scriptsfooter() {
 	);
 }
 
+function scriptsblocks() {
+	var streams = [];
+	const dir = paths.js.blocks.dir;
+
+	del([ paths.js.blocks.dest + '/**' ]);
+
+	files = fs.readdirSync( dir );
+	files.forEach( file => {
+		if ( fs.lstatSync( dir + file ).isDirectory() ) {
+			const block_dir = dir + file;
+			var block_stream = [];
+
+			if ( fs.existsSync( block_dir + '/vendor/' ) ) {
+				block_stream.push(
+					gulp.src( block_dir + '/vendor/**/*.js' ).pipe( uglify() )
+				);
+			}
+
+			block_stream.push(
+				gulp
+					.src([
+						block_dir + '/**/*.js',
+						'!' + block_dir + '/vendor/**/*.js'
+					])
+					.pipe( eslint() )
+					.pipe( eslint.format() )
+					.pipe( eslint.failAfterError() )
+					.pipe( babel({ presets: [ '@babel/preset-env' ] }) )
+					.pipe( uglify() )
+			);
+
+			streams.push(
+				mergeStream( block_stream ).pipe(
+					concat( 'block-' + file + '.min.js' )
+				)
+			);
+		}
+	});
+
+	if ( 0 < streams.length ) {
+		return mergeStream( streams ).pipe( gulp.dest( paths.js.blocks.dest ) );
+	}
+
+	return gulp.src( dir );
+}
+
 // Add browsersync initialization at the start of the watch task
 function watch() {
 	browserSync.init([ '**/*.php', 'img/**/*.{png,jpg,gif}' ], {
-
-		// If you are already serving your website locally using something like apache
-		// You can use the proxy setting to proxy that instead
 		proxy: proxy_url
 	});
 
@@ -121,6 +172,7 @@ function watch() {
 	gulp.watch( paths.js.head.src.custom, scriptshead );
 	gulp.watch( paths.js.footer.src.vendor, scriptsfooter );
 	gulp.watch( paths.js.footer.src.custom, scriptsfooter );
+	gulp.watch( paths.js.blocks.src, scriptsblocks );
 }
 
 // We don't have to expose the reload function
