@@ -4,6 +4,7 @@
  *
  * This is slider block powered by Slick Slider.
  */
+
 $block_id = 'slider-' . $block['id'];
 if ( have_rows( 'slider' ) ) :
 
@@ -21,33 +22,45 @@ if ( have_rows( 'slider' ) ) :
 		$align_class = 'container';
 	}
 
-	// Slider args
+	/**
+	 * Pull some slider settings or set default values.
+	 */
+	$slider_mode    = get_field( 'slider_mode' );
 	$autoplay       = (int) get_field( 'slider_timeout' );
 	$dots           = (bool) get_field( 'slider_dots' );
 	$arrows         = (bool) get_field( 'slider_arrows' );
-	$centerMode     = false;
-	$slidesToScroll = 1;
-	$slidesToShow   = 1;
+	$center_mode     = false;
+	$slides_to_scroll = 1;
+	$slides_to_show   = 1;
 	$responsive     = array();
+	/**
+	 * Adjust some args if we have a carousel, based on the # of slides to display.
+	 */
+	if ( $slider_mode == 'carousel' && get_field( 'slides_to_display' ) ) {
+		$slides_to_show   = (int) get_field( 'slides_to_display' );
+		$slides_to_scroll = $slides_to_show;
 
-	if ( get_field( 'slider_mode' ) == 'carousel' && get_field( 'slides_to_display' ) ) {
-		$slidesToShow   = (int) get_field( 'slides_to_display' );
-		$slidesToScroll = $slidesToShow;
-		if ( $slidesToScroll <= 0 ) {
-			$slidesToScroll = 1;
+		/**
+		 * Never 0.
+		 */
+		if ( $slides_to_scroll <= 0 ) {
+			$slides_to_scroll = 1;
 		}
 	}
 
+	/**
+	 * Build slick slider args array.
+	 */
 	$args = array(
 		'autoplay'       => ( $autoplay > 0 ) ? true : false,
 		'autoplaySpeed'  => $autoplay,
 		'dots'           => $dots,
 		'arrows'         => $arrows,
-		'slidesToShow'   => $slidesToShow,
-		'slidesToScroll' => $slidesToShow,
+		'slidesToShow'   => $slides_to_show,
+		'slidesToScroll' => $slides_to_show,
 		'prevArrow'      => '#' . $block_id . ' .slick-prev',
 		'nextArrow'      => '#' . $block_id . ' .slick-next',
-		'centerMode'     => $centerMode,
+		'centerMode'     => $center_mode,
 		'responsive'     => $responsive,
 	);
 
@@ -58,50 +71,69 @@ if ( have_rows( 'slider' ) ) :
 	while ( have_rows( 'slider' ) ) :
 		the_row();
 
-		// Only 1 slide, don't need controls.
-		if ( count( get_sub_field( 'slides' ) ) === $slidesToShow ) {
+		/**
+		 * If the number of total slides equals the number of slides to show,
+		 * we don't need dots or arrows.
+		 */
+		if ( count( get_sub_field( 'slides' ) ) === $slides_to_show ) {
 			$args['dots']   = false;
 			$args['arrows'] = false;
 		}
-		?>
-		<?php
+
 		if ( get_row_layout() == 'images' || get_row_layout() == 'content' ) :
+
+			$slider_classes = array(
+				'slick-slider',
+				'slick-slider--' . get_row_layout(),
+				'slick-slider--' . $slider_mode,
+			);
+
+			if ( $args['dots'] ) {
+				$slider_classes[] = 'slick-slider--hasdots';
+			}
+			if ( $args['arrows'] ) {
+				$slider_classes[] = 'slick-slider--hasarrows';
+			}
 			?>
-		<div class="slick-slider slick-slider--<?php echo get_row_layout(); ?>
-														<?php
-														if ( $args['dots'] ) {
-															?>
-		 slick-slider--hasdots<?php } ?>" data-slick='<?php echo json_encode( $args ); ?>'>
+		<div class="<?php esc_attr_e( implode(' ', $slider_classes ) ); ?>" data-slick='<?php echo json_encode( $args ); ?>'>
 			<?php
 			$slider_slides = get_sub_field( 'slides' );
-			if ( get_field( 'slider_randomize' ) && is_array( $slider_slides ) ) {
+
+			/**
+			 * No slides.
+			 */
+			if ( ! is_array( $slider_slides ) ) {
+				continue;
+			}
+
+			/**
+			 * Randomize slides?
+			 */
+			if ( get_field( 'slider_randomize' ) ) {
 				shuffle( $slider_slides );
 			}
 
 
-			foreach ( $slider_slides as $slide ) :
-				?>
+			foreach ( $slider_slides as $slide ) : ?>
 			<div class="slick-slide">
-				<?php
-				if ( $slide['image'] ) :
-					?>
+				<?php if ( $slide['image'] ) : ?>
 				<div class="slick-slide-in">
 					<?php echo wp_get_attachment_image( $slide['image'], 'full' ); ?>
 				</div>
 				<?php endif; ?>
 			</div>
-				<?php
-			endforeach;
-			?>
+			<?php endforeach; ?>
 		</div>
-			<?php
-		endif;
-		?>
-		<?php if ( $args['arrows'] !== false ) : ?>
+		<?php endif; ?>
+		<?php 
+		/**
+		 * Arrows
+		 */
+		if ( $args['arrows'] !== false ) : ?>
 		<button type="button" class="slick-prev" title="Previous"><?php _e( 'Previous', 'basetheme' ); ?></button>
 		<button type="button" class="slick-next" title="Next"><?php _e( 'Next', 'basetheme' ); ?></button>
-	<?php endif; ?>
-	
+		<?php endif; ?>
+
 	<?php endwhile; ?>
 	</div>
 </div>
