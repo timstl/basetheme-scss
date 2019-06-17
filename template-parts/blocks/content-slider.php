@@ -111,12 +111,14 @@ if ( have_rows( 'slider' ) ) :
 			$args['arrows'] = false;
 		}
 
-		if ( get_row_layout() == 'images' || get_row_layout() == 'content' ) :
+		$slider_type = get_row_layout();
+
+		if ( $slider_type == 'images' || $slider_type == 'content' ) :
 
 			$slider_classes = array(
 				'slick-slider',
-				'slick-slider--' . get_row_layout(),
-				'slick-slider--' . $slider_mode,
+				'slick-slider--' . esc_attr( $slider_type ),
+				'slick-slider--' . esc_attr( $slider_mode ),
 			);
 
 			if ( $args['dots'] ) {
@@ -148,11 +150,13 @@ if ( have_rows( 'slider' ) ) :
 			foreach ( $slider_slides as $slide ) :
 				?>
 			<div class="slick-slide">
-				<?php if ( $slide['image'] ) : ?>
 				<div class="slick-slide-in">
-					<?php echo wp_get_attachment_image( $slide['image'], 'full' ); ?>
-				</div>
+				<?php if ( $slider_type === 'images' ) : ?>
+					<?php echo wp_get_attachment_image( $slide['image']['id'], 'full' ); ?>
+				<?php else : ?>
+					<?php echo $slide['content']; ?>
 				<?php endif; ?>
+				</div>
 			</div>
 			<?php endforeach; ?>
 		</div>

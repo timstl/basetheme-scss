@@ -90,24 +90,6 @@ function bt_acf_register_blocks() {
 				'align'           => 'center',
 			)
 		); 
-
-		// Slider
-		acf_register_block_type(
-			array(
-				'name'            => 'slider',
-				'title'           => __( 'Slider' ),
-				'description'     => __( 'A slider block.' ),
-				'render_callback' => 'bt_acf_block_render_callback',
-				'category'        => BT_ACF_BLOCKS_CATEGORY,
-				'icon'            => $icon,
-				'keywords'        => array( 'header', 'image', BT_ACF_BLOCKS_KEYWORD ),
-				'mode'            => BT_ACF_BLOCKS_MODE,
-				'align'           => 'center',
-				'enqueue_style'   => get_template_directory_uri() . '/dist/css/blocks/slick.css',
-				'enqueue_script'  => get_template_directory_uri() . '/dist/js/blocks/block-slider.min.js',
-			)
-		);
-
 		// Custom image
 		acf_register_block_type(
 			array(
@@ -134,7 +116,25 @@ function bt_acf_register_blocks() {
 				'keywords'        => array( 'accordion', 'collapse', BT_ACF_BLOCKS_KEYWORD ),
 				'mode'            => BT_ACF_BLOCKS_MODE,
 			)
-		);*/
+		);
+
+		// Slider
+		acf_register_block_type(
+			array(
+				'name'            => 'slider',
+				'title'           => __( 'Slider' ),
+				'description'     => __( 'A slider block.' ),
+				'render_callback' => 'bt_acf_block_render_callback',
+				'category'        => BT_ACF_BLOCKS_CATEGORY,
+				'icon'            => $icon,
+				'keywords'        => array( 'header', 'image', BT_ACF_BLOCKS_KEYWORD ),
+				'mode'            => BT_ACF_BLOCKS_MODE,
+				'align'           => 'center',
+				'enqueue_style'   => get_template_directory_uri() . '/dist/css/blocks/slick.css',
+				'enqueue_script'  => get_template_directory_uri() . '/dist/js/blocks/block-slider.min.js',
+			)
+		);
+		*/
 	}
 }
 add_action( 'acf/init', 'bt_acf_register_blocks' );
