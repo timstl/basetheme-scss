@@ -1,6 +1,6 @@
 {
     "key": "group_5c672ceef1bb0",
-    "title": "Card Deck",
+    "title": "Block: Card Deck",
     "fields": [
         {
             "key": "field_5c672ba1b7c6d",
@@ -202,5 +202,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1560462477
+    "modified": 1560781996
 }
