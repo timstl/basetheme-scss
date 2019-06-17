@@ -59,30 +59,32 @@ if ( have_rows( 'pageheader' ) ) :
 
 		?>
 		<header id="<?php echo $block_id; ?>" class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
+			<?php if ( $layout == 'image_content' ) : ?>
 			<div class="pageheader-text">
 				<?php the_sub_field( 'content' ); ?>
 			</div>
-			<?php
-			if ( get_sub_field( 'image' ) ) :
-				if ( get_sub_field( 'background_position' ) ) {
-					$position = get_sub_field( 'background_position' );
-					/**
-					 * ACF issue where we have seen both an array or string returned for this value.
-					 * Possibly a bug in 5.8-beta that was fixed at some point?
-					 */
-					if ( is_array( $position ) ) {
-						$position = $position[0];
+				<?php
+				if ( get_sub_field( 'image' ) ) :
+					if ( get_sub_field( 'background_position' ) ) {
+						$position = get_sub_field( 'background_position' );
+						/**
+						 * ACF issue where we have seen both an array or string returned for this value.
+						 * Possibly a bug in 5.8-beta that was fixed at some point?
+						 */
+						if ( is_array( $position ) ) {
+							$position = $position[0];
+						}
+					} else {
+						$position = 'center center';
 					}
-				} else {
-					$position = 'center center';
-				}
-				?>
+					?>
 				<style type="text/css">
 					#<?php echo $block_id; ?> {
 						background-position: <?php echo wp_strip_all_tags( $position ); ?>;
 						background-image: url(<?php echo esc_url( get_sub_field( 'image' )['url'] ); ?>);
 					}
 				</style>
+				<?php endif; ?>
 			<?php endif; ?>
 		</header>
 		<?php

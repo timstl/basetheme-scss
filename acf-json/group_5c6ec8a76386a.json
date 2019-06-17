@@ -18,8 +18,8 @@
             "layouts": {
                 "5c6ec8c1be83d": {
                     "key": "5c6ec8c1be83d",
-                    "name": "standard",
-                    "label": "Standard",
+                    "name": "image_content",
+                    "label": "Image + Content",
                     "display": "block",
                     "sub_fields": [
                         {
@@ -165,5 +165,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1560453092
+    "modified": 1560808488
 }
