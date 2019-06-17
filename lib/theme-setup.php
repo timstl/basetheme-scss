@@ -131,6 +131,6 @@ function bt_enqueue_block_editor_assets() {
 	// Enqueue fonts.
 	bt_fonts();
 
-	wp_enqueue_style( 'bt-editor-styles', get_template_directory_uri() . '/dist/css/editor-styles.css', null, time() );
+	wp_enqueue_style( 'bt-editor-styles', get_template_directory_uri() . '/dist/css/editor-styles.css', null, '1.0' );
 }
 add_action( 'enqueue_block_editor_assets', 'bt_enqueue_block_editor_assets' );
