@@ -135,6 +135,21 @@ function bt_acf_register_blocks() {
 			)
 		);
 		*/
+	
+		// Related Posts
+		acf_register_block_type(
+			array(
+				'name'            => 'relatedposts',
+				'title'           => __( 'Related Posts' ),
+				'description'     => __( 'Display posts related to the current post\'s categories and/or tags.' ),
+				'render_callback' => 'bt_acf_block_render_callback',
+				'category'        => BT_ACF_BLOCKS_CATEGORY,
+				'icon'            => $icon,
+				'keywords'        => array( 'header', 'image', BT_ACF_BLOCKS_KEYWORD ),
+				'mode'            => BT_ACF_BLOCKS_MODE,
+				'align'           => 'center',
+			)
+		);
 	}
 }
 add_action( 'acf/init', 'bt_acf_register_blocks' );

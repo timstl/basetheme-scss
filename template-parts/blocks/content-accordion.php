@@ -9,8 +9,30 @@
 $block_id = 'accordion-' . $block['id'];
 $i        = 0;
 
+$classes = array( 'accordion' );
+
+/**
+ * Custom classes added in admin.
+ */
+if ( ! empty( $block['className'] ) ) {
+	$classes[] = $block['className'];
+}
+
+/**
+ * Convert align class to Bootstrap containers.
+ */
+$align_class = $block['align'] ? 'align' . $block['align'] : '';
+if ( ! $align_class ) {
+	$align_class = 'alignfull';
+} elseif ( $align_class == 'alignwide' ) {
+	$align_class = 'container-wide';
+} elseif ( $align_class == 'aligncenter' ) {
+	$align_class = 'container';
+}
+
 if ( have_rows( 'accordion' ) ) : ?>
-<div id="<?php echo esc_html( $block_id ); ?>" class="accordion">
+<div id="<?php echo esc_html( $block_id ); ?>" class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
+	<div class="<?php echo $align_class; ?>">
 	<?php
 	$show     = ' show';
 	$expanded = 'true';
@@ -58,6 +80,7 @@ if ( have_rows( 'accordion' ) ) : ?>
 		$i++;
 	endwhile;
 	?>
+	</div>
 </div>
 	<?php
 elseif ( is_admin() ) :
