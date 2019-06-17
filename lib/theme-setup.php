@@ -103,7 +103,9 @@ function bt_fonts() {
  */
 function bt_enqueue() {
 
-	// Enqueue fonts.
+	/**
+	 * Enqueue fonts. Add wp_enqueue_style lines above.
+	 */
 	bt_fonts();
 
 	wp_enqueue_style( 'bt-base-style', get_template_directory_uri() . '/dist/css/style.css', array(), '1.0' );
@@ -112,13 +114,17 @@ function bt_enqueue() {
 	wp_register_script( 'jquery', get_template_directory_uri() . '/dist/js/jquery.min.js', array(), '3.4.0', false );
 	wp_enqueue_script( 'jquery' );
 
-	// gravity forms throws errors without jquery-migrate
-	wp_enqueue_script( 'jquery-migrate' );
+	/**
+	 * Previously, Gravity Forms would throw an error without jQuery Migrate.
+	 * That doesn't seem to be the case any longer? Leaving this comment here until it's confirmed there are no issues.
+	 */
+	// wp_enqueue_script( 'jquery-migrate' );
 
 	wp_enqueue_script( 'bt-head', get_template_directory_uri() . '/dist/js/head.min.js', array(), '1.0', false );
 
 	if ( is_singular() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );}
+		wp_enqueue_script( 'comment-reply' );
+	}
 
 	wp_enqueue_script( 'bt-scripts', get_template_directory_uri() . '/dist/js/scripts.min.js', array(), '1.0', true );
 }
