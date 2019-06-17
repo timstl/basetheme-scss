@@ -19,7 +19,7 @@ if ( ! empty( $block['className'] ) ) {
 
 if ( have_rows( 'buttons' ) ) : ?>
 <div id="<?php echo esc_html( $block_id ); ?>" class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
-	<div class="btn-group" role="group" aria-label="button group">
+	<div class="btn-group" role="group" aria-label="<?php the_field( 'button_group_aria_label' ); ?>">
 		<?php
 		while ( have_rows( 'buttons' ) ) :
 			the_row();

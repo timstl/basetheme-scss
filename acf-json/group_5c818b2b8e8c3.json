@@ -142,6 +142,25 @@
                     "ui_off_text": ""
                 }
             ]
+        },
+        {
+            "key": "field_5d07f3e69e7e1",
+            "label": "Aria Label",
+            "name": "button_group_aria_label",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         }
     ],
     "location": [
@@ -161,5 +180,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1560451699
+    "modified": 1560802366
 }
