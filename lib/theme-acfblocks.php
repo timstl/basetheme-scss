@@ -134,8 +134,7 @@ function bt_acf_register_blocks() {
 				'enqueue_script'  => get_template_directory_uri() . '/dist/js/blocks/block-slider.min.js',
 			)
 		);
-		*/
-	
+
 		// Related Posts
 		acf_register_block_type(
 			array(
@@ -150,6 +149,7 @@ function bt_acf_register_blocks() {
 				'align'           => 'center',
 			)
 		);
+		*/
 	}
 }
 add_action( 'acf/init', 'bt_acf_register_blocks' );
