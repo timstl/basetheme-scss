@@ -120,6 +120,20 @@ function bt_acf_register_blocks() {
 				'keywords'        => array( 'image', BT_ACF_BLOCKS_KEYWORD ),
 				'mode'            => BT_ACF_BLOCKS_MODE,				
 			)
+		);
+
+		// Accordion
+		acf_register_block_type(
+			array(
+				'name'            => 'accordion',
+				'title'           => __( 'Accordion' ),
+				'description'     => __( 'A set of accordions.' ),
+				'render_callback' => 'bt_acf_block_render_callback',
+				'category'        => BT_ACF_BLOCKS_CATEGORY,
+				'icon'            => $icon,
+				'keywords'        => array( 'accordion', 'collapse', BT_ACF_BLOCKS_KEYWORD ),
+				'mode'            => BT_ACF_BLOCKS_MODE,
+			)
 		);*/
 	}
 }

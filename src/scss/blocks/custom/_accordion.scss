@@ -1,0 +1,70 @@
+.accordion {
+	&-row {
+		border-top: 1px solid $gray-400;
+		padding: $grid-gutter-width 0;
+
+		&:last-child {
+			border-bottom: 1px solid $gray-400;
+		}
+	}
+
+	&-heading {
+		@include font-bold();
+		margin: 0;
+
+		@include media-breakpoint-up(md) {
+		}
+	}
+
+	button.accordion-toggle {
+		border: none;
+		outline: none;
+		background: none;
+		flex-grow: 0;
+		padding: 10px;
+
+		svg {
+			transition: transform $ease $speed;
+
+			rect {
+				transition: opacity $ease $speed;
+			}
+		}
+
+		&[aria-expanded="true"] {
+			/*
+			Add a + SVG to theme and add "plus-horz" class to line to transform into a -
+			svg {
+				transform: rotate(90deg);
+
+				.plus-horz {
+					opacity: 0;
+				}
+			}*/
+		}
+	}
+
+	&-trigger {
+		cursor: pointer;
+
+		&[aria-expanded="true"] {
+			button.accordion-toggle {
+				/*svg {
+					transform: rotate(90deg);
+
+					.plus-horz {
+						opacity: 0;
+					}
+				}*/
+			}
+		}
+	}
+
+	.accordion-content {
+		.in {
+			> *:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
