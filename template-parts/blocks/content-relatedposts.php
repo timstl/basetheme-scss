@@ -82,7 +82,6 @@ if ( ! function_exists( 'bt_query_related_posts' ) ) {
 				);
 			}
 
-			print_r( $args );
 			return new WP_Query( $args );
 		}
 		return false;
