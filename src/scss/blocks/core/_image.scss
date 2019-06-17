@@ -3,6 +3,7 @@
 		@include font-italic(); // See mixins.scss
 	}
 
+	> a > img,
 	> img {
 		width: auto;
 		height: auto;
@@ -11,6 +12,7 @@
 	&.alignfull {
 		margin-bottom: 0;
 
+		> a > img,
 		> img {
 			height: auto;
 			width: 100%;

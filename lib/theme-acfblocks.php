@@ -106,6 +106,20 @@ function bt_acf_register_blocks() {
 				'enqueue_style'   => get_template_directory_uri() . '/dist/css/blocks/slick.css',
 				'enqueue_script'  => get_template_directory_uri() . '/dist/js/blocks/block-slider.min.js',
 			)
+		);
+
+		// Custom image
+		acf_register_block_type(
+			array(
+				'name'            => 'imageadvanced',
+				'title'           => __( 'Image (Advanced)' ),
+				'description'     => __( 'An advanced image field. Use if you need specifically styled images or additional HTML with an image.' ),
+				'render_callback' => 'bt_acf_block_render_callback',
+				'category'        => BT_ACF_BLOCKS_CATEGORY,
+				'icon'            => $icon,
+				'keywords'        => array( 'image', BT_ACF_BLOCKS_KEYWORD ),
+				'mode'            => BT_ACF_BLOCKS_MODE,				
+			)
 		);*/
 	}
 }

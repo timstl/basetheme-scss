@@ -18,10 +18,10 @@ const del = require( 'del' );
 
 const paths = {
 	styles: {
-		src: [ './src/scss/*.scss', '!./src/scss/blocks/enqueue_style/*.scss' ],
+		src: [ './src/scss/**/*.scss', '!./src/scss/blocks/enqueue_style/**/*.scss' ],
 		dest: './dist/css/',
 		blocks: {
-			src: [ './src/scss/blocks/enqueue_style/*.scss' ],
+			src: [ './src/scss/blocks/enqueue_style/**/*.scss' ],
 			dest: './dist/css/blocks/'
 		}
 	},
