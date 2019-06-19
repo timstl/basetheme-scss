@@ -90,31 +90,6 @@ if ( ! function_exists( 'alt_title' ) ) :
 endif;
 
 /**
- * Output copyright with dynamic year
- *
- * @param string $before Append HTML or string before copyright.
- * @param string $after Append HTML or string after copyright.
- */
-
-if ( ! function_exists( 'bt_copyright' ) ) :
-	function bt_copyright( $before = '', $after = '' ) {
-		if ( ! function_exists( 'get_field' ) ) {
-			return '';
-		}
-
-		if ( get_field( 'footer_copyright', 'options' ) ) :
-			echo $before;
-			?>
-		<span class="copyright">
-			<?php echo str_ireplace( '%year%', date( 'Y' ), get_field( 'footer_copyright', 'options' ) ); ?>
-		</span>
-			<?php
-			echo $after;
-		endif;
-	}
-endif;
-
-/**
  * Load an SVG or image from media uploads.
  *
  * @param array An image array from ACF or other media array.
