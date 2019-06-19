@@ -157,6 +157,7 @@ endif;
 /**
  * Build conditional classes for an element.
  * Checks if a value exists, and appends the key as a classname if it does.
+ * The intended use is with ACF True/False fields, but any function that returns a truthy/falsey result would work.
  *
  * Example usage:
  *
