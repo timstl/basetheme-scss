@@ -36,10 +36,6 @@ class Bootstrap_Breadcrumbs {
 		global $post;
 		$class = 'breadcrumb';
 
-		if ( isset( $post->ID ) && get_field( 'additional_breadcrumb_spacing', $post->ID ) ) {
-			$class .= ' breadcrumb--spaced';
-		}
-
 		$html = '<ol class="' . $class . '">';
 
 		if ( is_admin() ) {

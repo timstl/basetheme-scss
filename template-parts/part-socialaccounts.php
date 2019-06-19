@@ -3,7 +3,7 @@
  * Display social icons from ACF fields.
  */
 ?>
-<?php if ( have_rows( 'social_accounts', 'options' ) ) : ?>
+<?php if ( function_exists( 'have_rows' ) && have_rows( 'social_accounts', 'options' ) ) : ?>
 <ul class="social">
 	<?php
 	while ( have_rows( 'social_accounts', 'options' ) ) :
