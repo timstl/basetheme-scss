@@ -37,7 +37,7 @@ if ( function_exists( 'the_field' ) ) {
 				<?php echo bt_load_svg_from_media( get_field( 'logo', 'options' )['url'] ); ?>
 			</a>
 			<?php endif; ?>
-			<nav class="mainnav-navbar navbar navbar-expand-lg navbar-dark" role="navigation">
+			<nav class="mainnav-navbar navbar navbar-expand-lg" role="navigation">
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav-container" aria-controls="main-nav-container" aria-expanded="false" aria-label="Toggle navigation">
 					<svg width="30px" height="30px" viewBox="0 0 30 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 						<rect class="navbar-bars-top" x="1" y="9" width="28" height="2" transform="translate(0, -6)"></rect>
