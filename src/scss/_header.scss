@@ -113,7 +113,7 @@ $nav-arrow-hover: str-replace(
 		}
 	}
 
-	.mainnav-navbar {
+	#header-navbar-container {
 		background: $gray-900;
 		position: absolute;
 		padding: 0;
@@ -129,21 +129,29 @@ $nav-arrow-hover: str-replace(
 			width: auto;
 			top: auto;
 		}
-	}
 
-	#main-nav-container {
+		.nav-container {
+			width: 100%;
+			@include media-breakpoint-up(lg) {
+				width: auto;
+			}
+		}
+
 		.nav {
 			padding: 10px 0;
+			width: 100%;
+
 			@include media-breakpoint-up(lg) {
 				padding: 0;
 				display: flex;
 				align-items: center;
+				width: auto;
 			}
 
 			a {
 				color: #fff;
 				text-decoration: none;
-				padding: 0.5rem 5%;
+				padding: 0.5rem 2.5%;
 				transition: border-color $ease $speed, color $ease $speed;
 				white-space: nowrap;
 
@@ -267,6 +275,44 @@ $nav-arrow-hover: str-replace(
 			.has-dropdown-menu-right {
 				.dropdown-menu {
 					@extend .dropdown-menu-right;
+				}
+			}
+		}
+	}
+
+	#header-nav-menus {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+
+		&.collapse:not(.show) {
+			display: none;
+		}
+
+		@include media-breakpoint-up(lg) {
+			align-items: flex-end;
+		}
+	}
+
+	#main-nav-container {
+		order: 1;
+		@include media-breakpoint-up(lg) {
+			order: 2;
+		}
+	}
+
+	#utility-nav-container {
+		order: 2;
+
+		@include media-breakpoint-up(lg) {
+			margin-bottom: 10px;
+			order: 1;
+		}
+		.nav {
+			> li {
+				font-size: rem-calc(14);
+				@include media-breakpoint-up(lg) {
+					font-size: rem-calc(12);
 				}
 			}
 		}

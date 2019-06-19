@@ -37,28 +37,57 @@ if ( function_exists( 'the_field' ) ) {
 				<span class="logo"><?php echo bt_load_svg_from_media( get_field( 'logo', 'options' )['url'] ); ?></span>
 			</a>
 			<?php endif; ?>
-			<nav class="mainnav-navbar navbar navbar-expand-lg navbar-dark" role="navigation">
-				<?php
-				wp_nav_menu(
-					array(
-						'theme_location'  => 'mainnav',
-						'depth'           => 2,
-						'container'       => 'div',
-						'container_class' => 'collapse navbar-collapse',
-						'container_id'    => 'main-nav-container',
-						'menu_class'      => 'nav navbar-nav',
-						'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
-						'walker'          => new WP_Bootstrap_Navwalker(),
-					)
-				);
-				?>
-			</nav>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav-container" aria-controls="main-nav-container" aria-expanded="false" aria-label="Toggle navigation">
+			<?php
+			$utility_nav = wp_nav_menu(
+				array(
+					'echo'            => false,
+					'theme_location'  => 'utilitynav',
+					'depth'           => 1,
+					'container'       => 'nav',
+					'container_class' => 'nav-container',
+					'container_id'    => 'utility-nav-container',
+					'menu_class'      => 'nav navbar-nav',
+					'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
+					'walker'          => new WP_Bootstrap_Navwalker(),
+				)
+			);
+
+			$main_nav = wp_nav_menu(
+				array(
+					'echo'            => false,
+					'theme_location'  => 'mainnav',
+					'depth'           => 2,
+					'container'       => 'nav',
+					'container_class' => 'nav-container',
+					'container_id'    => 'main-nav-container',
+					'menu_class'      => 'nav navbar-nav',
+					'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
+					'walker'          => new WP_Bootstrap_Navwalker(),
+				)
+			);
+			?>
+			<?php if ( $utility_nav || $main_nav ) : ?>
+			<div class="navbar navbar-expand-lg" role="navigation" id="header-navbar-container">
+				<div id="header-nav-menus" class="collapse navbar-collapse">
+					<?php
+					if ( $main_nav ) :
+						echo $main_nav;
+					endif;
+					?>
+					<?php
+					if ( $utility_nav ) :
+						echo $utility_nav;
+					endif;
+					?>
+				</div>
+			</div>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#header-nav-menus" aria-controls="header-nav-menus" aria-expanded="false" aria-label="Toggle navigation">
 				<svg width="30px" height="21px" viewBox="0 0 30 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 					<rect class="navbar-bars-top" x="1" y="9" width="28" height="3" rx="2" transform="translate(0, -9)"></rect>
 					<rect class="navbar-bars-middle" x="1" y="9" width="28" height="3" rx="2"></rect>
 					<rect class="navbar-bars-btm" x="1" y="9" width="28" height="3" rx="2" transform="translate(0, 9)"></rect>
 				</svg>
 			</button>
+			<?php endif; ?>
 		</div>
 	</header>
