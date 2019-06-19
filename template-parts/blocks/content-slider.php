@@ -46,7 +46,9 @@ if ( have_rows( 'slider' ) ) :
 	}
 
 	/**
-	 * Build slick slider args array.
+	 * Build the slick slider $args array.
+	 * The $args array is converted to JSON for use in the data-slick attribute.
+	 * Slick Slider is initialized in /src/js/blocks/slider/block-slider.js, but the arguments are all pulled from this data attribute.
 	 */
 	$args = array(
 		'autoplay'       => ( $slider_speed > 0 ) ? true : false,
