@@ -27,7 +27,7 @@
 			?>
 			</nav>
 			<?php get_template_part( 'template-parts/part', 'socialaccounts' ); ?>
-			<?php bt_copyright(); ?>
+			<?php get_template_part( 'template-parts/part', 'copyright' ); ?>
 		</div>
 	</footer>
 <?php wp_footer(); ?>
