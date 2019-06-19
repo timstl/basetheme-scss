@@ -1,35 +1,83 @@
+/*
+	An SVG used as a background image for nav items with a dropdown.
+	Replace $link-color with another CSS variable to adjust color.
+	Replace entire SVG if desired, but be sure to adjust the format to match.
+*/
+$nav-arrow: str-replace(
+	url("data:image/svg+xml;utf8,%3csvg width='11px' height='8px' viewBox='0 0 11 8' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' stroke-linecap='round'%3e%3cg transform='translate(-882.000000, -39.000000)' stroke='#{$link-color}' stroke-width='2'%3e%3cg transform='translate(605.000000, 33.000000)'%3e%3cpolyline points='278 7 282.5 12 287 7'%3e%3c/polyline%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/svg%3e"),
+	"#",
+	"%23"
+);
+$nav-arrow-hover: str-replace(
+	url("data:image/svg+xml;utf8,%3csvg width='11px' height='8px' viewBox='0 0 11 8' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' stroke-linecap='round'%3e%3cg transform='translate(-882.000000, -39.000000)' stroke='#{$link-hover-color}' stroke-width='2'%3e%3cg transform='translate(605.000000, 33.000000)'%3e%3cpolyline points='278 7 282.5 12 287 7'%3e%3c/polyline%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/svg%3e"),
+	"#",
+	"%23"
+);
+
 #header {
+	background: #ddd;
 	padding: 10px 0;
+	position: fixed;
+	width: 100%;
+	z-index: 10002;
+	transition: height $speed $ease, padding $speed $ease,
+		background-color $speed $ease;
+
+	@include media-breakpoint-up(lg) {
+		padding: 20px 0;
+	}
 
 	.logo {
-		display: block;
-		margin: 0 auto;
-		text-align: center;
-	}
+		display: inline-block;
+		margin-left: 2.5%;
+		height: 48.6px;
+		width: 209px;
+		transition: transform $speed $ease, margin $speed $ease;
 
-	@include media-breakpoint-up(sm) {
-		.logo {
-			margin: 0;
+		@include media-breakpoint-up(lg) {
+			margin-left: 0;
+		}
+
+		> svg,
+		> img {
+			height: 100%;
+			width: 100%;
 		}
 	}
 
-	.navbar {
-		background: none;
+	&.scrolled {
+		background: rgba(#ddd, 0.9);
+		padding: 5px 0;
 
-		@include media-breakpoint-up(sm) {
+		@include media-breakpoint-up(lg) {
+			padding: 10px 0;
 		}
 	}
-}
 
-// This contains a standard nav layout that will work for most sites.
-// Adjust from here unless you want something totally different.
-.mainnav-navbar {
-	@include media-breakpoint-up(lg) {
-		margin-top: 18px;
+	> .container-wide,
+	> .container {
+		@include media-breakpoint-up(lg) {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-between;
+		}
 	}
 
 	.navbar-toggler {
 		border: none;
+		padding: 0;
+		position: absolute;
+		right: 2.5%;
+		top: 50%;
+		transform: translateY(-50%);
+		transition: transform $speed $ease, fill $speed $ease;
+		outline: none;
+		z-index: 10002;
+
+		@include media-breakpoint-up(lg) {
+			display: none;
+		}
 
 		rect {
 			transition: all $speed $ease;
@@ -37,15 +85,17 @@
 			transform-origin: center center;
 
 			&.navbar-bars-top {
-				transform: translateY(-6px) rotate(0deg);
+				transform: translateY(-9px) rotate(0deg);
 			}
 
 			&.navbar-bars-btm {
-				transform: translateY(6px) rotate(0deg);
+				transform: translateY(9px) rotate(0deg);
 			}
 		}
 
 		&[aria-expanded="true"] {
+			//transform: translateX(calc(100vw - 55px));
+
 			rect {
 				&.navbar-bars-top {
 					transform: rotate(45deg);
@@ -58,6 +108,165 @@
 
 				&.navbar-bars-btm {
 					transform: rotate(-45deg);
+				}
+			}
+		}
+	}
+
+	.mainnav-navbar {
+		background: $gray-900;
+		position: absolute;
+		padding: 0;
+		top: 100%;
+		width: 100%;
+
+		@include media-breakpoint-up(lg) {
+		}
+
+		@include media-breakpoint-up(lg) {
+			background: transparent;
+			position: relative;
+			width: auto;
+			top: auto;
+		}
+	}
+
+	#main-nav-container {
+		.nav {
+			padding: 10px 0;
+			@include media-breakpoint-up(lg) {
+				padding: 0;
+				display: flex;
+				align-items: center;
+			}
+
+			a {
+				color: #fff;
+				text-decoration: none;
+				padding: 0.5rem 5%;
+				transition: border-color $ease $speed, color $ease $speed;
+				white-space: nowrap;
+
+				@include media-breakpoint-up(lg) {
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+					color: $gray-700;
+					padding: 0;
+
+					&:hover {
+						color: $link-color;
+					}
+				}
+
+				&.dropdown-toggle {
+					@include media-breakpoint-up(lg) {
+						padding-right: 18px;
+					}
+
+					&:after {
+						border: none;
+						background: $nav-arrow no-repeat center center;
+						background-size: 100% 100%;
+						display: inline-block;
+						margin: 0 0 0 12px;
+						height: 8px;
+						position: relative;
+						width: 11px;
+						top: 3px;
+						right: 0;
+
+						@include media-breakpoint-up(lg) {
+							margin-left: 0;
+							margin-top: -3px;
+							position: absolute;
+							top: 50%;
+						}
+					}
+
+					&[aria-expanded="true"] {
+					}
+
+					&:hover {
+						&:after {
+							background-image: $nav-arrow-hover;
+						}
+					}
+				}
+			}
+
+			> li {
+				font-size: rem-calc(18);
+				vertical-align: middle;
+				@include media-breakpoint-up(lg) {
+					font-size: rem-calc(14);
+					display: flex;
+					align-items: center;
+				}
+
+				+ li {
+					@include media-breakpoint-up(lg) {
+						margin-left: $grid-gutter-width;
+					}
+				}
+
+				&.current-menu-item,
+				&.current-menu-ancestor,
+				&.current-menu-parent {
+					> a {
+						color: $link-color;
+
+						@include media-breakpoint-up(lg) {
+							color: $link-color;
+						}
+					}
+				}
+			}
+
+			.dropdown-menu {
+				background: transparent;
+				border: none;
+				border-radius: 0;
+				padding: 0;
+				text-transform: none;
+				flex-shrink: 0;
+				width: 100%;
+
+				@include media-breakpoint-up(lg) {
+					background: #fff;
+					padding-top: 0;
+					padding-bottom: 0;
+					font-size: rem-calc(14);
+					top: calc(100% + 2px);
+					width: auto;
+				}
+
+				a {
+					padding-left: 3rem;
+					@include media-breakpoint-up(lg) {
+						background: #fff;
+						border-bottom: none;
+						padding: 0.5rem 0.75rem;
+
+						&:hover,
+						&:active {
+							background-color: $gray-100;
+						}
+					}
+				}
+
+				.current-menu-item,
+				.current-menu-ancestor,
+				.current-menu-parent {
+					> a {
+						color: $link-color;
+					}
+				}
+			}
+
+			.has-dropdown-menu-right {
+				.dropdown-menu {
+					@extend .dropdown-menu-right;
 				}
 			}
 		}
