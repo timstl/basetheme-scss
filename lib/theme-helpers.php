@@ -2,6 +2,7 @@
 /**
  * This file contains generic support functions that are used by the theme or often used on sites.
  * These functions were not deemed appropriate for basetheme-helper-plugin for one reason or another.
+ * They are unlikely to be changed or modified (much), so are separated from theme-functions.php.
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
@@ -89,14 +90,14 @@ if ( ! function_exists( 'alt_title' ) ) :
 	}
 endif;
 
-/**
- * Load an SVG or image from media uploads.
- *
- * @param array An image array from ACF or other media array.
- *
- * @return string  The SVG contents or an image tag.
- */
 if ( ! function_exists( 'bt_load_image_or_svg' ) ) :
+	/**
+	 * Load an SVG or image from media uploads.
+	 *
+	 * @param array An image array from ACF or other media array.
+	 *
+	 * @return string  The SVG contents or an image tag.
+	 */
 	function bt_load_image_or_svg( $image ) {
 
 		if ( isset( $image['url'] ) ) {
@@ -113,14 +114,14 @@ if ( ! function_exists( 'bt_load_image_or_svg' ) ) :
 	}
 endif;
 
-/**
- * Loads an SVG from media uploads.
- *
- * @param string $url Site URL.
- *
- * @return string  The SVG contents.
- */
 if ( ! function_exists( 'bt_load_svg_from_media' ) ) :
+	/**
+	 * Loads an SVG from media uploads.
+	 *
+	 * @param string $url Site URL.
+	 *
+	 * @return string  The SVG contents.
+	 */
 	function bt_load_svg_from_media( $url ) {
 		$filepath = ABSPATH . str_replace( home_url(), '', $url );
 
@@ -132,13 +133,13 @@ if ( ! function_exists( 'bt_load_svg_from_media' ) ) :
 	}
 endif;
 
-/**
- * Load an SVG from the theme directory
- *
- * @param string  $file File path appended to the template directory or url.
- * @param boolean $from_url Use a theme URL instead of directory.
- */
 if ( ! function_exists( 'bt_load_svg' ) ) :
+	/**
+	 * Load an SVG from the theme directory
+	 *
+	 * @param string  $file File path appended to the template directory or url.
+	 * @param boolean $from_url Use a theme URL instead of directory.
+	 */
 	function bt_load_svg( $file = '', $from_url = false ) {
 		if ( $from_url ) {
 			$path = get_template_directory_uri();
@@ -154,16 +155,16 @@ if ( ! function_exists( 'bt_load_svg' ) ) :
 	}
 endif;
 
-/**
- * Build conditional classes for an element.
- * Checks if a value exists, and appends the key as a classname if it does.
- * The intended use is with ACF True/False fields, but any function that returns a truthy/falsey result would work.
- *
- * Example usage:
- *
- * <div class="<?php bt_classes( 'someclass', array( 'someclass--classtwo' => get_field( 'field_name' ) ) ); ?>">
- */
 if ( ! function_exists( 'bt_classes' ) ) :
+	/**
+	 * Build conditional classes for an element.
+	 * Checks if a value exists, and appends the key as a classname if it does.
+	 * The intended use is with ACF True/False fields, but any function that returns a truthy/falsey result would work.
+	 *
+	 * Example usage:
+	 *
+	 * <div class="<?php bt_classes( 'someclass', array( 'someclass--classtwo' => get_field( 'field_name' ) ) ); ?>">
+	 */
 	function bt_classes( $classes = array(), $conditional_classes = array(), $echo = true ) {
 
 		if ( ! is_array( $classes ) ) {
@@ -195,83 +196,99 @@ endif;
  * Some disabled by default.
  */
 
-/**
- * Allow upload of SVGs to media library.
- */
-function bt_mime_types( $mimes ) {
-	$mimes['svg'] = 'image/svg+xml';
-	return $mimes;
+if ( ! function_exists( 'bt_mime_types' ) ) {
+	/**
+	 * Allow upload of SVGs to media library.
+	 */
+	function bt_mime_types( $mimes ) {
+		$mimes['svg'] = 'image/svg+xml';
+		return $mimes;
+	}
 }
 add_filter( 'upload_mimes', 'bt_mime_types' );
 
-/**
- * Sets the post excerpt length to 40 characters.
- *
- * To enable: add_filter( 'excerpt_length', 'boilerplate_excerpt_length' );
- *
- * @param int $length Integer length passed into function.
- */
-function boilerplate_excerpt_length( $length ) {
-	return 40;
+if ( ! function_exists( 'boilerplate_excerpt_length' ) ) {
+	/**
+	 * Sets the post excerpt length to 40 characters.
+	 *
+	 * TO ENABLE: add_filter( 'excerpt_length', 'boilerplate_excerpt_length' );
+	 *
+	 * @param int $length Integer length passed into function.
+	 */
+	function boilerplate_excerpt_length( $length ) {
+		return 40;
+	}
 }
 
-/**
- * Add category nicenames in body and post class
- *
- * To enable: add_filter('post_class', 'boilerplate_category_id_class');
- * To enable: add_filter('body_class', 'boilerplate_category_id_class');
- *
- * @param array $classes Classes passed into hook.
- */
-function boilerplate_category_id_class( $classes ) {
-	global $post;
-	foreach ( ( get_the_category( $post->ID ) ) as $category ) {
-		$classes[] = $category->category_nicename;}
-	return $classes;
+if ( ! function_exists( 'boilerplate_category_id_class' ) ) {
+	/**
+	 * Add category nicenames in body and post class
+	 *
+	 * TO ENABLE: add_filter('post_class', 'boilerplate_category_id_class');
+	 * TO ENABLE: add_filter('body_class', 'boilerplate_category_id_class');
+	 *
+	 * @param array $classes Classes passed into hook.
+	 */
+	function boilerplate_category_id_class( $classes ) {
+		global $post;
+		foreach ( ( get_the_category( $post->ID ) ) as $category ) {
+			$classes[] = $category->category_nicename;}
+		return $classes;
+	}
 }
 
-/**
- * Responsive Embed filter. Assumes 16:9
- *
- * @param string $html HTML passed into filter.
- */
-function bt_custom_oembed_filter( $html ) {
-	return '<div class="embed-responsive embed-responsive-16by9">' . $html . '</div>';
+if ( ! function_exists( 'bt_custom_oembed_filter' ) ) {
+	/**
+	 * Responsive Embed filter. Assumes 16:9
+	 *
+	 * @param string $html HTML passed into filter.
+	 */
+	function bt_custom_oembed_filter( $html ) {
+		return '<div class="embed-responsive embed-responsive-16by9">' . $html . '</div>';
+	}
 }
 add_filter( 'embed_oembed_html', 'bt_custom_oembed_filter', 10, 4 );
 
-/**
- * Returns a "Continue Reading" link.
- */
-function boilerplate_continue_reading_link() {
-	return ' <a href="' . get_permalink() . '">' . __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'basetheme' ) . '</a>';
+if ( ! function_exists( 'boilerplate_continue_reading_link' ) ) {
+	/**
+	 * Returns a "Continue Reading" link.
+	 */
+	function boilerplate_continue_reading_link() {
+		return ' <a href="' . get_permalink() . '">' . __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'basetheme' ) . '</a>';
+	}
 }
 
-/**
- * Returns a "Continue Reading" link for excerpts.
- */
-function boilerplate_auto_excerpt_more() {
-	return '&hellip; ' . boilerplate_continue_reading_link();
+if ( ! function_exists( 'boilerplate_auto_excerpt_more' ) ) {
+	/**
+	 * Returns a "Continue Reading" link for excerpts.
+	 */
+	function boilerplate_auto_excerpt_more() {
+		return '&hellip; ' . boilerplate_continue_reading_link();
+	}
 }
 add_filter( 'excerpt_more', 'boilerplate_auto_excerpt_more' );
 
-/**
- * Hook into get_the_excerpt and add continue reading link.
- *
- * @param string $output Output passed into filter.
- */
-function boilerplate_custom_excerpt_more( $output ) {
-	if ( has_excerpt() && ! is_attachment() ) {
-		$output .= boilerplate_continue_reading_link();
+if ( ! function_exists( 'boilerplate_custom_excerpt_more' ) ) {
+	/**
+	 * Hook into get_the_excerpt and add continue reading link.
+	 *
+	 * @param string $output Output passed into filter.
+	 */
+	function boilerplate_custom_excerpt_more( $output ) {
+		if ( has_excerpt() && ! is_attachment() ) {
+			$output .= boilerplate_continue_reading_link();
+		}
+		return $output;
 	}
-	return $output;
 }
 add_filter( 'get_the_excerpt', 'boilerplate_custom_excerpt_more' );
 
-/**
- *  Move Yoast to bottom
- */
-function yoasttobottom() {
-	return 'low';
+if ( ! function_exists( 'bt_yoasttobottom' ) ) {
+	/**
+	 *  Move Yoast to bottom
+	 */
+	function bt_yoasttobottom() {
+		return 'low';
+	}
 }
-add_filter( 'wpseo_metabox_prio', 'yoasttobottom' );
+add_filter( 'wpseo_metabox_prio', 'bt_yoasttobottom' );
