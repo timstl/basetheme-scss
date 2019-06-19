@@ -26,7 +26,7 @@
 			);
 			?>
 			</nav>
-			<?php bt_display_social_icons(); ?>
+			<?php get_template_part( 'template-parts/part', 'socialaccounts' ); ?>
 			<?php bt_copyright(); ?>
 		</div>
 	</footer>
