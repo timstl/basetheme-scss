@@ -32,17 +32,4 @@
 		);
 		?>
 	</section><!-- .entry-content -->
-
-	<?php
-		edit_post_link(
-			sprintf(
-				/* translators: %s: Name of current post */
-				__( 'Edit<span class="screen-reader-text"> "%s"</span>', 'basetheme' ),
-				get_the_title()
-			),
-			'<footer class="entry-footer"><span class="edit-link">',
-			'</span></footer><!-- .entry-footer -->'
-		);
-		?>
-
 </article><!-- #post-## -->
