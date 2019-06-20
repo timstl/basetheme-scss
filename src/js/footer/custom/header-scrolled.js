@@ -1,6 +1,6 @@
 /**
  * jQuery plugin to monitor scroll distance and add class to an element after document scrolls to a position.
- * This is used for sticky headers, primarily. The "scorlled" state can then be styled in CSS.
+ * This is used for sticky headers, primarily. The "scrolled" state can then be styled in CSS.
  */
 ( function( $ ) {
 	$.fn.scrollclass = function( options ) {

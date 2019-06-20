@@ -15,9 +15,10 @@ $nav-arrow-hover: str-replace(
 );
 
 #header {
+	// Additional rules applied in _header-sticky.scss
 	background: #ddd;
 	padding: 10px 0;
-	position: fixed;
+	top: 0;
 	width: 100%;
 	z-index: 10002;
 	transition: height $speed $ease, padding $speed $ease,

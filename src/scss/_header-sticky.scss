@@ -1,0 +1,32 @@
+/*
+	Sticky Header
+	Note that "scrolled" class is applied via javascript.
+*/
+
+//Fallback rules for for no position:sticky; (IE11, mostly)
+#header {
+	position: fixed;
+}
+#main {
+	/*
+		Header height will vary at different viewports.
+		These numbers will also be inaccurate if logo changes, in many cases.
+	*/
+	padding-top: 70px;
+	@include media-breakpoint-up(lg) {
+		padding-top: 90px;
+	}
+}
+
+// Default behavior
+@supports (position: sticky) {
+	#header {
+		position: sticky;
+	}
+	#main {
+		padding-top: 0;
+		@include media-breakpoint-up(lg) {
+			padding-top: 0;
+		}
+	}
+}
