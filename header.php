@@ -30,7 +30,7 @@ if ( function_exists( 'the_field' ) ) {
 ?>
 <div id="wrapper">
 	<a href="#main" class="sr-only sr-only-focusable skipnav"><?php esc_attr_e( 'Skip to main content', 'basetheme' ); ?></a>
-	<header id="header" class="clearfix">
+	<header id="header">
 		<div class="container-wide container-md-none">
 			<?php if ( function_exists( 'get_field' ) && get_field( 'logo', 'options' ) ) : ?>
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo get_bloginfo( 'name', 'display' ); ?>" rel="Home" class="logo-set" aria-label="<?php echo get_bloginfo( 'name', 'display' ); ?> logo">
