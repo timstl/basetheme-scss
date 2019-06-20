@@ -1,3 +1,7 @@
+/**
+ * Browser Sync proxy URL.
+ * Update this URL to point to your local environment URL.
+ */
 const proxy_url = '127.0.0.1:8080/basetheme';
 
 /**
