@@ -17,7 +17,7 @@
 
 	<?php the_post_thumbnail(); ?>
 
-	<div class="entry">
+	<section class="entry">
 		<?php
 			the_content();
 
@@ -35,8 +35,8 @@
 			if ( '' !== get_the_author_meta( 'description' ) ) {
 				get_template_part( 'template-parts/biography' );
 			}
-		?>
-	</div><!-- .entry-content -->
+			?>
+	</section><!-- .entry-content -->
 
 	<footer class="entry-footer">
 		<?php
@@ -49,6 +49,6 @@
 				'<span class="edit-link">',
 				'</span>'
 			);
-		?>
+			?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->

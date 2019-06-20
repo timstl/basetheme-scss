@@ -16,7 +16,7 @@
 
 	<?php the_post_thumbnail(); ?>
 
-	<div class="entry">
+	<section class="entry">
 		<?php
 		the_content();
 
@@ -31,7 +31,7 @@
 			)
 		);
 		?>
-	</div><!-- .entry-content -->
+	</section><!-- .entry-content -->
 
 	<?php
 		edit_post_link(
@@ -43,6 +43,6 @@
 			'<footer class="entry-footer"><span class="edit-link">',
 			'</span></footer><!-- .entry-footer -->'
 		);
-	?>
+		?>
 
 </article><!-- #post-## -->

@@ -23,7 +23,7 @@
 
 	<?php the_post_thumbnail(); ?>
 
-	<div class="entry">
+	<section class="entry">
 		<?php
 			/* translators: %s: Name of current post */
 			the_content(
@@ -43,8 +43,8 @@
 					'separator'   => '<span class="screen-reader-text">, </span>',
 				)
 			);
-		?>
-	</div><!-- .entry-content -->
+			?>
+	</section><!-- .entry-content -->
 
 	<footer class="entry-footer">
 		<?php
@@ -57,6 +57,6 @@
 				'<span class="edit-link">',
 				'</span>'
 			);
-		?>
+			?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
