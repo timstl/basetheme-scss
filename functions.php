@@ -11,6 +11,13 @@
  */
 
 /**
+ * Disable the theme editor.
+ */
+if ( ! defined( 'DISALLOW_FILE_EDIT' ) ) {
+	define( 'DISALLOW_FILE_EDIT', true );
+}
+
+/**
  * Include theme files.
  * Functions and hooks should go in these files, not in functions.php.
  */
