@@ -1,0 +1,18 @@
+#site-footer {
+}
+
+#site-footer-navbar-container {
+	padding: 0;
+
+	.nav {
+		li {
+			+ li {
+				margin-left: 1em;
+			}
+		}
+	}
+
+	.nav-link {
+		padding: 0;
+	}
+}

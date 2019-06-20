@@ -41,11 +41,11 @@ if ( function_exists( 'the_field' ) ) {
 			$utility_nav = wp_nav_menu(
 				array(
 					'echo'            => false,
-					'theme_location'  => 'utilitynav',
+					'theme_location'  => 'site-header-utility-nav',
 					'depth'           => 1,
 					'container'       => 'nav',
 					'container_class' => 'nav-container',
-					'container_id'    => 'utility-nav-container',
+					'container_id'    => 'site-header-utility-nav-container',
 					'menu_class'      => 'nav navbar-nav',
 					'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
 					'walker'          => new WP_Bootstrap_Navwalker(),
@@ -55,11 +55,11 @@ if ( function_exists( 'the_field' ) ) {
 			$main_nav = wp_nav_menu(
 				array(
 					'echo'            => false,
-					'theme_location'  => 'mainnav',
+					'theme_location'  => 'site-header-main-nav',
 					'depth'           => 2,
 					'container'       => 'nav',
 					'container_class' => 'nav-container',
-					'container_id'    => 'main-nav-container',
+					'container_id'    => 'site-header-main-nav-container',
 					'menu_class'      => 'nav navbar-nav',
 					'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
 					'walker'          => new WP_Bootstrap_Navwalker(),

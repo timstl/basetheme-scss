@@ -295,14 +295,14 @@ $nav-arrow-hover: str-replace(
 		}
 	}
 
-	#main-nav-container {
+	#site-header-main-nav-container {
 		order: 1;
 		@include media-breakpoint-up(lg) {
 			order: 2;
 		}
 	}
 
-	#utility-nav-container {
+	#site-header-utility-nav-container {
 		order: 2;
 
 		@include media-breakpoint-up(lg) {

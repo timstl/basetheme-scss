@@ -35,9 +35,9 @@ function bt_setup() {
 	// Register nav menus.
 	register_nav_menus(
 		array(
-			'utilitynav' => __( 'Utility Navigation', 'basetheme' ),
-			'mainnav'    => __( 'Main Navigation', 'basetheme' ),
-			'footernav'  => __( 'Footer Navigation', 'basetheme' ),
+			'site-header-utility-nav' => __( 'Utility Navigation', 'basetheme' ),
+			'site-header-main-nav'    => __( 'Main Navigation', 'basetheme' ),
+			'site-footer-main-nav'    => __( 'Footer Navigation', 'basetheme' ),
 		)
 	);
 
