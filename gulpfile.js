@@ -105,10 +105,16 @@ function do_styles( src, dest ) {
 function doJS( scripts_nobabel, scripts_babel, scripts_dest, filename ) {
 	var streams = [];
 
+	/**
+	 * Don't put vendor scripts through babel.
+	 */
 	scripts_nobabel.forEach( function( path ) {
 		streams.push( gulp.src( path ).pipe( uglify() ) );
 	});
 
+	/**
+	 * Process custom scripts through eslint, babel, and uglify.
+	 */
 	scripts_babel.forEach( function( path ) {
 		streams.push(
 			gulp
@@ -122,6 +128,9 @@ function doJS( scripts_nobabel, scripts_babel, scripts_dest, filename ) {
 		);
 	});
 
+	/**
+	 * Merge everything into a single destination.
+	 */
 	return mergeStream( streams )
 		.pipe( concat( filename ) )
 		.pipe( gulp.dest( scripts_dest ) )
@@ -150,20 +159,36 @@ function scriptsblocks() {
 	var streams = [];
 	const dir = paths.js.blocks.dir;
 
+	/**
+	 * Delete all javascript in the /dist/js/blocks/ folder.
+	 * If we don't do this, sometimes old block scripts will remain.
+	 */
 	del([ paths.js.blocks.dest + '/**' ]);
 
 	files = fs.readdirSync( dir );
 	files.forEach( file => {
+
+		/**
+		 * Loop through each block javascript directory.
+		 */
 		if ( fs.lstatSync( dir + file ).isDirectory() ) {
 			const block_dir = dir + file;
 			var block_stream = [];
 
 			if ( fs.existsSync( block_dir + '/vendor/' ) ) {
+
+				/**
+				 * Add the vendor scripts for this block first.
+				 */
 				block_stream.push(
 					gulp.src( block_dir + '/vendor/**/*.js' ).pipe( uglify() )
 				);
 			}
 
+			/**
+			 * Now add the remaining javascript files.
+			 * Run those through babel and uglify.
+			 */
 			block_stream.push(
 				gulp
 					.src([
@@ -178,6 +203,9 @@ function scriptsblocks() {
 					.pipe( uglify() )
 			);
 
+			/**
+			 * Concat everything into a single block-{name}.min.js file.
+			 */
 			streams.push(
 				mergeStream( block_stream ).pipe(
 					concat( 'block-' + file + '.min.js' )
@@ -187,6 +215,10 @@ function scriptsblocks() {
 	});
 
 	if ( 0 < streams.length ) {
+
+		/**
+		 * Merge all streams and pipe to the /dist/ folder.
+		 */
 		return mergeStream( streams ).pipe( gulp.dest( paths.js.blocks.dest ) );
 	}
 
@@ -197,10 +229,18 @@ function scriptsblocks() {
  * Watch
  */
 function watch() {
+
+	/**
+	 * BrowserSync.
+	 * Watch for changes to PHP or image files.
+	 */
 	browserSync.init([ '**/*.php', 'img/**/*.{png,jpg,gif}' ], {
 		proxy: proxy_url
 	});
 
+	/**
+	 * Watch various src folders and run appropriate functions.
+	 */
 	gulp.watch( paths.styles.src, style );
 	gulp.watch( paths.styles.blocks.src, block_style );
 	gulp.watch( paths.js.head.src.vendor, scriptshead );
