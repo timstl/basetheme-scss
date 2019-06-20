@@ -12,26 +12,24 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
-		<?php if ( is_sticky() && is_home() && ! is_paged() ) : ?>
-			<span class="sticky-post"><?php _e( 'Featured', 'basetheme' ); ?></span>
-		<?php endif; ?>
-
-		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+		<?php
+		if ( is_single() ) {
+			the_title( '<h1 class="entry-title">', '</h1>' );
+		} else {
+			the_title( '<h2 class="entry-title">', '</h2>' );
+		}
+		?>
 	</header><!-- .entry-header -->
-
-	<?php the_excerpt(); ?>
 
 	<?php the_post_thumbnail(); ?>
 
 	<section class="entry">
 		<?php
-			/* translators: %s: Name of current post */
-			the_content(
-				sprintf(
-					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'basetheme' ),
-					get_the_title()
-				)
-			);
-			?>
+		if ( is_single() ) {
+			the_content();
+		} else {
+			the_excerpt();
+		}
+		?>
 	</section><!-- .entry-content -->
 </article><!-- #post-## -->
