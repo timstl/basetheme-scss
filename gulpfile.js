@@ -1,5 +1,8 @@
 const proxy_url = '127.0.0.1:8080/basetheme';
 
+/**
+ * Require
+ */
 const gulp = require( 'gulp' );
 const sass = require( 'gulp-sass' );
 const postcss = require( 'gulp-postcss' );
@@ -16,9 +19,15 @@ const browserSync = require( 'browser-sync' ).create();
 const fs = require( 'fs' );
 const del = require( 'del' );
 
+/**
+ * Directories that we'll watch and/or process
+ */
 const paths = {
 	styles: {
-		src: [ './src/scss/**/*.scss', '!./src/scss/blocks/enqueue_style/**/*.scss' ],
+		src: [
+			'./src/scss/**/*.scss',
+			'!./src/scss/blocks/enqueue_style/**/*.scss'
+		],
 		dest: './dist/css/',
 		blocks: {
 			src: [ './src/scss/blocks/enqueue_style/**/*.scss' ],
@@ -54,6 +63,9 @@ const paths = {
 	}
 };
 
+/**
+ * SCSS
+ */
 function style() {
 	return do_styles( paths.styles.src, paths.styles.dest );
 }
@@ -83,6 +95,9 @@ function do_styles( src, dest ) {
 	);
 }
 
+/**
+ * Javascript
+ */
 function doJS( scripts_nobabel, scripts_babel, scripts_dest, filename ) {
 	var streams = [];
 
@@ -174,7 +189,9 @@ function scriptsblocks() {
 	return gulp.src( dir );
 }
 
-// Add browsersync initialization at the start of the watch task
+/**
+ * Watch
+ */
 function watch() {
 	browserSync.init([ '**/*.php', 'img/**/*.{png,jpg,gif}' ], {
 		proxy: proxy_url
@@ -189,28 +206,26 @@ function watch() {
 	gulp.watch( paths.js.blocks.src, scriptsblocks );
 }
 
-// We don't have to expose the reload function
-// It's currently only useful in other functions
-
-// Don't forget to expose the task!
+/**
+ * Export
+ */
 exports.watch = watch;
 
-// Expose the task by exporting it
-// This allows you to run it from the commandline using
-// $ gulp style
+/**
+ * Expose the task by exporting it
+ * This allows you to run it from the commandline using
+ * $ gulp style
+ */
 exports.style = style;
+exports.block_style = block_style;
+exports.scriptsblocks = scriptsblocks;
 exports.scriptshead = scriptshead;
 exports.scriptsfooter = scriptsfooter;
 
 /*
  * Specify if tasks run in series or parallel using `gulp.series` and `gulp.parallel`
  */
-var build = gulp.parallel( watch );
-
-/*
- * You can still use `gulp.task` to expose tasks
- */
-//gulp.task('build', build);
+const build = gulp.parallel( watch );
 
 /*
  * Define default task that can be called by just running `gulp` from cli
