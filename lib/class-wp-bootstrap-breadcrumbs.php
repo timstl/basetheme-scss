@@ -2,6 +2,10 @@
 /**
  * This class is meant as a starting point.
  * Likely requirements customization on most themes.
+ *
+ * Usage:
+ * $breadcrumbs = new Bootstrap_Breadcrumbs();
+ * echo $breadcrumbs->bootstrap_breadcrumb();
  */
 class Bootstrap_Breadcrumbs {
 	/**
