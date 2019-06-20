@@ -1,4 +1,6 @@
-// Wrap all styles so we don't change any styles outside of Gutenberg editor.
+/*
+	Wrap all styles so we don't change any styles outside of Gutenberg editor.
+*/
 .editor-styles-wrapper {
 	// Override bootstrap variables or define your own variables in _variables.scss
 	@import "variables";
@@ -15,7 +17,7 @@
 	@import "bootstrap/dropdown";
 	@import "bootstrap/button-group";
 	@import "bootstrap/card";
-	@import "bootstrap/breadcrumb";
+	//@import "bootstrap/breadcrumb";
 	@import "bootstrap/utilities";
 
 	// Editor-only styles
@@ -31,6 +33,7 @@
 	@import "wordpress";
 	@import "blocks";
 	@import "widgets";
+	@import "blog";
 
 	// Utilities
 	@import "utilities";

@@ -1,6 +1,8 @@
 /*
 	With some fonts, we may need to return a different font here.
 	With others we just return font-style or font-weight.
+
+	Usage: @include font-italic();
 */
 @mixin font-italic() {
 	font-style: italic;
