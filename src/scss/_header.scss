@@ -14,7 +14,7 @@ $nav-arrow-hover: str-replace(
 	"%23"
 );
 
-#header {
+#site-header {
 	// Additional rules applied in _header-sticky.scss
 	background: #ddd;
 	padding: 10px 0;
@@ -114,7 +114,7 @@ $nav-arrow-hover: str-replace(
 		}
 	}
 
-	#header-navbar-container {
+	#site-header-navbar-container {
 		background: $gray-900;
 		position: absolute;
 		padding: 0;
@@ -281,7 +281,7 @@ $nav-arrow-hover: str-replace(
 		}
 	}
 
-	#header-nav-menus {
+	#site-header-nav-menus {
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;

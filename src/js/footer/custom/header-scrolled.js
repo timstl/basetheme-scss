@@ -29,10 +29,10 @@
 }( jQuery ) );
 
 /**
- * Use scrollclass plugin on #header if it exists.
+ * Use scrollclass plugin on #site-header if it exists.
  */
 jQuery( document ).ready( function( $ ) {
-	const $header = $( '#header' );
+	const $header = $( '#site-header' );
 	if ( 0 < $header.length ) {
 		$header.scrollclass({
 			pos: $header.outerHeight()

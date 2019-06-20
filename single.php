@@ -11,8 +11,6 @@
  */
 
 get_header(); ?>
-
-<main id="main" class="site-main" role="main">
 	<?php
 	// Start the loop.
 	while ( have_posts() ) :
@@ -51,6 +49,5 @@ get_header(); ?>
 	endwhile;
 	?>
 	<?php get_sidebar(); ?>
-</main>
-
-<?php get_footer(); ?>
+<?php
+get_footer();

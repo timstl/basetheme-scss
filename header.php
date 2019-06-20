@@ -29,8 +29,8 @@ if ( function_exists( 'the_field' ) ) {
 }
 ?>
 <div id="wrapper">
-	<a href="#main" class="sr-only sr-only-focusable skipnav"><?php esc_attr_e( 'Skip to main content', 'basetheme' ); ?></a>
-	<header id="header">
+	<a href="#site-main" class="sr-only sr-only-focusable skipnav"><?php esc_attr_e( 'Skip to main content', 'basetheme' ); ?></a>
+	<header id="site-header">
 		<div class="container-wide container-md-none">
 			<?php if ( function_exists( 'get_field' ) && get_field( 'logo', 'options' ) ) : ?>
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo get_bloginfo( 'name', 'display' ); ?>" rel="Home" class="logo-set" aria-label="<?php echo get_bloginfo( 'name', 'display' ); ?> logo">
@@ -67,8 +67,8 @@ if ( function_exists( 'the_field' ) ) {
 			);
 			?>
 			<?php if ( $utility_nav || $main_nav ) : ?>
-			<div class="navbar navbar-expand-lg" role="navigation" id="header-navbar-container">
-				<div id="header-nav-menus" class="collapse navbar-collapse">
+			<div class="navbar navbar-expand-lg" role="navigation" id="site-header-navbar-container">
+				<div id="site-header-nav-menus" class="collapse navbar-collapse">
 					<?php
 					if ( $main_nav ) :
 						echo $main_nav;
@@ -81,7 +81,7 @@ if ( function_exists( 'the_field' ) ) {
 					?>
 				</div>
 			</div>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#header-nav-menus" aria-controls="header-nav-menus" aria-expanded="false" aria-label="Toggle navigation">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#site-header-nav-menus" aria-controls="header-nav-menus" aria-expanded="false" aria-label="Toggle navigation">
 				<svg width="30px" height="21px" viewBox="0 0 30 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 					<rect class="navbar-bars-top" x="1" y="9" width="28" height="3" rx="2" transform="translate(0, -9)"></rect>
 					<rect class="navbar-bars-middle" x="1" y="9" width="28" height="3" rx="2"></rect>
@@ -91,3 +91,4 @@ if ( function_exists( 'the_field' ) ) {
 			<?php endif; ?>
 		</div>
 	</header>
+	<main id="site-main">

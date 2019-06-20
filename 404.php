@@ -11,7 +11,6 @@
  */
 
 get_header(); ?>
-<main id="main" class="site-main" role="main">
 	<header class="page-header">
 		<div class="container">
 				<h1><?php _e( 'Not Found' ); ?></h1>
@@ -34,6 +33,5 @@ get_header(); ?>
 
 		<?php endif; ?>
 	</div>
-</main>
 <?php
 get_footer();

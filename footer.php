@@ -13,6 +13,7 @@
  */
 
 ?>
+	</main>
 	<footer role="contentinfo" id="site-footer">
 		<div id="footer-inner">
 			<nav id="footer-nav-container" class="nav-container">

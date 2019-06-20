@@ -4,10 +4,10 @@
 */
 
 //Fallback rules for for no position:sticky; (IE11, mostly)
-#header {
+#site-header {
 	position: fixed;
 }
-#main {
+#site-main {
 	/*
 		Header height will vary at different viewports.
 		These numbers will also be inaccurate if logo changes, in many cases.
@@ -20,10 +20,10 @@
 
 // Default behavior
 @supports (position: sticky) {
-	#header {
+	#site-header {
 		position: sticky;
 	}
-	#main {
+	#site-main {
 		padding-top: 0;
 		@include media-breakpoint-up(lg) {
 			padding-top: 0;

@@ -13,7 +13,6 @@
  */
 
 get_header(); ?>
-<main id="main" class="site-main" role="main">
 <?php
 // Start the loop.
 while ( have_posts() ) :
@@ -25,7 +24,5 @@ while ( have_posts() ) :
 	// End of the loop.
 endwhile;
 ?>
-</main>
-
 <?php
 get_footer();
