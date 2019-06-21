@@ -1,25 +1,93 @@
-WordPress theme files to build from. Currently uses Bootstrap 4.
+Basetheme is a starter WordPress theme to build from. It relies heavily on Bootstrap and ACF. It includes some basic functionality that we use on most sites at [Atomicdust](http://www.atomicdust.com). A lot of this may or may not be applicable to your work flow. Be sure to dig in and modify as needed.
 
-* Download and place in themes folder
-* Rename basetheme-scss folder
-* Update style.css to include correct theme name
-* Update gulpfile.js to include correct site URL for browsersync.
-* Install basetheme-helper-plugin: https://github.com/timstl/basetheme-helper-plugin
+# Getting Started
 
-# In theme directory:
-* Run ```npm install```
-* Run ```npm start``` to launch browsersync and begin watch tasks.
-* Make sure to use your local URL (not browsersync URL) when working in the admin URL.
+-   Download and place in themes folder
+-   Rename basetheme-scss folder
+-   Update style.css to include correct theme name
+-   Update gulpfile.js to include correct site URL for browsersync.
+-   Install basetheme-helper-plugin: https://github.com/timstl/basetheme-helper-plugin
+-   Install basetheme-modify-core-blocks: https://github.com/timstl/basetheme-modify-core-blocks
 
-# Bootstrap
-Commenting out any files you don't need in scss/_bootstrap.scss will reduce unnecessary bloat from Bootstrap. By default all are enabled.
+### In theme directory:
 
-# Variables
-Override bootstrap variables and create custom variables in scss/_variables.scss. Avoid editing scss bootstrap files themselves.
+-   Run `npm install`
+-   Run `npm start` to launch browsersync and begin watch tasks.
+-   Make sure to use your local URL (not browsersync URL) when working in the admin URL.
+
+# Configuring
+
+There are several files that you should configure for your specific project.
+
+-   _./src/scss/\_bootstrap.scss_ - Loads specific Bootstrap files. Some are commented out by default to reduce bloat. Adjust as needed.
+-   _./src/scss/\_variables.scss_ - Here you can override Bootstrap variables and create your own custom variables. This is preferred over modifying anything in the ./src/scss/bootstrap/ folder.
+-   _./src/scss/\_blocks.scss_ - Loads some block CSS into the main theme styles. More on blocks later.
+-   _./lib/theme-setup.php_ - Update font URLs in the bt_fonts() function. May also need to adjust menus, sidebars, image sizes, etc.
+-   _./lib/theme-acfblocks.php_ - Update constants for ACF blocks, uncomment any pre-built blocks you may need, and create custom blocks here.
+
+This theme also includes many custom field groups in the acf-json folder. After installing ACF, use the "Sync Available" feature to import these field groups. You may wish to delete some field groups for blocks that you don't intend to use.
+
+# Blocks
+
+This basetheme includes several pre-made ACF Blocks. These are mostly unstyled, and by default only Bootstrap Buttons and Bootstrap Button Group blocks are enabled. The other blocks included are commented out in ./lib/theme-acfblocks.php.
+
+Most of these blocks merge their SCSS into the main stylesheet because they rely on Bootstrap variables, mixins, or styles. You can uncomment these blocks (or add your own) in ./src/scss/\_blocks.scss. This file will be imported into both front-end and admin stylesheets.
+
+The slider block (powered by Slick Slider) loads its styles and javascript into individual files, which are then enqueued only if the block is used. If you wish to use this same method on other blocks, follow the ACF enqueue instructions for acf_register_block_type and structure your SCSS and javascript is outlined below.
+
+# SCSS
+
+In addition to SCSS files mentioned above, there are a few other SCSS files to be aware of:
+
+-   _./src/scss/style.scss_ - Imports all files that will be merged into the main CSS file for the site.
+-   _./src/scss/\_common-frontend.scss_ - These files are loaded only on the front-end.
+-   _./src/scss/editor-styles.scss_ - Imports all files that will be merged into the main CSS file for the admin. All styles are wrapped by .editor-styles-wrapper to limit their impact on the admin.
+-   _./src/scss/\_editor.scss_ - These styles are loaded ONLY in the admin.
+-   _./src/scss/blocks/core/_ - Styles for the built-in WordPress core blocks, which are loaded into the main stylesheet.
+-   _./src/scss/blocks/custom/_ - Styles for custom blocks, which are loaded into the main stylesheet.
+-   _./src/scss/blocks/enqueue_style/_ - Styles for custom blocks that will be individually processed into ./dist/css/blocks/. Don't use a leading underscore.
+-   _./src/scss/\_kadence.scss_ - We frequently use Kadence for rows. These styles change the rows to behave as Bootstrap containers.
+-   _./src/scss/\_align.scss_ - Adjusts the behavior of .alignfull and .alignwide.
 
 # Javascript
-Create custom files in js/footer/custom/ or js/head/custom, whichever is appropriate. 
-An example of how to use SSM is located in js/custom/scripts.js. Add any other javascript files you like to these folders. See gulpfile.js for information on the order these are compiled.
+
+There are several options on where and how to create Javascript within the basetheme, all with different behaviors controlled by gulpfile.js.
+
+### Head Javascript
+
+./dist/js/jquery.min.js is not processed in any way and is enqueued on its own in the head of the site.
+
+./src/js/head/ files will be concatinated in the following order into ./dist/js/head.min.js:
+
+-   ./vendor/
+-   ./bootstrap/
+-   ./custom/ (First run through eslint, babel, and uglify.) Create any custom javascript that you wish to load in the head of your site here.
+
+### Footer Javascript
+
+./src/js/footer/ files will be concatinated in the following order into ./dist/js/scripts.min.js:
+
+-   ./vendor/
+-   ./bootstrap/
+-   ./custom/ (First run through eslint, babel, and uglify. Create any custom javascript that you wish to load in the footer of your site here.
+
+Currently there is no way to control the order of concatination for custom javascript files, but this should be improved in the future.
+
+### Block Javascript
+
+If you plan to enqueue an individual javascript file for a block - rather than merging that block's JS with the main site javascript - you can create folders in ./src/js/blocks/.
+
+-   Put your javascript in a folder for your block. Any files in a /vendor/ subfolder will not run through Babel. Any other files will. They will then be concatinated together. Example: /js/blocks/slider/block-slider.js and /js/blocks/slider/vendor/slick.min.js. These files are merged together into ./dist/js/blocks/block-slider.min.js
+-   Don't put any javascript files directly into /js/blocks/.
 
 # Navigation
-Navigation is currently a work in progress. Used to use Bootstrap 3 menu but that has now been removed.
+
+Basetheme includes Main, Utility and Footer navs out of the box. The header navigation includes basic styling. A navwalker is used to make WordPress menus play nicer with Bootstrap's navbar.
+
+# Template Parts
+
+Template parts for various content pieces should be placed in the ./template-parts/ folder. It's also appropriate to create subfolders here when it makes sense. (For example: A group of re-used blog template parts could go in ./template-parts/blog/).
+
+# Page Templates
+
+By default, the Basetheme no longer includes any page templates. On a block-driven site, we can strive to use a single, blank page template. This may not always be possible. When page templates are required, create them in the ./page-templates/ folder.
