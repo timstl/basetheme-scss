@@ -2,7 +2,7 @@
 /**
  * Block Name: Accordion
  *
- * This is repeater field with accordions inside.
+ * This is repeater field that creates a Bootstrap accordion/collapse component.
  */
 
 // Create id attribute for specific styling.

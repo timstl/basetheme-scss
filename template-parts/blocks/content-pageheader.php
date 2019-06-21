@@ -2,7 +2,8 @@
 /**
  * Block Name: Page Header
  *
- * This is flexible content field with header layouts
+ * This is flexible content field with page header layouts.
+ * Most sites will need custom layouts: You can add them as flexible content fields, which allows you to keep one block.
  */
 
 // Create id attribute for specific styling.

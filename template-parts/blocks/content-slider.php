@@ -3,6 +3,7 @@
  * Block Name: Slider
  *
  * This is slider block powered by Slick Slider.
+ * https://kenwheeler.github.io/slick/
  */
 
 $block_id = 'slider-' . $block['id'];

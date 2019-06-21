@@ -2,7 +2,7 @@
 /**
  * Block Name: Button Group
  *
- * This is repeater field with images inside.
+ * This is repeater field with buttons inside, creating a Bootstrap button group.
  */
 
 // Create id attribute for specific styling.

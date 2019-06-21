@@ -2,7 +2,7 @@
 /**
  * Block Name: Button
  *
- * This is bootstrap-style button with fancybox support.
+ * This is Bootstrap-style button.
  */
 
 // Create id attribute for specific styling.

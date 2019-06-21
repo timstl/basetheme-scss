@@ -3,6 +3,7 @@
  * Block Name: Related Posts
  *
  * Posts related to the current post by categories and/or tags.
+ * Contains both the block and support functions.
  */
 
  /**
