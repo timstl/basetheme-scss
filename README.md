@@ -33,7 +33,7 @@ This basetheme includes several pre-made ACF Blocks. These are mostly unstyled, 
 
 Most of these blocks merge their SCSS into the main stylesheet because they rely on Bootstrap variables, mixins, or styles. You can uncomment these blocks (or add your own) in ./src/scss/\_blocks.scss. This file will be imported into both front-end and admin stylesheets.
 
-The slider block (powered by Slick Slider) loads its styles and javascript into individual files, which are then enqueued only if the block is used. If you wish to use this same method on other blocks, follow the ACF enqueue instructions for `acf_register_block_type` and structure your SCSS and javascript is outlined below.
+The slider block (powered by Slick Slider) loads its styles and javascript into individual files, which are then enqueued only if the block is used. If you wish to use this same method on other blocks, follow the ACF enqueue instructions for `acf_register_block_type` and structure your SCSS and javascript as outlined below.
 
 # SCSS
 
