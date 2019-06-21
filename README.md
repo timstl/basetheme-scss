@@ -49,6 +49,8 @@ In addition to SCSS files mentioned above, there are a few other SCSS files to b
 -   **./src/scss/\_kadence.scss** - We currently use [Kadence Blocks](https://wordpress.org/plugins/kadence-blocks/) for creating rows in the admin. These styles change the Kadence rows to behave as Bootstrap containers.
 -   **./src/scss/\_align.scss** - Adjusts the behavior of .alignfull and .alignwide.
 
+Most other SCSS files should be self-explanatory, and you can create your own partials as needed. Just be sure to import them into the correct SCSS files.
+
 # Javascript
 
 Gulpfile.js will process Javascript files in different ways depending on which folder they are placed in. Most files will be merged and enqueued automatically into the header or the footer.
