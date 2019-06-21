@@ -79,8 +79,8 @@ Gulpfile.js will process Javascript files in different ways depending on which f
 
 If you plan to enqueue an individual javascript file for a block - rather than merging that block's JS with the main site javascript - you can create folders in **./src/js/blocks/**.
 
--   Put your javascript in a folder for your block. Any files in a **/vendor/** subfolder will not run through Babel. Any other files will. They will then be concatinated together. Example: _/js/blocks/slider/vendor/slick.min.js_ and _/js/blocks/slider/block-slider.js_ are merged together into _./dist/js/blocks/block-slider.min.js_. This ./dist/ file is then enqueued with `acf_register_block_type`.
--   Don't put any javascript files directly into **/js/blocks/**.
+-   Put your javascript in a folder for your block. Any files in a **/vendor/** subfolder will not run through Babel. Any other files will. They will then be concatinated together. Example: _./src/js/blocks/slider/vendor/slick.min.js_ and _./src/js/blocks/slider/block-slider.js_ are merged together into _./dist/js/blocks/block-slider.min.js_. This ./dist/ file is then enqueued with `acf_register_block_type`.
+-   Don't put any javascript files directly into **./src/js/blocks/**.
 
 # Navigation
 
