@@ -184,7 +184,8 @@ Add class 'has-btm-margin' to maintain a bottom margin on elements.
 .btn-group {
 	flex-wrap: wrap;
 	justify-content: space-between;
-	.btn {
+
+	> .btn {
 		margin-bottom: 10px;
 		width: 100%;
 
@@ -194,6 +195,20 @@ Add class 'has-btm-margin' to maintain a bottom margin on elements.
 
 			&:last-child {
 				margin-right: 0;
+			}
+		}
+
+		&:not(:last-child),
+		&:not(:last-child):not(.dropdown-toggle),
+		&:not(:first-child) {
+			border-radius: $btn-border-radius;
+
+			&.btn-lg {
+				border-radius: $btn-border-radius-lg;
+			}
+
+			&.btn-sm {
+				border-radius: $btn-border-radius-sm;
 			}
 		}
 	}

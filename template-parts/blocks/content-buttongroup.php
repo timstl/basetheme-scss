@@ -17,9 +17,14 @@ if ( ! empty( $block['className'] ) ) {
 	$classes[] = $block['className'];
 }
 
+$aria_label = get_field( 'button_group_aria_label' );
+if ( ! $aria_label ) {
+	$aria_label = 'button group';
+}
+
 if ( have_rows( 'buttons' ) ) : ?>
 <div id="<?php echo esc_html( $block_id ); ?>" class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
-	<div class="btn-group" role="group" aria-label="<?php the_field( 'button_group_aria_label' ); ?>">
+	<div class="btn-group" role="group" aria-label="<?php esc_attr_e( $aria_label ); ?>">
 		<?php
 		while ( have_rows( 'buttons' ) ) :
 			the_row();

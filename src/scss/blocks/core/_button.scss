@@ -1,3 +1,8 @@
+/*
+	Extends the default WordPress block button to match Bootstrap's.
+	We also have a custom ACF Bootstrap button block, which is preferred, but some clients may use the WP button.
+	Bootstrap button styles are in Bootstrap core, _common.scss, and some variables in _variables.scss.
+*/
 .wp-block-button {
 	a.wp-block-button__link {
 		@extend .btn;
