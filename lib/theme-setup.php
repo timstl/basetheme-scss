@@ -129,14 +129,25 @@ add_action( 'widgets_init', 'bt_widgets_init' );
 
 if ( ! function_exists( 'bt_fonts' ) ) {
 	/**
-	 * Enqueue fonts.
+	 * Enqueue fonts by adding URLs to the $fonts array.
 	 * Use a single function because these will load in the admin and front-end.
 	 * Call this function from your enqueue functions.
-	 *
-	 * Example: wp_enqueue_style( 'bt-fonts', 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,600,600i&display=swap', array() );
 	 */
 	function bt_fonts() {
-		// wp_enqueue_style( 'bt-fonts', '', array() );
+		/**
+		 * An array of URLs.
+		 */
+		$fonts = array(
+			// 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,600,600i&display=swap',
+		);
+
+		if ( ! empty( $fonts ) ) {
+			$i = 1;
+			foreach ( $fonts as $url ) {
+				wp_enqueue_style( 'bt-fonts-' . $i, $url, array(), '1.0' );
+				$i++;
+			}
+		}
 	}
 }
 
