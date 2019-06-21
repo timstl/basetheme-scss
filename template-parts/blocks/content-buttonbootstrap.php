@@ -31,7 +31,7 @@ if ( get_field( 'button_link' ) ) :
 		$target = ' target="_blank"';
 	}
 	?>
-	<div class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>" id="<?php echo esc_attr( $block_id ); ?>">
+	<div class="<?php esc_attr_e( implode( ' ', $classes ) ); ?>" id="<?php esc_attr_e( $block_id ); ?>">
 		<a href="<?php echo esc_url( $url ); ?>" class="<?php esc_attr_e( implode( ' ', $btn_class ) ); ?>"<?php echo $target; ?>>
 			<?php the_field( 'button_text' ); ?>
 		</a>

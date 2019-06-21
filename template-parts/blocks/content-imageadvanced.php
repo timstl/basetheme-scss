@@ -34,7 +34,7 @@ if ( $image ) :
 
 	$caption = wp_get_attachment_caption( $image['id'] );
 	?>
-	<figure id="<?php echo esc_html( $block_id ); ?>" class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
+	<figure id="<?php echo esc_html( $block_id ); ?>" class="<?php esc_attr_e( implode( ' ', $classes ) ); ?>">
 		<?php if ( $img_link ) : ?>
 		<a href="<?php echo esc_url( $img_link ); ?>"><?php echo wp_get_attachment_image( $image['id'], get_field( 'size' ) ); ?></a>
 		<?php else : ?>
@@ -42,7 +42,7 @@ if ( $image ) :
 		<?php endif; ?>
 
 		<?php if ( $caption ) : ?>
-		<figcaption><?php echo esc_attr( $caption ); ?></figcaption>
+		<figcaption><?php esc_attr_e( $caption ); ?></figcaption>
 		<?php endif; ?>
 	</figure>
 <?php elseif ( is_admin() ) : ?>

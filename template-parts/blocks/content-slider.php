@@ -98,7 +98,7 @@ if ( have_rows( 'slider' ) ) :
 		);
 	*/
 	?>
-<div id="<?php echo esc_html( $block_id ); ?>" class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
+<div id="<?php echo esc_html( $block_id ); ?>" class="<?php esc_attr_e( implode( ' ', $classes ) ); ?>">
 	<div class="<?php echo $align_class; ?>">
 	<?php
 	while ( have_rows( 'slider' ) ) :

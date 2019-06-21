@@ -85,7 +85,7 @@ if ( ! function_exists( 'alt_title' ) ) :
 		if ( ! $echo ) {
 			return apply_filters( 'the_title', $title );
 		} else {
-			echo esc_attr( apply_filters( 'the_title', $title ) );
+			esc_attr_e( apply_filters( 'the_title', $title ) );
 		}
 	}
 endif;
@@ -186,7 +186,7 @@ if ( ! function_exists( 'bt_classes' ) ) :
 			return implode( ' ', $classes );
 		}
 
-		echo esc_attr( implode( ' ', $classes ) );
+		esc_attr_e( implode( ' ', $classes ) );
 	}
 endif;
 

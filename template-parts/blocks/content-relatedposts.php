@@ -138,7 +138,7 @@ if ( $criteria_rel != 'OR' ) {
 $c_query = bt_query_related_posts( $post_id, $num, $use_cats, $use_tags, $criteria_rel );
 
 if ( $c_query && ! is_wp_error( $c_query ) && $c_query->have_posts() ) : ?>
-<aside id="<?php echo esc_html( $block_id ); ?>" class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
+<aside id="<?php echo esc_html( $block_id ); ?>" class="<?php esc_attr_e( implode( ' ', $classes ) ); ?>">
 	<div class="<?php echo $align_class; ?>">
 		<?php
 		while ( $c_query->have_posts() ) :

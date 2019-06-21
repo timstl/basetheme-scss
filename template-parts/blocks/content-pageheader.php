@@ -58,7 +58,7 @@ if ( have_rows( 'pageheader' ) ) :
 		}
 
 		?>
-		<header id="<?php echo $block_id; ?>" class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
+		<header id="<?php echo $block_id; ?>" class="<?php esc_attr_e( implode( ' ', $classes ) ); ?>">
 			<?php if ( $layout == 'image_content' ) : ?>
 			<div class="pageheader-text">
 				<?php the_sub_field( 'content' ); ?>
