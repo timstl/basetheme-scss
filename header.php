@@ -23,10 +23,10 @@
 </head>
 <body <?php body_class(); ?>>
 <?php
-if ( function_exists( 'the_field' ) ) {
-	the_field( 'custom_body_scripts', 'options' );
-	the_field( 'custom_body_scripts' );
-}
+/**
+ * Output "Custom Scripts (after body tag)" from the admin Site Settings.
+ */
+get_template_part( 'template-parts/header/part', 'scripts' );
 ?>
 <div id="wrapper">
 	<a href="#site-main" class="sr-only sr-only-focusable skipnav"><?php esc_attr_e( 'Skip to main content', 'basetheme' ); ?></a>

@@ -17,6 +17,23 @@ if ( ! isset( $content_width ) ) {
 	$content_width = 960;
 }
 
+if ( ! function_exists( 'bt_setup_acf' ) ) {
+	/**
+	 * Require BT_ACF class, setup options page and hooks.
+	 */
+	function bt_setup_acf() {
+		/**
+		 * ACF Fields for theme.
+		 * Create Site Settings options page + some hooks for outputting ACF fields.
+		 * Does NOT include block functionality (see theme-acfblocks.php).
+		 */
+		require_once get_template_directory() . '/lib/class-bt-acf.php';
+		BT_ACF::create_acf_pages();
+		BT_ACF::hooks();
+	}
+}
+add_action( 'after_setup_theme', 'bt_setup_acf' );
+
 if ( ! function_exists( 'bt_setup' ) ) {
 	/**
 	 * Setup scripts, sidebars, menus, etc.
