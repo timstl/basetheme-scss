@@ -99,7 +99,7 @@ if ( have_rows( 'slider' ) ) :
 		);
 	*/
 	?>
-<div id="<?php echo esc_html( $block_id ); ?>" class="<?php esc_attr_e( implode( ' ', $classes ) ); ?>">
+<div id="<?php echo esc_html( $block_id ); ?>" class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
 	<div class="<?php echo $align_class; ?>">
 	<?php
 	while ( have_rows( 'slider' ) ) :
@@ -131,7 +131,7 @@ if ( have_rows( 'slider' ) ) :
 				$slider_classes[] = 'slick-slider--hasarrows';
 			}
 			?>
-		<div class="<?php esc_attr_e( implode( ' ', $slider_classes ) ); ?>" data-slick='<?php echo json_encode( $args ); ?>'>
+		<div class="<?php echo esc_attr( implode( ' ', $slider_classes ) ); ?>" data-slick='<?php echo json_encode( $args ); ?>'>
 			<?php
 			$slider_slides = get_sub_field( 'slides' );
 
@@ -170,8 +170,8 @@ if ( have_rows( 'slider' ) ) :
 		 */
 		if ( $args['arrows'] !== false ) :
 			?>
-		<button type="button" class="slick-prev" title="Previous"><?php _e( 'Previous', 'basetheme' ); ?></button>
-		<button type="button" class="slick-next" title="Next"><?php _e( 'Next', 'basetheme' ); ?></button>
+		<button type="button" class="slick-prev" title="Previous"><?php esc_attr_e( 'Previous', 'basetheme' ); ?></button>
+		<button type="button" class="slick-next" title="Next"><?php esc_attr_e( 'Next', 'basetheme' ); ?></button>
 		<?php endif; ?>
 
 	<?php endwhile; ?>
@@ -180,5 +180,5 @@ if ( have_rows( 'slider' ) ) :
 	<?php
 elseif ( is_admin() ) :
 	?>
-<p><em><?php _e( 'Please add a slider and slides.', 'basetheme' ); ?></em></p>
+<p><em><?php esc_attr_e( 'Please add a slider and slides.', 'basetheme' ); ?></em></p>
 <?php endif; ?>

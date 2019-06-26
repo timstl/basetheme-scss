@@ -31,7 +31,7 @@ if ( ! $align_class ) {
 }
 
 if ( have_rows( 'accordion' ) ) : ?>
-<div id="<?php echo esc_html( $block_id ); ?>" class="<?php esc_attr_e( implode( ' ', $classes ) ); ?>">
+<div id="<?php echo esc_html( $block_id ); ?>" class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
 	<div class="<?php echo $align_class; ?>">
 	<?php
 	$show     = ' show';
@@ -68,7 +68,7 @@ if ( have_rows( 'accordion' ) ) : ?>
 				</div>
 				<div class="col col-4 col-md-4 col-accordion-toggle order-2 order-md-3">
 					<button type="button" class="accordion-toggle accordion-trigger" data-toggle="collapse" data-target="#<?php echo $accordion_id; ?>-collapse" aria-expanded="<?php echo $expanded; ?>" aria-controls="<?php echo $accordion_id; ?>-collapse">
-						<span class="screen-reader-text"><?php _e( 'Expand', 'basetheme' ); ?></span>
+						<span class="screen-reader-text"><?php esc_attr_e( 'Expand', 'basetheme' ); ?></span>
 						<span class="accordion-expand">+</span>
 					</button>					
 				</div>
@@ -85,5 +85,5 @@ if ( have_rows( 'accordion' ) ) : ?>
 	<?php
 elseif ( is_admin() ) :
 	?>
-<p><em><?php _e( 'Please add accordions.', 'basetheme' ); ?></em></p>
+<p><em><?php esc_attr_e( 'Please add accordions.', 'basetheme' ); ?></em></p>
 <?php endif; ?>

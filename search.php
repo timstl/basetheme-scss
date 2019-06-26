@@ -16,7 +16,7 @@ get_header(); ?>
 		<?php if ( have_posts() ) : ?>
 
 			<header class="page-header">
-				<h1 class="page-title"><?php _e( 'Search results:' ); ?> <?php printf( '%s', '<span>' . esc_html( get_search_query() ) . '</span>' ); ?></h1>
+				<h1 class="page-title"><?php esc_attr_e( 'Search results:', 'basetheme' ); ?> <?php printf( '%s', '<span>' . esc_html( get_search_query() ) . '</span>' ); ?></h1>
 			</header><!-- .page-header -->
 
 			<?php

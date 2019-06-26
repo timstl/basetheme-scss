@@ -23,8 +23,8 @@ if ( ! $aria_label ) {
 }
 
 if ( have_rows( 'buttons' ) ) : ?>
-<div id="<?php echo esc_html( $block_id ); ?>" class="<?php esc_attr_e( implode( ' ', $classes ) ); ?>">
-	<div class="btn-group" role="group" aria-label="<?php esc_attr_e( $aria_label ); ?>">
+<div id="<?php echo esc_html( $block_id ); ?>" class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
+	<div class="btn-group" role="group" aria-label="<?php echo esc_attr( $aria_label ); ?>">
 		<?php
 		while ( have_rows( 'buttons' ) ) :
 			the_row();
@@ -42,7 +42,7 @@ if ( have_rows( 'buttons' ) ) : ?>
 				$target = ' target="_blank"';
 			}
 			?>
-		<a href="<?php echo esc_url( $url ); ?>" class="<?php esc_attr_e( implode( ' ', $btn_class ) ); ?>"<?php echo $target; ?>>
+		<a href="<?php echo esc_url( $url ); ?>" class="<?php echo esc_attr( implode( ' ', $btn_class ) ); ?>"<?php echo $target; ?>>
 			<?php the_sub_field( 'text' ); ?>
 		</a>
 	<?php endwhile; ?>
@@ -51,5 +51,5 @@ if ( have_rows( 'buttons' ) ) : ?>
 	<?php
 elseif ( is_admin() ) :
 	?>
-<p><em><?php _e( 'Please add buttons.', 'basetheme' ); ?></em></p>
+<p><em><?php esc_attr_e( 'Please add buttons.', 'basetheme' ); ?></em></p>
 <?php endif; ?>

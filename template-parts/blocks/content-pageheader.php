@@ -59,7 +59,7 @@ if ( have_rows( 'pageheader' ) ) :
 		}
 
 		?>
-		<header id="<?php echo $block_id; ?>" class="<?php esc_attr_e( implode( ' ', $classes ) ); ?>">
+		<header id="<?php echo $block_id; ?>" class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
 			<?php if ( $layout == 'image_content' ) : ?>
 			<div class="pageheader-text">
 				<?php the_sub_field( 'content' ); ?>
@@ -92,6 +92,6 @@ if ( have_rows( 'pageheader' ) ) :
 endwhile;
 elseif ( is_admin() ) :
 	?>
-<p><em><?php _e( 'Please add a header layout.', 'basetheme' ); ?></em></p>
+<p><em><?php esc_attr_e( 'Please add a header layout.', 'basetheme' ); ?></em></p>
 	<?php
 endif; ?>
