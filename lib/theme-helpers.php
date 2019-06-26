@@ -254,7 +254,7 @@ if ( ! function_exists( 'boilerplate_continue_reading_link' ) ) {
 	 * Returns a "Continue Reading" link.
 	 */
 	function boilerplate_continue_reading_link() {
-		return ' <a href="' . get_permalink() . '">' . __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'basetheme' ) . '</a>';
+		return ' <a href="' . get_permalink() . '">' . esc_attr__( 'Continue reading <span class="meta-nav">&rarr;</span>', 'basetheme' ) . '</a>';
 	}
 }
 

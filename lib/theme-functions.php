@@ -61,27 +61,27 @@ if ( ! function_exists( 'bt_editor_add_theme_support' ) ) {
 			'editor-font-sizes',
 			array(
 				array(
-					'name' => __( 'Small', 'basetheme' ),
+					'name' => esc_attr__( 'Small', 'basetheme' ),
 					'size' => 12,
 					'slug' => 'small',
 				),
 				array(
-					'name' => __( 'Normal', 'basetheme' ),
+					'name' => esc_attr__( 'Normal', 'basetheme' ),
 					'size' => 16,
 					'slug' => 'normal',
 				),
 				array(
-					'name' => __( 'Medium', 'basetheme' ),
+					'name' => esc_attr__( 'Medium', 'basetheme' ),
 					'size' => 20,
 					'slug' => 'medium',
 				),
 				array(
-					'name' => __( 'Large', 'basetheme' ),
+					'name' => esc_attr__( 'Large', 'basetheme' ),
 					'size' => 36,
 					'slug' => 'large',
 				),
 				array(
-					'name' => __( 'Huge', 'basetheme' ),
+					'name' => esc_attr__( 'Huge', 'basetheme' ),
 					'size' => 48,
 					'slug' => 'huge',
 				),

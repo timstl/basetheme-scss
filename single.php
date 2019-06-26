@@ -35,11 +35,11 @@ get_header(); ?>
 			// Previous/next post navigation.
 			the_post_navigation(
 				array(
-					'next_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Next', 'basetheme' ) . '</span> ' .
-					'<span class="screen-reader-text">' . __( 'Next post:', 'basetheme' ) . '</span> ' .
+					'next_text' => '<span class="meta-nav" aria-hidden="true">' . esc_attr__( 'Next', 'basetheme' ) . '</span> ' .
+					'<span class="screen-reader-text">' . esc_attr__( 'Next post:', 'basetheme' ) . '</span> ' .
 					'<span class="post-title">%title</span>',
-					'prev_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Previous', 'basetheme' ) . '</span> ' .
-					'<span class="screen-reader-text">' . __( 'Previous post:', 'basetheme' ) . '</span> ' .
+					'prev_text' => '<span class="meta-nav" aria-hidden="true">' . esc_attr__( 'Previous', 'basetheme' ) . '</span> ' .
+					'<span class="screen-reader-text">' . esc_attr__( 'Previous post:', 'basetheme' ) . '</span> ' .
 					'<span class="post-title">%title</span>',
 				)
 			);

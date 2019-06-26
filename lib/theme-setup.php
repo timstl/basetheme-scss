@@ -58,9 +58,9 @@ if ( ! function_exists( 'bt_setup' ) ) {
 		 */
 		register_nav_menus(
 			array(
-				'site-header-utility-nav' => __( 'Utility Navigation', 'basetheme' ),
-				'site-header-main-nav'    => __( 'Main Navigation', 'basetheme' ),
-				'site-footer-main-nav'    => __( 'Footer Navigation', 'basetheme' ),
+				'site-header-utility-nav' => esc_attr__( 'Utility Navigation', 'basetheme' ),
+				'site-header-main-nav'    => esc_attr__( 'Main Navigation', 'basetheme' ),
+				'site-footer-main-nav'    => esc_attr__( 'Footer Navigation', 'basetheme' ),
 			)
 		);
 
@@ -103,9 +103,9 @@ if ( ! function_exists( 'bt_widgets_init' ) ) {
 	function bt_widgets_init() {
 		register_sidebar(
 			array(
-				'name'          => __( 'Blog Sidebar Widget Area', 'basetheme' ),
+				'name'          => esc_attr__( 'Blog Sidebar Widget Area', 'basetheme' ),
 				'id'            => 'blog-sidebar-widget-area',
-				'description'   => __( 'The blog widget area', 'basetheme' ),
+				'description'   => esc_attr__( 'The blog widget area', 'basetheme' ),
 				'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
 				'after_widget'  => '</li>',
 				'before_title'  => '<h4 class="widget-title">',
@@ -114,9 +114,9 @@ if ( ! function_exists( 'bt_widgets_init' ) ) {
 		);
 		register_sidebar(
 			array(
-				'name'          => __( 'Page Sidebar Widget Area', 'basetheme' ),
+				'name'          => esc_attr__( 'Page Sidebar Widget Area', 'basetheme' ),
 				'id'            => 'page-sidebar-widget-area',
-				'description'   => __( 'The page widget area', 'basetheme' ),
+				'description'   => esc_attr__( 'The page widget area', 'basetheme' ),
 				'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
 				'after_widget'  => '</li>',
 				'before_title'  => '<h4 class="widget-title">',

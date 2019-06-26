@@ -38,9 +38,9 @@ get_header(); ?>
 	// Previous/next page navigation.
 	the_posts_pagination(
 		array(
-			'prev_text'          => __( 'Previous page', 'basetheme' ),
-			'next_text'          => __( 'Next page', 'basetheme' ),
-			'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'basetheme' ) . ' </span>',
+			'prev_text'          => esc_attr__( 'Previous page', 'basetheme' ),
+			'next_text'          => esc_attr__( 'Next page', 'basetheme' ),
+			'before_page_number' => '<span class="meta-nav screen-reader-text">' . esc_attr__( 'Page', 'basetheme' ) . ' </span>',
 		)
 	);
 

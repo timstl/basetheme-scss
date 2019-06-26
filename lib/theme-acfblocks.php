@@ -29,8 +29,8 @@ function bt_acf_register_blocks() {
 		acf_register_block_type(
 			array(
 				'name'            => 'buttongroup',
-				'title'           => __( 'Button Group' ),
-				'description'     => __( 'A group of Bootstrap-style buttons.' ),
+				'title'           => esc_attr__( 'Button Group', 'basetheme' ),
+				'description'     => esc_attr__( 'A group of Bootstrap-style buttons.', 'basetheme' ),
 				'render_callback' => 'bt_acf_block_render_callback',
 				'category'        => BT_ACF_BLOCKS_CATEGORY,
 				'icon'            => $icon,
@@ -43,8 +43,8 @@ function bt_acf_register_blocks() {
 		acf_register_block_type(
 			array(
 				'name'            => 'buttonbootstrap',
-				'title'           => __( 'Button (Bootstrap)' ),
-				'description'     => __( 'A bootstrap-style button.' ),
+				'title'           => esc_attr__( 'Button (Bootstrap)', 'basetheme' ),
+				'description'     => esc_attr__( 'A bootstrap-style button.', 'basetheme' ),
 				'render_callback' => 'bt_acf_block_render_callback',
 				'category'        => BT_ACF_BLOCKS_CATEGORY,
 				'icon'            => $icon,
@@ -64,8 +64,8 @@ function bt_acf_register_blocks() {
 		acf_register_block_type(
 			array(
 				'name'            => 'pageheader',
-				'title'           => __( 'Page Header' ),
-				'description'     => __( 'A page header with an image and content.' ),
+				'title'           => esc_attr__( 'Page Header', 'basetheme' ),
+				'description'     => esc_attr__( 'A page header with an image and content.', 'basetheme' ),
 				'render_callback' => 'bt_acf_block_render_callback',
 				'category'        => BT_ACF_BLOCKS_CATEGORY,
 				'icon'            => $icon,
@@ -80,8 +80,8 @@ function bt_acf_register_blocks() {
 		acf_register_block_type(
 			array(
 				'name'            => 'carddeck',
-				'title'           => __( 'Card Deck' ),
-				'description'     => __( 'A Bootstrap card deck.' ),
+				'title'           => esc_attr__( 'Card Deck', 'basetheme' ),
+				'description'     => esc_attr__( 'A Bootstrap card deck.', 'basetheme' ),
 				'render_callback' => 'bt_acf_block_render_callback',
 				'category'        => BT_ACF_BLOCKS_CATEGORY,
 				'icon'            => $icon,
@@ -94,8 +94,8 @@ function bt_acf_register_blocks() {
 		acf_register_block_type(
 			array(
 				'name'            => 'imageadvanced',
-				'title'           => __( 'Image (Advanced)' ),
-				'description'     => __( 'An advanced image field. Use if you need specifically styled images or additional HTML with an image.' ),
+				'title'           => esc_attr__( 'Image (Advanced)', 'basetheme' ),
+				'description'     => esc_attr__( 'An advanced image field. Use if you need specifically styled images or additional HTML with an image.', 'basetheme' ),
 				'render_callback' => 'bt_acf_block_render_callback',
 				'category'        => BT_ACF_BLOCKS_CATEGORY,
 				'icon'            => $icon,
@@ -108,8 +108,8 @@ function bt_acf_register_blocks() {
 		acf_register_block_type(
 			array(
 				'name'            => 'accordion',
-				'title'           => __( 'Accordion' ),
-				'description'     => __( 'A set of accordions.' ),
+				'title'           => esc_attr__( 'Accordion', 'basetheme' ),
+				'description'     => esc_attr__( 'A set of accordions.', 'basetheme' ),
 				'render_callback' => 'bt_acf_block_render_callback',
 				'category'        => BT_ACF_BLOCKS_CATEGORY,
 				'icon'            => $icon,
@@ -122,8 +122,8 @@ function bt_acf_register_blocks() {
 		acf_register_block_type(
 			array(
 				'name'            => 'slider',
-				'title'           => __( 'Slider' ),
-				'description'     => __( 'A slider block.' ),
+				'title'           => esc_attr__( 'Slider', 'basetheme' ),
+				'description'     => esc_attr__( 'A slider block.', 'basetheme' ),
 				'render_callback' => 'bt_acf_block_render_callback',
 				'category'        => BT_ACF_BLOCKS_CATEGORY,
 				'icon'            => $icon,
@@ -139,8 +139,8 @@ function bt_acf_register_blocks() {
 		acf_register_block_type(
 			array(
 				'name'            => 'relatedposts',
-				'title'           => __( 'Related Posts' ),
-				'description'     => __( 'Display posts related to the current post\'s categories and/or tags.' ),
+				'title'           => esc_attr__( 'Related Posts', 'basetheme' ),
+				'description'     => esc_attr__( 'Display posts related to the current post\'s categories and/or tags.', 'basetheme' ),
 				'render_callback' => 'bt_acf_block_render_callback',
 				'category'        => BT_ACF_BLOCKS_CATEGORY,
 				'icon'            => $icon,
@@ -176,7 +176,7 @@ function bt_register_block_categories( $categories, $post ) {
 		array(
 			array(
 				'slug'  => BT_ACF_BLOCKS_CATEGORY,
-				'title' => __( 'Basetheme Blocks', 'basetheme' ),
+				'title' => esc_attr__( 'Basetheme Blocks', 'basetheme' ),
 			),
 		),
 		$categories
