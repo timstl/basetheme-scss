@@ -180,5 +180,5 @@ if ( have_rows( 'slider' ) ) :
 	<?php
 elseif ( is_admin() ) :
 	?>
-<p><em><?php _e( 'Please add a slider and slides.' ); ?></em></p>
+<p><em><?php _e( 'Please add a slider and slides.', 'basetheme' ); ?></em></p>
 <?php endif; ?>

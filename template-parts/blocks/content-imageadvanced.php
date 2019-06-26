@@ -46,5 +46,5 @@ if ( $image ) :
 		<?php endif; ?>
 	</figure>
 <?php elseif ( is_admin() ) : ?>
-	<p><em><?php _e( 'Please add an image.' ); ?></em></p>
+	<p><em><?php _e( 'Please add an image.', 'basetheme' ); ?></em></p>
 <?php endif; ?>

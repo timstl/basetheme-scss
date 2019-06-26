@@ -51,5 +51,5 @@ if ( have_rows( 'buttons' ) ) : ?>
 	<?php
 elseif ( is_admin() ) :
 	?>
-<p><em><?php _e( 'Please add buttons.' ); ?></em></p>
+<p><em><?php _e( 'Please add buttons.', 'basetheme' ); ?></em></p>
 <?php endif; ?>

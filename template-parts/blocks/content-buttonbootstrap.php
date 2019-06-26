@@ -39,5 +39,5 @@ if ( get_field( 'button_link' ) ) :
 	<?php
 elseif ( is_admin() ) :
 	?>
-<p><em><?php _e( 'Please add a button.' ); ?></em></p>
+<p><em><?php _e( 'Please add a button.', 'basetheme' ); ?></em></p>
 <?php endif; ?>

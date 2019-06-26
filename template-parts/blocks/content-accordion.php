@@ -85,5 +85,5 @@ if ( have_rows( 'accordion' ) ) : ?>
 	<?php
 elseif ( is_admin() ) :
 	?>
-<p><em><?php _e( 'Please add accordions.' ); ?></em></p>
+<p><em><?php _e( 'Please add accordions.', 'basetheme' ); ?></em></p>
 <?php endif; ?>

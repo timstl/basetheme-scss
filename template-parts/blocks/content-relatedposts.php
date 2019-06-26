@@ -155,6 +155,6 @@ if ( $c_query && ! is_wp_error( $c_query ) && $c_query->have_posts() ) : ?>
 	</div>
 </aside>
 <?php elseif ( is_admin() ) : ?>
-	<p><em><?php _e( 'No related posts were found.' ); ?></em></p>
+	<p><em><?php _e( 'No related posts were found.', 'basetheme' ); ?></em></p>
 	<?php
 endif;

@@ -92,6 +92,6 @@ if ( have_rows( 'pageheader' ) ) :
 endwhile;
 elseif ( is_admin() ) :
 	?>
-<p><em><?php _e( 'Please add a header layout.' ); ?></em></p>
+<p><em><?php _e( 'Please add a header layout.', 'basetheme' ); ?></em></p>
 	<?php
 endif; ?>

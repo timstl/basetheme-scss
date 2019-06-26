@@ -44,7 +44,7 @@ if ( ! function_exists( 'bt_editor_add_theme_support' ) ) {
 			foreach ( $palette as $key => $value ) {
 				if ( ! array_search( $value, array_column( $editor_palette, 'color' ) ) ) {
 					$editor_palette[] = array(
-						'name'  => __( $key . ' (' . $value . ')', 'basetheme' ),
+						'name'  => $key . ' (' . $value . ')',
 						'slug'  => $key,
 						'color' => $value,
 					);

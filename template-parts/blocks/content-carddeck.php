@@ -110,5 +110,5 @@ if ( ! $align_class ) {
 	<?php
 elseif ( is_admin() ) :
 	?>
-<p><em><?php _e( 'Please add cards.' ); ?></em></p>
+<p><em><?php _e( 'Please add cards.', 'basetheme' ); ?></em></p>
 <?php endif; ?>
