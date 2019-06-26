@@ -9,12 +9,12 @@
  */
 
 ?>
-<section class="no-results not-found">
+<article class="no-results not-found">
 	<header>
 		<h1 class="page-title"><?php _e( 'Nothing Found', 'basetheme' ); ?></h1>
-	</header><!-- .page-header -->
+	</header>
 
-	<div class="page-content">
+	<section class="entry">
 		<?php if ( is_search() ) : ?>
 
 			<p><?php _e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'basetheme' ); ?></p>
@@ -26,5 +26,5 @@
 			<?php get_search_form(); ?>
 
 		<?php endif; ?>
-	</div><!-- .page-content -->
-</section><!-- .no-results -->
+	</section>
+</article>

@@ -13,13 +13,15 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-	</header><!-- .entry-header -->
+	</header>
 
-	<?php the_post_thumbnail(); ?>
+	<?php if ( has_post_thumbnail() ) : ?>
+	<div class="entry-ft">
+		<?php the_post_thumbnail(); ?>
+	</div>
+	<?php endif; ?>
 
 	<section class="entry">
-		<?php
-			the_content();
-		?>
-	</section><!-- .entry-content -->
-</article><!-- #post-## -->
+		<?php the_content(); ?>
+	</section>
+</article>

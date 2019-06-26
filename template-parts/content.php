@@ -19,12 +19,18 @@
 			the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' );
 		endif;
 		?>
-	</header><!-- .entry-header -->
+	</header>
 
 	<?php
 	if ( has_post_thumbnail() ) :
 		if ( is_single() ) :
-			the_post_thumbnail();
+			if ( has_post_thumbnail() ) :
+				?>
+			<div class="entry-ft">
+				<?php the_post_thumbnail(); ?>
+			</div>
+				<?php
+			endif;
 		else :
 			?>
 			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_post_thumbnail(); ?></a>
@@ -41,5 +47,5 @@
 			the_excerpt();
 		endif;
 		?>
-	</section><!-- .entry-content -->
-</article><!-- #post-## -->
+	</section>
+</article>
