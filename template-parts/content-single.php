@@ -24,4 +24,19 @@
 	<section class="entry">
 		<?php the_content(); ?>
 	</section>
+
+	<div class="post-meta">
+		<span class="post-meta-cats">
+			<?php the_category( ', ' ); ?>
+		</span>
+		<span class="post-meta-tags">
+			<?php the_tags( '', ', ', '' ); ?>
+		</span>
+		<span class="post-meta-date">
+			<?php the_time( 'F d, Y' ); ?>
+		</span>
+		<span class="post-meta-author">
+			<?php the_author(); ?>
+		</span>
+	</div>
 </article>
