@@ -36,8 +36,12 @@
 				<?php echo $footer_nav; ?>
 			</div>
 			<?php endif; ?>
+
+			<?php get_template_part( 'template-parts/footer/part', 'content' ); ?>
+			
 			<?php get_template_part( 'template-parts/part', 'socialaccounts' ); ?>
-			<?php get_template_part( 'template-parts/part', 'copyright' ); ?>
+			
+			<?php get_template_part( 'template-parts/footer/part', 'copyright' ); ?>
 		</div>
 	</footer>
 <?php wp_footer(); ?>
