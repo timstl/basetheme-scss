@@ -34,6 +34,7 @@ class BT_ACF {
 	 * Output after opening body tag.
 	 * This function isn't tied to a hook; Call from template partial:
 	 * ./template-parts/header/part-scripts.php
+	 * BT_ACF::custom_output_body();
 	 */
 	public static function custom_output_body() {
 		self::custom_output( 'body' );
