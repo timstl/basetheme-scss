@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v2.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: Basetheme 3.2\n"
+"Project-Id-Version: Basetheme 3.2.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/basetheme\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-06-26T13:19:28-05:00\n"
+"POT-Creation-Date: 2019-06-26T14:27:52-05:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.1.0\n"
 "X-Domain: basetheme\n"
@@ -32,16 +32,6 @@ msgstr ""
 
 #. Author URI of the theme
 msgid "http://timgweb.com/"
-msgstr ""
-
-#: 404.php:22
-#: template-parts/content-none.php:20
-msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
-msgstr ""
-
-#: 404.php:27
-#: template-parts/content-none.php:25
-msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
 msgstr ""
 
 #: index.php:45
@@ -79,16 +69,44 @@ msgstr[0] ""
 msgid "Comments are closed."
 msgstr ""
 
+#: search.php:19
+msgid "Search results:"
+msgstr ""
+
 #: header.php:32
 msgid "Skip to main content"
+msgstr ""
+
+#: template-parts/blocks/content-buttonbootstrap.php:42
+msgid "Please add a button."
+msgstr ""
+
+#: template-parts/blocks/content-pageheader.php:95
+msgid "Please add a header layout."
+msgstr ""
+
+#: template-parts/blocks/content-carddeck.php:113
+msgid "Please add cards."
+msgstr ""
+
+#: template-parts/blocks/content-imageadvanced.php:49
+msgid "Please add an image."
 msgstr ""
 
 #: template-parts/blocks/content-relatedposts.php:151
 msgid "Read More"
 msgstr ""
 
+#: template-parts/blocks/content-relatedposts.php:158
+msgid "No related posts were found."
+msgstr ""
+
 #: template-parts/blocks/content-accordion.php:71
 msgid "Expand"
+msgstr ""
+
+#: template-parts/blocks/content-accordion.php:88
+msgid "Please add accordions."
 msgstr ""
 
 #: template-parts/blocks/content-slider.php:173
@@ -101,8 +119,40 @@ msgstr ""
 msgid "Next"
 msgstr ""
 
+#: template-parts/blocks/content-slider.php:183
+msgid "Please add a slider and slides."
+msgstr ""
+
+#: template-parts/blocks/content-buttongroup.php:54
+msgid "Please add buttons."
+msgstr ""
+
 #: template-parts/content-none.php:14
 msgid "Nothing Found"
+msgstr ""
+
+#: template-parts/content-none.php:20
+msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgstr ""
+
+#: template-parts/content-none.php:25
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr ""
+
+#: lib/theme-acfblocks.php:32
+msgid "Button Group"
+msgstr ""
+
+#: lib/theme-acfblocks.php:33
+msgid "A group of Bootstrap-style buttons."
+msgstr ""
+
+#: lib/theme-acfblocks.php:46
+msgid "Button (Bootstrap)"
+msgstr ""
+
+#: lib/theme-acfblocks.php:47
+msgid "A bootstrap-style button."
 msgstr ""
 
 #: lib/theme-acfblocks.php:179
@@ -141,6 +191,10 @@ msgstr ""
 msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""
 
+#: lib/class-wp-bootstrap-navwalker.php:366
+msgid "Add a menu"
+msgstr ""
+
 #: lib/theme-functions.php:64
 msgid "Small"
 msgstr ""
@@ -172,4 +226,16 @@ msgstr ""
 
 #: single.php:42
 msgid "Previous post:"
+msgstr ""
+
+#: searchform.php:22
+msgid "Search for:"
+msgstr ""
+
+#: searchform.php:24
+msgid "Search &hellip;"
+msgstr ""
+
+#: searchform.php:25
+msgid "Search"
 msgstr ""
