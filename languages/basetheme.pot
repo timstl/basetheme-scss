@@ -1,346 +1,175 @@
-# Copyright (C) 2015 the WordPress team
-# This file is distributed under the GNU General Public License v2 or later.
+# Copyright (C) 2019 Tim Gieseking, timstl@gmail.com
+# This file is distributed under the GNU General Public License v2.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: Twenty Sixteen 0.1.20150828\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/twentysixteen\n"
-"POT-Creation-Date: 2015-11-20 12:58:54+00:00\n"
+"Project-Id-Version: Basetheme 3.2\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/basetheme\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"POT-Creation-Date: 2019-06-26T13:19:28-05:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.1.0\n"
+"X-Domain: basetheme\n"
 
-#: 404.php:17
-msgid "Oops! That page can&rsquo;t be found."
+#. Theme Name of the theme
+msgid "Basetheme"
 msgstr ""
 
-#: 404.php:21
-msgid "It looks like nothing was found at this location. Maybe try a search?"
+#. Theme URI of the theme
+msgid "https://github.com/timstl/basetheme-scss"
 msgstr ""
 
-#: archive.php:49 index.php:46 search.php:37
+#. Description of the theme
+msgid "Theme files to build from. Based on HTML5 Boilerplate, Boilerplate Theme, Twentyfifteen, Twentysixteen, Bootstrap, Starker's, and others."
+msgstr ""
+
+#. Author of the theme
+msgid "Tim Gieseking, timstl@gmail.com"
+msgstr ""
+
+#. Author URI of the theme
+msgid "http://timgweb.com/"
+msgstr ""
+
+#: 404.php:22
+#: template-parts/content-none.php:20
+msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgstr ""
+
+#: 404.php:27
+#: template-parts/content-none.php:25
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr ""
+
+#: index.php:45
+#: archive.php:41
+#: search.php:40
 msgid "Previous page"
 msgstr ""
 
-#: archive.php:50 index.php:47 search.php:38
+#: index.php:46
+#: archive.php:42
+#: search.php:41
 msgid "Next page"
 msgstr ""
 
-#: archive.php:51 image.php:60 index.php:48 search.php:39
-#: template-parts/content-page.php:27 template-parts/content-single.php:29
-#: template-parts/content.php:37
+#: index.php:47
+#: archive.php:43
+#: search.php:42
 msgid "Page"
 msgstr ""
 
 #. translators: %s: post title
-#: comments.php:31
+#: comments.php:28
 msgctxt "comments title"
-msgid "One thought on &ldquo;%s&rdquo;"
+msgid "One reply on &ldquo;%s&rdquo;"
 msgstr ""
 
 #. translators: 1: number of comments, 2: post title
-#: comments.php:35
+#: comments.php:32
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
-msgstr[1] ""
 
-#: comments.php:69
+#: comments.php:68
 msgid "Comments are closed."
 msgstr ""
 
-#: footer.php:17
-msgid "Footer Primary Menu"
+#: header.php:32
+msgid "Skip to main content"
 msgstr ""
 
-#: footer.php:28
-msgid "Footer Social Links Menu"
+#: template-parts/blocks/content-relatedposts.php:151
+msgid "Read More"
 msgstr ""
 
-#. #-#-#-#-#  twentysixteen.pot (Twenty Sixteen 0.1.20150828)  #-#-#-#-#
-#. Author URI of the plugin/theme
-#: footer.php:51
-msgid "https://wordpress.org/"
+#: template-parts/blocks/content-accordion.php:71
+msgid "Expand"
 msgstr ""
 
-#: footer.php:51
-msgid "Proudly powered by %s"
-msgstr ""
-
-#: functions.php:77 header.php:49
-msgid "Primary Menu"
-msgstr ""
-
-#: functions.php:78 header.php:60
-msgid "Social Links Menu"
-msgstr ""
-
-#: functions.php:142
-msgid "Sidebar"
-msgstr ""
-
-#: functions.php:144
-msgid "Add widgets here to appear in your sidebar."
-msgstr ""
-
-#: functions.php:152
-msgid "Content Bottom 1"
-msgstr ""
-
-#: functions.php:154 functions.php:164
-msgid "Appears at the bottom of the content on posts and pages."
-msgstr ""
-
-#: functions.php:162
-msgid "Content Bottom 2"
-msgstr ""
-
-#. translators: If there are characters in your language that are not supported
-#. by Merriweather, translate this to 'off'. Do not translate into your own
-#. language.
-#: functions.php:189
-msgctxt "Merriweather font: on or off"
-msgid "on"
-msgstr ""
-
-#. translators: If there are characters in your language that are not supported
-#. by Montserrat, translate this to 'off'. Do not translate into your own
-#. language.
-#: functions.php:194
-msgctxt "Montserrat font: on or off"
-msgid "on"
-msgstr ""
-
-#. translators: If there are characters in your language that are not supported
-#. by Inconsolata, translate this to 'off'. Do not translate into your own
-#. language.
-#: functions.php:199
-msgctxt "Inconsolata font: on or off"
-msgid "on"
-msgstr ""
-
-#: functions.php:270
-msgid "expand child menu"
-msgstr ""
-
-#: functions.php:271
-msgid "collapse child menu"
-msgstr ""
-
-#: header.php:27
-msgid "Skip to content"
-msgstr ""
-
-#: header.php:45
-msgid "Menu"
-msgstr ""
-
-#: image.php:24
-msgid "Previous Image"
-msgstr ""
-
-#: image.php:25
-msgid "Next Image"
-msgstr ""
-
-#: image.php:56 template-parts/content-page.php:23
-#: template-parts/content-single.php:25 template-parts/content.php:33
-msgid "Pages:"
-msgstr ""
-
-#: image.php:73
-msgctxt "Used before full size attachment link."
-msgid "Full size"
-msgstr ""
-
-#. translators: %s: Name of current post
-#: image.php:84 template-parts/content-page.php:37
-#: template-parts/content-search.php:28 template-parts/content-search.php:43
-#: template-parts/content-single.php:45 template-parts/content.php:49
-msgid "Edit<span class=\"screen-reader-text\"> \"%s\"</span>"
-msgstr ""
-
-#: image.php:102 single.php:29
-msgctxt "Parent post link"
-msgid ""
-"<span class=\"meta-nav\">Published in</span><span class=\"post-title\">"
-"%title</span>"
-msgstr ""
-
-#: inc/back-compat.php:41 inc/back-compat.php:53 inc/back-compat.php:68
-msgid ""
-"Twenty Sixteen requires at least WordPress version 4.4. You are running "
-"version %s. Please upgrade and try again."
-msgstr ""
-
-#: inc/customizer.php:117
-msgid "Base Color Scheme"
-msgstr ""
-
-#: inc/customizer.php:132
-msgid "Page Background Color"
-msgstr ""
-
-#: inc/customizer.php:147
-msgid "Link Color"
-msgstr ""
-
-#: inc/customizer.php:159
-msgid "Main Text Color"
-msgstr ""
-
-#: inc/customizer.php:171
-msgid "Secondary Text Color"
-msgstr ""
-
-#: inc/customizer.php:216
-msgid "Default"
-msgstr ""
-
-#: inc/customizer.php:226
-msgid "Dark"
-msgstr ""
-
-#: inc/customizer.php:236
-msgid "Gray"
-msgstr ""
-
-#: inc/customizer.php:246
-msgid "Red"
-msgstr ""
-
-#: inc/customizer.php:256
-msgid "Yellow"
-msgstr ""
-
-#: inc/template-tags.php:25
-msgctxt "Used before post author name."
-msgid "Author"
-msgstr ""
-
-#: inc/template-tags.php:38
-msgctxt "Used before post format."
-msgid "Format"
-msgstr ""
-
-#: inc/template-tags.php:50
-msgid "Leave a comment<span class=\"screen-reader-text\"> on %s</span>"
-msgstr ""
-
-#: inc/template-tags.php:79
-msgctxt "Used before publish date."
-msgid "Posted on"
-msgstr ""
-
-#: inc/template-tags.php:95 inc/template-tags.php:103
-msgctxt "Used between list items, there is a space after the comma."
-msgid ", "
-msgstr ""
-
-#: inc/template-tags.php:98
-msgctxt "Used before category names."
-msgid "Categories"
-msgstr ""
-
-#: inc/template-tags.php:106
-msgctxt "Used before tag names."
-msgid "Tags"
-msgstr ""
-
-#. translators: %s: Name of current post
-#: inc/template-tags.php:184 template-parts/content.php:28
-msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
-msgstr ""
-
-#: search.php:18
-msgid "Search Results for: %s"
-msgstr ""
-
-#: searchform.php:13 searchform.php:14
-msgctxt "label"
-msgid "Search for:"
-msgstr ""
-
-#: searchform.php:14
-msgctxt "placeholder"
-msgid "Search &hellip;"
-msgstr ""
-
-#: searchform.php:16
-msgctxt "submit button"
-msgid "Search"
-msgstr ""
-
-#: single.php:34
-msgid "Next"
-msgstr ""
-
-#: single.php:35
-msgid "Next post:"
-msgstr ""
-
-#: single.php:37
+#: template-parts/blocks/content-slider.php:173
+#: single.php:41
 msgid "Previous"
 msgstr ""
 
+#: template-parts/blocks/content-slider.php:174
 #: single.php:38
-msgid "Previous post:"
+msgid "Next"
 msgstr ""
 
-#: template-parts/biography.php:28
-msgid "Author:"
-msgstr ""
-
-#: template-parts/biography.php:33
-msgid "View all posts by %s"
-msgstr ""
-
-#: template-parts/content-none.php:13
+#: template-parts/content-none.php:14
 msgid "Nothing Found"
 msgstr ""
 
-#: template-parts/content-none.php:19
-msgid ""
-"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+#: lib/theme-acfblocks.php:179
+msgid "Basetheme Blocks"
 msgstr ""
 
-#: template-parts/content-none.php:23
-msgid ""
-"Sorry, but nothing matched your search terms. Please try again with some "
-"different keywords."
+#: lib/theme-setup.php:61
+msgid "Utility Navigation"
 msgstr ""
 
-#: template-parts/content-none.php:28
-msgid ""
-"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
-"searching can help."
+#: lib/theme-setup.php:62
+msgid "Main Navigation"
 msgstr ""
 
-#: template-parts/content.php:14
-msgid "Featured"
+#: lib/theme-setup.php:63
+msgid "Footer Navigation"
 msgstr ""
 
-#. Theme Name of the plugin/theme
-msgid "Twenty Sixteen"
+#: lib/theme-setup.php:106
+msgid "Blog Sidebar Widget Area"
 msgstr ""
 
-#. Theme URI of the plugin/theme
-msgid "https://wordpress.org/themes/twentysixteen/"
+#: lib/theme-setup.php:108
+msgid "The blog widget area"
 msgstr ""
 
-#. Description of the plugin/theme
-msgid ""
-"Twenty Sixteen is a modernized take on an ever-popular WordPress layout ? "
-"the horizontal masthead with an optional right sidebar that works perfectly "
-"for blogs and websites. It has custom color options with beautiful default "
-"color schemes, a harmonious fluid grid using a mobile-first approach, and "
-"impeccable polish in every detail. Twenty Sixteen will make your WordPress "
-"look beautiful everywhere."
+#: lib/theme-setup.php:117
+msgid "Page Sidebar Widget Area"
 msgstr ""
 
-#. Author of the plugin/theme
-msgid "the WordPress team"
+#: lib/theme-setup.php:119
+msgid "The page widget area"
+msgstr ""
+
+#: lib/theme-helpers.php:257
+msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: lib/theme-functions.php:64
+msgid "Small"
+msgstr ""
+
+#: lib/theme-functions.php:69
+msgid "Normal"
+msgstr ""
+
+#: lib/theme-functions.php:74
+msgid "Medium"
+msgstr ""
+
+#: lib/theme-functions.php:79
+msgid "Large"
+msgstr ""
+
+#: lib/theme-functions.php:84
+msgid "Huge"
+msgstr ""
+
+#: single.php:31
+msgctxt "Parent post link"
+msgid "<span class=\"meta-nav\">Published in</span><span class=\"post-title\">%title</span>"
+msgstr ""
+
+#: single.php:39
+msgid "Next post:"
+msgstr ""
+
+#: single.php:42
+msgid "Previous post:"
 msgstr ""
