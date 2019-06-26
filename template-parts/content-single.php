@@ -40,3 +40,4 @@
 		</span>
 	</section>
 </article>
+<?php wp_link_pages(); ?>
