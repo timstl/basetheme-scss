@@ -1,3 +1,3 @@
-$( document ).ready( function() {
+jQuery( document ).ready( function( $ ) {
 	$( '.slick-slider-block .slick-slider' ).slick();
 });
