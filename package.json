@@ -1,6 +1,6 @@
 {
 	"name": "basetheme",
-	"version": "2.7.0",
+	"version": "3.2.6",
 	"description": "npm modules to run gulp on this wordpress plugin",
 	"main": "gulpfile.js",
 	"scripts": {
