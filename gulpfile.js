@@ -235,7 +235,8 @@ function watch() {
 	 * Watch for changes to PHP or image files.
 	 */
 	browserSync.init([ '**/*.php', 'img/**/*.{png,jpg,gif}' ], {
-		proxy: proxy_url
+		proxy: proxy_url,
+		open: false
 	});
 
 	/**
