@@ -29,12 +29,5 @@
 		"gulp-sourcemaps": "^2.6.4",
 		"gulp-uglify": "^3.0.1",
 		"merge-stream": "^2.0.0"
-	},
-	"browserslist": [
-		"last 2 versions",
-		"> 1%",
-		"IE 11",
-		"maintained node versions",
-		"not dead"
-	]
+	}
 }
