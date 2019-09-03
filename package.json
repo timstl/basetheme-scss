@@ -7,8 +7,8 @@
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"start": "gulp"
 	},
-	"author": "Atomicdust",
-	"license": "ISC",
+	"author": "Tim Gieseking, Atomicdust",
+	"license": "GPL-2.0-or-later",
 	"devDependencies": {
 		"browserslist": "^4.7.0",
 		"@babel/cli": "^7.2.3",
