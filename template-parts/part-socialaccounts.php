@@ -10,7 +10,7 @@
 		the_row();
 		?>
 	<li>
-		<a href="<?php the_sub_field( 'url' ); ?>" target="_blank" aria-label="<?php the_sub_field( 'accessibility_text' ); ?>"><?php the_sub_field( 'icon' ); ?></a>
+		<a href="<?php the_sub_field( 'url' ); ?>" aria-label="<?php the_sub_field( 'accessibility_text' ); ?>" target="_blank" rel="noopener noreferrer"><?php the_sub_field( 'icon' ); ?></a>
 	</li>
 	<?php endwhile; ?>
 </ul>
