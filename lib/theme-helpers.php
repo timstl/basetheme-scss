@@ -137,7 +137,7 @@ if ( ! function_exists( 'bt_load_svg' ) ) :
 	/**
 	 * Load an SVG from the theme directory
 	 *
-	 * @param string  $file File path appended to the template directory or url.
+	 * @param string  $file File path appended to the template directory or url. Start path with /
 	 * @param boolean $from_url Use a theme URL instead of directory.
 	 */
 	function bt_load_svg( $file = '', $from_url = false ) {
