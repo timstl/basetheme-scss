@@ -8,9 +8,6 @@
 // Basetheme SCSS files. Add additional templates here.
 @import "mixins";
 
-// Utilities
-@import "utilities";
-
 // Common styles
 @import "common-frontend";
 @import "common";
@@ -28,3 +25,6 @@
 
 // Animations
 @import "animations";
+
+// Utilities
+@import "utilities";
