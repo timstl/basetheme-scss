@@ -292,3 +292,44 @@ if ( ! function_exists( 'bt_yoasttobottom' ) ) {
 	}
 }
 add_filter( 'wpseo_metabox_prio', 'bt_yoasttobottom' );
+
+if ( ! function_exists( 'build_acf_link' ) ) {
+	/**
+	 * Build an achor link from an ACF link field (assumes array is passed).
+	 *
+	 * @param array        $link ACF link array.
+	 * @param array|string $classes Array or string of classes to add to link.
+	 * @param boolean      $echo Echo or return the link.
+	 */
+	function build_acf_link( $link = array(), $classes = array(), $echo = true ) {
+		if ( ! $link || empty( $link ) ) {
+			return false;
+		}
+
+		if ( $classes && ! is_array( $classes ) ) {
+			$classes = array( $classes );
+		}
+
+		$target = '';
+		if ( isset( $link['target'] ) && ! empty( $link['target'] ) ) {
+			$target = ' target="' . $link['target'] . '"';
+
+			if ( $link['target'] == '_blank' ) {
+				$target .= ' rel="noopener noreferrer"';
+			}
+		}
+
+		$class = '';
+		if ( ! empty( $classes ) ) {
+			$class = ' class="' . esc_attr( implode( ' ', $classes ) ) . '"';
+		}
+
+		$html = '<a href="' . esc_url( $link['url'] ) . '"' . $class . $target . '>' . esc_attr( $link['title'] ) . '</a>';
+
+		if ( ! $echo ) {
+			return $html;
+		}
+
+		echo $html;
+	}
+}

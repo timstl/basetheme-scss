@@ -16,25 +16,16 @@ if ( ! empty( $block['className'] ) ) {
 	$classes[] = $block['className'];
 }
 
-if ( get_field( 'button_link' ) ) :
-
+$link = get_field( 'button_link' );
+if ( $link ) :
 	$btn_class = array(
 		'btn',
 		get_field( 'button_style' ),
 		get_field( 'button_size' ),
 	);
-
-	$target = '';
-	$url    = esc_url( get_field( 'button_link' ) );
-
-	if ( get_field( 'button_new_window' ) ) {
-		$target = ' target="_blank"';
-	}
 	?>
 	<div class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>" id="<?php echo esc_attr( $block_id ); ?>">
-		<a href="<?php echo esc_url( $url ); ?>" class="<?php echo esc_attr( implode( ' ', $btn_class ) ); ?>"<?php echo $target; ?>>
-			<?php the_field( 'button_text' ); ?>
-		</a>
+		<?php build_acf_link( $link, $btn_class ); ?> 
 	</div>
 	<?php
 elseif ( is_admin() ) :

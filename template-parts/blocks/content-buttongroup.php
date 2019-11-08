@@ -25,27 +25,20 @@ if ( ! $aria_label ) {
 if ( have_rows( 'buttons' ) ) : ?>
 <div id="<?php echo esc_html( $block_id ); ?>" class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
 	<div class="btn-group" role="group" aria-label="<?php echo esc_attr( $aria_label ); ?>">
-		<?php
-		while ( have_rows( 'buttons' ) ) :
-			the_row();
+	<?php
+	while ( have_rows( 'buttons' ) ) :
+		the_row();
 
-			$btn_class = array(
-				'btn',
-				get_sub_field( 'style' ),
-				get_sub_field( 'size' ),
-			);
+		$btn_class = array(
+			'btn',
+			get_sub_field( 'style' ),
+			get_sub_field( 'size' ),
+		);
 
-			$target = '';
-			$url    = esc_url( get_sub_field( 'link' ) );
+		build_acf_link( get_sub_field( 'link' ), $btn_class );
 
-			if ( get_sub_field( 'new_window' ) ) {
-				$target = ' target="_blank"';
-			}
-			?>
-		<a href="<?php echo esc_url( $url ); ?>" class="<?php echo esc_attr( implode( ' ', $btn_class ) ); ?>"<?php echo $target; ?>>
-			<?php the_sub_field( 'text' ); ?>
-		</a>
-	<?php endwhile; ?>
+	endwhile;
+	?>
 	</div>
 </div>
 	<?php

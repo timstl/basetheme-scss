@@ -45,11 +45,7 @@ if ( ! $align_class ) {
 			if ( get_sub_field( 'card_add_button' ) ) {
 
 				$button = get_sub_field( 'card_button' );
-				$target = '';
-				$url    = '';
-
-				if ( $button['button_link'] ) {
-					$url = esc_url( $button['button_link'] );
+				if ( $button ) {
 
 					$btn_class = array(
 						'btn',
@@ -57,13 +53,9 @@ if ( ! $align_class ) {
 						$button['button_style'],
 					);
 
-					if ( $button['button_new_window'] === 1 ) {
-						$target = ' target="_blank"';
-					}
-
 					$btn_placement = get_sub_field( 'card_button_placement' );
 
-					$btn = '<a href="' . $url . '" class="' . esc_attr( implode( ' ', $btn_class ) ) . '"' . $target . '>' . esc_attr( $button['button_text'] ) . '</a>';
+					$btn = build_acf_link( $button['button_link'], $btn_class, false );
 				}
 			}
 
