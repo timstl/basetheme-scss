@@ -91,3 +91,27 @@
 .has-gray-900-background-color {
 	background-color: $gray-900;
 }
+
+/*
+	Font sizes
+	These should be set to match your theme-functions.php function bt_editor_add_theme_support()
+*/
+.has-small-font-size {
+	font-size: rem-calc(12);
+}
+
+.has-normal-font-size {
+	font-size: rem-calc(16);
+}
+
+.has-medium-font-size {
+	font-size: rem-calc(20);
+}
+
+.has-large-font-size {
+	font-size: rem-calc(36);
+}
+
+.has-huge-font-size {
+	font-size: rem-calc(48);
+}
