@@ -18,6 +18,7 @@ const babel = require( 'gulp-babel' );
 const eslint = require( 'gulp-eslint' );
 const concat = require( 'gulp-concat' );
 const mergeStream = require( 'merge-stream' );
+const through2 = require( 'through2' );
 const browserSync = require( 'browser-sync' ).create();
 
 const fs = require( 'fs' );
@@ -73,7 +74,7 @@ const paths = {
 function style() {
 	return do_styles( paths.styles.src, paths.styles.dest );
 }
-function block_style() {
+function blockStyle() {
 	return do_styles( paths.styles.blocks.src, paths.styles.blocks.dest );
 }
 
@@ -92,6 +93,14 @@ function do_styles( src, dest ) {
 
 			// Now add/write the sourcemaps
 			.pipe( sourcemaps.write( './' ) )
+			.pipe(
+				through2.obj( function( file, enc, cb ) {
+					var date = new Date();
+					file.stat.atime = date;
+					file.stat.mtime = date;
+					cb( null, file );
+				})
+			)
 			.pipe( gulp.dest( dest ) )
 
 			// Add browsersync stream pipe after compilation
@@ -243,7 +252,7 @@ function watch() {
 	 * Watch various src folders and run appropriate functions.
 	 */
 	gulp.watch( paths.styles.src, style );
-	gulp.watch( paths.styles.blocks.src, block_style );
+	gulp.watch( paths.styles.blocks.src, blockStyle );
 	gulp.watch( paths.js.head.src.vendor, scriptshead );
 	gulp.watch( paths.js.head.src.custom, scriptshead );
 	gulp.watch( paths.js.footer.src.vendor, scriptsfooter );
@@ -262,7 +271,7 @@ exports.watch = watch;
  * $ gulp style
  */
 exports.style = style;
-exports.block_style = block_style;
+exports.blockStyle = blockStyle;
 exports.scriptsblocks = scriptsblocks;
 exports.scriptshead = scriptshead;
 exports.scriptsfooter = scriptsfooter;
