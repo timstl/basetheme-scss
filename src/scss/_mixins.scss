@@ -29,7 +29,10 @@
 	@return $num / ($num * 0 + 1);
 }
 
-$rem-base: (16px * strip-unit($font-size-base));
+/*
+	Bootstrap 4 uses 1rem for the HTML element
+*/
+$rem-base: 16px;
 
 @function convert-to-rem($value, $base-value: $rem-base) {
 	$value: strip-unit($value) / strip-unit($base-value) * 1rem;
