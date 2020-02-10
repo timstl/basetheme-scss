@@ -131,7 +131,7 @@ if ( ! function_exists( 'bt_theme_modify_tiny_mce_style_formats' ) ) {
 		) as $key => $color ) {
 			$style_formats[] = array(
 				'title'    => 'Color: ' . $color . ' (' . $key . ')',
-				'classes'  => 'color--' . strtolower( $key ),
+				'classes'  => 'has-' . strtolower( $key ) . '-color',
 				'selector' => 'p,h1,h2,h3,h4,h5,h6,li',
 				'inline'   => false,
 			);
