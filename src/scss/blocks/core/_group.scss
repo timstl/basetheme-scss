@@ -1,0 +1,17 @@
+.wp-block-group {
+	&.is-style-container {
+		.wp-block-group__inner-container {
+			@extend .container;
+		}
+	}
+	&.is-style-container-narrow {
+		.wp-block-group__inner-container {
+			@extend .container-narrow;
+		}
+	}
+	&.is-style-container-wide {
+		.wp-block-group__inner-container {
+			@extend .container-wide;
+		}
+	}
+}

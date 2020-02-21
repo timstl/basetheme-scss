@@ -19,6 +19,13 @@ a.skipnav {
 	}
 }
 
+.container-narrow {
+	@extend .container;
+	@include media-breakpoint-up(lg) {
+		max-width: 768px;
+	}
+}
+
 .container-sm-none {
 	@include media-breakpoint-down(sm) {
 		padding-left: 0;
