@@ -237,6 +237,25 @@ if ( ! function_exists( 'boilerplate_category_id_class' ) ) {
 	}
 }
 
+if ( ! function_exists( 'bt_custom_body_class' ) ) {
+	/**
+	 * AAppend class to body if one added to the admin.
+	 *
+	 * @param array $classes Classes passed into hook.
+	 */
+	function bt_custom_body_class( $classes ) {
+		if ( function_exists( 'get_field' ) ) {
+			global $post;
+			$page_class = get_field( 'page_class', $post->ID );
+			if ( $page_class ) {
+				$classes[] = esc_attr( $page_class );
+			}
+		}
+		return $classes;
+	}
+}
+add_filter( 'body_class', 'bt_custom_body_class' );
+
 if ( ! function_exists( 'bt_custom_oembed_filter' ) ) {
 	/**
 	 * Responsive Embed filter. Assumes 16:9
