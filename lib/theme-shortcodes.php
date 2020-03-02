@@ -56,7 +56,7 @@ if ( ! function_exists( 'bt_bootstrap_buttongroup_shortcode' ) ) {
 	 * @param array  $atts Attributes passed into shortcode function.
 	 * @param string $content Content passed into shortcode (buttons).
 	 */
-	function bt_bootstrap_buttongroup_shortcode( $atts = [], $content = null ) {
+	function bt_bootstrap_buttongroup_shortcode( $atts = array(), $content = null ) {
 		// Remove HTML from buttons. This kills all BRs, but there shouldn't be HTML in your buttons anyway.
 		// Could modify later if we find we want to add SVG support within buttons.
 		$content = strip_tags( $content );
@@ -65,3 +65,29 @@ if ( ! function_exists( 'bt_bootstrap_buttongroup_shortcode' ) ) {
 	}
 }
 add_shortcode( 'buttongroup', 'bt_bootstrap_buttongroup_shortcode' );
+
+if ( ! function_exists( 'bt_social_accounts_shortcode' ) ) {
+	/**
+	 * Social links shortcode
+	 */
+	function bt_social_accounts_shortcode() {
+		$html = '';
+		if ( function_exists( 'have_rows' ) && have_rows( 'social_accounts', 'options' ) ) {
+			$html .= '<ul class="social">';
+			while ( have_rows( 'social_accounts', 'options' ) ) {
+					the_row();
+				$html .= '<li>';
+				$html .= '	<a href="' . get_sub_field( 'url' ) . '" aria-label="' . get_sub_field( 'accessibility_text' ) . '" target="_blank" rel="noopener noreferrer">' . get_sub_field( 'icon' );
+				if ( get_sub_field( 'title' ) ) {
+					$html .= '<span>' . get_sub_field( 'title' ) . '</span>';
+				}
+				$html .= '</a>';
+				$html .= '</li>';
+			}
+			$html .= '</ul>';
+		}
+
+		return $html;
+	}
+}
+add_shortcode( 'sociallinks', 'bt_social_accounts_shortcode' );

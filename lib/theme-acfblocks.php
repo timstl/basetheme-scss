@@ -53,6 +53,19 @@ function bt_acf_register_blocks() {
 			)
 		);
 
+		acf_register_block_type(
+			array(
+				'name'            => 'sociallinks',
+				'title'           => esc_attr__( 'Social Links', 'basetheme' ),
+				'description'     => esc_attr__( 'Output social account links from Site Settings.', 'basetheme' ),
+				'render_callback' => 'bt_acf_block_render_callback',
+				'category'        => BT_ACF_BLOCKS_CATEGORY,
+				'icon'            => $icon,
+				'keywords'        => array( 'social', 'connect', BT_ACF_BLOCKS_KEYWORD ),
+				'mode'            => BT_ACF_BLOCKS_MODE,
+			)
+		);
+		
 		/**
 		 * Disabled blocks.
 		 * These blocks have starter files in template-parts/blocks/ and scss/blocks/custom/.

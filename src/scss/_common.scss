@@ -247,6 +247,10 @@ ul.social {
 		display: inline-block;
 
 		+ li {
+			margin-left: $grid-gutter-width / 2;
+		}
+
+		span {
 			margin-left: 7px;
 		}
 	}
