@@ -81,6 +81,7 @@ $nav-arrow-hover: str-replace(
 		}
 
 		rect {
+			fill: $link-color;
 			transition: all $speed $ease;
 			transform: rotate(0deg);
 			transform-origin: center center;
