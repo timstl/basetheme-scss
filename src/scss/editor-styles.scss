@@ -20,9 +20,6 @@
 	//@import "bootstrap/breadcrumb";
 	@import "bootstrap/utilities";
 
-	// Editor-only styles
-	@import "editor";
-
 	// Basetheme SCSS files. Add additional templates here.
 	@import "mixins";
 
@@ -37,6 +34,9 @@
 
 	// Utilities
 	@import "utilities";
+
+	// Editor-only styles
+	@import "editor";
 }
 
 body.gutenberg-editor-page

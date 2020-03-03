@@ -244,8 +244,11 @@ if ( ! function_exists( 'bt_custom_body_class' ) ) {
 	 * @param array $classes Classes passed into hook.
 	 */
 	function bt_custom_body_class( $classes ) {
+		global $post;
+		if ( ! isset( $post->ID ) ) {
+			return $classes;
+		}
 		if ( function_exists( 'get_field' ) ) {
-			global $post;
 			$page_class = get_field( 'page_class', $post->ID );
 			if ( $page_class ) {
 				$classes[] = esc_attr( $page_class );
@@ -331,7 +334,7 @@ if ( ! function_exists( 'build_acf_link' ) ) {
 
 		$target = '';
 		if ( isset( $link['target'] ) && ! empty( $link['target'] ) ) {
-			$target = ' target="' . $link['target'] . '"';
+			$target = ' target="' . esc_attr( $link['target'] ) . '"';
 
 			if ( $link['target'] == '_blank' ) {
 				$target .= ' rel="noopener noreferrer"';
