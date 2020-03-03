@@ -228,7 +228,9 @@ function scriptsblocks() {
 		/**
 		 * Merge all streams and pipe to the /dist/ folder.
 		 */
-		return mergeStream( streams ).pipe( gulp.dest( paths.js.blocks.dest ) );
+		return mergeStream( streams )
+			.pipe( gulp.dest( paths.js.blocks.dest ) )
+			.pipe( browserSync.stream() );
 	}
 
 	return gulp.src( dir );
