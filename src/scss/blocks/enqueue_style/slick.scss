@@ -1,4 +1,8 @@
 /* Slider */
+.slick-slider-block {
+	position: relative;
+}
+
 .slick-slider {
 	position: relative;
 	display: block;
@@ -12,6 +16,16 @@
 	-ms-touch-action: pan-y;
 	touch-action: pan-y;
 	-webkit-tap-highlight-color: transparent;
+
+	&--images {
+		.slick-slide {
+			img {
+				display: block;
+				height: auto;
+				width: 100%;
+			}
+		}
+	}
 }
 .slick-list {
 	position: relative;
@@ -68,7 +82,6 @@
 		float: right;
 	}
 	img {
-		display: block;
 		height: auto;
 		max-width: 100%;
 		width: auto;
