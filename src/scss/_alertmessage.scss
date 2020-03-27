@@ -1,0 +1,17 @@
+.alertmessage {
+	background: $gray-500;
+	color: $primary;
+	padding: $grid-gutter-width / 2 0;
+	position: relative;
+	z-index: 10000;
+	text-align: center;
+
+	*:last-child {
+		margin-bottom: 0;
+	}
+
+	a {
+		&:hover {
+		}
+	}
+}

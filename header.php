@@ -30,6 +30,7 @@ get_template_part( 'template-parts/header/part', 'bodyscripts' );
 ?>
 <div id="wrapper">
 	<a href="#site-main" class="sr-only sr-only-focusable skipnav"><?php esc_attr_e( 'Skip to main content', 'basetheme' ); ?></a>
+	<?php get_template_part( 'template-parts/header/part', 'alert' ); ?>
 	<header id="site-header">
 		<div class="container-wide container-md-none">
 			<?php if ( function_exists( 'get_field' ) && get_field( 'logo', 'options' ) ) : ?>
