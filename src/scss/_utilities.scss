@@ -97,21 +97,21 @@
 	These should be set to match your theme-functions.php function bt_editor_add_theme_support()
 */
 .has-small-font-size {
-	font-size: rem-calc(12);
+	font-size: $font-size-sm;
 }
 
 .has-normal-font-size {
-	font-size: rem-calc(16);
+	font-size: $font-size-base;
 }
 
 .has-medium-font-size {
-	font-size: rem-calc(20);
+	font-size: $font-size-md;
 }
 
 .has-large-font-size {
-	font-size: rem-calc(36);
+	font-size: $font-size-lg;
 }
 
 .has-huge-font-size {
-	font-size: rem-calc(48);
+	font-size: $font-size-xl;
 }
