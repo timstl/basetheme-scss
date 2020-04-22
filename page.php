@@ -19,7 +19,7 @@ while ( have_posts() ) :
 	the_post();
 
 	// Include the page content template.
-	get_template_part( 'template-parts/content', 'page' );
+	get_template_part( 'template-parts/content', 'empty' );
 
 	// End of the loop.
 endwhile;
