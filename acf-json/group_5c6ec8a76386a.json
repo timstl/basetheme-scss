@@ -132,7 +132,7 @@
 			{
 				"param": "block",
 				"operator": "==",
-				"value": "all"
+                "value": "acf\/pageheader"
 			}
 		]
 	],
