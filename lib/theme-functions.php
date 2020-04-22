@@ -10,6 +10,34 @@
  * @version 2.7
  */
 
+if ( ! function_exists( 'bt_get_palette' ) ) {
+	/**
+	 * Setup color pallete used in Gutenberg sidebar and ACF Formats dropdown.
+	 * Add same hex colors from your Bootstrap variables.
+	 */
+	function bt_get_palette() {
+		return array(
+		/*
+			'Primary'   => '',
+			'Secondary' => '',
+			'Success'   => '',
+			'Info'      => '',
+			'Warning'   => '',
+			'Danger'    => '',
+			'Gray-100'  => '',
+			'Gray-200'  => '',
+			'Gray-300'  => '',
+			'Gray-400'  => '',
+			'Gray-500'  => '',
+			'Gray-600'  => '',
+			'Gray-700'  => '',
+			'Gray-800'  => '',
+			'Gray-900'  => '',
+		*/
+		);
+	}
+}
+
 if ( ! function_exists( 'bt_editor_add_theme_support' ) ) {
 	/**
 	 * Setup Gutenberg theme support.
@@ -21,28 +49,13 @@ if ( ! function_exists( 'bt_editor_add_theme_support' ) ) {
 		 * Setup color pallete used in Gutenberg sidebar.
 		 * Add same hex colors from your Bootstrap variables.
 		 */
-		$palette = array(
-		/*
-		'primary'   => '',
-		'secondary' => '',
-		'success'   => '',
-		'info'      => '',
-		'warning'   => '',
-		'danger'    => '',
-		'gray-100'  => '',
-		'gray-200'  => '',
-		'gray-300'  => '',
-		'gray-400'  => '',
-		'gray-500'  => '',
-		'gray-600'  => '',
-		'gray-700'  => '',
-		'gray-900'  => '',*/
-		);
+		$palette = bt_get_palette();
 
 		if ( ! empty( $palette ) ) {
 			$editor_palette = array();
 			foreach ( $palette as $key => $value ) {
 				if ( ! array_search( $value, array_column( $editor_palette, 'color' ) ) ) {
+					$key              = strtolower( $key );
 					$editor_palette[] = array(
 						'name'  => $key . ' (' . $value . ')',
 						'slug'  => $key,
@@ -121,14 +134,7 @@ if ( ! function_exists( 'bt_theme_modify_tiny_mce_style_formats' ) ) {
 			$style_formats = $settings['style_formats'];
 		}
 
-		foreach ( array(
-			'Primary'   => 'Primary',
-			'Secondary' => 'Secondary',
-			'Success'   => 'Success',
-			'Info'      => 'Info',
-			'Warning'   => 'Warning',
-			'Danger'    => 'Danger',
-		) as $key => $color ) {
+		foreach ( bt_get_palette() as $key => $color ) {
 			$style_formats[] = array(
 				'title'    => 'Color: ' . $color . ' (' . $key . ')',
 				'classes'  => 'has-' . strtolower( $key ) . '-color',
