@@ -26,8 +26,8 @@ if ( have_rows( 'pageheader' ) ) :
 		$classes[] = 'pageheader--' . $layout;
 
 		if ( get_sub_field( 'background_dim' ) && get_sub_field( 'background_dim' ) > 0 ) {
-			$classes[] = 'has-background-dim';
-			$classes[] = 'has-background-dim--' . intval( get_sub_field( 'background_dim' ) );
+			$classes[] = 'pageheader--dim';
+			$classes[] = 'pageheader--dim--' . intval( get_sub_field( 'background_dim' ) );
 		}
 
 		if ( is_admin() ) {

@@ -22,7 +22,7 @@
 		}
 	}
 
-	&.has-background-dim {
+	&--dim {
 		> .container {
 			position: relative;
 			z-index: 1;
