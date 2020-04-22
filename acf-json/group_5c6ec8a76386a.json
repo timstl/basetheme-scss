@@ -1,169 +1,148 @@
 {
-    "key": "group_5c6ec8a76386a",
-    "title": "Block: Page Header",
-    "fields": [
-        {
-            "key": "field_5c6ec8bb4ccfd",
-            "label": "Page Header",
-            "name": "pageheader",
-            "type": "flexible_content",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layouts": {
-                "5c6ec8c1be83d": {
-                    "key": "5c6ec8c1be83d",
-                    "name": "image_content",
-                    "label": "Image + Content",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_5c6ec9414ccff",
-                            "label": "Content",
-                            "name": "content",
-                            "type": "wysiwyg",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "tabs": "all",
-                            "toolbar": "full",
-                            "media_upload": 0,
-                            "delay": 0
-                        },
-                        {
-                            "key": "field_5c6ec8ce4ccfe",
-                            "label": "Image",
-                            "name": "image",
-                            "type": "image",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "100",
-                                "class": "",
-                                "id": ""
-                            },
-                            "return_format": "array",
-                            "preview_size": "large",
-                            "library": "all",
-                            "min_width": "",
-                            "min_height": "",
-                            "min_size": "",
-                            "max_width": "",
-                            "max_height": "",
-                            "max_size": "",
-                            "mime_types": ""
-                        },
-                        {
-                            "key": "field_5c817729838c7",
-                            "label": "Background Position",
-                            "name": "background_position",
-                            "type": "select",
-                            "instructions": "Image sizes to cover entire background, but starting point can be positioned.",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "50",
-                                "class": "",
-                                "id": ""
-                            },
-                            "choices": {
-                                "center center": "Center Center",
-                                "center top": "Center Top",
-                                "center bottom": "Center Bottom",
-                                "left center": "Left Center",
-                                "left top": "Left Top",
-                                "left bottom": "Left Bottom",
-                                "right center": "Right Center",
-                                "right top": "Right Top",
-                                "right bottom": "Right Bottom"
-                            },
-                            "default_value": [
-                                "center center"
-                            ],
-                            "allow_null": 0,
-                            "multiple": 0,
-                            "ui": 0,
-                            "return_format": "value",
-                            "ajax": 0,
-                            "placeholder": ""
-                        },
-                        {
-                            "key": "field_5c6eceb1d72a6",
-                            "label": "Background Dim",
-                            "name": "background_dim",
-                            "type": "range",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "25",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": 0,
-                            "min": "",
-                            "max": 90,
-                            "step": 10,
-                            "prepend": "",
-                            "append": ""
-                        },
-                        {
-                            "key": "field_5ca517ae3e7aa",
-                            "label": "Background Fixed",
-                            "name": "background_fixed",
-                            "type": "true_false",
-                            "instructions": "Fixed background as you scroll. This can negatively impact image sizing.",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "25",
-                                "class": "",
-                                "id": ""
-                            },
-                            "message": "",
-                            "default_value": 0,
-                            "ui": 0,
-                            "ui_on_text": "",
-                            "ui_off_text": ""
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
-                }
-            },
-            "button_label": "Add Page Header",
-            "min": 0,
-            "max": 1
-        }
-    ],
-    "location": [
-        [
-            {
-                "param": "block",
-                "operator": "==",
-                "value": "acf\/pageheader"
-            }
-        ]
-    ],
-    "menu_order": 0,
-    "position": "normal",
-    "style": "default",
-    "label_placement": "top",
-    "instruction_placement": "label",
-    "hide_on_screen": "",
-    "active": 1,
-    "description": "",
-    "modified": 1560808488
+	"key": "group_5c6ec8a76386a",
+	"title": "Block: Page Header",
+	"fields": [
+		{
+			"key": "field_5c6ec8bb4ccfd",
+			"label": "Page Header",
+			"name": "pageheader",
+			"type": "flexible_content",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"layouts": {
+				"5c6ec8c1be83d": {
+					"key": "5c6ec8c1be83d",
+					"name": "full_width_photo",
+					"label": "Full Width Photo",
+					"display": "block",
+					"sub_fields": [
+						{
+							"key": "field_5c6ec9414ccff",
+							"label": "Content",
+							"name": "content",
+							"type": "wysiwyg",
+							"instructions": "",
+							"required": 0,
+							"conditional_logic": 0,
+							"wrapper": {
+								"width": "",
+								"class": "",
+								"id": ""
+							},
+							"default_value": "",
+							"tabs": "all",
+							"toolbar": "full",
+							"media_upload": 0,
+							"delay": 0
+						},
+						{
+							"key": "field_5c6ec8ce4ccfe",
+							"label": "Background Image",
+							"name": "background_image",
+							"type": "image",
+							"instructions": "",
+							"required": 0,
+							"conditional_logic": 0,
+							"wrapper": {
+								"width": "50",
+								"class": "",
+								"id": ""
+							},
+							"return_format": "array",
+							"preview_size": "large",
+							"library": "all",
+							"min_width": "",
+							"min_height": "",
+							"min_size": "",
+							"max_width": "",
+							"max_height": "",
+							"max_size": "",
+							"mime_types": ""
+						},
+						{
+							"key": "field_5c817729838c7",
+							"label": "Background Position",
+							"name": "background_position",
+							"type": "select",
+							"instructions": "Image sizes to cover entire background, but starting point can be positioned.",
+							"required": 0,
+							"conditional_logic": 0,
+							"wrapper": {
+								"width": "25",
+								"class": "",
+								"id": ""
+							},
+							"choices": {
+								"center center": "Center Center",
+								"center top": "Center Top",
+								"center bottom": "Center Bottom",
+								"left center": "Left Center",
+								"left top": "Left Top",
+								"left bottom": "Left Bottom",
+								"right center": "Right Center",
+								"right top": "Right Top",
+								"right bottom": "Right Bottom"
+							},
+							"default_value": ["center center"],
+							"allow_null": 0,
+							"multiple": 0,
+							"ui": 0,
+							"return_format": "value",
+							"ajax": 0,
+							"placeholder": ""
+						},
+						{
+							"key": "field_5c6eceb1d72a6",
+							"label": "Background Dim",
+							"name": "background_dim",
+							"type": "range",
+							"instructions": "",
+							"required": 0,
+							"conditional_logic": 0,
+							"wrapper": {
+								"width": "25",
+								"class": "",
+								"id": ""
+							},
+							"default_value": 0,
+							"min": "",
+							"max": 90,
+							"step": 10,
+							"prepend": "",
+							"append": ""
+						}
+					],
+					"min": "",
+					"max": ""
+				}
+			},
+			"button_label": "Add Page Header",
+			"min": 0,
+			"max": 1
+		}
+	],
+	"location": [
+		[
+			{
+				"param": "block",
+				"operator": "==",
+				"value": "all"
+			}
+		]
+	],
+	"menu_order": 0,
+	"position": "normal",
+	"style": "default",
+	"label_placement": "top",
+	"instruction_placement": "label",
+	"hide_on_screen": "",
+	"active": 1,
+	"description": "",
+	"modified": 1587568266
 }

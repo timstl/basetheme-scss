@@ -4,11 +4,23 @@
 */
 .pageheader {
 	background-color: #fff;
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center center;
+	padding: $grid-gutter-width * 2 0;
 	position: relative;
-	min-height: 500px;
+
+	&--full_width_photo {
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center center;
+		@include media-breakpoint-up(lg) {
+			padding: 150px 0;
+		}
+	}
+
+	&__content {
+		> *:last-child {
+			margin-bottom: 0;
+		}
+	}
 
 	&.has-background-dim {
 		&:before {
@@ -68,18 +80,5 @@
 				opacity: 0.9;
 			}
 		}
-	}
-
-	&--fixed {
-		background-attachment: fixed;
-	}
-
-	.pageheader-text {
-		display: block;
-		padding: $grid-gutter-width 0;
-		margin: 0 auto;
-		max-width: 90%;
-		position: relative;
-		z-index: 2;
 	}
 }
