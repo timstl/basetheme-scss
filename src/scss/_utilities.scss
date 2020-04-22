@@ -97,21 +97,41 @@
 	These should be set to match your theme-functions.php function bt_editor_add_theme_support()
 */
 .has-small-font-size {
-	font-size: $font-size-sm;
+	@if $enable-responsive-font-sizes {
+		@include rfs($font-size-sm);
+	} @else {
+		font-size: $font-size-sm;
+	}
 }
 
 .has-normal-font-size {
-	font-size: $font-size-base;
+	@if $enable-responsive-font-sizes {
+		@include rfs($font-size-base);
+	} @else {
+		font-size: $font-size-base;
+	}
 }
 
 .has-medium-font-size {
-	font-size: $font-size-md;
+	@if $enable-responsive-font-sizes {
+		@include rfs($font-size-md);
+	} @else {
+		font-size: $font-size-md;
+	}
 }
 
 .has-large-font-size {
-	font-size: $font-size-lg;
+	@if $enable-responsive-font-sizes {
+		@include rfs($font-size-lg);
+	} @else {
+		font-size: $font-size-lg;
+	}
 }
 
 .has-huge-font-size {
-	font-size: $font-size-xl;
+	@if $enable-responsive-font-sizes {
+		@include rfs($font-size-xl);
+	} @else {
+		font-size: $font-size-xl;
+	}
 }

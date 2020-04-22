@@ -21,6 +21,8 @@ $grid-columns: 24;
 /* 
 	Fonts
  */
+$enable-responsive-font-sizes: false;
+
 $font-size-base: 1rem;
 $font-size-sm: $font-size-base * 0.75;
 $font-size-md: $font-size-base * 1.25;
