@@ -190,6 +190,26 @@ Add class 'has-btm-margin' to maintain a bottom margin on elements.
 		transform $speed $ease;
 }
 
+.btn-link,
+button.btn-link,
+input[type="submit"].btn-link,
+a.btn-link {
+	background: none;
+	border: none;
+	border-bottom: 2px solid $primary;
+	border-radius: 0;
+	font-weight: $btn-font-weight;
+	padding: 0;
+	text-decoration: none;
+
+	&:active,
+	&:focus,
+	&:hover {
+		background: none;
+		text-decoration: none;
+	}
+}
+
 .btn-group {
 	flex-wrap: wrap;
 	justify-content: space-between;
