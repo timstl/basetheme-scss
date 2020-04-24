@@ -227,3 +227,22 @@ if ( ! function_exists( 'bt_enqueue_block_editor_assets' ) ) {
 	}
 }
 add_action( 'enqueue_block_editor_assets', 'bt_enqueue_block_editor_assets' );
+
+if ( ! function_exists( 'bt_override_mp6_tinymce_styles' ) ) {
+	/**
+	 * Add custom styles to ACF wysiwyg editor.
+	 */
+	function bt_override_mp6_tinymce_styles( $mce_init ) {
+
+		// make sure we don't override other custom <code>content_css</code> files
+		$content_css = get_template_directory_uri() . '/dist/css/editor-styles.css';
+		if ( isset( $mce_init['content_css'] ) ) {
+			$content_css .= ',' . $mce_init['content_css'];
+		}
+
+		$mce_init['content_css'] = $content_css;
+
+		return $mce_init;
+	}
+	add_filter( 'tiny_mce_before_init', 'bt_override_mp6_tinymce_styles' );
+}

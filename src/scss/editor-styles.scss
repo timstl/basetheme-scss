@@ -1,6 +1,7 @@
 /*
 	Wrap all styles so we don't change any styles outside of Gutenberg editor.
 */
+body.acf_content,
 .editor-styles-wrapper {
 	// Override bootstrap variables or define your own variables in _variables.scss
 	@import "variables";
