@@ -82,6 +82,16 @@ class BT_ACF {
 					'redirect'   => false,
 				)
 			);
+
+			acf_add_options_sub_page(
+				array(
+					'page_title'  => 'Alert Message',
+					'menu_title'  => 'Alert Message',
+					'parent_slug' => 'site-general-settings',
+					'capability'  => 'manage_options',
+					'redirect'    => false,
+				)
+			);
 		}
 	}
 }
