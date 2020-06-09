@@ -22,6 +22,7 @@
 		"gulp": "^4.0.2",
 		"gulp-babel": "^8.0.0",
 		"gulp-concat": "^2.6.1",
+		"eslint": "^7.2.0",
 		"gulp-eslint": "^5.0.0",
 		"gulp-postcss": "^8.0.0",
 		"gulp-sass": "^4.0.2",
@@ -29,8 +30,6 @@
 		"gulp-uglify": "^3.0.1",
 		"merge-stream": "^2.0.0",
 		"@wordpress/eslint-plugin": "^2.4.0",
-		"prettier-eslint": "^9.0.1",
-		"prettier-eslint-cli": "^5.0.0",
 		"through2": "^3.0.1"
 	}
 }
