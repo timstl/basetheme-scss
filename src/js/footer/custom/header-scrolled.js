@@ -4,27 +4,27 @@
  */
 ( function( $ ) {
 	$.fn.scrollclass = function( options ) {
-		var opts = $.extend({}, $.fn.scrollclass.defaults, options ),
-			$this = this,
-			state2 = false;
+		const opts = $.extend( {}, $.fn.scrollclass.defaults, options );
+		const $this = this;
+		let state2 = false;
 
 		$( document )
 			.scroll( function() {
-				if ( false == state2 && $( this ).scrollTop() > opts.pos ) {
+				if ( false === state2 && $( this ).scrollTop() > opts.pos ) {
 					state2 = true;
 					$this.addClass( opts.class );
 				} else if ( $( this ).scrollTop() < opts.pos ) {
 					state2 = false;
 					$this.removeClass( opts.class );
 				}
-			})
+			} )
 			.trigger( 'scroll' );
 	};
 
 	// default options
 	$.fn.scrollclass.defaults = {
 		class: 'scrolled',
-		pos: 50
+		pos: 50,
 	};
 }( jQuery ) );
 
@@ -34,8 +34,8 @@
 jQuery( document ).ready( function( $ ) {
 	const $header = $( '#site-header' );
 	if ( 0 < $header.length ) {
-		$header.scrollclass({
-			pos: $header.outerHeight()
-		});
+		$header.scrollclass( {
+			pos: $header.outerHeight(),
+		} );
 	}
-});
+} );

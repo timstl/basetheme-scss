@@ -1,8 +1,9 @@
 // Avoid `console` errors in browsers that lack a console.
+// eslint-disable-next-line no-console
 if ( ! ( window.console && console.log ) ) {
 	( function() {
-		var noop = function() {};
-		var methods = [
+		const noop = function() {};
+		const methods = [
 			'assert',
 			'clear',
 			'count',
@@ -25,12 +26,12 @@ if ( ! ( window.console && console.log ) ) {
 			'timeEnd',
 			'timeStamp',
 			'trace',
-			'warn'
+			'warn',
 		];
-		var length = methods.length;
-		var console = ( window.console = {});
+		let length = methods.length;
+		const console = ( window.console = {} );
 		while ( length-- ) {
-			console[methods[length]] = noop;
+			console[ methods[ length ] ] = noop;
 		}
 	}() );
 }
